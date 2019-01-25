@@ -8,7 +8,7 @@ const applicationText = require(`./locales/${applicationConfig.language}.json`);
 
 module.exports = {
 	entry: {
-		app: path.resolve(__dirname, 'src/admin/client/index.js'),
+		app: path.resolve(__dirname, 'src/admin/index.js'),
 		vendor: [
 			'react',
 			'react-dom',
@@ -29,7 +29,7 @@ module.exports = {
 
 	output: {
 		publicPath: '/',
-		path: path.resolve(__dirname, 'public'),
+		path: path.resolve(__dirname, 'dist'),
 		filename: 'admin-assets/js/[name]-[chunkhash].js',
 		chunkFilename: 'admin-assets/js/[name]-[chunkhash].js'
 	},
@@ -49,10 +49,10 @@ module.exports = {
 
 	resolve: {
 		alias: {
-			src: path.resolve(__dirname, 'src/admin/client'),
-			routes: path.resolve(__dirname, 'src/admin/client/routes'),
-			modules: path.resolve(__dirname, 'src/admin/client/modules'),
-			lib: path.resolve(__dirname, 'src/admin/client/lib')
+			src: path.resolve(__dirname, 'src/admin'),
+			routes: path.resolve(__dirname, 'src/admin/routes'),
+			modules: path.resolve(__dirname, 'src/admin/modules'),
+			lib: path.resolve(__dirname, 'src/admin/lib')
 		}
 	},
 
@@ -106,9 +106,9 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin(
 			[
-				'public/admin-assets/js/app-*.js',
-				'public/admin-assets/js/vendor-*.js',
-				'public/admin-assets/css/bundle-*.css'
+				'dist/admin-assets/js/app-*.js',
+				'dist/admin-assets/js/vendor-*.js',
+				'dist/admin-assets/css/bundle-*.css'
 			],
 			{ verbose: false }
 		),
@@ -123,10 +123,10 @@ module.exports = {
 			chunkFilename: 'admin-assets/css/bundle-[contenthash].css'
 		}),
 		new HtmlWebpackPlugin({
-			template: 'src/admin/client/index.html',
+			template: 'src/admin/index.html',
 			language: applicationConfig.language,
 			inject: 'body',
-			filename: 'admin/index.html'
+			filename: 'index.html'
 		}),
 		new webpack.BannerPlugin({
 			banner: `Created: ${new Date().toUTCString()}`,
