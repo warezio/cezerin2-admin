@@ -1,5 +1,5 @@
-import '../public/assets/css/flexboxgrid.min.css';
-import '../public/assets/css/style.css';
+import './css/flexboxgrid.min.css';
+import './css/style.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

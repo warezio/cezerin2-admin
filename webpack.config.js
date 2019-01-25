@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const applicationConfig = require('./config/admin.js');
 const applicationText = require(`./locales/${applicationConfig.language}.json`);
+const copyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	entry: {
@@ -30,8 +31,8 @@ module.exports = {
 	output: {
 		publicPath: '/',
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'assets/js/[name]-[chunkhash].js',
-		chunkFilename: 'assets/js/[name]-[chunkhash].js'
+		filename: 'js/[name]-[chunkhash].js',
+		chunkFilename: 'js/[name]-[chunkhash].js'
 	},
 
 	optimization: {
@@ -104,12 +105,14 @@ module.exports = {
 	},
 
 	plugins: [
+		new copyWebpackPlugin([
+			{
+				from: 'src/assets',
+				to: 'assets'
+			}
+		]),
 		new CleanWebpackPlugin(
-			[
-				'dist/assets/js/app-*.js',
-				'dist/assets/js/vendor-*.js',
-				'dist/assets/css/bundle-*.css'
-			],
+			['dist/js/app-*.js', 'dist/js/vendor-*.js', 'dist/css/bundle-*.css'],
 			{ verbose: false }
 		),
 		new webpack.DefinePlugin({
@@ -119,8 +122,8 @@ module.exports = {
 			APPLICATION_TEXT: JSON.stringify(applicationText)
 		}),
 		new MiniCssExtractPlugin({
-			filename: 'assets/css/bundle-[contenthash].css',
-			chunkFilename: 'assets/css/bundle-[contenthash].css'
+			filename: 'css/bundle-[contenthash].css',
+			chunkFilename: 'css/bundle-[contenthash].css'
 		}),
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',
