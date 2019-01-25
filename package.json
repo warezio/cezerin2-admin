@@ -1,9 +1,10 @@
 {
-  "name": "cezerin2",
+  "name": "cezerin2-admin",
   "version": "0.33.0",
   "description": "Cezerin2 is React and Node.js based eCommerce platform. https://cezerin.com",
   "keywords": [
     "cezerin2",
+    "cezerin2-admin",
     "cezerin",
     "ecommerce",
     "shopping cart",
@@ -11,7 +12,7 @@
     "cms"
   ],
   "homepage": "https://cezerin.com",
-  "bugs": "https://github.com/cezerin2/cezerin2/issues",
+  "bugs": "https://github.com/cezerin2/cezerin2-admin/issues",
   "license": "MIT",
   "author": {
     "name": "Restmount <jsonmount@gmail.com>",
@@ -21,6 +22,10 @@
     {
       "name": "Luke Busstra <luke.busstra@gmail.com>",
       "url": "https://github.com/lubuss"
+    },
+    {
+      "name": "Nitin Goyal <nitingoyal.dev@gmail.com>",
+      "url": "https://github.com/ngoyal16"
     },
     {
       "name": "Restmount <jsonmount@gmail.com>",
@@ -34,7 +39,7 @@
   "main": "src/api/server/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cezerin2/cezerin2"
+    "url": "https://github.com/cezerin2/cezerin2-admin"
   },
   "scripts": {
     "setup": "node -r esm src/api/server/setup.js",

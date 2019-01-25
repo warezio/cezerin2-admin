@@ -1,4 +1,4 @@
-# Cezerin - Ecommerce Progressive Web Apps
+# Cezerin-Admin - Ecommerce Progressive Web Apps
 
 [![CircleCI](https://circleci.com/gh/cezerin2/cezerin2/tree/master.svg?style=svg)](https://circleci.com/gh/cezerin2/cezerin2/tree/master)
 
