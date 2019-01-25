@@ -42,8 +42,8 @@
     "url": "https://github.com/cezerin2/cezerin2-admin"
   },
   "scripts": {
-    "webpack:admin": "webpack --config webpack.config.admin.js --mode production",
-    "webpack:admin:watch": "webpack --config webpack.config.admin.js --mode development --watch",
+    "webpack:admin": "webpack --config webpack.config.js --mode production",
+    "webpack:admin:watch": "webpack --config webpack.config.js --mode development --watch",
     "build": "npm run webpack:admin",
     "build:watch": "concurrently -n webpackAdmin \"npm run webpack:admin:watch\"",
     "lint": "eslint .",
@@ -129,7 +129,6 @@
     "sitemap": "^1.13.0",
     "slug": "^0.9.1",
     "stripe": "^6.7.0",
-    "theme": "file:theme",
     "ua-parser-js": "^0.7.18",
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0",

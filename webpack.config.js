@@ -8,7 +8,7 @@ const applicationText = require(`./locales/${applicationConfig.language}.json`);
 
 module.exports = {
 	entry: {
-		app: path.resolve(__dirname, 'src/admin/index.js'),
+		app: path.resolve(__dirname, 'src/index.js'),
 		vendor: [
 			'react',
 			'react-dom',
@@ -30,8 +30,8 @@ module.exports = {
 	output: {
 		publicPath: '/',
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'admin-assets/js/[name]-[chunkhash].js',
-		chunkFilename: 'admin-assets/js/[name]-[chunkhash].js'
+		filename: 'assets/js/[name]-[chunkhash].js',
+		chunkFilename: 'assets/js/[name]-[chunkhash].js'
 	},
 
 	optimization: {
@@ -49,10 +49,10 @@ module.exports = {
 
 	resolve: {
 		alias: {
-			src: path.resolve(__dirname, 'src/admin'),
-			routes: path.resolve(__dirname, 'src/admin/routes'),
-			modules: path.resolve(__dirname, 'src/admin/modules'),
-			lib: path.resolve(__dirname, 'src/admin/lib')
+			src: path.resolve(__dirname, 'src'),
+			routes: path.resolve(__dirname, 'src/routes'),
+			modules: path.resolve(__dirname, 'src/modules'),
+			lib: path.resolve(__dirname, 'src/lib')
 		}
 	},
 
@@ -106,9 +106,9 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin(
 			[
-				'dist/admin-assets/js/app-*.js',
-				'dist/admin-assets/js/vendor-*.js',
-				'dist/admin-assets/css/bundle-*.css'
+				'dist/assets/js/app-*.js',
+				'dist/assets/js/vendor-*.js',
+				'dist/assets/css/bundle-*.css'
 			],
 			{ verbose: false }
 		),
@@ -119,11 +119,11 @@ module.exports = {
 			APPLICATION_TEXT: JSON.stringify(applicationText)
 		}),
 		new MiniCssExtractPlugin({
-			filename: 'admin-assets/css/bundle-[contenthash].css',
-			chunkFilename: 'admin-assets/css/bundle-[contenthash].css'
+			filename: 'assets/css/bundle-[contenthash].css',
+			chunkFilename: 'assets/css/bundle-[contenthash].css'
 		}),
 		new HtmlWebpackPlugin({
-			template: 'src/admin/index.html',
+			template: 'src/index.html',
 			language: applicationConfig.language,
 			inject: 'body',
 			filename: 'index.html'
