@@ -107,7 +107,7 @@ module.exports = {
 	plugins: [
 		new copyWebpackPlugin([
 			{
-				from: 'src/assets',
+				from: 'public',
 				to: 'assets'
 			}
 		]),
