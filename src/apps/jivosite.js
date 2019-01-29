@@ -7,7 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 export const Description = {
 	key: 'jivosite',
 	name: 'JivoSite онлайн-консультант',
-	coverUrl: '/admin-assets/images/apps/jivosite.png',
+	coverUrl: '/assets/images/apps/jivosite.png',
 	description: `JivoSite – чат для сайта и инструмент для общения с клиентами в социальных сетях, мессенджерах и мобильных приложениях. Зарабатывайте больше, не упуская ни одного обращения.`
 };
 

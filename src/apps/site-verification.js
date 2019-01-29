@@ -7,7 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 export const Description = {
 	key: 'site-verification',
 	name: 'Site Verification',
-	coverUrl: '/admin-assets/images/apps/site_verification.png',
+	coverUrl: '/assets/images/apps/site_verification.png',
 	description: `Note that verifying your site with these services is not necessary in order for your site to be indexed by search engines. To use these advanced search engine tools and verify your site with a service, paste the HTML Tag code below.
   <p>Supported verification services:</p>
   <ol>
