@@ -7,7 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 export const Description = {
 	key: 'facebook-sdk',
 	name: 'Facebook SDK',
-	coverUrl: '/admin-assets/images/apps/facebook.png',
+	coverUrl: '/assets/images/apps/facebook.png',
 	description: `The Facebook SDK for JavaScript provides a rich set of client-side functionality that:
   <ol>
     <li>Enables you to use the Like Button and other Social Plugins on your site.</li>
