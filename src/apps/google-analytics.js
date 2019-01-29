@@ -7,7 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 export const Description = {
 	key: 'google-analytics',
 	name: 'Google Analytics',
-	coverUrl: '/admin-assets/images/apps/google_analytics.png',
+	coverUrl: '/assets/images/apps/google_analytics.png',
 	description: `Google Analytics gives you the digital analytics tools you need to analyze data from all touchpoints in one place, for a deeper understanding of the customer experience.
   <p>This App logs page views and Enhanced ecommerce events:</p>
   <ol>
