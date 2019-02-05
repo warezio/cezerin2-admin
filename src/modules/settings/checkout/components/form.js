@@ -12,7 +12,7 @@ const CheckoutFieldItem = ({ name, status, path }) => {
 		<div>
 			<Divider />
 			<Link
-				to={`/admin/settings/checkout/fields/${path}`}
+				to={`/settings/checkout/fields/${path}`}
 				style={{ textDecoration: 'none' }}
 			>
 				<ListItem

@@ -36,7 +36,6 @@
       "url": "https://github.com/sonufrienko"
     }
   ],
-  "main": "src/api/server/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/cezerin2/cezerin2-admin"
@@ -49,9 +48,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --write \"src/**/*.js\"",
-    "precommit": "lint-staged",
-    "start-store": "node -r esm dist/store/server/index.js",
-    "start": "concurrently npm:start-*"
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.js": [

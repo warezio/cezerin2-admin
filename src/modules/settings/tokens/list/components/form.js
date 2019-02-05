@@ -11,7 +11,7 @@ const TokenItem = ({ token }) => {
 		<div>
 			<Divider />
 			<Link
-				to={`/admin/settings/tokens/${token.id}`}
+				to={`/settings/tokens/${token.id}`}
 				style={{ textDecoration: 'none' }}
 			>
 				<ListItem

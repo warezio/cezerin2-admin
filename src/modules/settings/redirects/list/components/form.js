@@ -11,7 +11,7 @@ const RedirectItem = ({ redirect }) => {
 		<div>
 			<Divider />
 			<Link
-				to={`/admin/settings/redirects/${redirect.id}`}
+				to={`/settings/redirects/${redirect.id}`}
 				style={{ textDecoration: 'none' }}
 			>
 				<ListItem

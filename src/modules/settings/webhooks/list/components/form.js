@@ -15,7 +15,7 @@ const WebhookItem = ({ webhook }) => {
 		<div>
 			<Divider />
 			<Link
-				to={`/admin/settings/webhooks/${webhook.id}`}
+				to={`/settings/webhooks/${webhook.id}`}
 				style={{ textDecoration: 'none' }}
 			>
 				<ListItem

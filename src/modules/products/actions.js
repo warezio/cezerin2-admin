@@ -335,7 +335,7 @@ export function createProduct(history) {
 			.create(productDraft)
 			.then(({ status, json }) => {
 				dispatch(successCreateProduct(json.id));
-				history.push('/admin/product/' + json.id);
+				history.push('/product/' + json.id);
 			})
 			.catch(error => {});
 	};

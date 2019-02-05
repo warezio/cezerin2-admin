@@ -10,7 +10,7 @@ const MethodItem = ({ method }) => {
 		<div>
 			<Divider />
 			<Link
-				to={`/admin/settings/payments/${method.id}`}
+				to={`/settings/payments/${method.id}`}
 				style={{ textDecoration: 'none' }}
 			>
 				<ListItem

@@ -1,7 +1,7 @@
 import messages from './text';
 
-const LOGIN_PATH = '/admin/apps/login';
-const HOME_PATH = '/admin/apps';
+const LOGIN_PATH = '/apps/login';
+const HOME_PATH = '/apps';
 
 const getParameterByName = (name, url) => {
 	if (!url) url = window.location.href;

@@ -13,32 +13,32 @@ import IconButton from 'material-ui/IconButton';
 const menuItems = [
 	{
 		title: messages.drawer_home,
-		url: '/admin/',
+		url: '/',
 		icon: 'home'
 	},
 	{
 		title: messages.drawer_products,
-		url: '/admin/products',
+		url: '/products',
 		icon: 'local_offer'
 	},
 	{
 		title: messages.drawer_orders,
-		url: '/admin/orders',
+		url: '/orders',
 		icon: 'shopping_cart'
 	},
 	{
 		title: messages.drawer_customers,
-		url: '/admin/customers',
+		url: '/customers',
 		icon: 'person'
 	},
 	{
 		title: messages.settings_pages,
-		url: '/admin/pages',
+		url: '/pages',
 		icon: 'description'
 	},
 	{
 		title: messages.files,
-		url: '/admin/files',
+		url: '/files',
 		icon: 'folder'
 	},
 	{
@@ -47,17 +47,17 @@ const menuItems = [
 	},
 	{
 		title: messages.drawer_settings,
-		url: '/admin/settings',
+		url: '/settings',
 		icon: 'settings'
 	},
 	{
 		title: messages.apps,
-		url: '/admin/apps',
+		url: '/apps',
 		icon: 'apps'
 	},
 	{
 		title: messages.drawer_logout,
-		url: '/admin/logout',
+		url: '/logout',
 		icon: 'exit_to_app'
 	}
 ];
@@ -103,36 +103,33 @@ const styles = {
 };
 
 const DrawerMenu = ({ open, onClose, currentUrl }) => {
-	const items = menuItems.map(
-		(item, index) =>
-			item.title === '-' ? (
-				<Divider key={index} />
-			) : (
-				<NavLink
-					to={item.url}
-					key={index}
-					exact={true}
-					style={styles.link}
-					activeStyle={styles.linkActive}
-				>
-					<MenuItem
-						onClick={onClose}
-						primaryText={item.title}
-						innerDivStyle={styles.itemInnerDiv}
-						style={styles.item}
-						leftIcon={
-							<FontIcon
-								style={
-									item.url === currentUrl ? styles.iconActive : styles.icon
-								}
-								className="material-icons"
-							>
-								{item.icon}
-							</FontIcon>
-						}
-					/>
-				</NavLink>
-			)
+	const items = menuItems.map((item, index) =>
+		item.title === '-' ? (
+			<Divider key={index} />
+		) : (
+			<NavLink
+				to={item.url}
+				key={index}
+				exact={true}
+				style={styles.link}
+				activeStyle={styles.linkActive}
+			>
+				<MenuItem
+					onClick={onClose}
+					primaryText={item.title}
+					innerDivStyle={styles.itemInnerDiv}
+					style={styles.item}
+					leftIcon={
+						<FontIcon
+							style={item.url === currentUrl ? styles.iconActive : styles.icon}
+							className="material-icons"
+						>
+							{item.icon}
+						</FontIcon>
+					}
+				/>
+			</NavLink>
+		)
 	);
 
 	return (
