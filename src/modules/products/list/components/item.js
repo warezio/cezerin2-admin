@@ -16,15 +16,10 @@ const ImagePlaceholder = (
 	</FontIcon>
 );
 
-const ItemImage = ({ images, settings }) => {
+const ItemImage = ({ images }) => {
 	if (images && images.length > 0) {
 		const imageUrl = helper.getThumbnailUrl(images[0].url, THUMBNAIL_WIDTH);
-		return (
-			<img
-				src={`${settings.assetsBaseURL}${imageUrl}`}
-				className={style.image}
-			/>
-		);
+		return <img src={`${imageUrl}`} className={style.image} />;
 	} else {
 		return ImagePlaceholder;
 	}
