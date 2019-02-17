@@ -1,68 +1,92 @@
 # Getting Started with Docker
 
 * [Docker](#docker)
+* [Docker Local](#docker-local)
 * [Docker Compose](#docker-compose)
 
-## Docker
+## Docker 
 
-We'll use `cezerin/cezerin` image. [About image](https://github.com/cezerin2/docker-cezerin2).
+We'll use `cezerin2/cezerin2-admin` image. [About image](https://github.com/cezerin2/docker-cezerin2-admin).
+Still to be completed
 
-1. Run MongoDB
+## Docker Local
+
+1. Run Cezerin2
+
+cezerin2 docker (https://github.com/cezerin2/cezerin2)
+
+2. Build Cezerin2-Admin
+
 ```shell
-docker run --name store-db -v /var/www/store-db:/data/db -d mongo:latest
+docker build \
+-t admin \ 
+.
 ```
 
-2. Run Cezerin2
+3. Run Cezerin2-Admin
+
 ```shell
 docker run -d \
---name store \
---link store-db:db \
+--name admin \
+--link api:api \
 -p 80:80 \
--e DB_HOST=db \
--e DB_PORT=27017 \
--e DB_NAME=shop \
--e DB_USER=user \
--e DB_PASS=password \
--v /var/www/store:/var/www/cezerin \
-cezerin2/cezerin2:latest
+-e DOMAIN=_ \
+-e API_HOST=http://api:3001 \
+-e LANGUAGE=en \
+-e API_BASE_URL=/api/v1 \
+admin
 ```
 
-Open http://localhost to see your store.  
-Dashboard - http://localhost/admin  
-API - http://localhost
+Open http://localhost to see your admin.  
 
 ## Docker Compose
 
-Create `docker-compose.yml` by examples.
+Download and clone required projects
+`cezerin2`
+`cezerin2-admin`
+
+Create `docker-compose.yml` in root directory by examples.
 
 ```yml
 version: '3'
 
 services:
-  app:
-    image: cezerin2/cezerin2
+  api:
+    build:
+      context: ./cezerin2
+    env_file: .env
     environment:
       - DB_HOST=db
-      - DB_PORT=27017
-      - DB_NAME=shop
-      - DB_USER=
-      - DB_PASS=
-    ports:
-      - 4000:80
+      - API_BASE_URL=http://127.0.0.1:3001/api/v1
+      - AJAX_BASE_URL=http://127.0.0.1:3001/ajax
+      - ASSETS_BASE_URL=''
     volumes:
-      - /var/www/store:/var/www/cezerin
+      - ./cezerin2/public/content:/var/www/cezerin2/public/content
     depends_on:
       - db
     restart: always
 
-  db:
-    image: mongo
+  admin:
+    build:
+      context: ./cezerin2-admin
+    environment:
+      - DOMAIN=_
+      - API_HOST=http://api:3001
+      - LANGUAGE=en
+      - API_BASE_URL=/api/v1
     ports:
-      - 27017
-    volumes:
-      - /var/www/store-db:/data/db
+      - 80:80
+    depends_on:
+      - db
+      - api
     restart: always
-```
 
-`/var/www/store` - folder with Cezerin2 
-`/var/www/store-db` - folder with MongoDB data
+  db:
+    image: mongo:3.4
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+    restart: always
+  
+```

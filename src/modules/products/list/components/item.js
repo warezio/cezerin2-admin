@@ -19,7 +19,7 @@ const ImagePlaceholder = (
 const ItemImage = ({ images }) => {
 	if (images && images.length > 0) {
 		const imageUrl = helper.getThumbnailUrl(images[0].url, THUMBNAIL_WIDTH);
-		return <img src={imageUrl} className={style.image} />;
+		return <img src={`${imageUrl}`} className={style.image} />;
 	} else {
 		return ImagePlaceholder;
 	}
@@ -99,16 +99,13 @@ const ProductItem = ({ product, onSelect, selected, settings }) => {
 							<div className={'row middle-xs center-xs ' + style.imageBox}>
 								<div className="col-xs-12">
 									<div className="box">
-										<ItemImage images={product.images} />
+										<ItemImage images={(product.images, settings)} />
 									</div>
 								</div>
 							</div>
 						</div>
 						<div className="col-xs-8">
-							<Link
-								to={'/admin/product/' + product.id}
-								className={productClass}
-							>
+							<Link to={'/product/' + product.id} className={productClass}>
 								{productName}
 								<br />
 								<small>{product.category_name}</small>

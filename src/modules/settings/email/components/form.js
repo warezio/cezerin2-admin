@@ -29,7 +29,7 @@ export default class EmailSettings extends React.Component {
 					<div style={{ width: '100%' }}>
 						<List style={{ padding: 0 }}>
 							<Link
-								to="/admin/settings/email/smtp"
+								to="/settings/email/smtp"
 								style={{ textDecoration: 'none' }}
 							>
 								<ListItem
@@ -63,7 +63,7 @@ export default class EmailSettings extends React.Component {
 					<div style={{ width: '100%' }}>
 						<List style={{ padding: 0 }}>
 							<Link
-								to="/admin/settings/email/templates/order_confirmation"
+								to="/settings/email/templates/order_confirmation"
 								style={{ textDecoration: 'none' }}
 							>
 								<ListItem
@@ -78,13 +78,13 @@ export default class EmailSettings extends React.Component {
 							{/* <ListItem
                   rightIcon={<FontIcon className="material-icons">keyboard_arrow_right</FontIcon>}
                   primaryText={messages.settings_customerRegistration}
-                  onClick={() => { pushUrl('/admin/settings/email/templates/customer_registration') }}
+                  onClick={() => { pushUrl('/settings/email/templates/customer_registration') }}
                 />
                 <Divider />
                 <ListItem
                   rightIcon={<FontIcon className="material-icons">keyboard_arrow_right</FontIcon>}
                   primaryText={messages.settings_customerRecovery}
-                  onClick={() => { pushUrl('/admin/settings/email/templates/customer_recovery') }}
+                  onClick={() => { pushUrl('/settings/email/templates/customer_recovery') }}
                 />
                 <Divider /> */}
 						</List>

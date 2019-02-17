@@ -6,7 +6,7 @@ import IconButton from 'material-ui/IconButton';
 
 const Buttons = () => (
 	<span>
-		<Link to="/admin/settings/payments/add">
+		<Link to="/settings/payments/add">
 			<IconButton
 				touch={true}
 				tooltipPosition="bottom-left"

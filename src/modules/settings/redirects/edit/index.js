@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 				dispatch(updateRedirect(redirect));
 			} else {
 				dispatch(createRedirect(redirect));
-				ownProps.history.push('/admin/settings/redirects');
+				ownProps.history.push('/settings/redirects');
 			}
 		}
 	};

@@ -135,10 +135,7 @@ export default class Categories extends React.Component {
 				{rows}
 
 				{showManage && (
-					<Link
-						to="/admin/products/categories"
-						style={{ textDecoration: 'none' }}
-					>
+					<Link to="/products/categories" style={{ textDecoration: 'none' }}>
 						<ListItem
 							className="treeItem"
 							primaryText={messages.productCategories_titleEditMany}

@@ -2,8 +2,8 @@ import settings from './settings';
 import api from './api';
 import messages from './text';
 
-const LOGIN_PATH = '/admin/login';
-const HOME_PATH = '/admin/';
+const LOGIN_PATH = '/login';
+const HOME_PATH = '/';
 
 const getParameterByName = (name, url) => {
 	if (!url) url = window.location.href;

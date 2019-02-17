@@ -6,7 +6,7 @@ import IconButton from 'material-ui/IconButton';
 
 const Buttons = () => (
 	<span>
-		<Link to="/admin/settings/webhooks/add">
+		<Link to="/settings/webhooks/add">
 			<IconButton
 				touch={true}
 				tooltipPosition="bottom-left"

@@ -54,10 +54,10 @@ const ProductShort = ({
 		}
 	>
 		<div className={style.relatedProductImage}>
-			{thumbnailUrl && thumbnailUrl !== '' && <img src={thumbnailUrl} />}
+			{thumbnailUrl && thumbnailUrl !== '' && <img src={`${thumbnailUrl}`} />}
 		</div>
 		<div className={style.relatedProductText}>
-			<Link to={`/admin/product/${id}`}>{name}</Link>
+			<Link to={`/product/${id}`}>{name}</Link>
 			<br />
 			<div>{priceFormatted}</div>
 		</div>

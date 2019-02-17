@@ -79,7 +79,7 @@ export default class Groups extends React.Component {
 				{rows}
 
 				{showManage && (
-					<Link to="/admin/customers/groups" style={{ textDecoration: 'none' }}>
+					<Link to="/customers/groups" style={{ textDecoration: 'none' }}>
 						<ListItem
 							className="treeItem"
 							primaryText={messages.customerGroups_titleEditMany}

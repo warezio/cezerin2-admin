@@ -177,7 +177,7 @@ export default class OrderCustomer extends React.Component {
 						<div className={style.address}>
 							<div>
 								<Link
-									to={`/admin/customer/${order.customer_id}`}
+									to={`/customer/${order.customer_id}`}
 									className={style.link}
 								>
 									{order.customer && order.customer.full_name}

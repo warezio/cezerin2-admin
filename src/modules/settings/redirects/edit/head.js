@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		onDelete: redirectId => {
 			dispatch(deleteRedirect(redirectId));
-			ownProps.history.push('/admin/settings/redirects');
+			ownProps.history.push('/settings/redirects');
 		}
 	};
 };
