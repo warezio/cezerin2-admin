@@ -93,6 +93,7 @@
     "productCategories_all": "Tous les produits",
     "productCategories_root": "Root",
     "productCategories_aboutDelete": "Nous allons supprimmer la catégorie {name} ainsi que tous ses enfants.",
+    "settings_storeName": "Store Name",
     "settings_themeExportDesciption": "Télécharger le thème en fichier ZIP.",
     "settings_themeInstallDesciption": "Installer le thème depuis un fichier ZIP. Cela peut prendre 2-10 min.",
     "settings_themeExport": "Télécharger",

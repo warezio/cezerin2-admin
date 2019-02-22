@@ -93,6 +93,7 @@
   "productCategories_all": "Все товары",
   "productCategories_root": "Корень",
   "productCategories_aboutDelete": "Категория {name} будет удалена со всеми подкатегорими.",
+  "settings_storeName": "Название магазина",
   "settings_themeExportDesciption": "Скачать шаблон как zip архив.",
   "settings_themeInstallDesciption": "Установить шаблон из zip архива. Может занять 2-10 мин.",
   "settings_themeExport": "Скачать",

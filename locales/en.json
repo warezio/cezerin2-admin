@@ -93,6 +93,7 @@
   "productCategories_all": "All Products",
   "productCategories_root": "Root",
   "productCategories_aboutDelete": "Will delete category {name} with all childs.",
+  "settings_storeName": "Store Name",
   "settings_themeExportDesciption": "Download theme as zip file.",
   "settings_themeInstallDesciption": "Install theme from zip file. Can take 2-10 min.",
   "settings_themeExport": "Download",
