@@ -93,6 +93,7 @@
   "productCategories_all": "Tods os Produtos",
   "productCategories_root": "Origem",
   "productCategories_aboutDelete": "Exclui a categoria {name} e todas as suas sub-categorias.",
+  "settings_storeName": "Store Name",
   "settings_themeExportDesciption": "Baixar tema como arquivo zip.",
   "settings_themeInstallDesciption": "nstalar o tema do arquivo zip. Pode demorar de 2-10 min.",
   "settings_themeExport": "Exportar",

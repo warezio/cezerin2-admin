@@ -79,6 +79,9 @@ class GeneralSettings extends React.Component {
 				}}
 			>
 				<Paper className="paper-box" zDepth={1}>
+
+					<div className={style.innerBox}>
+
 					<div style={{ width: '100%' }}>
 						<List>
 							<Link
@@ -97,8 +100,20 @@ class GeneralSettings extends React.Component {
 							<Divider />
 						</List>
 					</div>
-
-					<div className={style.innerBox}>
+					
+						<div className="row between-xs middle-xs">
+							<div className="col-xs-12 col-sm-6">
+								{messages.settings_storeName}
+							</div>
+							<div className="col-xs-12 col-sm-6">
+								<Field
+									component={TextField}
+									fullWidth={true}
+									name="store_name"
+								/>
+							</div>
+						</div>
+						
 						<div className="row between-xs middle-xs">
 							<div className="col-xs-12 col-sm-6">{messages.currency}</div>
 							<div className="col-xs-12 col-sm-6">

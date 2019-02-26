@@ -93,6 +93,7 @@
   "productCategories_all": "所有产品",
   "productCategories_root": "根目录",
   "productCategories_aboutDelete": "将删除类别{name}并包含其子类别",
+  "settings_storeName": "Store Name",
   "settings_themeExportDesciption": "下载主题文件",
   "settings_themeInstallDesciption": "安装主题文件，需要花2-10分钟",
   "settings_themeExport": "下载",
