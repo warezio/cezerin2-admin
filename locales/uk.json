@@ -253,6 +253,7 @@
   "chooseImage": "Выберите файлы",
   "position": "Позиция",
   "optionName": "Название опции",
+  "optionNew": "Новая опция",
   "optionControl": "Компонент выбора опции",
   "optionControlSelect": "Выпадающий список",
   "optionValues": "Значения опции",

@@ -253,6 +253,7 @@
   "chooseImage": "Choose files",
   "position": "Position",
   "optionName": "Option name",
+  "optionNew": "New option",
   "optionControl": "Option control",
   "optionControlSelect": "Drop-down list",
   "optionValues": "Option values",

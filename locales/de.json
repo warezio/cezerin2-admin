@@ -253,6 +253,7 @@
   "chooseImage": "Dateien auswählen",
   "position": "Position",
   "optionName": "Merkmal",
+  "optionNew": "New option",
   "optionControl": "Typ",
   "optionControlSelect": "Auswahlliste",
   "optionValues": "Merkmalswerte",

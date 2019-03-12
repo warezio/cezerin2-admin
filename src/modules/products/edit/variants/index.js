@@ -58,7 +58,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 		createOption: () => {
 			const { productId } = ownProps.match.params;
 			const newOption = {
-				name: 'New option',
+				name: '+',
 				position: 0,
 				required: true,
 				control: 'select'
