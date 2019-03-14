@@ -17,6 +17,7 @@
   "country": "Страна",
   "state": "Область/Регион",
   "city": "Город",
+  "comments": "Комментарии",
   "fullName": "ФИО",
   "first_name": "Имя",
   "last_name": "Фамилия",

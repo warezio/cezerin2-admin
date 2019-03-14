@@ -417,6 +417,17 @@ export default class AppBarTop extends React.Component {
 					</IconButton>
 				</Link>
 			);
+		} else if (pathname === '/settings/checkout/fields/comments') {
+			title = messages.comments;
+			leftButton = (
+				<Link to="/settings/checkout">
+					<IconButton>
+						<FontIcon color="#fff" className="material-icons">
+							arrow_back
+						</FontIcon>
+					</IconButton>
+				</Link>
+			);
 		} else if (pathname === '/settings/shipping') {
 			title = messages.settings_shippingMethods;
 			rightElements = <ShippingMethodListHead />;

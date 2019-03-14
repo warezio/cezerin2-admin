@@ -17,6 +17,7 @@
   "country": "Country",
   "state": "State/Province",
   "city": "City",
+  "comments": "Comments",
   "fullName": "Full name",
   "first_name": "First Name",
   "last_name": "Last Name",
