@@ -296,6 +296,83 @@ export default class AppBarTop extends React.Component {
 					</IconButton>
 				</Link>
 			);
+		} else if (pathname === '/settings/checkout/fields/first_name') {
+			title = messages.first_name;
+			leftButton = (
+				<Link to="/settings/checkout">
+					<IconButton>
+						<FontIcon color="#fff" className="material-icons">
+							arrow_back
+						</FontIcon>
+					</IconButton>
+				</Link>
+			);
+		} else if (pathname === '/settings/checkout/fields/last_name') {
+			title = messages.last_name;
+			leftButton = (
+				<Link to="/settings/checkout">
+					<IconButton>
+						<FontIcon color="#fff" className="material-icons">
+							arrow_back
+						</FontIcon>
+					</IconButton>
+				</Link>
+			);
+		} else if (pathname === '/settings/checkout/fields/password') {
+			title = messages.password;
+			leftButton = (
+				<Link to="/settings/checkout">
+					<IconButton>
+						<FontIcon color="#fff" className="material-icons">
+							arrow_back
+						</FontIcon>
+					</IconButton>
+				</Link>
+			);
+		} else if (pathname === '/settings/checkout/fields/password_verify') {
+			title = messages.password_verify;
+			leftButton = (
+				<Link to="/settings/checkout">
+					<IconButton>
+						<FontIcon color="#fff" className="material-icons">
+							arrow_back
+						</FontIcon>
+					</IconButton>
+				</Link>
+			);
+		} else if (pathname === '/settings/checkout/fields/address1') {
+			title = messages.address1;
+			leftButton = (
+				<Link to="/settings/checkout">
+					<IconButton>
+						<FontIcon color="#fff" className="material-icons">
+							arrow_back
+						</FontIcon>
+					</IconButton>
+				</Link>
+			);
+		} else if (pathname === '/settings/checkout/fields/address2') {
+			title = messages.address2;
+			leftButton = (
+				<Link to="/settings/checkout">
+					<IconButton>
+						<FontIcon color="#fff" className="material-icons">
+							arrow_back
+						</FontIcon>
+					</IconButton>
+				</Link>
+			);
+		} else if (pathname === '/settings/checkout/fields/postal_code') {
+			title = messages.postal_code;
+			leftButton = (
+				<Link to="/settings/checkout">
+					<IconButton>
+						<FontIcon color="#fff" className="material-icons">
+							arrow_back
+						</FontIcon>
+					</IconButton>
+				</Link>
+			);
 		} else if (pathname === '/settings/checkout/fields/mobile') {
 			title = messages.mobile;
 			leftButton = (
