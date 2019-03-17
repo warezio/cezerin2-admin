@@ -7,7 +7,6 @@ import style from './style.css';
 import { CustomToggle, MultiSelect } from 'modules/shared/form';
 
 import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const WEBHOOK_EVENTS = [
