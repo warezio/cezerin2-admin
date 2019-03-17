@@ -13,7 +13,6 @@ import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
-import { List, ListItem } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 
 const validate = values => {
