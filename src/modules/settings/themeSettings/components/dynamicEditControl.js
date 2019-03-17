@@ -3,7 +3,6 @@ import { Field, FieldArray, reduxForm } from 'redux-form';
 import { TextField, SelectField } from 'redux-form-material-ui';
 
 import { CustomToggle, NumberField, ColorField } from 'modules/shared/form';
-import messages from 'lib/text';
 import * as helper from 'lib/helper';
 import style from './style.css';
 import ArrayEditor from './arrayEditor';
