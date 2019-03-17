@@ -5,7 +5,6 @@ import { TextField, SelectField } from 'redux-form-material-ui';
 import { CustomToggle } from 'modules/shared/form';
 import messages from 'lib/text';
 import style from './style.css';
-import Checkbox from 'material-ui/Checkbox';
 import MenuItem from 'material-ui/MenuItem';
 
 const GatewaySettings = ({ gateway }) => {
