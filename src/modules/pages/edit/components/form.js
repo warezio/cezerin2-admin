@@ -10,7 +10,6 @@ import style from './style.css';
 import api from 'lib/api';
 
 import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const TagsField = ({ input, placeholder }) => {
