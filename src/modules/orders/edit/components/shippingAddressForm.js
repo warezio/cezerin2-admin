@@ -8,7 +8,6 @@ import messages from 'lib/text';
 import style from './style.css';
 
 import Divider from 'material-ui/Divider';
-import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
 const validate = values => {
