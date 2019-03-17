@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, FieldArray, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 
 import messages from 'lib/text';
 import sortBy from 'lodash/sortBy';
