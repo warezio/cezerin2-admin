@@ -6,7 +6,6 @@ import * as helper from 'lib/helper';
 import sortBy from 'lodash/sortBy';
 import style from './style.css';
 import DynamicEditControl from './dynamicEditControl';
-import ArrayEditor from './arrayEditor';
 
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
