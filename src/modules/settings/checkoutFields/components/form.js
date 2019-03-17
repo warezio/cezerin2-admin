@@ -15,10 +15,6 @@ const radioButtonStyle = {
 };
 
 class CheckoutFieldForm extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	componentDidMount() {
 		this.props.onLoad();
 	}
