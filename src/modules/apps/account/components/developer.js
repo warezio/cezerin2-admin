@@ -11,7 +11,6 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
 import FontIcon from 'material-ui/FontIcon';
-import { List, ListItem } from 'material-ui/List';
 
 const DeveloperForm = ({
 	handleSubmit,
