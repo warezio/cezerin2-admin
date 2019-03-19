@@ -8,7 +8,6 @@ import style from './style.css';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
-import FontIcon from 'material-ui/FontIcon';
 
 class EmailSettings extends React.Component {
 	componentDidMount() {
