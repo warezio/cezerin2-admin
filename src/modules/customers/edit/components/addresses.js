@@ -10,7 +10,6 @@ import ConfirmationDialog from 'modules/shared/confirmation';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
-import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
