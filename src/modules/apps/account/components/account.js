@@ -8,7 +8,6 @@ import style from './style.css';
 
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-import { List, ListItem } from 'material-ui/List';
 
 const AccountForm = ({ handleSubmit, pristine, submitting, initialValues }) => {
 	return (
