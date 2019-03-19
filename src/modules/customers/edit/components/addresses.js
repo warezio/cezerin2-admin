@@ -8,7 +8,6 @@ import AddressForm from './addressForm.js';
 import ConfirmationDialog from 'modules/shared/confirmation';
 
 import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
 import IconMenu from 'material-ui/IconMenu';
