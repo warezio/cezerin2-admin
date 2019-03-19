@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
-import { TextField, SelectField } from 'redux-form-material-ui';
+import { TextField } from 'redux-form-material-ui';
 import { CustomToggle } from 'modules/shared/form';
 import FieldsEditor from './fieldsEditor';
 import messages from 'lib/text';
