@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { TextField, SelectField } from 'redux-form-material-ui';
 
 import GatewaySettings from './gatewaySettings.js';
 import { AVAILABLE_PAYMENT_GATEWAYS } from '../availablePaymentGateways';
