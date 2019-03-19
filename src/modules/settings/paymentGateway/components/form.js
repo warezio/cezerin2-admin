@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 
 import GatewaySettings from './gatewaySettings.js';
 import { AVAILABLE_PAYMENT_GATEWAYS } from '../availablePaymentGateways';
