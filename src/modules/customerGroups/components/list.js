@@ -16,10 +16,6 @@ const styles = {
 const FolderIcon = <FontIcon className="material-icons">folder</FontIcon>;
 
 export default class Groups extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	componentDidMount() {
 		this.props.onLoad();
 	}
