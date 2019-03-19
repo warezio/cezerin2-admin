@@ -60,10 +60,6 @@ const asyncValidate = (values /*, dispatch */) => {
 };
 
 class EditPageForm extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	componentDidMount() {
 		this.props.onLoad();
 	}
