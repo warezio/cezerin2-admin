@@ -15,7 +15,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
-import SelectField from 'material-ui/SelectField';
 import Dialog from 'material-ui/Dialog';
 
 const Address = ({ address }) => {
