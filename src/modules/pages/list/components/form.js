@@ -38,10 +38,6 @@ const PageItem = ({ page }) => {
 };
 
 export default class PagesList extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	componentDidMount() {
 		this.props.onLoad();
 	}
