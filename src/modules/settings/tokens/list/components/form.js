@@ -33,10 +33,6 @@ const TokenItem = ({ token }) => {
 };
 
 export default class TokensList extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	componentDidMount() {
 		this.props.onLoad();
 	}
