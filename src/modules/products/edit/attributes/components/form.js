@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 
 import messages from 'lib/text';
