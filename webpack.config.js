@@ -131,6 +131,12 @@ module.exports = {
 			inject: 'body',
 			filename: 'index.html'
 		}),
+		new HtmlWebpackPlugin({
+			template: 'src/index.html',
+			language: applicationConfig.language,
+			inject: 'body',
+			filename: '404.html'
+		}),
 		new webpack.BannerPlugin({
 			banner: `Created: ${new Date().toUTCString()}`,
 			raw: false,
