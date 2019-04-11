@@ -41,10 +41,8 @@
     "url": "https://github.com/cezerin2/cezerin2-admin"
   },
   "scripts": {
-    "webpack:admin": "webpack --config webpack.config.js --mode production",
-    "webpack:admin:watch": "webpack --config webpack.config.js --mode development --watch",
-    "build": "npm run webpack:admin",
-    "build:watch": "concurrently -n webpackAdmin \"npm run webpack:admin:watch\"",
+    "build": "webpack --config webpack.config.js --mode production",
+    "build:watch": "webpack --config webpack.config.js --mode development --watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --write \"src/**/*.js\"",
