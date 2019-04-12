@@ -1,6 +1,7 @@
 import React from 'react';
 import api from 'lib/api';
 import ImageUpload from 'modules/shared/imageUpload';
+import settings from 'lib/settings';
 
 export default class ThemeImageUpload extends React.Component {
 	onDelete = () => {
@@ -21,7 +22,7 @@ export default class ThemeImageUpload extends React.Component {
 		let { input, label } = this.props;
 		const imageUrl =
 			input.value && input.value.length > 0
-				? '/assets/images/' + input.value
+				? settings.assetsBaseURL + '/assets/images/' + input.value
 				: null;
 
 		return (
