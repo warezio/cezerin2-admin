@@ -68,6 +68,7 @@
     "chart.js": "^2.7.2",
     "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^4.0.1",
+    "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^1.0.0",
     "cssnano": "^4.1.0",
     "eslint": "^5.4.0",
@@ -122,8 +123,5 @@
   "engines": {
     "node": "^8.0.0",
     "npm": "^5.0.0"
-  },
-  "devDependencies": {
-    "copy-webpack-plugin": "^4.6.0"
   }
 }
