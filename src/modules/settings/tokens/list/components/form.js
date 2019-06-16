@@ -37,9 +37,12 @@ export default class TokensList extends React.Component {
 
 	render() {
 		const { tokens } = this.props;
-		const listItems = tokens.map((token, index) => (
-			<TokenItem key={index} token={token} />
-		));
+		let listItems = [];
+		if (tokens && tokens.length > 0) {
+			listItems = tokens.map((token, index) => (
+				<TokenItem key={index} token={token} />
+			));
+		}
 
 		return (
 			<div>
