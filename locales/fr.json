@@ -328,6 +328,8 @@
   "isDeveloper": "Je suis développeur",
   "website": "Site",
   "actions": "Actions",
+  "active": "Active",
+  "inactive": "Inactive",
   "enable": "Activer",
   "disable": "Désactiver",
   "serviceActions": "Actions",

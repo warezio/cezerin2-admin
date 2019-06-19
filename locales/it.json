@@ -329,6 +329,8 @@
   "isDeveloper": "I am developer",
   "website": "Sito",
   "actions": "Azioni",
+  "active": "Active",
+  "inactive": "Inactive",
   "enable": "Attiva",
   "disable": "Disattiva",
   "serviceActions": "Azioni",

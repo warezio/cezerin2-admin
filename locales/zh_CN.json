@@ -328,6 +328,8 @@
   "isDeveloper": "我是开发者",
   "website": "网站",
   "actions": "操作",
+  "active": "Active",
+  "inactive": "Inactive",
   "enable": "启用",
   "disable": "停用",
   "serviceActions": "操作",

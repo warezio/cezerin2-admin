@@ -328,6 +328,8 @@
   "isDeveloper": "Я разработчик",
   "website": "Веб-сайт",
   "actions": "Действия",
+  "active": "Active",
+  "inactive": "Inactive",
   "enable": "Включить",
   "disable": "Выключить",
   "serviceActions": "Действия",
