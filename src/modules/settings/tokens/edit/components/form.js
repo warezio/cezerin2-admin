@@ -6,9 +6,9 @@ import messages from 'lib/text';
 import ConfirmationDialog from 'modules/shared/confirmation';
 import { MultiSelect } from 'modules/shared/form';
 
-import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
-import RaisedButton from 'material-ui/RaisedButton';
+import { createMuiTheme } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
 import style from './style.css';
 
 const Scopes = [
@@ -59,16 +59,21 @@ class EditTokenForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			showRevokeDialog: false
+			showDeleteDialog: false,
+			is_revoked: this.props.initialValues.is_revoked
 		};
 	}
 
-	handleRevoke = () => {
-		this.setState({ showRevokeDialog: true });
+	handleDelete = () => {
+		this.setState({ showDeleteDialog: true });
 	};
 
 	componentDidMount() {
 		this.props.onLoad();
+	}
+
+	componentWillUnmount() {
+		this.props.clearData();
 	}
 
 	render() {
@@ -79,15 +84,16 @@ class EditTokenForm extends React.Component {
 			initialValues,
 			tokenId,
 			newToken,
-			onDelete
+			is_revoked,
+			onRevoke,
+			onReinstate
 		} = this.props;
 		const isTokenAdded = !!newToken;
 		const isAdd = tokenId === null || tokenId === undefined;
-
 		return (
 			<div>
 				<form onSubmit={handleSubmit}>
-					<Paper className="paper-box" zDepth={1}>
+					<Paper className="paper-box">
 						<div className={style.innerBox}>
 							<Field
 								name="name"
@@ -120,20 +126,40 @@ class EditTokenForm extends React.Component {
 						</div>
 						<div className="buttons-box">
 							{!isAdd && (
-								<RaisedButton
-									label={messages.settings_revokeAccess}
-									secondary
-									style={{ float: 'left' }}
-									onClick={this.handleRevoke}
-								/>
+								<div>
+									{is_revoked ? (
+										<Button
+											variant="contained"
+											size="medium"
+											color="secondary"
+											className={style.reinstateButton}
+											onClick={onReinstate}
+										>
+											{messages.settings_reinstateAccess}
+										</Button>
+									) : (
+										<Button
+											variant="contained"
+											size="medium"
+											color="secondary"
+											className={style.button}
+											onClick={onRevoke}
+										>
+											{messages.settings_revokeAccess}
+										</Button>
+									)}
+								</div>
 							)}
-							<RaisedButton
+							<Button
+								variant="contained"
+								size="medium"
 								type="submit"
-								label={isAdd ? messages.settings_generateToken : messages.save}
-								primary
+								color="primary"
 								className={style.button}
 								disabled={pristine || submitting}
-							/>
+							>
+								{isAdd ? messages.settings_generateToken : messages.save}
+							</Button>
 						</div>
 					</Paper>
 				</form>
@@ -143,16 +169,6 @@ class EditTokenForm extends React.Component {
 					title={messages.settings_copyYourNewToken}
 					description={newToken}
 					submitLabel={messages.actions_done}
-					cancelLabel={messages.cancel}
-					modal
-				/>
-
-				<ConfirmationDialog
-					open={this.state.showRevokeDialog}
-					title={messages.settings_tokenRevokeTitle}
-					description={messages.settings_tokenRevokeDescription}
-					onSubmit={onDelete}
-					submitLabel={messages.settings_revokeAccess}
 					cancelLabel={messages.cancel}
 				/>
 			</div>

@@ -18,6 +18,7 @@ import ShippingMethodListHead from 'modules/settings/shipping/head';
 import PageHead from 'modules/pages/edit/head';
 import PageListHead from 'modules/pages/list/head';
 import TokenListHead from 'modules/settings/tokens/list/head';
+import TokenEditHead from 'modules/settings/tokens/edit/head';
 import RedirectsListHead from 'modules/settings/redirects/list/head';
 import RedirectsEditHead from 'modules/settings/redirects/edit/head';
 import WebhooksListHead from 'modules/settings/webhooks/list/head';
@@ -548,6 +549,7 @@ export default class AppBarTop extends React.Component {
 					</IconButton>
 				</Link>
 			);
+			rightElements = <TokenEditHead />;
 		} else if (pathname === '/settings/redirects') {
 			title = messages.redirects;
 			rightElements = <RedirectsListHead />;

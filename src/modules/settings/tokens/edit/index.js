@@ -4,7 +4,10 @@ import {
 	updateToken,
 	createToken,
 	receiveToken,
-	deleteToken
+	revokeToken,
+	reinstateToken,
+	deleteToken,
+	clearToken
 } from '../../actions';
 import Form from './components/form';
 
@@ -13,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
 	return {
 		tokenId,
 		initialValues: state.settings.tokenEdit,
-		newToken: state.settings.newToken
+		newToken: state.settings.newToken,
+		is_revoked: state.settings.tokenEdit.is_revoked
 	};
 };
 
@@ -33,10 +37,21 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 			dispatch(createToken(token));
 		}
 	},
+	onRevoke: () => {
+		const { tokenId } = ownProps.match.params;
+		dispatch(revokeToken(tokenId));
+	},
+	onReinstate: () => {
+		const { tokenId } = ownProps.match.params;
+		dispatch(reinstateToken(tokenId));
+	},
 	onDelete: () => {
 		const { tokenId } = ownProps.match.params;
 		dispatch(deleteToken(tokenId));
 		ownProps.history.push('/settings/tokens');
+	},
+	clearData: () => {
+		dispatch(clearToken());
 	}
 });
 

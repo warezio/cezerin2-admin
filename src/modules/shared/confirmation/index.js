@@ -1,6 +1,10 @@
 import React from 'react';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+import Dialog from '@material-ui/core/Dialog';
+import Button from '@material-ui/core/Button';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default class ConfirmationDialog extends React.Component {
 	constructor(props) {
@@ -41,29 +45,22 @@ export default class ConfirmationDialog extends React.Component {
 			modal = false
 		} = this.props;
 
-		const actions = [
-			<FlatButton
-				label={cancelLabel}
-				onClick={this.handleCancel}
-				style={{ marginRight: 10 }}
-			/>,
-			<FlatButton
-				label={submitLabel}
-				primary
-				keyboardFocused
-				onClick={this.handleSubmit}
-			/>
-		];
-
 		return (
-			<Dialog
-				title={title}
-				actions={actions}
-				modal={modal}
-				open={this.state.open}
-				onRequestClose={this.handleCancel}
-			>
-				<div style={{ wordWrap: 'break-word' }}>{description}</div>
+			<Dialog open={this.state.open} onClose={this.handleCancel}>
+				<DialogTitle>{title}</DialogTitle>
+				<DialogContent>
+					<DialogContentText style={{ wordWrap: 'break-word' }}>
+						{description}
+					</DialogContentText>
+				</DialogContent>
+				<DialogActions>
+					<Button onClick={this.handleCancel} style={{ marginRight: 10 }}>
+						{cancelLabel}
+					</Button>
+					<Button color="primary" onClick={this.handleSubmit}>
+						{submitLabel}
+					</Button>
+				</DialogActions>
 			</Dialog>
 		);
 	}

@@ -129,6 +129,10 @@ export function receiveNewToken(newToken) {
 	};
 }
 
+export function clearToken() {
+	return receiveToken({});
+}
+
 export function receiveThemeSettings(settings) {
 	return {
 		type: t.THEME_SETTINGS_RECEIVE,
@@ -433,14 +437,54 @@ export function updateToken(token) {
 			.catch(error => {});
 }
 
+export function revokeToken(tokenId) {
+	return (dispatch, getState) =>
+		api.tokens
+			.revoke(tokenId)
+			.then(() => {
+				dispatch(fetchToken(tokenId));
+			})
+			.catch(error => {});
+}
+
+export function reinstateToken(tokenId) {
+	return (dispatch, getState) =>
+		api.tokens
+			.reinstate(tokenId)
+			.then(() => {
+				dispatch(fetchToken(tokenId));
+			})
+			.catch(error => {});
+}
+
 export function deleteToken(tokenId) {
 	return (dispatch, getState) =>
 		api.tokens
 			.delete(tokenId)
 			.then(({ status, json }) => {
 				dispatch(fetchTokens());
+				dispatch(clearToken());
 			})
 			.catch(error => {});
+}
+
+export function deleteCurrentToken() {
+	return (dispatch, getState) => {
+		const state = getState();
+		const token = state.settings.tokenEdit;
+
+		if (token && token.id) {
+			api.tokens
+				.delete(token.id)
+				.then(({ status, json }) => {
+					dispatch(fetchTokens());
+					dispatch(clearToken());
+				})
+				.catch(error => {
+					console.log(error);
+				});
+		}
+	};
 }
 
 export function fetchPaymentGateway(gatewayName) {
