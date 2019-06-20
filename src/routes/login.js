@@ -1,18 +1,19 @@
 import React from 'react';
 import messages from 'lib/text';
-import CezerinClient from 'cezerin2-client';
+import CezerinClient from '../../../client';
 import settings from 'lib/settings';
 import * as auth from 'lib/auth';
 
-import RaisedButton from 'material-ui/RaisedButton';
-import Paper from 'material-ui/Paper';
-import TextField from 'material-ui/TextField';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
 
 export default class LoginForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			email: localStorage.getItem('dashboard_email') || '',
+			password: null,
 			isFetching: false,
 			isAuthorized: false,
 			emailIsSent: false,
@@ -23,6 +24,12 @@ export default class LoginForm extends React.Component {
 	handleChange = event => {
 		this.setState({
 			email: event.target.value
+		});
+	};
+
+	handlePasswordChange = event => {
+		this.setState({
+			password: event.target.value
 		});
 	};
 
@@ -40,7 +47,11 @@ export default class LoginForm extends React.Component {
 			error: null
 		});
 
-		CezerinClient.authorize(settings.apiBaseUrl, this.state.email)
+		CezerinClient.authorize(
+			settings.apiBaseUrl,
+			this.state.email,
+			this.state.password
+		)
 			.then(authorizeResponse => {
 				this.setState({
 					isFetching: false,
@@ -84,27 +95,43 @@ export default class LoginForm extends React.Component {
 		return (
 			<div className="row col-full-height center-xs middle-xs">
 				<div className="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-					<Paper className="loginBox" zDepth={1}>
+					<Paper className="loginBox">
 						<div className="loginTitle">{messages.loginTitle}</div>
-						<div className="loginDescription">{messages.loginDescription}</div>
-						<div className="loginInput">
-							<TextField
-								type="email"
-								value={email}
-								onChange={this.handleChange}
-								onKeyPress={this.handleKeyPress}
-								label={messages.email}
-								fullWidth
-								hintStyle={{ width: '100%' }}
-								hintText={messages.email}
-							/>
+						<div className="loginDescription">
+							{settings.securitySource === 'cognito'
+								? messages.loginPasswordDescription
+								: messages.loginDescription}
 						</div>
-						<RaisedButton
-							label={messages.loginButton}
-							primary
+						<div className="loginInputs">
+							<div className="loginInput">
+								<TextField
+									type="email"
+									value={email}
+									onChange={this.handleChange}
+									label={messages.email}
+									fullWidth
+								/>
+							</div>
+							{settings.securitySource === 'cognito' && (
+								<div className="passwordInput">
+									<TextField
+										type="password"
+										onChange={this.handlePasswordChange}
+										onKeyPress={this.handleKeyPress}
+										label={messages.password}
+										fullWidth
+									/>
+								</div>
+							)}
+						</div>
+						<Button
+							variant="contained"
+							color="primary"
 							disabled={isFetching || emailIsSent}
 							onClick={this.handleSubmit}
-						/>
+						>
+							{messages.loginButton}
+						</Button>
 						{response}
 					</Paper>
 				</div>

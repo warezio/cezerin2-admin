@@ -59,6 +59,7 @@
   "errors_urlTaken": "网址已被占用或包含保留字",
   "loginTitle": "登录",
   "loginDescription": "输入你的电子邮件，我会给你一个登录链接",
+  "loginPasswordDescription": "Enter your email and password to sign in",
   "loginButton": "发送",
   "loginLinkSent": "登录链接已发送到您的电子邮件",
   "products_title": "产品",

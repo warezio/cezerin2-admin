@@ -59,6 +59,7 @@
   "errors_urlTaken": "URL já existe ou contém uma palavra reservada",
   "loginTitle": "Entrar",
   "loginDescription": "Digite seu e-mail e enviarei um link para você fazer login",
+  "loginPasswordDescription": "Enter your email and password to sign in",
   "loginButton": "Enviar",
   "loginLinkSent": "O link de login foi enviado para seu e-mail",
   "products_title": "Produtos",

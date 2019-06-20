@@ -59,6 +59,7 @@
   "errors_urlTaken": "URL è gia stato preso o contiene parole riservate",
   "loginTitle": "Accedi",
   "loginDescription": "Inserisci la tua email e ti invierò un link per sign in",
+  "loginPasswordDescription": "Enter your email and password to sign in",
   "loginButton": "Send",
   "loginLinkSent": "Sign in link was sent to your email",
   "products_title": "Products",

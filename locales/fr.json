@@ -59,6 +59,7 @@
   "errors_urlTaken": "L'URL est déjà prise ou contient un mot restraint.",
   "loginTitle": "Se connecter",
   "loginDescription": "Entrez votre email et nous vous enverrons un lien pour vous connecter.",
+  "loginPasswordDescription": "Enter your email and password to sign in",
   "loginButton": "Envoyer",
   "loginLinkSent": "Lien de connexion envoyé à votre adresse e-mail.",
   "products_title": "Produits",

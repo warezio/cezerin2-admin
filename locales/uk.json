@@ -59,6 +59,7 @@
   "errors_urlTaken": "URL занят или содержит зарезервированное слово",
   "loginTitle": "Войти",
   "loginDescription": "Введите свой адрес электронной почты, для отправки ссылки для входа.",
+  "loginPasswordDescription": "Enter your email and password to sign in",
   "loginButton": "Отправить",
   "loginLinkSent": "На ваш адрес электронной почты была отправлена ссылка для входа",
   "products_title": "Товары",

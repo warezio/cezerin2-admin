@@ -59,6 +59,7 @@
   "errors_urlTaken": "Url wird bereits verwendet oder enthält gesperrte Wörter",
   "loginTitle": "Anmelden",
   "loginDescription": "Geben Sie Ihre E-Mail Adresse an und erhalten Sie eine Bestätigungsnachricht",
+  "loginPasswordDescription": "Enter your email and password to sign in",
   "loginButton": "Absenden",
   "loginLinkSent": "Der Link zur Anmeldung wurde Ihnen per E-Mail gesendet",
   "products_title": "Produkte",

@@ -59,6 +59,7 @@
   "errors_urlTaken": "URL is taken or contains a reserved word",
   "loginTitle": "Sign in",
   "loginDescription": "Enter your email and I'll send you a link to sign in",
+  "loginPasswordDescription": "Enter your email and password to sign in",
   "loginButton": "Send",
   "loginLinkSent": "Sign in link was sent to your email",
   "products_title": "Products",
