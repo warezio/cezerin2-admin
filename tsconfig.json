@@ -1,0 +1,36 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"sourceMap": true,
+		"noImplicitAny": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"alwaysStrict": true,
+		"noUnusedLocals": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"resolveJsonModule": true,
+		"module": "commonjs",
+    "jsx": "react",
+    "allowJs":true,
+		"lib": [
+			"es2017",
+			"dom"
+		],
+		"types": [],
+		"target": "es6",
+		"baseUrl": ".",
+		"paths": {
+			"*": [
+				"./src/*",
+				"./typings/*",
+				"./node_modules/*",
+				"./node_modules/@qdot/ol-lite-base/node_modules/@types/*",
+				"./node_modules/@types/*",
+				"./node_modules/@typeless/*"
+			]
+		}
+	},
+	"include": [
+		"./src/**/*"
+	]
+}
