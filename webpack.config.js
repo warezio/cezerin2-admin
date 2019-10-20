@@ -9,7 +9,7 @@ const copyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	entry: {
-		app: path.resolve(__dirname, 'src/index.js'),
+		app: path.resolve(__dirname, 'src/index.tsx'),
 		vendor: [
 			'react',
 			'react-dom',
@@ -23,18 +23,15 @@ module.exports = {
 			'material-ui'
 		]
 	},
-
 	performance: {
 		hints: false
 	},
-
 	output: {
 		publicPath: '/',
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'js/[name]-[chunkhash].js',
 		chunkFilename: 'js/[name]-[chunkhash].js'
 	},
-
 	optimization: {
 		splitChunks: {
 			cacheGroups: {
@@ -47,18 +44,21 @@ module.exports = {
 			}
 		}
 	},
-
 	resolve: {
 		alias: {
 			src: path.resolve(__dirname, 'src'),
 			routes: path.resolve(__dirname, 'src/routes'),
 			modules: path.resolve(__dirname, 'src/modules'),
 			lib: path.resolve(__dirname, 'src/lib')
-		}
+		},
+		extensions: ['.tsx', '.ts', '.js', '.jsx', '.json']
 	},
-
 	module: {
 		rules: [
+			{
+				test: /\.tsx?$/,
+				loader: ['ts-loader']
+			},
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
@@ -103,7 +103,6 @@ module.exports = {
 			}
 		]
 	},
-
 	plugins: [
 		new copyWebpackPlugin([
 			{
@@ -143,7 +142,6 @@ module.exports = {
 			entryOnly: false
 		})
 	],
-
 	stats: {
 		children: false,
 		entrypoints: false,

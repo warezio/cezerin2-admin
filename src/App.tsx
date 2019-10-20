@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Head from 'modules/head';
@@ -54,7 +54,7 @@ const muiTheme = getMuiTheme({
 	appBar: {}
 });
 
-export default () => (
+const App: React.FunctionComponent = () => (
 	<Router>
 		<MuiThemeProvider muiTheme={muiTheme}>
 			<div id="container">
@@ -64,8 +64,8 @@ export default () => (
 				<div id="bodyContainer">
 					<Switch>
 						<Route path="/" exact component={Home} />
-						<Route path="/login" component={Login} />
-						<Route path="/logout" component={Logout} />
+						<Route path="/login" component={Login as unknown as React.ComponentClass} />
+						<Route path="/logout" component={Logout as unknown as React.ComponentClass} />
 						<Route path="/products" exact component={Products} />
 						<Route
 							path="/products/categories"
@@ -96,3 +96,5 @@ export default () => (
 		</MuiThemeProvider>
 	</Router>
 );
+
+export default App;
