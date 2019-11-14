@@ -8,7 +8,6 @@ import style from './style.css';
 
 export default class MultiUploader extends React.Component {
 	onDrop = files => {
-		console.log(files);
 		const form = new FormData();
 		files.map(file => {
 			form.append('file', file);
