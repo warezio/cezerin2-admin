@@ -40,6 +40,13 @@ function receiveEmailSettings(emailSettings) {
 	};
 }
 
+function receiveImportSettings(importSettings) {
+	return {
+		type: t.IMPORT_SETTINGS_RECEIVE,
+		importSettings
+	};
+}
+
 function receiveEmailTemplate(emailTemplate) {
 	return {
 		type: t.EMAIL_TEMPLATE_RECEIVE,
@@ -195,6 +202,17 @@ export function fetchEmailSettings() {
 			.catch(error => {});
 }
 
+export function fetchImportSettings() {
+	return (dispatch, getState) => {
+		return api.settings
+			.retrieveImportSettings()
+			.then(({ status, json }) => {
+				dispatch(receiveImportSettings(json));
+			})
+			.catch(error => {});
+	};
+}
+
 export function deleteLogo() {
 	return (dispatch, getState) =>
 		api.settings
@@ -232,6 +250,17 @@ export function updateEmailSettings(emailSettings) {
 				dispatch(receiveEmailSettings(json));
 			})
 			.catch(error => {});
+}
+
+export function updateImportSettings(importSettings) {
+	return (dispatch, getState) => {
+		return api.settings
+			.updateImportSettings(importSettings)
+			.then(({ status, json }) => {
+				dispatch(receiveImportSettings(json));
+			})
+			.catch(error => {});
+	};
 }
 
 export function fetchEmailTemplate(templateName) {

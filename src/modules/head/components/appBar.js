@@ -93,6 +93,31 @@ export default class AppBarTop extends React.Component {
 
 			rightElements = <ProductsHead />;
 		}
+		if (pathname === '/products/import') {
+			title = messages.drawer_importing;
+
+			if (productCategoryName) {
+				title = (
+					<span>
+						{messages.drawer_importing}
+						<FontIcon
+							style={{ top: 6 }}
+							color="#fff"
+							className="material-icons"
+						>
+							chevron_right
+						</FontIcon>
+						{productCategoryName}
+					</span>
+				);
+			}
+
+			if (productsSelectedCount > 0) {
+				title = `${productsSelectedCount} ${messages.selected}`;
+			}
+
+			rightElements = <ProductsHead />;
+		} 
 		if (pathname === '/orders') {
 			title = messages.orders_title;
 
