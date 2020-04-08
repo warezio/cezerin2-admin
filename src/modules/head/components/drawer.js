@@ -187,7 +187,7 @@ const DrawerMenu = ({ open, onClose, currentUrl }) => {
 
 	return (
 		<Drawer width="280px" anchor="left" className={style.drawer} open={open}>
-			<AppBar className={style.appBar}>
+			<AppBar className={style.appBar} position='absolute'>
 				<Toolbar className={style.toolbar}>
 					<Typography variant="h6" className={style.appBarTitle}>
 						{messages.drawer_title}
