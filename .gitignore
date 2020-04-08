@@ -4,3 +4,5 @@ public/index.html
 dist/*
 npm-debug.log*
 *.zip
+*.lock
+*lock.json

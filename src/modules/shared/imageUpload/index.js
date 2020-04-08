@@ -78,7 +78,14 @@ export default class ImageUpload extends React.Component {
 					activeClassName={style.dropzoneActive}
 					rejectClassName={style.dropzoneReject}
 				>
-					<div className={style.preview}>{htmlPreview}</div>
+
+{({getRootProps,getInputProps}) => (
+					this.props.children != null ? this.props.children : <div {...getRootProps()}>
+						<input {...getInputProps()} />
+						<div className={style.preview}>{htmlPreview}</div></div>
+					)}
+
+					
 				</Dropzone>
 
 				<div className={style.footer}>

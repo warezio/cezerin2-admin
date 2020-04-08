@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const applicationConfig = require('./config/admin.js');
 const applicationText = require(`./locales/${applicationConfig.language}.json`);
 const copyWebpackPlugin = require('copy-webpack-plugin');
@@ -65,8 +65,10 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['env', 'react'],
-						plugins: ['transform-class-properties']
+						presets: ["@babel/preset-env", "@babel/preset-react"],
+						plugins: ['transform-class-properties',["@babel/plugin-transform-modules-commonjs", {
+							"allowTopLevelThis": true
+						  }]]
 					}
 				}
 			},
@@ -95,7 +97,6 @@ module.exports = {
 						options: {
 							modules: true,
 							importLoaders: true,
-							localIdentName: '[name]__[local]___[hash:base64:5]'
 						}
 					},
 					'postcss-loader'
@@ -111,10 +112,7 @@ module.exports = {
 				to: 'assets'
 			}
 		]),
-		new CleanWebpackPlugin(
-			['dist/js/app-*.js', 'dist/js/vendor-*.js', 'dist/css/bundle-*.css'],
-			{ verbose: false }
-		),
+		new CleanWebpackPlugin(),
 		new webpack.DefinePlugin({
 			APPLICATION_CONFIG: JSON.stringify(applicationConfig)
 		}),

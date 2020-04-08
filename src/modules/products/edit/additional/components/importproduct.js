@@ -22,7 +22,7 @@ const imageFilesArray = [];
  *
  * @returns {undefined}
  */
-class ProductImport extends React.Component {
+export default class ProductImport extends React.Component {
 	constructor(props) {
 		super();
 		this.state = {

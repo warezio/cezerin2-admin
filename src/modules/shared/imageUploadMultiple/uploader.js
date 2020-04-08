@@ -24,6 +24,7 @@ export default class MultiUploader extends React.Component {
 					onDrop={this.onDrop}
 					multiple
 					disableClick
+					noClick
 					accept="image/*"
 					ref={node => {
 						this.dropzone = node;
@@ -33,10 +34,11 @@ export default class MultiUploader extends React.Component {
 					activeClassName={style.dropzoneActive}
 					rejectClassName={style.dropzoneReject}
 				>
-					{this.props.children}
-					{!this.props.children && (
-						<div className={style.dropzoneEmpty}>{messages.help_dropHere}</div>
+					{({getRootProps,getInputProps}) => (
+					  <div {...getRootProps()}>
+					<input {...getInputProps()} />{this.props.children != null ? this.props.children : <div className={style.dropzoneEmpty}>{messages.help_dropHere}</div>} </div>
 					)}
+					
 				</Dropzone>
 
 				{!uploading && (
