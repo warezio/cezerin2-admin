@@ -33,9 +33,10 @@ export default class MultiUploader extends React.Component {
 					activeClassName={style.dropzoneActive}
 					rejectClassName={style.dropzoneReject}
 				>
-					{({getRootProps}) => (
-					this.props.children != null ? this.props.children : 
-					<div className={style.dropzoneEmpty}>{messages.help_dropHere}</div>
+					{({getRootProps,getInputProps}) => (
+					this.props.children != null ? this.props.children : <div {...getRootProps()}>
+						<input {...getInputProps()} />
+					<div className={style.dropzoneEmpty}>{messages.help_dropHere}</div></div>
 					)}
 					
 				</Dropzone>
