@@ -31,6 +31,9 @@ export default class MultiUploader extends React.Component {
 					activeClassName={style.dropzoneActive}
 					rejectClassName={style.dropzoneReject}
 				>
+					{({getRootProps,getInputProps}) => (
+					  <div {...getRootProps()}>
+					<input {...getInputProps()} />
 					<div className={style.dropzoneEmpty}>
 						{messages.help_dropHere}
 						<FlatButton
@@ -41,6 +44,8 @@ export default class MultiUploader extends React.Component {
 							}}
 						/>
 					</div>
+					</div>
+					)}
 				</Dropzone>
 
 				<Snackbar open={uploading} message={messages.messages_uploading} />
