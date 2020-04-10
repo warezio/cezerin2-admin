@@ -1,12 +1,12 @@
 # Single Instance cezerin2-proxy dockerfile and docker-entrypoint.sh
 
-* [dockerfile](#dockerfile)
-* [docker-entrypoint.sh](#docker-entrypoint.sh)
+-   [dockerfile](#dockerfile)
+-   [docker-entrypoint.sh](#docker-entrypoint.sh)
 
 ## dockerfile
+
 ```dockerfile
-FROM node:8
-LABEL maintainer "Luke Busstra <luke.busstra@gmail.com>"
+FROM node
 
 ENV NGINX_CODENAME stretch
 
@@ -40,6 +40,7 @@ ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 ```
 
 ## docker-entrypoint.sh
+
 ```shell
 #!/bin/sh
 set -e
