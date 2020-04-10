@@ -1,11 +1,11 @@
-const path = require('path');
-const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const applicationConfig = require('./config/admin.js');
-const applicationText = require(`./locales/${applicationConfig.language}.json`);
-const copyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const applicationConfig = require('./config/admin.js')
+const applicationText = require(`./locales/${applicationConfig.language}.json`)
+const copyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
 	entry: {
@@ -20,19 +20,22 @@ module.exports = {
 			'redux',
 			'redux-form',
 			'redux-form-material-ui',
-			'material-ui'
-		]
+			'material-ui',
+		],
 	},
 
 	performance: {
-		hints: false
+		hints: true,
 	},
+
+	// Enable sourcemaps for debugging webpack's output.
+	devtool: 'source-map',
 
 	output: {
 		publicPath: '/',
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'js/[name]-[chunkhash].js',
-		chunkFilename: 'js/[name]-[chunkhash].js'
+		chunkFilename: 'js/[name]-[chunkhash].js',
 	},
 
 	optimization: {
@@ -42,10 +45,10 @@ module.exports = {
 					chunks: 'initial',
 					name: 'vendor',
 					test: 'vendor',
-					enforce: true
-				}
-			}
-		}
+					enforce: true,
+				},
+			},
+		},
 	},
 
 	resolve: {
@@ -53,11 +56,20 @@ module.exports = {
 			src: path.resolve(__dirname, 'src'),
 			routes: path.resolve(__dirname, 'src/routes'),
 			modules: path.resolve(__dirname, 'src/modules'),
-			lib: path.resolve(__dirname, 'src/lib')
-		}
+			lib: path.resolve(__dirname, 'src/lib'),
+		},
 	},
 
 	module: {
+		loaders: [
+			// All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
+			{ test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
+		],
+
+		preLoaders: [
+			// All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+			{ test: /\.js$/, loader: 'source-map-loader' },
+		],
 		rules: [
 			{
 				test: /\.(js|jsx)$/,
@@ -65,12 +77,18 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ["@babel/preset-env", "@babel/preset-react"],
-						plugins: ['transform-class-properties',["@babel/plugin-transform-modules-commonjs", {
-							"allowTopLevelThis": true
-						  }]]
-					}
-				}
+						presets: ['@babel/preset-env', '@babel/preset-react'],
+						plugins: [
+							'transform-class-properties',
+							[
+								'@babel/plugin-transform-modules-commonjs',
+								{
+									allowTopLevelThis: true,
+								},
+							],
+						],
+					},
+				},
 			},
 			{
 				test: /\.css$/,
@@ -81,11 +99,11 @@ module.exports = {
 						loader: 'css-loader',
 						options: {
 							modules: false,
-							importLoaders: true
-						}
+							importLoaders: true,
+						},
 					},
-					'postcss-loader'
-				]
+					'postcss-loader',
+				],
 			},
 			{
 				test: /\.css$/,
@@ -97,54 +115,71 @@ module.exports = {
 						options: {
 							modules: true,
 							importLoaders: true,
-						}
+						},
 					},
-					'postcss-loader'
-				]
-			}
-		]
+					'postcss-loader',
+				],
+			},
+			{
+				test: /\.sass$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'postcss-loader',
+					{
+						loader: 'sass-loader',
+						options: {
+							sassOptions: {
+								indentWidth: 4,
+								includePaths: [path.resolve('node_modules')],
+							},
+						},
+					},
+				],
+			},
+		],
 	},
 
 	plugins: [
 		new copyWebpackPlugin([
 			{
 				from: 'public',
-				to: 'assets'
-			}
+				to: 'assets',
+			},
 		]),
 		new CleanWebpackPlugin(),
 		new webpack.DefinePlugin({
-			APPLICATION_CONFIG: JSON.stringify(applicationConfig)
+			APPLICATION_CONFIG: JSON.stringify(applicationConfig),
 		}),
 		new webpack.DefinePlugin({
-			APPLICATION_TEXT: JSON.stringify(applicationText)
+			APPLICATION_TEXT: JSON.stringify(applicationText),
 		}),
 		new MiniCssExtractPlugin({
 			filename: 'css/bundle-[contenthash].css',
-			chunkFilename: 'css/bundle-[contenthash].css'
+			chunkFilename: 'css/bundle-[contenthash].css',
 		}),
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',
 			language: applicationConfig.language,
 			inject: 'body',
-			filename: 'index.html'
+			filename: 'index.html',
 		}),
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',
 			language: applicationConfig.language,
 			inject: 'body',
-			filename: '404.html'
+			filename: '404.html',
 		}),
 		new webpack.BannerPlugin({
 			banner: `Created: ${new Date().toUTCString()}`,
 			raw: false,
-			entryOnly: false
-		})
+			entryOnly: false,
+		}),
 	],
 
 	stats: {
 		children: false,
 		entrypoints: false,
-		modules: false
-	}
-};
+		modules: false,
+	},
+}
