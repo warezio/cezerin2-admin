@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
@@ -76,7 +76,7 @@ const CustomerOrder = ({ order, settings }) => {
 	const states = getOrderStates(order)
 
 	return (
-		<div>
+		<>
 			<Divider />
 			<Link to={`/order/${order.id}`} style={{ textDecoration: 'none' }}>
 				<ListItem
@@ -107,47 +107,41 @@ const CustomerOrder = ({ order, settings }) => {
 					}
 				/>
 			</Link>
-		</div>
+		</>
 	)
 }
 
-export default class CustomerOrders extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			orders: [],
-		}
-	}
+const CustomerOrders = () => {
+	const [oders, setOders] = useState([])
 
-	componentDidMount() {
+	useEffect(() => {
 		api.orders
 			.list({ customer_id: this.props.customerId })
 			.then(({ status, json }) => {
 				this.setState({ orders: json.data })
 			})
+	}, [])
+	const { customerId, settings } = this.props
+	const { orders } = this.state
+
+	let orderItems = []
+	if (orders.length > 0) {
+		orderItems = orders.map((order, index) => (
+			<CustomerOrder key={index} order={order} settings={settings} />
+		))
 	}
 
-	render() {
-		const { customerId, settings } = this.props
-		const { orders } = this.state
-
-		let orderItems = []
-		if (orders.length > 0) {
-			orderItems = orders.map((order, index) => (
-				<CustomerOrder key={index} order={order} settings={settings} />
-			))
-		}
-
-		return (
-			<Paper className="paper-box" zDepth={1}>
-				<div
-					className="blue-title"
-					style={{ paddingLeft: 16, paddingBottom: 16 }}
-				>
-					{messages.customers_orders}
-				</div>
-				<List style={{ padding: 0 }}>{orderItems}</List>
-			</Paper>
-		)
-	}
+	return (
+		<Paper className="paper-box" zDepth={1}>
+			<div
+				className="blue-title"
+				style={{ paddingLeft: 16, paddingBottom: 16 }}
+			>
+				{messages.customers_orders}
+			</div>
+			<List style={{ padding: 0 }}>{orderItems}</List>
+		</Paper>
+	)
 }
+
+export default CustomerOrders

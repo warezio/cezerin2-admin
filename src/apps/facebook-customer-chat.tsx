@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import messages from 'lib/text'
 import api from 'lib/api'
 import TextField from 'material-ui/TextField'
@@ -22,14 +22,11 @@ export const Description = {
 
 const CHAT_CODE = `<div class="fb-customerchat" page_id="PAGE_ID" minimized="IS_MINIMIZED"></div>`
 
-export class App extends React.Component {
-	constructor(props) {
-		super(props)
+export const App = () => {
 		this.state = {
 			pageId: '',
 			minimized: 'false',
 		}
-	}
 
 	handlePageIdChange = (event) => {
 		this.setState({ pageId: event.target.value })
@@ -76,13 +73,10 @@ export class App extends React.Component {
 		})
 	}
 
-	componentDidMount() {
-		this.fetchSettings()
-	}
-
-	render() {
+	useEffect(() => (fetchSettings(),[])
+	
 		return (
-			<div>
+			<>
 				<TextField
 					type="text"
 					fullWidth
@@ -108,7 +102,6 @@ export class App extends React.Component {
 						onClick={this.updateSettings}
 					/>
 				</div>
-			</div>
+			</>
 		)
 	}
-}

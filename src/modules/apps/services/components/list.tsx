@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import messages from 'lib/text'
 import apps from 'src/apps'
@@ -7,12 +7,9 @@ import ServiceItem from './serviceItem'
 import AppItem from './appItem'
 import './style.sass'
 
-class ServicesList extends React.Component {
-	componentDidMount() {
-		this.props.fetchData()
-	}
+const ServicesList = () => {
+	useEffect(() => (props.fetchData()),[])
 
-	render() {
 		const { services, webstoreAuthorized } = this.props
 
 		let serviceItems = null

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 
 import moment from 'moment'
 import messages from 'lib/text'
@@ -12,7 +12,6 @@ import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
 import FileUploader from './fileUploader'
 import './style.sass'
-const { Fragment } = React
 
 const iconButtonElement = (
 	<IconButton touch>
@@ -22,13 +21,10 @@ const iconButtonElement = (
 	</IconButton>
 )
 
-class FileItem extends React.Component {
-	constructor(props) {
-		super(props)
+const FileItem = () => {
 		this.state = {
 			openDelete: false,
 		}
-	}
 
 	showDelete = () => {
 		this.setState({ openDelete: true })
@@ -44,7 +40,6 @@ class FileItem extends React.Component {
 		this.hideDelete()
 	}
 
-	render() {
 		const { file, settings } = this.props
 		const fileName = file.file
 		const fileUrl = `${settings.domain}/${file.file}`
@@ -85,14 +80,10 @@ class FileItem extends React.Component {
 			</div>
 		)
 	}
-}
 
-export default class FileList extends React.Component {
-	componentDidMount() {
-		this.props.onLoad()
-	}
+const FileList = () => {
+	useEffect(() => (props.onLoad(),[])
 
-	render() {
 		const { files, settings, onDelete, onUpload, uploading } = this.props
 		const listItems = files.map((file, index) => (
 			<FileItem
@@ -104,7 +95,7 @@ export default class FileList extends React.Component {
 		))
 
 		return (
-			<Fragment>
+			<>
 				<div className={`${style.head} row row--no-gutter`}>
 					<div className="col-xs-5">{messages.fileName}</div>
 					<div className="col-xs-3">{messages.fileModified}</div>
@@ -115,7 +106,8 @@ export default class FileList extends React.Component {
 					{listItems}
 				</Paper>
 				<FileUploader onUpload={onUpload} uploading={uploading} />
-			</Fragment>
+			</>
 		)
 	}
-}
+
+export default FileList

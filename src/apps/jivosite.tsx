@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import messages from 'lib/text'
 import api from 'lib/api'
 import TextField from 'material-ui/TextField'
@@ -11,12 +11,9 @@ export const Description = {
 	description: `JivoSite – чат для сайта и инструмент для общения с клиентами в социальных сетях, мессенджерах и мобильных приложениях. Зарабатывайте больше, не упуская ни одного обращения.`,
 }
 
-export class App extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			code: '',
-		}
+export const App = () => {
+	this.state = {
+		code: '',
 	}
 
 	handleChange = (event) => {
@@ -49,35 +46,31 @@ export class App extends React.Component {
 		})
 	}
 
-	componentDidMount() {
-		this.fetchSettings()
-	}
+	useEffect(() => fetchSettings(), [])
 
-	render() {
-		return (
-			<div>
-				<div>Введите код JivoSite</div>
+	return (
+		<>
+			<p>Введите код JivoSite</p>
 
-				<TextField
-					type="text"
-					multiLine
-					fullWidth
-					rows={10}
-					value={this.state.code}
-					onChange={this.handleChange}
-					floatingLabelText="Код чата JivoSite"
-					hintText="<!-- BEGIN JIVOSITE CODE {literal} -->..."
+			<TextField
+				type="text"
+				multiLine
+				fullWidth
+				rows={10}
+				value={this.state.code}
+				onChange={this.handleChange}
+				floatingLabelText="Код чата JivoSite"
+				hintText="<!-- BEGIN JIVOSITE CODE {literal} -->..."
+			/>
+
+			<div style={{ textAlign: 'right' }}>
+				<RaisedButton
+					label={messages.save}
+					primary
+					disabled={false}
+					onClick={this.updateSettings}
 				/>
-
-				<div style={{ textAlign: 'right' }}>
-					<RaisedButton
-						label={messages.save}
-						primary
-						disabled={false}
-						onClick={this.updateSettings}
-					/>
-				</div>
 			</div>
-		)
-	}
+		</>
+	)
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 
 import messages from 'lib/text'
 import './style.sass'
@@ -7,16 +7,10 @@ import CustomerSummary from './summary'
 import CustomerOrders from './orders'
 import CustomerAddresses from './addresses'
 
-class CustomerDetails extends React.Component {
-	componentDidMount() {
-		this.props.fetchData()
-	}
+const CustomerDetails= () => {
+	useEffect(() => (props.fetchData(),[])
+	useEffect(() => ( return () => props.clearData(),[])
 
-	componentWillUnmount() {
-		this.props.clearData()
-	}
-
-	render() {
 		const {
 			customer,
 			settings,
@@ -57,6 +51,5 @@ class CustomerDetails extends React.Component {
 			</div>
 		)
 	}
-}
 
 export default CustomerDetails

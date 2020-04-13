@@ -1,19 +1,14 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import ServiceDescription from './description'
 import ServiceSettings from './settings'
 import ServiceActions from './actions'
 import ServiceLogs from './logs'
 import './style.sass'
 
-class ServiceDetails extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			timer: null,
-		}
-	}
+const ServiceDetails = () => {
+		const [timer, setTimer] = useState(null)
 
-	componentDidMount() {
+	useEffect(() => {
 		this.props.fetchData()
 
 		// refresh logs every 5 sec
@@ -25,13 +20,10 @@ class ServiceDetails extends React.Component {
 		}, 5000)
 
 		this.setState({ timer })
-	}
+	},[])
 
-	componentWillUnmount() {
-		clearInterval(this.state.timer)
-	}
+	useEffect(() => {return () => clearInterval(state.timer)},[])
 
-	render() {
 		const {
 			serviceId,
 			service,

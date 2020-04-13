@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import messages from 'lib/text'
 import api from 'lib/api'
 import TextField from 'material-ui/TextField'
@@ -38,13 +38,10 @@ const FACEBOOK_CODE = `<script>
    }(document, 'script', 'facebook-jssdk'));
 </script>`
 
-export class App extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			appId: '',
-			locale: 'en_US',
-		}
+export const App = () => {
+	this.state = {
+		appId: '',
+		locale: 'en_US',
 	}
 
 	handleAppIdChange = (event) => {
@@ -88,42 +85,36 @@ export class App extends React.Component {
 			value: htmlCode,
 		})
 	}
+	useEffect(() => fetchSettings(), [])
 
-	componentDidMount() {
-		this.fetchSettings()
-	}
+	return (
+		<>
+			<p>You can find App ID using the Facebook App Dashboard.</p>
+			<TextField
+				type="text"
+				fullWidth
+				value={this.state.appId}
+				onChange={this.handleAppIdChange}
+				floatingLabelText="App ID"
+			/>
 
-	render() {
-		return (
-			<div>
-				<div>You can find App ID using the Facebook App Dashboard.</div>
+			<TextField
+				type="text"
+				fullWidth
+				value={this.state.locale}
+				onChange={this.handleLocaleChange}
+				floatingLabelText="Locale"
+				hintText="en_US"
+			/>
 
-				<TextField
-					type="text"
-					fullWidth
-					value={this.state.appId}
-					onChange={this.handleAppIdChange}
-					floatingLabelText="App ID"
+			<div style={{ textAlign: 'right' }}>
+				<RaisedButton
+					label={messages.save}
+					primary
+					disabled={false}
+					onClick={this.updateSettings}
 				/>
-
-				<TextField
-					type="text"
-					fullWidth
-					value={this.state.locale}
-					onChange={this.handleLocaleChange}
-					floatingLabelText="Locale"
-					hintText="en_US"
-				/>
-
-				<div style={{ textAlign: 'right' }}>
-					<RaisedButton
-						label={messages.save}
-						primary
-						disabled={false}
-						onClick={this.updateSettings}
-					/>
-				</div>
 			</div>
-		)
-	}
+		</>
+	)
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 
 import messages from 'lib/text'
@@ -30,9 +30,7 @@ import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
 import DrawerMenu from './drawer'
 
-export default class AppBarTop extends React.Component {
-	constructor(props) {
-		super(props)
+const AppBarTop = () => {
 		this.state = { open: false }
 	}
 
@@ -40,7 +38,6 @@ export default class AppBarTop extends React.Component {
 
 	handleClose = () => this.setState({ open: false })
 
-	render() {
 		const {
 			location,
 			productCategoryName,
@@ -677,7 +674,7 @@ export default class AppBarTop extends React.Component {
 		}
 
 		return (
-			<div>
+			<>
 				<AppBar
 					className="appBar"
 					titleStyle={{ fontSize: 18 }}
@@ -690,7 +687,8 @@ export default class AppBarTop extends React.Component {
 					onClose={this.handleClose}
 					currentUrl={pathname}
 				/>
-			</div>
+			</>
 		)
 	}
-}
+
+export default AppBarTop
