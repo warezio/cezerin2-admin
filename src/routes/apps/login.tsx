@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import messages from 'lib/text'
 import CezerinClient from 'cezerin2-client'
 import * as auth from 'lib/webstoreAuth'
@@ -7,9 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 
-export default class LoginForm extends React.Component {
-	constructor(props) {
-		super(props)
+const LoginForm = () => {
 		this.state = {
 			email: localStorage.getItem('webstore_email') || '',
 			isFetching: false,
@@ -49,11 +47,8 @@ export default class LoginForm extends React.Component {
 		})
 	}
 
-	componentWillMount() {
-		auth.checkTokenFromUrl()
-	}
+	useEffect(() => (auth.checkTokenFromUrl(),[])
 
-	render() {
 		const { email, isFetching, emailIsSent, error } = this.state
 
 		let response = null
@@ -107,4 +102,5 @@ export default class LoginForm extends React.Component {
 			</div>
 		)
 	}
-}
+
+export default LoginForm

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import messages from 'lib/text'
 import api from 'lib/api'
 import TextField from 'material-ui/TextField'
@@ -23,37 +23,34 @@ const BING_EXAMPLE = '<meta name="msvalidate.01" content="1234" />'
 const PINTEREST_EXAMPLE = '<meta name="p:domain_verify" content="1234" />'
 const YANDEX_EXAMPLE = '<meta name="yandex-verification" content="1234" />'
 
-export class App extends React.Component {
-	constructor(props) {
-		super(props)
+export const App = () => {
 		this.state = {
 			google: '',
 			bing: '',
 			pinterest: '',
 			yandex: '',
 		}
-	}
 
 	handleGoogleChange = (event) => {
-		this.setState({
+		setState({
 			google: event.target.value,
 		})
 	}
 
 	handleBingChange = (event) => {
-		this.setState({
+		setState({
 			bing: event.target.value,
 		})
 	}
 
 	handlePinterestChange = (event) => {
-		this.setState({
+		setState({
 			pinterest: event.target.value,
 		})
 	}
 
 	handleYandexChange = (event) => {
-		this.setState({
+		setState({
 			yandex: event.target.value,
 		})
 	}
@@ -97,13 +94,10 @@ export class App extends React.Component {
 		})
 	}
 
-	componentDidMount() {
-		this.fetchSettings()
-	}
+	useEffect(() => (fetchSettings(),[])
 
-	render() {
 		return (
-			<div>
+			<>
 				<TextField
 					type="text"
 					value={this.state.google}
@@ -148,7 +142,6 @@ export class App extends React.Component {
 						onClick={this.updateSettings}
 					/>
 				</div>
-			</div>
+			</>
 		)
 	}
-}

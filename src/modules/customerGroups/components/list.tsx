@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import messages from 'lib/text'
 import { List, ListItem } from 'material-ui/List'
@@ -15,12 +15,9 @@ const styles = {
 
 const FolderIcon = <FontIcon className="material-icons">folder</FontIcon>
 
-export default class Groups extends React.Component {
-	componentDidMount() {
-		this.props.onLoad()
-	}
+const Groups = () => {
+	useEffect(() => (props.onLoad())
 
-	render() {
 		const {
 			onSelect,
 			selectedId,
@@ -102,4 +99,5 @@ export default class Groups extends React.Component {
 			</List>
 		)
 	}
-}
+
+export default Groups

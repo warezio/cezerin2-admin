@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 
 import messages from 'lib/text'
 import Paper from 'material-ui/Paper'
@@ -9,20 +9,13 @@ import OrderSummary from './summary'
 import OrderItems from './items'
 import OrderCustomer from './customer'
 
-export default class OrderDetails extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-
-	componentDidMount() {
-		this.props.fetchData()
-	}
+const OrderDetails = () => {
+	useEffect(() => {props.fetchData()},[])
 
 	componentWillUnmount() {
 		this.props.clearData()
 	}
 
-	render() {
 		const {
 			order,
 			settings,
@@ -75,4 +68,5 @@ export default class OrderDetails extends React.Component {
 			</div>
 		)
 	}
-}
+
+export default OrderDetails

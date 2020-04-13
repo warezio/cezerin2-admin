@@ -39,13 +39,10 @@ const iconButtonElement = (
 	</IconButton>
 )
 
-class CustomerAddress extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			openEdit: false,
-			openDelete: false,
-		}
+const CustomerAddress = () => {
+	this.state = {
+		openEdit: false,
+		openDelete: false,
 	}
 
 	showEditForm = () => {
@@ -82,78 +79,72 @@ class CustomerAddress extends React.Component {
 		this.props.onSetDefaultShippingAddress(this.props.address.id)
 	}
 
-	render() {
-		const { address, onUpdateAddress } = this.props
+	const { address, onUpdateAddress } = this.props
 
-		let title = messages.address
-		if (address.default_billing && address.default_shipping) {
-			title = `${messages.shippingAddress} / ${messages.billingAddress}`
-		} else if (address.default_billing) {
-			title = messages.billingAddress
-		} else if (address.default_shipping) {
-			title = messages.shippingAddress
-		}
-
-		return (
-			<Paper className="paper-box" zDepth={1}>
-				<div className={style.innerBox} style={{ paddingTop: 15 }}>
-					<div className="row middle-xs">
-						<div className="col-xs-10">{title}</div>
-						<div className="col-xs-2">
-							<IconMenu iconButtonElement={iconButtonElement}>
-								<MenuItem onClick={this.showEditForm}>
-									{messages.edit}
-								</MenuItem>
-								<MenuItem onClick={this.showDelete}>
-									{messages.actions_delete}
-								</MenuItem>
-								<MenuItem
-									onClick={
-										this.handleSetDefaultBillingAddress
-									}
-									disabled={address.default_billing === true}
-								>
-									{messages.setDefaultBillingAddress}
-								</MenuItem>
-								<MenuItem
-									onClick={
-										this.handleSetDefaultShippingAddress
-									}
-									disabled={address.default_shipping === true}
-								>
-									{messages.setDefaultShippingAddress}
-								</MenuItem>
-							</IconMenu>
-						</div>
-					</div>
-					<Address address={address} />
-					<ConfirmationDialog
-						open={this.state.openDelete}
-						title={messages.actions_delete}
-						description={messages.messages_deleteConfirmation}
-						onSubmit={this.handleDelete}
-						onCancel={this.hideDelete}
-						submitLabel={messages.actions_delete}
-						cancelLabel={messages.cancel}
-					/>
-					<Dialog
-						title={messages.editAddress}
-						modal={false}
-						open={this.state.openEdit}
-						onRequestClose={this.hideEditForm}
-						autoScrollBodyContent
-						contentStyle={{ width: 600 }}
-					>
-						<AddressForm
-							initialValues={address}
-							onCancel={this.hideEditForm}
-							onSubmit={this.handleEditForm}
-						/>
-					</Dialog>
-				</div>
-			</Paper>
-		)
+	let title = messages.address
+	if (address.default_billing && address.default_shipping) {
+		title = `${messages.shippingAddress} / ${messages.billingAddress}`
+	} else if (address.default_billing) {
+		title = messages.billingAddress
+	} else if (address.default_shipping) {
+		title = messages.shippingAddress
 	}
+
+	return (
+		<Paper className="paper-box" zDepth={1}>
+			<div className={style.innerBox} style={{ paddingTop: 15 }}>
+				<div className="row middle-xs">
+					<div className="col-xs-10">{title}</div>
+					<div className="col-xs-2">
+						<IconMenu iconButtonElement={iconButtonElement}>
+							<MenuItem onClick={this.showEditForm}>
+								{messages.edit}
+							</MenuItem>
+							<MenuItem onClick={this.showDelete}>
+								{messages.actions_delete}
+							</MenuItem>
+							<MenuItem
+								onClick={this.handleSetDefaultBillingAddress}
+								disabled={address.default_billing === true}
+							>
+								{messages.setDefaultBillingAddress}
+							</MenuItem>
+							<MenuItem
+								onClick={this.handleSetDefaultShippingAddress}
+								disabled={address.default_shipping === true}
+							>
+								{messages.setDefaultShippingAddress}
+							</MenuItem>
+						</IconMenu>
+					</div>
+				</div>
+				<Address address={address} />
+				<ConfirmationDialog
+					open={this.state.openDelete}
+					title={messages.actions_delete}
+					description={messages.messages_deleteConfirmation}
+					onSubmit={this.handleDelete}
+					onCancel={this.hideDelete}
+					submitLabel={messages.actions_delete}
+					cancelLabel={messages.cancel}
+				/>
+				<Dialog
+					title={messages.editAddress}
+					modal={false}
+					open={this.state.openEdit}
+					onRequestClose={this.hideEditForm}
+					autoScrollBodyContent
+					contentStyle={{ width: 600 }}
+				>
+					<AddressForm
+						initialValues={address}
+						onCancel={this.hideEditForm}
+						onSubmit={this.handleEditForm}
+					/>
+				</Dialog>
+			</div>
+		</Paper>
+	)
 }
 
 const CustomerAddresses = ({
