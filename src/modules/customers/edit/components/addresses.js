@@ -9,7 +9,7 @@ import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
 import AddressForm from './addressForm.js';
 import style from './style.css';
 
@@ -136,11 +136,13 @@ class CustomerAddress extends React.Component {
 						autoScrollBodyContent
 						contentStyle={{ width: 600 }}
 					>
-						<AddressForm
-							initialValues={address}
-							onCancel={this.hideEditForm}
-							onSubmit={this.handleEditForm}
-						/>
+						<div style={{width:"500px", margin:"25px"}} >
+							<AddressForm
+								initialValues={address}
+								onCancel={this.hideEditForm}
+								onSubmit={this.handleEditForm}
+							/>
+						</div>
 					</Dialog>
 				</div>
 			</Paper>

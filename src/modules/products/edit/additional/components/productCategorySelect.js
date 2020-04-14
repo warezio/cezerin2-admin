@@ -3,7 +3,7 @@ import { Field, FieldArray, reduxForm } from 'redux-form';
 import messages from 'lib/text';
 import CategorySelect from 'modules/productCategories/select';
 import FontIcon from 'material-ui/FontIcon';
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import style from './style.css';

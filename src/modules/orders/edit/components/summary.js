@@ -7,7 +7,7 @@ import * as helper from 'lib/helper';
 
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
 import SummaryForm from './summaryForm.js';
 import style from './style.css';
 
@@ -204,13 +204,16 @@ export default class OrderSummary extends React.Component {
 						open={this.state.openSummaryEdit}
 						onRequestClose={this.hideSummaryEdit}
 						autoScrollBodyContent
+						maxWidth="md"
 						contentStyle={{ width: 600 }}
 					>
-						<SummaryForm
-							initialValues={order}
-							onCancel={this.hideSummaryEdit}
-							onSubmit={this.saveSummaryEdit}
-						/>
+						<div style={{width:"500px", margin:"25px"}} >
+							<SummaryForm
+								initialValues={order}
+								onCancel={this.hideSummaryEdit}
+								onSubmit={this.saveSummaryEdit}
+							/>
+						</div>
 					</Dialog>
 				</div>
 			</Paper>

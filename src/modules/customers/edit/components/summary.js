@@ -14,7 +14,7 @@ import FontIcon from 'material-ui/FontIcon';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
 import SummaryForm from './summaryForm.js';
 import style from './style.css';
 
@@ -103,11 +103,13 @@ export default class CustomerSummary extends React.Component {
 						onRequestClose={this.hideSummaryEdit}
 						contentStyle={{ width: 600 }}
 					>
-						<SummaryForm
-							initialValues={customer}
-							onCancel={this.hideSummaryEdit}
-							onSubmit={this.saveSummaryEdit}
-						/>
+						<div style={{width:"500px", margin:"25px"}} >
+							<SummaryForm
+								initialValues={customer}
+								onCancel={this.hideSummaryEdit}
+								onSubmit={this.saveSummaryEdit}
+							/>
+						</div>
 					</Dialog>
 				</div>
 			</Paper>

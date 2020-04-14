@@ -12,7 +12,7 @@ import FontIcon from 'material-ui/FontIcon';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
 import style from './style.css';
 
 const iconButtonElement = (
@@ -272,7 +272,7 @@ export class OrderItem extends React.Component {
 					onRequestClose={this.hideEditForm}
 					contentStyle={{ width: 400 }}
 				>
-					<div>
+					<div style={{width:"400px", margin:"25px"}} >
 						<ProductOptions
 							options={productOptions}
 							onChange={this.onOptionChange}

@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form';
 
 import messages from 'lib/text';
 
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import style from './style.css';
@@ -59,27 +59,29 @@ class EditPaymentGatewayForm extends React.Component {
 						contentStyle={{ width: 600 }}
 						onRequestClose={this.handleClose}
 					>
-						<form
-							onSubmit={handleSubmit}
-							style={{ display: 'initial', width: '100%' }}
-						>
-							<GatewaySettings gateway={this.props.gateway} />
+						<div style={{width:"500px", margin:"25px"}} >
+							<form
+								onSubmit={handleSubmit}
+								style={{ display: 'initial', width: '100%' }}
+							>
+								<GatewaySettings gateway={this.props.gateway} />
 
-							<div className={style.buttons}>
-								<FlatButton
-									label={messages.cancel}
-									onClick={this.handleClose}
-								/>
-								<FlatButton
-									label={messages.save}
-									primary
-									type="submit"
-									onClick={this.handleClose}
-									style={{ marginLeft: 12 }}
-									disabled={pristine || submitting}
-								/>
-							</div>
-						</form>
+								<div className={style.buttons}>
+									<FlatButton
+										label={messages.cancel}
+										onClick={this.handleClose}
+									/>
+									<FlatButton
+										label={messages.save}
+										primary
+										type="submit"
+										onClick={this.handleClose}
+										style={{ marginLeft: 12 }}
+										disabled={pristine || submitting}
+									/>
+								</div>
+							</form>
+						</div>
 					</Dialog>
 				</div>
 			);
