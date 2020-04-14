@@ -4,7 +4,7 @@ import messages from 'lib/text';
 import api from 'lib/api';
 import * as helper from 'lib/helper';
 
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import {

@@ -8,7 +8,7 @@ import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
 import ShippingAddressForm from './shippingAddressForm.js';
 import style from './style.css';
 
@@ -226,12 +226,14 @@ export default class OrderCustomer extends React.Component {
 							autoScrollBodyContent
 							contentStyle={{ width: 600 }}
 						>
-							<ShippingAddressForm
-								initialValues={order.shipping_address}
-								onCancel={this.hideShippingEdit}
-								onSubmit={this.saveShippingEdit}
-								shippingMethod={order.shipping_method_details}
-							/>
+							<div style={{width:"500px", margin:"25px"}} >
+								<ShippingAddressForm
+									initialValues={order.shipping_address}
+									onCancel={this.hideShippingEdit}
+									onSubmit={this.saveShippingEdit}
+									shippingMethod={order.shipping_method_details}
+								/>
+							</div>
 						</Dialog>
 					</div>
 				</Paper>
