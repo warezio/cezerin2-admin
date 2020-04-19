@@ -4,6 +4,7 @@ import messages from 'lib/text';
 import CategoryMultiselect from 'modules/productCategories/components/multiselectList';
 import FontIcon from 'material-ui/FontIcon';
 import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import style from './style.css';
@@ -64,20 +65,6 @@ export default class ProductCategoryMultiSelect extends React.Component {
 		const { open } = this.state;
 		const selectedIds = fields.getAll();
 
-		const dialogButtons = [
-			<FlatButton
-				label={messages.cancel}
-				onClick={this.close}
-				style={{ marginRight: 10 }}
-			/>,
-			<FlatButton
-				label={messages.save}
-				primary
-				keyboardFocused
-				onClick={this.close}
-			/>
-		];
-
 		return (
 			<div className="react-tagsinput">
 				<span>
@@ -98,7 +85,6 @@ export default class ProductCategoryMultiSelect extends React.Component {
 					})}
 					<Dialog
 						title={messages.additionalCategories}
-						actions={dialogButtons}
 						modal={false}
 						open={open}
 						onRequestClose={this.close}
@@ -110,6 +96,19 @@ export default class ProductCategoryMultiSelect extends React.Component {
 							opened={false}
 							onCheck={this.handleCheck}
 						/>
+						<DialogActions>
+							<FlatButton
+								label={messages.cancel}
+								onClick={this.close}
+								style={{ marginRight: 10 }}
+							/>
+							<FlatButton
+								label={messages.save}
+								primary
+								keyboardFocused
+								onClick={this.close}
+							/>
+						</DialogActions>
 					</Dialog>
 					<FlatButton
 						style={{ minWidth: 52 }}

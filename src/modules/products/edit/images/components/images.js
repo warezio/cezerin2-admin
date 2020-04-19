@@ -4,6 +4,7 @@ import Gallery from 'modules/shared/imageUploadMultiple';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
 import FlatButton from 'material-ui/FlatButton';
 
 export default class ProductImages extends React.Component {
@@ -52,20 +53,6 @@ export default class ProductImages extends React.Component {
 		const { openEdit, imageData } = this.state;
 		const alt = imageData ? imageData.alt : '';
 
-		const dialogButtons = [
-			<FlatButton
-				label={messages.cancel}
-				onClick={this.closeEdit}
-				style={{ marginRight: 10 }}
-			/>,
-			<FlatButton
-				label={messages.save}
-				primary
-				keyboardFocused
-				onClick={this.handleEditSave}
-			/>
-		];
-
 		return (
 			<Paper className="paper-box" zDepth={1}>
 				<div style={{ padding: '10px 10px 30px 10px' }}>
@@ -81,7 +68,6 @@ export default class ProductImages extends React.Component {
 					<Dialog
 						contentStyle={{ maxWidth: 540 }}
 						title={messages.edit}
-						actions={dialogButtons}
 						modal={false}
 						open={openEdit}
 						onRequestClose={this.closeEdit}
@@ -95,6 +81,19 @@ export default class ProductImages extends React.Component {
 								onChange={this.handleAltChange}
 							/>
 						</div>
+						<DialogActions>
+							<FlatButton
+								label={messages.cancel}
+								onClick={this.closeEdit}
+								style={{ marginRight: 10 }}
+							/>
+							<FlatButton
+								label={messages.save}
+								primary
+								keyboardFocused
+								onClick={this.handleEditSave}
+							/>
+						</DialogActions>
 					</Dialog>
 				</div>
 			</Paper>

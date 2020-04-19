@@ -13,6 +13,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
 import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
 import style from './style.css';
 
 const iconButtonElement = (
@@ -172,16 +173,6 @@ export class OrderItem extends React.Component {
 
 	render() {
 		const { item, settings, allowEdit } = this.props;
-
-		const editFormActions = [
-			<FlatButton
-				label={messages.cancel}
-				onClick={this.hideEditForm}
-				style={{ marginRight: 10 }}
-			/>,
-			<FlatButton label={messages.save} primary onClick={this.submitEditForm} />
-		];
-
 		let { quantity } = this.state;
 		const { selectedOptions, selectedVariant } = this.state;
 		const { product } = item;
@@ -266,7 +257,6 @@ export class OrderItem extends React.Component {
 				<Divider />
 				<Dialog
 					title={messages.editOrderItem}
-					actions={editFormActions}
 					modal={false}
 					open={this.state.showEdit}
 					onRequestClose={this.hideEditForm}
@@ -287,6 +277,18 @@ export class OrderItem extends React.Component {
 							{quantityItems}
 						</SelectField>
 					</div>
+					<DialogActions>
+						<FlatButton
+							label={messages.cancel}
+							onClick={this.hideEditForm}
+							style={{ marginRight: 10 }}
+						/>
+						<FlatButton
+							label={messages.save}
+							primary
+							onClick={this.submitEditForm}
+						/>
+					</DialogActions>
 				</Dialog>
 			</div>
 		);
