@@ -7,6 +7,7 @@ import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
 import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 const { Fragment } = React;
@@ -58,20 +59,6 @@ export default class Buttons extends React.Component {
 				? selected.name
 				: 'Draft';
 
-		const actionsMoveTo = [
-			<FlatButton
-				label={messages.cancel}
-				onClick={this.closeMoveTo}
-				style={{ marginRight: 10 }}
-			/>,
-			<FlatButton
-				label={messages.actions_moveHere}
-				primary
-				keyboardFocused
-				onClick={this.saveMoveTo}
-			/>
-		];
-
 		return (
 			<span>
 				{selected && (
@@ -118,7 +105,6 @@ export default class Buttons extends React.Component {
 						</IconButton>
 						<Dialog
 							title={messages.actions_moveTo}
-							actions={actionsMoveTo}
 							modal={false}
 							open={this.state.openMoveTo}
 							onRequestClose={this.closeMoveTo}
@@ -130,6 +116,19 @@ export default class Buttons extends React.Component {
 								showRoot
 								showAll={false}
 							/>
+							<DialogActions>
+								<FlatButton
+									label={messages.cancel}
+									onClick={this.closeMoveTo}
+									style={{ marginRight: 10 }}
+								/>
+								<FlatButton
+									label={messages.actions_moveHere}
+									primary
+									keyboardFocused
+									onClick={this.saveMoveTo}
+								/>
+							</DialogActions>
 						</Dialog>
 						<DeleteConfirmation
 							open={this.state.openDelete}
