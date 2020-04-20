@@ -11,7 +11,7 @@ import {
 } from '../actions'
 import Buttons from './components/buttons'
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
 	search: state.customers.search,
 	selectedCount: state.customers.selected.length,
 })

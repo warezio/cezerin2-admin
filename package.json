@@ -13,10 +13,8 @@
     ],
     "homepage": "https://cezerin.org",
     "bugs": "https://github.com/cezerin2/cezerin2-admin/issues",
-    "license": "MIT",
-    "author": {
-        "name": "Restmount <jsonmount@gmail.com>"
-    },
+    "license": "UNLICENSE",
+    "author": "Himadu Sirimanna <himadusirimanna.1@gmail.com>",
     "repository": {
         "type": "git",
         "url": "https://github.com/cezerin2/cezerin2-admin"

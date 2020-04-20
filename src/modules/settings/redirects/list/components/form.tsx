@@ -7,7 +7,7 @@ import FontIcon from 'material-ui/FontIcon'
 import { List, ListItem } from 'material-ui/List'
 
 const RedirectItem = ({ redirect }) => (
-	<div>
+	<>
 		<Divider />
 		<Link
 			to={`/settings/redirects/${redirect.id}`}
@@ -33,10 +33,10 @@ const RedirectItem = ({ redirect }) => (
 				}
 			/>
 		</Link>
-	</div>
+	</>
 )
 
-export default class RedirectsList extends React.Component {
+class RedirectsList extends React.Component {
 	constructor(props) {
 		super(props)
 	}
@@ -52,7 +52,7 @@ export default class RedirectsList extends React.Component {
 		))
 
 		return (
-			<div>
+			<>
 				<div style={{ margin: 20, color: 'rgba(0, 0, 0, 0.52)' }}>
 					{messages.redirectsAbout}
 				</div>
@@ -61,7 +61,8 @@ export default class RedirectsList extends React.Component {
 						<List style={{ padding: 0 }}>{listItems}</List>
 					</div>
 				</Paper>
-			</div>
+			</>
 		)
 	}
 }
+export default RedirectsList
