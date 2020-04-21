@@ -1,10 +1,9 @@
-import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { fetchOrders, setFilter, deleteOrders, createOrder } from '../actions'
 import Buttons from './components/buttons'
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
 	search: state.orders.filter.search,
 	selectedCount: state.orders.selected.length,
 })

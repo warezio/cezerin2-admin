@@ -1,18 +1,18 @@
-import '../public/css/flexboxgrid.min.css'
-import '../public/css/style.css'
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 
-import { fetchSettings } from 'modules/settings/actions'
-import settings from 'lib/settings'
-import * as auth from 'lib/auth'
-import { connectToWebSocket } from 'lib/apiWebSocket'
+import { fetchSettings } from './modules/settings/actions'
+import settings from './lib/settings'
+import * as auth from './lib/auth'
+import { connectToWebSocket } from './lib/apiWebSocket'
 import reducers from './rootReducer'
 import App from './app'
+
+import '../public/css/flexboxgrid.min.css'
+import '../public/css/style.css'
 
 const DEVELOPER_MODE = settings.developerMode === true
 if (DEVELOPER_MODE === false) {
