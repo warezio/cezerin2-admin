@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
-import messages from 'lib/text'
+import messages from '../../lib/text'
 import CezerinClient from 'cezerin2-client'
-import * as auth from 'lib/webstoreAuth'
+import * as auth from '../../lib/webstoreAuth'
 
 import RaisedButton from 'material-ui/RaisedButton'
 import Paper from 'material-ui/Paper'
@@ -13,7 +13,7 @@ const LoginForm = () => {
 	const[emailIsSent,setEmailIsSent]=useState(false)
 	const[error,setError]=useState(null)
 
-	const handleChange = (event) => {setEmail(event.target.value)}
+	const handleChange = (event) => setEmail(event.target.value)
 
 	const handleKeyPress = (e) => {
 		if (e.keyCode === 13 || e.which === 13) {
@@ -37,7 +37,7 @@ const LoginForm = () => {
 				setError (status !== 200 && json ? json.message : null)
 		})
 	}
-	useEffect(() => (auth.checkTokenFromUrl(),[])
+	useEffect(() => auth.checkTokenFromUrl(),[])
 		let response = null
 		if (isFetching) {
 			response = (
