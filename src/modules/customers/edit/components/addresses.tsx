@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import messages from 'lib/text'
-import * as helper from 'lib/helper'
-import ConfirmationDialog from 'modules/shared/confirmation'
+import messages from '../../../../lib/text'
+import ConfirmationDialog from '../../../../modules/shared/confirmation'
 
 import Paper from 'material-ui/Paper'
 import IconButton from 'material-ui/IconButton'
@@ -14,20 +13,20 @@ import AddressForm from './addressForm.js'
 import './style.sass'
 
 const Address = ({ address }) => (
-	<div className={style.address}>
-		<div>{address.full_name}</div>
-		<div>{address.company}</div>
-		<div>{address.address1}</div>
-		<div>{address.address2}</div>
-		<div>
+	<div className="address">
+		{address.full_name}
+		{address.company}
+		{address.address1}
+		{address.address2}
+		<>
 			{address.city},{' '}
 			{address.state && address.state.length > 0
 				? `${address.state}, `
 				: ''}
 			{address.postal_code}
-		</div>
-		<div>{address.country}</div>
-		<div>{address.phone}</div>
+		</>
+		{address.country}
+		{address.phone}
 	</div>
 )
 
@@ -39,43 +38,41 @@ const iconButtonElement = (
 	</IconButton>
 )
 
-const CustomerAddress = () => {
-	this.state = {
-		openEdit: false,
-		openDelete: false,
-	}
+const CustomerAddress = (props) => {
+	const [openEdit, setOpenEdit] = useState(false)
+	const [openDelete, setOpenDelete] = useState(false)
 
-	showEditForm = () => {
+	const showEditForm = () => {
 		this.setState({ openEdit: true })
 	}
 
-	hideEditForm = () => {
+	const hideEditForm = () => {
 		this.setState({ openEdit: false })
 	}
 
-	handleEditForm = (address) => {
+	const handleEditForm = (address) => {
 		this.props.onUpdateAddress(address)
 		this.hideEditForm()
 	}
 
-	showDelete = () => {
+	const showDelete = () => {
 		this.setState({ openDelete: true })
 	}
 
-	hideDelete = () => {
+	const hideDelete = () => {
 		this.setState({ openDelete: false })
 	}
 
-	handleDelete = () => {
+	const handleDelete = () => {
 		this.props.onDeleteAddress(this.props.address.id)
 		this.hideDelete()
 	}
 
-	handleSetDefaultBillingAddress = () => {
+	const handleSetDefaultBillingAddress = () => {
 		this.props.onSetDefaultBillingAddress(this.props.address.id)
 	}
 
-	handleSetDefaultShippingAddress = () => {
+	const handleSetDefaultShippingAddress = () => {
 		this.props.onSetDefaultShippingAddress(this.props.address.id)
 	}
 
