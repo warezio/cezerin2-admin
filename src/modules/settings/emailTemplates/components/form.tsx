@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { TextField } from 'redux-form-material-ui'
 
@@ -6,15 +6,11 @@ import messages from 'lib/text'
 
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 
-class EmailTemplate extends React.Component {
-	componentDidMount() {
-		this.props.onLoad()
-	}
-
-	render() {
-		const { handleSubmit, pristine, submitting, initialValues } = this.props
+const EmailTemplate = (props) => { 
+	useEffect(()=>props.onLoad(),[])
+		const { handleSubmit, pristine, submitting } = props
 
 		return (
 			<form
@@ -25,8 +21,7 @@ class EmailTemplate extends React.Component {
 				}}
 			>
 				<Paper className="paper-box" zDepth={1}>
-					<div className={style.innerBox}>
-						<div>
+					<div className="innerBox">
 							<Field
 								component={TextField}
 								fullWidth
@@ -35,8 +30,6 @@ class EmailTemplate extends React.Component {
 									messages.settings_emailSubject
 								}
 							/>
-						</div>
-						<div>
 							<Field
 								component={TextField}
 								fullWidth
@@ -44,14 +37,13 @@ class EmailTemplate extends React.Component {
 								multiLine
 								floatingLabelText={messages.settings_emailBody}
 							/>
-						</div>
 					</div>
 					<div className="buttons-box">
 						<RaisedButton
 							type="submit"
 							label={messages.save}
 							primary
-							className={style.button}
+							className="button"
 							disabled={pristine || submitting}
 						/>
 					</div>

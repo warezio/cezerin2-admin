@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { TextField, SelectField } from 'redux-form-material-ui'
 
@@ -11,8 +11,7 @@ import Paper from 'material-ui/Paper'
 import Divider from 'material-ui/Divider'
 import RaisedButton from 'material-ui/RaisedButton'
 import MenuItem from 'material-ui/MenuItem'
-import Checkbox from 'material-ui/Checkbox'
-import style from './style.css'
+import './style.sass'
 import SelectShippingMethodsField from './selectShipping.js'
 
 const validate = (values) => {
@@ -28,33 +27,19 @@ const validate = (values) => {
 	return errors
 }
 
-class EditPaymentMethodForm extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			gateway: null,
-		}
-	}
+const EditPaymentMethodForm = () => {
+	const[gateway,setGateway]=useState(null)
 
-	componentDidMount() {
-		this.props.onLoad()
-	}
+	useEffect(() => (props.onLoad()),[])
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.initialValues !== this.props.initialValues) {
-			this.setState({
-				gateway: nextProps.initialValues.gateway,
-			})
+			setGateway(nextProps.initialValues.gateway)
 		}
 	}
 
-	onGatewayChange = (gateway) => {
-		this.setState({
-			gateway,
-		})
-	}
+	onGatewayChange = (gateway) => 	setGateway(gateway)
 
-	render() {
 		const {
 			handleSubmit,
 			pristine,
@@ -63,7 +48,7 @@ class EditPaymentMethodForm extends React.Component {
 			shippingMethods,
 			methodId,
 			settings,
-		} = this.props
+		} = props
 		const isAdd = methodId === null || methodId === undefined
 		const paymentGateways = []
 		paymentGateways.push(
@@ -105,13 +90,13 @@ class EditPaymentMethodForm extends React.Component {
 											currentValue,
 											prevValue
 										) => {
-											this.onGatewayChange(currentValue)
+											onGatewayChange(currentValue)
 										}}
 									>
 										{paymentGateways}
 									</Field>
 								</div>
-								<PaymentGateway gateway={this.state.gateway} />
+								<PaymentGateway gateway={gateway} />
 							</div>
 						</div>
 
@@ -213,7 +198,7 @@ class EditPaymentMethodForm extends React.Component {
 							type="submit"
 							label={isAdd ? messages.add : messages.save}
 							primary
-							className={style.button}
+							className="button"
 							disabled={pristine || submitting}
 						/>
 					</div>
@@ -221,7 +206,6 @@ class EditPaymentMethodForm extends React.Component {
 			</form>
 		)
 	}
-}
 
 export default reduxForm({
 	form: 'EditPaymentMethodForm',

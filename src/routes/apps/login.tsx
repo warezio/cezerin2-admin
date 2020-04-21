@@ -8,49 +8,36 @@ import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 
 const LoginForm = () => {
-		this.state = {
-			email: localStorage.getItem('webstore_email') || '',
-			isFetching: false,
-			emailIsSent: false,
-			error: null,
-		}
-	}
+	const[email,setEmail]=useState(localStorage.getItem('webstore_email') || '')
+	const[isFetching,setIsFetching]=useState(false)
+	const[emailIsSent,setEmailIsSent]=useState(false)
+	const[error,setError]=useState(null)
 
-	handleChange = (event) => {
-		this.setState({
-			email: event.target.value,
-		})
-	}
+	const handleChange = (event) => {setEmail(event.target.value)}
 
-	handleKeyPress = (e) => {
+	const handleKeyPress = (e) => {
 		if (e.keyCode === 13 || e.which === 13) {
-			this.handleSubmit()
+			handleSubmit()
 		}
 	}
 
-	handleSubmit = () => {
-		this.setState({
-			isFetching: true,
-			emailIsSent: false,
-			error: null,
-		})
+	const handleSubmit = () => {		
+			setIsFetching (true)
+			setEmailIsSent (false)
+			setError (null)
+		}
 
 		CezerinClient.authorizeInWebStore(
-			this.state.email,
+			email,
 			`${location.origin}/admin`
 		).then(({ status, json }) => {
-			this.setState({
-				isFetching: false,
-				emailIsSent: status === 200,
-				error: status !== 200 && json ? json.message : null,
-			})
+		
+				setIsFetching (false)
+				setEmailIsSent (status === 200)
+				setError (status !== 200 && json ? json.message : null)
 		})
 	}
-
 	useEffect(() => (auth.checkTokenFromUrl(),[])
-
-		const { email, isFetching, emailIsSent, error } = this.state
-
 		let response = null
 		if (isFetching) {
 			response = (

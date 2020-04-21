@@ -1,16 +1,14 @@
-import React from 'react'
-import messages from 'lib/text'
+import React,{useState,useEffect} from 'react'
+import messages from '../lib/text'
 import CezerinClient from 'cezerin2-client'
-import settings from 'lib/settings'
-import * as auth from 'lib/auth'
+import settings from '../lib/settings'
+import * as auth from '../lib/auth'
 
 import RaisedButton from 'material-ui/RaisedButton'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 
-export default class LoginForm extends React.Component {
-	constructor(props) {
-		super(props)
+const LoginForm = () => {
 		this.state = {
 			email: localStorage.getItem('dashboard_email') || '',
 			isFetching: false,
@@ -21,19 +19,19 @@ export default class LoginForm extends React.Component {
 	}
 
 	handleChange = (event) => {
-		this.setState({
+		setState({
 			email: event.target.value,
 		})
 	}
 
 	handleKeyPress = (e) => {
 		if (e.keyCode === 13 || e.which === 13) {
-			this.handleSubmit()
+			handleSubmit()
 		}
 	}
 
 	handleSubmit = () => {
-		this.setState({
+		setState({
 			isFetching: true,
 			isAuthorized: false,
 			emailIsSent: false,
@@ -58,22 +56,10 @@ export default class LoginForm extends React.Component {
 				})
 			})
 	}
-
+useEffect(()=>
 	componentWillMount() {
 		auth.checkTokenFromUrl()
-	}
-
-	componentDidMount() {}
-
-	render() {
-		const {
-			email,
-			isFetching,
-			isAuthorized,
-			emailIsSent,
-			error,
-		} = this.state
-
+	})
 		let response = null
 		if (isFetching) {
 			response = (
@@ -123,4 +109,5 @@ export default class LoginForm extends React.Component {
 			</div>
 		)
 	}
-}
+
+export default LoginForm

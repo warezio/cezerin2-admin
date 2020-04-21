@@ -44,7 +44,7 @@ const WebhookItem = ({ webhook }) => {
 	)
 }
 
-export default class WebhooksList extends React.Component {
+class WebhooksList extends React.Component {
 	componentDidMount() {
 		this.props.onLoad()
 	}
@@ -69,3 +69,4 @@ export default class WebhooksList extends React.Component {
 		)
 	}
 }
+export default WebhooksList
