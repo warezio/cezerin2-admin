@@ -1,12 +1,9 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { TextField, SelectField } from 'redux-form-material-ui'
+import { TextField } from 'redux-form-material-ui'
 
-import { CustomToggle } from 'modules/shared/form'
-import messages from 'lib/text'
+import messages from '../../../../lib/text'
 
-import Divider from 'material-ui/Divider'
-import RaisedButton from 'material-ui/RaisedButton'
 import FlatButton from 'material-ui/FlatButton'
 import './style.sass'
 
