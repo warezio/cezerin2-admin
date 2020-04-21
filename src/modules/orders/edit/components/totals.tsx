@@ -1,10 +1,8 @@
 import React from 'react'
 
-import messages from 'lib/text'
-import * as helper from 'lib/helper'
+import messages from '../../../../lib/text'
+import * as helper from '../../../../lib/helper'
 
-import FlatButton from 'material-ui/FlatButton'
-import RaisedButton from 'material-ui/RaisedButton'
 import Divider from 'material-ui/Divider'
 import './style.sass'
 
@@ -39,26 +37,26 @@ const OrderTotals = ({ order, settings }) => {
 	const paidTotal = helper.formatCurrency(transactionsTotal, settings)
 
 	return (
-		<div>
-			<div className={`${style.total} row`}>
+		<>
+			<div className="total row">
 				<div className="col-xs-7">
 					<span>{messages.orderSubtotal}</span>
 				</div>
 				<div className="col-xs-5">{subtotal}</div>
 			</div>
-			<div className={`${style.total} row`}>
+			<div className="total row">
 				<div className="col-xs-7">
 					<span>{messages.orderShipping}</span>
 				</div>
 				<div className="col-xs-5">{shippingTotal}</div>
 			</div>
-			<div className={`${style.total} row`}>
+			<div className="total row">
 				<div className="col-xs-7">
 					<span>{messages.orderTax}</span>
 				</div>
 				<div className="col-xs-5">{taxIncludedTotal}</div>
 			</div>
-			<div className={`${style.total} row`}>
+			<div className="total row">
 				<div className="col-xs-7">
 					<span>
 						{messages.orderDiscount}
@@ -67,7 +65,7 @@ const OrderTotals = ({ order, settings }) => {
 				</div>
 				<div className="col-xs-5">{discountTotal}</div>
 			</div>
-			<div className={`${style.total} row ${style.grandTotal}`}>
+			<div className="total row grandTotal">
 				<div className="col-xs-7">{messages.grandTotal}</div>
 				<div className="col-xs-5">{grandTotal}</div>
 			</div>
@@ -79,13 +77,13 @@ const OrderTotals = ({ order, settings }) => {
 				}}
 			/>
 
-			<div className={`${style.total} row`}>
+			<div className="total row">
 				<div className="col-xs-7">
 					<span>{messages.amountPaid}</span>
 				</div>
 				<div className="col-xs-5">{paidTotal}</div>
 			</div>
-		</div>
+		</>
 	)
 }
 

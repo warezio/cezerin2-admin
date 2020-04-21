@@ -11,7 +11,7 @@ import {
 } from '../actions'
 import OrderDetails from './components/details'
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
 	settings: state.settings.settings,
 	order: state.orders.editOrder,
 	processingCheckout: state.orders.processingCheckout,

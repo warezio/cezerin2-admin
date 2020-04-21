@@ -28,7 +28,7 @@ const Buttons = (props) => {
 		props.setClosed(props.order.id)
 	}
 
-	const showCancel = () => {
+	const showCanceled = () => {
 		setShowCancel(true)
 	}
 
@@ -122,7 +122,7 @@ const Buttons = (props) => {
 				<MenuItem
 					key="cancel"
 					primaryText={messages.cancelOrder}
-					onClick={showCancel}
+					onClick={showCanceled}
 				/>
 			)
 		}
@@ -150,7 +150,7 @@ const Buttons = (props) => {
 				/>
 
 				<ConfirmationDialog
-					open={showCancel}
+					open={showCanceled}
 					title={orderName}
 					description={messages.cancelOrderConfirmation}
 					onSubmit={setCancelled}
