@@ -57,7 +57,7 @@ export class MultiSelect extends React.Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
+	useEffect([prop.count](nextProps) {
 		const values = Array.isArray(nextProps.input.value)
 			? nextProps.input.value
 			: []

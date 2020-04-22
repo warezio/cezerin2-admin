@@ -11,7 +11,7 @@ import DynamicEditControl from './dynamicEditControl'
 import style from './style.css'
 
 class ThemeSettings extends React.Component {
-	componentDidMount() {
+	useEffect(,[]() {
 		props.onLoad()
 	}
 

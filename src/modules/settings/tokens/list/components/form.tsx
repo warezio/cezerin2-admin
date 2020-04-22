@@ -36,7 +36,7 @@ const TokenItem = ({ token }) => (
 )
 
 export default class TokensList extends React.Component {
-	componentDidMount() {
+	useEffect(,[]() {
 		props.onLoad()
 	}
 

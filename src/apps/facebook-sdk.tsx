@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import messages from 'lib/text'
-import api from 'lib/api'
+import messages from './../lib/text'
+import api from './../lib/api'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
@@ -39,29 +39,25 @@ const FACEBOOK_CODE = `<script>
 </script>`
 
 export const App = () => {
-	state = {
-		appId: '',
-		locale: 'en_US',
-	}
+		const [appID,setAppID]=useState('')
+		const [locale,setLocale] =('en_US')
 
 	const handleAppIdChange = (event) => {
-		setState({ appId: event.target.value })
+		setAppID(event.target.value)
 	}
 
 	const handleLocaleChange = (event) => {
-		setState({ locale: event.target.value })
+		setLocale(event.target.value )
 	}
 
 	const fetchSettings = () => {
 		api.apps.settings
 			.retrieve('facebook-sdk')
-			.then(({ status, json }) => {
+			.then(({ json }) => {
 				const appSettings = json
 				if (appSettings) {
-					setState({
-						appId: appSettings.appId,
-						locale: appSettings.locale,
-					})
+						setAppId: appSettings.appId,
+						setLocale: appSettings.locale,
 				}
 			})
 			.catch((error) => {

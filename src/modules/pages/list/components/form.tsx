@@ -45,7 +45,7 @@ const PageItem = ({ page }) => {
 }
 
 export default class PagesList extends React.Component {
-	componentDidMount() {
+	useEffect(,[]() {
 		props.onLoad()
 	}
 

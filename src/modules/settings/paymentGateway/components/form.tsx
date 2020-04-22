@@ -18,11 +18,11 @@ class EditPaymentGatewayForm extends React.Component {
 		}
 	}
 
-	componentDidMount() {
+	useEffect(,[]() {
 		props.onLoad()
 	}
 
-	componentWillReceiveProps(nextProps) {
+	useEffect([prop.count](nextProps) {
 		if (nextProps.gateway !== props.gateway) {
 			props.onLoad(nextProps.gateway)
 		}

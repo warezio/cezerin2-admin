@@ -24,7 +24,7 @@ export default class ImageUpload extends React.Component {
 		props.onDelete()
 	}
 
-	componentWillReceiveProps(nextProps) {
+	useEffect([prop.count](nextProps) {
 		setState({
 			imagePreview: nextProps.imageUrl,
 		})

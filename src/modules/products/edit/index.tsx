@@ -14,11 +14,11 @@ import { fetchCategoriesIfNeeded } from 'modules/productCategories/actions'
 import { fetchProduct, cancelProductEdit } from '../actions'
 
 class ProductEditContainer extends React.Component {
-	componentDidMount() {
+	useEffect(,[]() {
 		props.fetchData()
 	}
 
-	componentWillUnmount() {
+	useEffect(return,[]() {
 		props.eraseData()
 	}
 

@@ -31,7 +31,7 @@ class ProductOptionForm extends React.Component {
 		super(props)
 	}
 
-	componentDidMount() {
+	useEffect(,[]() {
 		props.fetchData()
 	}
 

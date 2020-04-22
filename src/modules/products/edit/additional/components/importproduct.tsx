@@ -384,7 +384,7 @@ export default class ProductImport extends React.Component {
 		})
 	}
 
-	componentDidMount() {
+	useEffect(,[]() {
 		let spreadsheetApiCredentials = null
 		document.getElementsByClassName('product-list')[0].style.display =
 			'none'

@@ -14,7 +14,7 @@ export default class OrdersBar extends React.Component {
 		}
 	}
 
-	componentDidMount() {
+	useEffect(,[]() {
 		fetchData()
 	}
 

@@ -59,11 +59,11 @@ const asyncValidate = (values /* , dispatch */) =>
 	})
 
 class EditPageForm extends React.Component {
-	componentDidMount() {
+	useEffect(,[]() {
 		props.onLoad()
 	}
 
-	componentWillUnmount() {
+	useEffect(return,[]() {
 		props.eraseData()
 	}
 

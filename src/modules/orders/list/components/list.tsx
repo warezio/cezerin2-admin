@@ -9,7 +9,7 @@ import Head from './head'
 import './style.sass'
 
 export default class OrdersList extends React.Component {
-	componentDidMount() {
+	useEffect(,[]() {
 		props.onLoad()
 	}
 

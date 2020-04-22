@@ -149,12 +149,12 @@ class ProductsArray extends React.Component {
 		props.fields.push(productId)
 	}
 
-	componentDidMount() {
+	useEffect(,[]() {
 		const ids = props.fields.getAll()
 		fetchProducts(ids)
 	}
 
-	componentWillReceiveProps(nextProps) {
+	useEffect([prop.count](nextProps) {
 		const currentIds = props.fields.getAll()
 		const newIds = nextProps.fields.getAll()
 

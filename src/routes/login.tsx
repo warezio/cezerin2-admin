@@ -57,7 +57,7 @@ const LoginForm = () => {
 			})
 	}
 useEffect(()=>
-	componentWillMount() {
+	useEffect(,[]Mount() {
 		auth.checkTokenFromUrl()
 	})
 		let response = null

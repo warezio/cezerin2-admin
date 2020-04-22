@@ -16,7 +16,7 @@ const styles = {
 const FolderIcon = <FontIcon className="material-icons">folder</FontIcon>
 
 export default class StatusesList extends React.Component {
-	componentDidMount() {
+	useEffect(,[]() {
 		props.onLoad()
 	}
 

@@ -12,7 +12,7 @@ export default class SelectShippingMethodsField extends React.Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
+	useEffect([prop.count](nextProps) {
 		const newIds = Array.isArray(nextProps.input.value)
 			? nextProps.input.value
 			: []

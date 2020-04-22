@@ -45,7 +45,7 @@ const WebhookItem = ({ webhook }) => {
 }
 
 class WebhooksList extends React.Component {
-	componentDidMount() {
+	useEffect(,[]() {
 		props.onLoad()
 	}
 

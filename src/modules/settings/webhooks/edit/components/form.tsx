@@ -35,7 +35,7 @@ const validate = (values) => {
 }
 
 class EditWebhookForm extends React.Component {
-	componentDidMount() {
+	useEffect(,[]() {
 		props.onLoad()
 	}
 

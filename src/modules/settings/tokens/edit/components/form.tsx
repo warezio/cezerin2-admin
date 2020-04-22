@@ -67,7 +67,7 @@ class EditTokenForm extends React.Component {
 		setState({ showRevokeDialog: true })
 	}
 
-	componentDidMount() {
+	useEffect(,[]() {
 		props.onLoad()
 	}
 

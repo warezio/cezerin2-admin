@@ -82,16 +82,16 @@ export default class TinyMCE extends React.Component {
 		}
 	}
 
-	componentWillMount() {
+	useEffect(,[]Mount() {
 		id = id || props.id || uuid()
 	}
 
-	componentDidMount() {
+	useEffect(,[]() {
 		const config = clone(props.config)
 		_init(config, props.content)
 	}
 
-	componentWillReceiveProps(nextProps) {
+	useEffect([prop.count](nextProps) {
 		if (
 			!isEqual(props.config, nextProps.config) ||
 			!isEqual(props.id, nextProps.id)
@@ -108,7 +108,7 @@ export default class TinyMCE extends React.Component {
 		)
 	}
 
-	componentWillUnmount() {
+	useEffect(return,[]() {
 		_remove()
 	}
 

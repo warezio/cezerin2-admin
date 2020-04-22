@@ -51,7 +51,7 @@ export default class Categories extends React.Component {
 		super(props)
 	}
 
-	componentDidMount() {
+	useEffect(,[]() {
 		props.onLoad()
 	}
 

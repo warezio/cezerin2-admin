@@ -9,7 +9,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import style from './style.css'
 
 class EmailSettings extends React.Component {
-	componentDidMount() {
+	useEffect(,[]() {
 		props.onLoad()
 	}
 

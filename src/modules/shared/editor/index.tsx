@@ -23,7 +23,7 @@ export default class Editor extends React.Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
+	useEffect([prop.count](nextProps) {
 		if (state.value !== nextProps.input.value) {
 			setState({
 				value: nextProps.input.value,

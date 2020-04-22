@@ -10,7 +10,7 @@ export default class ConfirmationDialog extends React.Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
+	useEffect([prop.count](nextProps) {
 		if (state.open !== nextProps.open) {
 			setState({
 				open: nextProps.open,

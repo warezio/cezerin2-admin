@@ -12,7 +12,7 @@ import OrderCustomer from './customer'
 const OrderDetails = () => {
 	useEffect(() => {props.fetchData()},[])
 
-	componentWillUnmount() {
+	useEffect(return,[]() {
 		props.clearData()
 	}
 
