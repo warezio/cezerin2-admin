@@ -1,4 +1,3 @@
-import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import {
@@ -10,7 +9,7 @@ import {
 } from '../actions'
 import Buttons from './components/buttons'
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
 	settings: state.settings.settings,
 	order: state.orders.editOrder,
 })

@@ -1,12 +1,9 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { TextField, SelectField } from 'redux-form-material-ui'
+import { TextField } from 'redux-form-material-ui'
 
-import { CustomToggle } from 'modules/shared/form'
-import messages from 'lib/text'
+import messages from '../../../../lib/text'
 
-import Divider from 'material-ui/Divider'
-import RaisedButton from 'material-ui/RaisedButton'
 import FlatButton from 'material-ui/FlatButton'
 import './style.sass'
 
@@ -23,14 +20,8 @@ const validate = (values) => {
 	return errors
 }
 
-const CustomerAddressForm = () => {
-	const {
-		handleSubmit,
-		pristine,
-		submitting,
-		initialValues,
-		onCancel,
-	} = this.props
+const CustomerAddressForm = (props) => {
+	const { handleSubmit, pristine, submitting, onCancel } = props
 
 	return (
 		<form
@@ -40,80 +31,62 @@ const CustomerAddressForm = () => {
 				width: '100%',
 			}}
 		>
-			<div>
-				<div>
-					<Field
-						component={TextField}
-						fullWidth
-						name="full_name"
-						floatingLabelText={messages.fullName}
-					/>
-				</div>
-				<div>
-					<Field
-						component={TextField}
-						fullWidth
-						name="company"
-						floatingLabelText={messages.company}
-					/>
-				</div>
-				<div>
-					<Field
-						component={TextField}
-						fullWidth
-						name="address1"
-						floatingLabelText={messages.address1}
-					/>
-				</div>
-				<div>
-					<Field
-						component={TextField}
-						fullWidth
-						name="address2"
-						floatingLabelText={messages.address2}
-					/>
-				</div>
-				<div>
-					<Field
-						component={TextField}
-						fullWidth
-						name="city"
-						floatingLabelText={messages.city}
-					/>
-				</div>
-				<div>
-					<Field
-						component={TextField}
-						fullWidth
-						name="state"
-						floatingLabelText={messages.state}
-					/>
-				</div>
-				<div>
-					<Field
-						component={TextField}
-						fullWidth
-						name="postal_code"
-						floatingLabelText={messages.postal_code}
-					/>
-				</div>
-				<div>
-					<Field
-						component={TextField}
-						fullWidth
-						name="country"
-						floatingLabelText={messages.country}
-					/>
-				</div>
-				<div>
-					<Field
-						component={TextField}
-						fullWidth
-						name="phone"
-						floatingLabelText={messages.phone}
-					/>
-				</div>
-			</div>
+			<>
+				<Field
+					component={TextField}
+					fullWidth
+					name="full_name"
+					floatingLabelText={messages.fullName}
+				/>
+				<Field
+					component={TextField}
+					fullWidth
+					name="company"
+					floatingLabelText={messages.company}
+				/>
+				<Field
+					component={TextField}
+					fullWidth
+					name="address1"
+					floatingLabelText={messages.address1}
+				/>
+				<Field
+					component={TextField}
+					fullWidth
+					name="address2"
+					floatingLabelText={messages.address2}
+				/>
+				<Field
+					component={TextField}
+					fullWidth
+					name="city"
+					floatingLabelText={messages.city}
+				/>
+				<Field
+					component={TextField}
+					fullWidth
+					name="state"
+					floatingLabelText={messages.state}
+				/>
+				<Field
+					component={TextField}
+					fullWidth
+					name="postal_code"
+					floatingLabelText={messages.postal_code}
+				/>
+				<Field
+					component={TextField}
+					fullWidth
+					name="country"
+					floatingLabelText={messages.country}
+				/>
+				<Field
+					component={TextField}
+					fullWidth
+					name="phone"
+					floatingLabelText={messages.phone}
+				/>
+			</>
 			<div className={style.shippingButtons}>
 				<FlatButton label={messages.cancel} onClick={onCancel} />
 				<FlatButton

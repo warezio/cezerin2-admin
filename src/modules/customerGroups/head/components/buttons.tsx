@@ -1,6 +1,6 @@
 import React from 'react'
-import messages from 'lib/text'
-import DeleteConfirmation from 'modules/shared/deleteConfirmation'
+import messages from '../../../../lib/text'
+import DeleteConfirmation from '../../../../modules/shared/deleteConfirmation'
 import FontIcon from 'material-ui/FontIcon'
 import IconMenu from 'material-ui/IconMenu'
 import IconButton from 'material-ui/IconButton'
@@ -9,25 +9,25 @@ import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 
-const Buttons = () => {
-	this.state = {
+const Buttons = (props) => {
+	state = {
 		openDelete: false,
 	}
 
-	showDelete = () => {
-		this.setState({ openDelete: true })
+	const showDelete = () => {
+		setState({ openDelete: true })
 	}
 
-	closeDelete = () => {
-		this.setState({ openDelete: false })
+	const closeDelete = () => {
+		setState({ openDelete: false })
 	}
 
-	deleteGroup = () => {
-		this.setState({ openDelete: false })
-		this.props.onDelete(this.props.selected.id)
+	const deleteGroup = () => {
+		setState({ openDelete: false })
+		props.onDelete(props.selected.id)
 	}
 
-	const { selected, onDelete, onCreate } = this.props
+	const { selected, onDelete, onCreate } = props
 	const groupName =
 		selected && selected.name && selected.name.length > 0
 			? selected.name

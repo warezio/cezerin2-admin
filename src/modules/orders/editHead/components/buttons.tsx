@@ -1,204 +1,194 @@
-import React from 'react'
-import messages from 'lib/text'
-import ConfirmationDialog from 'modules/shared/confirmation'
-import ProductSearchDialog from 'modules/shared/productSearch'
-import DeleteConfirmation from 'modules/shared/deleteConfirmation'
+import React, { useState } from 'react'
+import messages from '../../../../lib/text'
+import ConfirmationDialog from '../../../../modules/shared/confirmation'
+import ProductSearchDialog from '../../../../modules/shared/productSearch'
+import DeleteConfirmation from '../../../../modules/shared/deleteConfirmation'
 import FontIcon from 'material-ui/FontIcon'
 import IconMenu from 'material-ui/IconMenu'
 import IconButton from 'material-ui/IconButton'
 import MenuItem from 'material-ui/MenuItem'
-import FlatButton from 'material-ui/FlatButton'
-import RaisedButton from 'material-ui/RaisedButton'
 import Divider from 'material-ui/Divider'
 
-export default class Buttons extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			showClose: false,
-			showCancel: false,
-			openDelete: false,
-			showAddItem: false,
-		}
+const Buttons = (props) => {
+	const [showClose, setShowClose] = useState(false)
+	const [showCancel, setShowCancel] = useState(false)
+	const [openDelete, setOpenDelete] = useState(false)
+	const [showAddItem, setShowAddItem] = useState(false)
+
+	const showClosed = () => {
+		setShowClose(true)
 	}
 
-	showClose = () => {
-		this.setState({ showClose: true })
+	const hideClose = () => {
+		setShowClose(false)
 	}
 
-	hideClose = () => {
-		this.setState({ showClose: false })
+	const setClosed = () => {
+		hideClose()
+		props.setClosed(props.order.id)
 	}
 
-	setClosed = () => {
-		this.hideClose()
-		this.props.setClosed(this.props.order.id)
+	const showCanceled = () => {
+		setShowCancel(true)
 	}
 
-	showCancel = () => {
-		this.setState({ showCancel: true })
+	const hideCancel = () => {
+		setShowCancel(false)
 	}
 
-	hideCancel = () => {
-		this.setState({ showCancel: false })
+	const setCancelled = () => {
+		hideCancel()
+		props.setCancelled(props.order.id)
 	}
 
-	setCancelled = () => {
-		this.hideCancel()
-		this.props.setCancelled(this.props.order.id)
-	}
-
-	openDelete = () => {
+	const openDelete = () => {
 		this.setState({ openDelete: true })
 	}
 
-	closeDelete = () => {
+	const closeDelete = () => {
 		this.setState({ openDelete: false })
 	}
 
-	deleteOrder = () => {
+	const deleteOrder = () => {
 		this.closeDelete()
 		this.props.onDelete()
 	}
 
-	holdOrder = () => {
+	const holdOrder = () => {
 		this.props.holdOrder(this.props.order.id)
 	}
 
-	resumeOrder = () => {
+	const resumeOrder = () => {
 		this.props.resumeOrder(this.props.order.id)
 	}
 
-	showAddItem = () => {
+	const showAddItem = () => {
 		this.setState({ showAddItem: true })
 	}
 
-	hideAddItem = () => {
+	const hideAddItem = () => {
 		this.setState({ showAddItem: false })
 	}
 
-	addItem = (productId) => {
+	const addItem = (productId) => {
 		this.hideAddItem()
 		this.props.addItem(this.props.order.id, productId)
 	}
 
-	render() {
-		const { settings, order, onDelete } = this.props
+	const { settings, order, onDelete } = props
 
-		if (order) {
-			const orderName = `${messages.order} #${order.number}`
+	if (order) {
+		const orderName = `${messages.order} #${order.number}`
 
-			const menuItems = []
-			if (order.closed) {
-				//
-			} else if (order.cancelled) {
-				//
+		const menuItems = []
+		if (order.closed) {
+			//
+		} else if (order.cancelled) {
+			//
+		} else {
+			menuItems.push(
+				<MenuItem
+					key="addItem"
+					primaryText={messages.addOrderItem}
+					onClick={showAddItem}
+				/>
+			)
+			menuItems.push(<Divider key="dev1" />)
+			if (order.hold) {
+				menuItems.push(
+					<MenuItem
+						key="resume"
+						primaryText={messages.resumeOrder}
+						onClick={resumeOrder}
+					/>
+				)
 			} else {
 				menuItems.push(
 					<MenuItem
-						key="addItem"
-						primaryText={messages.addOrderItem}
-						onClick={this.showAddItem}
-					/>
-				)
-				menuItems.push(<Divider key="dev1" />)
-				if (order.hold) {
-					menuItems.push(
-						<MenuItem
-							key="resume"
-							primaryText={messages.resumeOrder}
-							onClick={this.resumeOrder}
-						/>
-					)
-				} else {
-					menuItems.push(
-						<MenuItem
-							key="hold"
-							primaryText={messages.holdOrder}
-							onClick={this.holdOrder}
-						/>
-					)
-				}
-				menuItems.push(
-					<MenuItem
-						key="close"
-						primaryText={messages.closeOrder}
-						onClick={this.showClose}
-					/>
-				)
-				menuItems.push(
-					<MenuItem
-						key="cancel"
-						primaryText={messages.cancelOrder}
-						onClick={this.showCancel}
+						key="hold"
+						primaryText={messages.holdOrder}
+						onClick={holdOrder}
 					/>
 				)
 			}
-
-			return (
-				<span>
-					<ProductSearchDialog
-						open={this.state.showAddItem}
-						title={messages.addOrderItem}
-						settings={settings}
-						onSubmit={this.addItem}
-						onCancel={this.hideAddItem}
-						submitLabel={messages.add}
-						cancelLabel={messages.cancel}
-					/>
-
-					<ConfirmationDialog
-						open={this.state.showClose}
-						title={orderName}
-						description={messages.closeOrderConfirmation}
-						onSubmit={this.setClosed}
-						onCancel={this.hideClose}
-						submitLabel={messages.closeOrder}
-						cancelLabel={messages.cancel}
-					/>
-
-					<ConfirmationDialog
-						open={this.state.showCancel}
-						title={orderName}
-						description={messages.cancelOrderConfirmation}
-						onSubmit={this.setCancelled}
-						onCancel={this.hideCancel}
-						submitLabel={messages.cancelOrder}
-						cancelLabel={messages.cancel}
-					/>
-
-					<DeleteConfirmation
-						open={this.state.openDelete}
-						isSingle
-						itemsCount={1}
-						itemName={orderName}
-						onCancel={this.closeDelete}
-						onDelete={this.deleteOrder}
-					/>
-
-					<IconMenu
-						iconButtonElement={
-							<IconButton touch>
-								<FontIcon
-									color="#fff"
-									className="material-icons"
-								>
-									more_vert
-								</FontIcon>
-							</IconButton>
-						}
-						targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-						anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-					>
-						{menuItems}
-						<MenuItem
-							primaryText={messages.deleteOrder}
-							onClick={this.openDelete}
-						/>
-					</IconMenu>
-				</span>
+			menuItems.push(
+				<MenuItem
+					key="close"
+					primaryText={messages.closeOrder}
+					onClick={showClosed}
+				/>
+			)
+			menuItems.push(
+				<MenuItem
+					key="cancel"
+					primaryText={messages.cancelOrder}
+					onClick={showCanceled}
+				/>
 			)
 		}
-		return <span />
+
+		return (
+			<span>
+				<ProductSearchDialog
+					open={showAddItem}
+					title={messages.addOrderItem}
+					settings={settings}
+					onSubmit={addItem}
+					onCancel={hideAddItem}
+					submitLabel={messages.add}
+					cancelLabel={messages.cancel}
+				/>
+
+				<ConfirmationDialog
+					open={showClose}
+					title={orderName}
+					description={messages.closeOrderConfirmation}
+					onSubmit={setClosed}
+					onCancel={hideClose}
+					submitLabel={messages.closeOrder}
+					cancelLabel={messages.cancel}
+				/>
+
+				<ConfirmationDialog
+					open={showCanceled}
+					title={orderName}
+					description={messages.cancelOrderConfirmation}
+					onSubmit={setCancelled}
+					onCancel={hideCancel}
+					submitLabel={messages.cancelOrder}
+					cancelLabel={messages.cancel}
+				/>
+
+				<DeleteConfirmation
+					open={openDelete}
+					isSingle
+					itemsCount={1}
+					itemName={orderName}
+					onCancel={closeDelete}
+					onDelete={deleteOrder}
+				/>
+
+				<IconMenu
+					iconButtonElement={
+						<IconButton touch>
+							<FontIcon color="#fff" className="material-icons">
+								more_vert
+							</FontIcon>
+						</IconButton>
+					}
+					targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+					anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+				>
+					{menuItems}
+					<MenuItem
+						primaryText={messages.deleteOrder}
+						onClick={openDelete}
+					/>
+				</IconMenu>
+			</span>
+		)
 	}
+	return <span />
 }
+
+export default Buttons

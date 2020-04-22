@@ -22,14 +22,14 @@ const validate = (values) => {
 	return errors
 }
 
-const Form = () => {
+const Form = (props) => {
 	const {
 		handleSubmit,
 		pristine,
 		submitting,
 		isSaving,
 		initialValues,
-	} = this.props
+	} = props
 
 	let groupId = null
 
@@ -40,7 +40,7 @@ const Form = () => {
 	return (
 		<Paper className="paper-box" zDepth={1}>
 			<form onSubmit={handleSubmit}>
-				<div className={style.innerBox}>
+				<div className="innerBox">
 					<Field
 						name="name"
 						component={TextField}

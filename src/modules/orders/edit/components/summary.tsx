@@ -1,9 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import moment from 'moment'
 
-import messages from 'lib/text'
-import * as helper from 'lib/helper'
+import messages from '../../../../lib/text'
 
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -24,7 +22,7 @@ const getOrderStates = (order) => {
 
 	if (order.paid) {
 		states.push(
-			<span key="paid" className={style.paidState}>
+			<span key="paid" className="paidState">
 				{messages.orders_paid}
 			</span>
 		)
@@ -32,7 +30,7 @@ const getOrderStates = (order) => {
 
 	if (order.delivered) {
 		states.push(
-			<span key="delivered" className={style.deliveredState}>
+			<span key="delivered" className="deliveredState">
 				{messages.orders_delivered}
 			</span>
 		)
@@ -40,7 +38,7 @@ const getOrderStates = (order) => {
 
 	if (order.cancelled) {
 		return [
-			<span key="cancelled" className={style.cancelledState}>
+			<span key="cancelled" className="cancelledState">
 				{messages.orders_cancelled}
 			</span>,
 		]
@@ -65,159 +63,150 @@ const getOrderStates = (order) => {
 	return states
 }
 
-export default class OrderSummary extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			openSummaryEdit: false,
-		}
+const OrderSummary = (props) => {
+	const [openSummaryEdit, setOpenSummaryEdit] = useState(false)
+
+	const showSummaryEdit = () => {
+		setOpenSummaryEdit(true)
 	}
 
-	showSummaryEdit = () => {
-		this.setState({ openSummaryEdit: true })
+	const hideSummaryEdit = () => {
+		setOpenSummaryEdit(false)
 	}
 
-	hideSummaryEdit = () => {
-		this.setState({ openSummaryEdit: false })
+	const saveSummaryEdit = (order) => {
+		props.onOrderSummaryUpdate(order)
+		hideSummaryEdit()
 	}
 
-	saveSummaryEdit = (order) => {
-		this.props.onOrderSummaryUpdate(order)
-		this.hideSummaryEdit()
-	}
+	const { order, settings, onCheckout, processingCheckout } = props
+	const allowEdit = order.closed === false && order.cancelled === false
+	const isDraft = order.draft === true
+	const dateCreated = moment(order.date_placed || order.date_created)
+	const dateCreatedFormated = dateCreated.format(
+		`${settings.date_format}, ${settings.time_format}`
+	)
+	const states = getOrderStates(order)
 
-	render() {
-		const { order, settings, onCheckout, processingCheckout } = this.props
-		const allowEdit = order.closed === false && order.cancelled === false
-		const isDraft = order.draft === true
-		const dateCreated = moment(order.date_placed || order.date_created)
-		const dateCreatedFormated = dateCreated.format(
-			`${settings.date_format}, ${settings.time_format}`
+	let referrerDomain = order.referrer_url
+
+	try {
+		const url = new URL(order.referrer_url)
+		referrerDomain = url.hostname
+	} catch (e) {}
+
+	const referrerLink =
+		order.referrer_url && order.referrer_url.includes('http') ? (
+			<a className={style.link} href={order.referrer_url} target="_blank">
+				{referrerDomain}
+			</a>
+		) : (
+			order.referrer_url
 		)
-		const states = getOrderStates(order)
 
-		let referrerDomain = order.referrer_url
+	return (
+		<Paper className="paper-box" zDepth={1}>
+			<div className={style.innerBox}>
+				<div className={style.states}>{states}</div>
 
-		try {
-			const url = new URL(order.referrer_url)
-			referrerDomain = url.hostname
-		} catch (e) {}
-
-		const referrerLink =
-			order.referrer_url && order.referrer_url.includes('http') ? (
-				<a
-					className={style.link}
-					href={order.referrer_url}
-					target="_blank"
-				>
-					{referrerDomain}
-				</a>
-			) : (
-				order.referrer_url
-			)
-
-		return (
-			<Paper className="paper-box" zDepth={1}>
-				<div className={style.innerBox}>
-					<div className={style.states}>{states}</div>
-
-					<div className={`${style.summaryRow} row`}>
-						<div className="col-xs-5">
-							<span>{messages.orderDate}</span>
-						</div>
-						<div className="col-xs-7">{dateCreatedFormated}</div>
+				<div className={`${style.summaryRow} row`}>
+					<div className="col-xs-5">
+						<span>{messages.orderDate}</span>
 					</div>
-
-					<div className={`${style.summaryRow} row`}>
-						<div className="col-xs-5">
-							<span>{messages.orderStatus}</span>
-						</div>
-						<div className="col-xs-7">{order.status}</div>
-					</div>
-
-					<div className={`${style.summaryRow} row`}>
-						<div className="col-xs-5">
-							<span>{messages.referrer}</span>
-						</div>
-						<div className="col-xs-7">{referrerLink}</div>
-					</div>
-
-					<div className={`${style.summaryRow} row`}>
-						<div className="col-xs-5">
-							<span>{messages.trackingNumber}</span>
-						</div>
-						<div className="col-xs-7">{order.tracking_number}</div>
-					</div>
-
-					<div className={`${style.summaryRow} row`}>
-						<div className="col-xs-5">
-							<span>{messages.shippingStatus}</span>
-						</div>
-						<div className="col-xs-7">{order.shipping_status}</div>
-					</div>
-
-					<div className={`${style.summaryRow} row`}>
-						<div className="col-xs-5">
-							<span>{messages.shippingMethod}</span>
-						</div>
-						<div className="col-xs-7">{order.shipping_method}</div>
-					</div>
-
-					<div className={`${style.summaryRow} row`}>
-						<div className="col-xs-5">
-							<span>{messages.paymentsMethod}</span>
-						</div>
-						<div className="col-xs-7">{order.payment_method}</div>
-					</div>
-
-					<div className={`${style.summaryRow} row`}>
-						<div className="col-xs-5">
-							<span>{messages.customerComment}</span>
-						</div>
-						<div className="col-xs-7">{order.comments}</div>
-					</div>
-
-					<div className={`${style.summaryRow} row`}>
-						<div className="col-xs-5">
-							<span>{messages.note}</span>
-						</div>
-						<div className="col-xs-7">{order.note}</div>
-					</div>
-
-					<div style={{ marginTop: 20 }}>
-						{allowEdit && (
-							<RaisedButton
-								label="Edit"
-								style={{ marginRight: 15 }}
-								onClick={this.showSummaryEdit}
-							/>
-						)}
-						{isDraft && (
-							<RaisedButton
-								label={messages.placeOrder}
-								primary
-								onClick={onCheckout}
-								disabled={processingCheckout}
-							/>
-						)}
-					</div>
-
-					<Dialog
-						title={messages.order}
-						modal={false}
-						open={this.state.openSummaryEdit}
-						onRequestClose={this.hideSummaryEdit}
-						autoScrollBodyContent
-						contentStyle={{ width: 600 }}
-					>
-						<SummaryForm
-							initialValues={order}
-							onCancel={this.hideSummaryEdit}
-							onSubmit={this.saveSummaryEdit}
-						/>
-					</Dialog>
+					<div className="col-xs-7">{dateCreatedFormated}</div>
 				</div>
-			</Paper>
-		)
-	}
+
+				<div className={`${style.summaryRow} row`}>
+					<div className="col-xs-5">
+						<span>{messages.orderStatus}</span>
+					</div>
+					<div className="col-xs-7">{order.status}</div>
+				</div>
+
+				<div className={`${style.summaryRow} row`}>
+					<div className="col-xs-5">
+						<span>{messages.referrer}</span>
+					</div>
+					<div className="col-xs-7">{referrerLink}</div>
+				</div>
+
+				<div className={`${style.summaryRow} row`}>
+					<div className="col-xs-5">
+						<span>{messages.trackingNumber}</span>
+					</div>
+					<div className="col-xs-7">{order.tracking_number}</div>
+				</div>
+
+				<div className={`${style.summaryRow} row`}>
+					<div className="col-xs-5">
+						<span>{messages.shippingStatus}</span>
+					</div>
+					<div className="col-xs-7">{order.shipping_status}</div>
+				</div>
+
+				<div className={`${style.summaryRow} row`}>
+					<div className="col-xs-5">
+						<span>{messages.shippingMethod}</span>
+					</div>
+					<div className="col-xs-7">{order.shipping_method}</div>
+				</div>
+
+				<div className={`${style.summaryRow} row`}>
+					<div className="col-xs-5">
+						<span>{messages.paymentsMethod}</span>
+					</div>
+					<div className="col-xs-7">{order.payment_method}</div>
+				</div>
+
+				<div className={`${style.summaryRow} row`}>
+					<div className="col-xs-5">
+						<span>{messages.customerComment}</span>
+					</div>
+					<div className="col-xs-7">{order.comments}</div>
+				</div>
+
+				<div className={`${style.summaryRow} row`}>
+					<div className="col-xs-5">
+						<span>{messages.note}</span>
+					</div>
+					<div className="col-xs-7">{order.note}</div>
+				</div>
+
+				<div style={{ marginTop: 20 }}>
+					{allowEdit && (
+						<RaisedButton
+							label="Edit"
+							style={{ marginRight: 15 }}
+							onClick={this.showSummaryEdit}
+						/>
+					)}
+					{isDraft && (
+						<RaisedButton
+							label={messages.placeOrder}
+							primary
+							onClick={onCheckout}
+							disabled={processingCheckout}
+						/>
+					)}
+				</div>
+
+				<Dialog
+					title={messages.order}
+					modal={false}
+					open={this.state.openSummaryEdit}
+					onRequestClose={this.hideSummaryEdit}
+					autoScrollBodyContent
+					contentStyle={{ width: 600 }}
+				>
+					<SummaryForm
+						initialValues={order}
+						onCancel={this.hideSummaryEdit}
+						onSubmit={this.saveSummaryEdit}
+					/>
+				</Dialog>
+			</div>
+		</Paper>
+	)
 }
+
+export default OrderSummary
