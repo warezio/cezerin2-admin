@@ -8,12 +8,12 @@ import OrdersListItem from './item'
 import Head from './head'
 import './style.sass'
 
-export default class OrdersList extends React.Component {
-	componentDidMount() {
-		this.props.onLoad()
+export default const OrdersList = () => {
+	useEffect(,[]() {
+		props.onLoad()
 	}
 
-	render() {
+	
 		const {
 			items,
 			selected,
@@ -23,7 +23,7 @@ export default class OrdersList extends React.Component {
 			onSelectAll,
 			loadMore,
 			settings,
-		} = this.props
+		} = props
 		const rows = items.map((item, index) => (
 			<OrdersListItem
 				key={index}
@@ -40,7 +40,7 @@ export default class OrdersList extends React.Component {
 					<Head onSelectAll={onSelectAll} />
 					<Divider />
 					{rows}
-					<div className={style.more}>
+					<div className="more}>
 						<RaisedButton
 							disabled={loadingItems || !hasMore}
 							label={messages.actions_loadMore}

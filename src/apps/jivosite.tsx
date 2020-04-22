@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import messages from 'lib/text'
-import api from 'lib/api'
-import TextField from 'material-ui/TextField'
-import RaisedButton from 'material-ui/RaisedButton'
+import messages from '../lib/text'
+import api from '../lib/api'
 
 export const Description = {
 	key: 'jivosite',
@@ -12,23 +10,23 @@ export const Description = {
 }
 
 export const App = () => {
-	this.state = {
+	state = {
 		code: '',
 	}
 
-	handleChange = (event) => {
-		this.setState({
+const	handleChange = (event) => {
+		set(
 			code: event.target.value,
 		})
 	}
 
-	fetchSettings = () => {
+const	fetchSettings = () => {
 		api.apps.settings
 			.retrieve('jivosite')
 			.then(({ status, json }) => {
 				const appSettings = json
 				if (appSettings) {
-					this.setState({ code: appSettings.code })
+					set( code: appSettings.code })
 				}
 			})
 			.catch((error) => {
@@ -37,7 +35,7 @@ export const App = () => {
 	}
 
 	updateSettings = () => {
-		const { code } = this.state
+		const { code } = state
 
 		api.apps.settings.update('jivosite', { code })
 		api.theme.placeholders.update('jivosite', {
@@ -45,30 +43,26 @@ export const App = () => {
 			value: code,
 		})
 	}
-
 	useEffect(() => fetchSettings(), [])
-
 	return (
 		<>
 			<p>Введите код JivoSite</p>
-
 			<TextField
 				type="text"
 				multiLine
 				fullWidth
 				rows={10}
-				value={this.state.code}
-				onChange={this.handleChange}
+				value={state.code}
+				onChange={handleChange}
 				floatingLabelText="Код чата JivoSite"
 				hintText="<!-- BEGIN JIVOSITE CODE {literal} -->..."
 			/>
-
 			<div style={{ textAlign: 'right' }}>
 				<RaisedButton
 					label={messages.save}
 					primary
 					disabled={false}
-					onClick={this.updateSettings}
+					onClick={updateSettings}
 				/>
 			</div>
 		</>

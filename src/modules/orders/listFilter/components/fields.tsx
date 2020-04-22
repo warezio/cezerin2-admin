@@ -6,7 +6,7 @@ import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import MomentUtils from '@date-io/moment'
-import style from './style.css'
+import './style.sass'
 
 const empty_string_if_null = (value) => (value != null ? value : '')
 
@@ -30,9 +30,9 @@ export default ({
 	settings,
 }) => (
 	<MuiPickersUtilsProvider utils={MomentUtils}>
-		<div className={style.filter}>
+		<div className="filter}>
 			<DatePicker
-				className={style.select}
+				className="select}
 				name={messages.orders_date_placed_from}
 				label={messages.orders_date_placed_from}
 				format={settings.date_format}
@@ -45,7 +45,7 @@ export default ({
 			/>
 
 			<DatePicker
-				className={style.select}
+				className="select}
 				name={messages.orders_date_placed_to}
 				label={messages.orders_date_placed_to}
 				format={settings.date_format}
@@ -57,7 +57,7 @@ export default ({
 				animateYearScrolling
 			/>
 
-			<FormControl className={style.select}>
+			<FormControl className="select}>
 				<InputLabel htmlFor="draft">{messages.orders_draft}</InputLabel>
 				<Select
 					fullWidth
@@ -79,7 +79,7 @@ export default ({
 				</Select>
 			</FormControl>
 
-			<FormControl className={style.select}>
+			<FormControl className="select}>
 				<InputLabel htmlFor="hold">{messages.orders_hold}</InputLabel>
 				<Select
 					fullWidth
@@ -101,7 +101,7 @@ export default ({
 				</Select>
 			</FormControl>
 
-			<FormControl className={style.select}>
+			<FormControl className="select}>
 				<InputLabel htmlFor="paid">{messages.orders_paid}</InputLabel>
 				<Select
 					fullWidth
@@ -123,7 +123,7 @@ export default ({
 				</Select>
 			</FormControl>
 
-			<FormControl className={style.select}>
+			<FormControl className="select}>
 				<InputLabel htmlFor="delivered">
 					{messages.orders_delivered}
 				</InputLabel>
@@ -147,7 +147,7 @@ export default ({
 				</Select>
 			</FormControl>
 
-			<FormControl className={style.select}>
+			<FormControl className="select}>
 				<InputLabel htmlFor="cancelled">
 					{messages.orders_cancelled}
 				</InputLabel>
@@ -171,7 +171,7 @@ export default ({
 				</Select>
 			</FormControl>
 
-			<FormControl className={style.select}>
+			<FormControl className="select}>
 				<InputLabel htmlFor="closed">
 					{messages.orders_closed}
 				</InputLabel>

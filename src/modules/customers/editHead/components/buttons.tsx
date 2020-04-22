@@ -1,30 +1,26 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import messages from 'lib/text'
-import DeleteConfirmation from 'modules/shared/deleteConfirmation'
+import React, { useState } from 'react'
+import messages from '../../../../lib/text'
+import DeleteConfirmation from '../../../../modules/shared/deleteConfirmation'
 import FontIcon from 'material-ui/FontIcon'
 import IconButton from 'material-ui/IconButton'
-import FlatButton from 'material-ui/FlatButton'
 
 const Buttons = () => {
-	this.state = {
-		openDelete: false,
-	}
+	const [openDelete, setOpenDelete] = useState(false)
 
 	openDelete = () => {
-		this.setState({ openDelete: true })
+		set( openDelete: true })
 	}
 
 	closeDelete = () => {
-		this.setState({ openDelete: false })
+		set( openDelete: false })
 	}
 
 	deleteOrder = () => {
-		this.closeDelete()
-		this.props.onDelete()
+		closeDelete()
+		props.onDelete()
 	}
 
-	const { customer } = this.props
+	const { customer } = props
 	const customerName =
 		customer && customer.full_name && customer.full_name.length > 0
 			? customer.full_name
@@ -36,19 +32,19 @@ const Buttons = () => {
 				touch
 				tooltipPosition="bottom-left"
 				tooltip={messages.actions_delete}
-				onClick={this.openDelete}
+				onClick={openDelete}
 			>
 				<FontIcon color="#fff" className="material-icons">
 					delete
 				</FontIcon>
 			</IconButton>
 			<DeleteConfirmation
-				open={this.state.openDelete}
+				open={state.openDelete}
 				isSingle
 				itemsCount={1}
 				itemName={customerName}
-				onCancel={this.closeDelete}
-				onDelete={this.props.onDelete}
+				onCancel={closeDelete}
+				onDelete={props.onDelete}
 			/>
 		</>
 	)

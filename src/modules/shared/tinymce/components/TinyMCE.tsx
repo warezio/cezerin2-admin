@@ -73,65 +73,65 @@ const EVENTS = [
 
 const HANDLER_NAMES = EVENTS.map((event) => `on${ucFirst(event)}`)
 
-export default class TinyMCE extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
+export default const TinyMCE = () => {
+	
+		
+		state = {
 			config: {},
 			content: props.content,
 		}
 	}
 
-	componentWillMount() {
-		this.id = this.id || this.props.id || uuid()
+	useEffect(,[]Mount() {
+		id = id || props.id || uuid()
 	}
 
-	componentDidMount() {
-		const config = clone(this.props.config)
-		this._init(config, this.props.content)
+	useEffect(,[]() {
+		const config = clone(props.config)
+		_init(config, props.content)
 	}
 
-	componentWillReceiveProps(nextProps) {
+	useEffect([prop.count](nextProps) {
 		if (
-			!isEqual(this.props.config, nextProps.config) ||
-			!isEqual(this.props.id, nextProps.id)
+			!isEqual(props.config, nextProps.config) ||
+			!isEqual(props.id, nextProps.id)
 		) {
-			this.id = nextProps.id
-			this._init(clone(nextProps.config), nextProps.content)
+			id = nextProps.id
+			_init(clone(nextProps.config), nextProps.content)
 		}
 	}
 
 	shouldComponentUpdate(nextProps) {
 		return (
-			!isEqual(this.props.config, nextProps.config) ||
-			!isEqual(this.props.entityId, nextProps.entityId)
+			!isEqual(props.config, nextProps.config) ||
+			!isEqual(props.entityId, nextProps.entityId)
 		)
 	}
 
-	componentWillUnmount() {
-		this._remove()
+	useEffect(return,[]() {
+		_remove()
 	}
 
-	render() {
-		return this.props.config.inline ? (
+	
+		return props.config.inline ? (
 			<div
-				id={this.id}
-				className={this.props.className}
-				dangerouslySetInnerHTML={{ __html: this.props.content }}
+				id={id}
+				className={props.className}
+				dangerouslySetInnerHTML={{ __html: props.content }}
 			/>
 		) : (
 			<textarea
-				id={this.id}
-				className={this.props.className}
-				name={this.props.name}
-				defaultValue={this.props.content}
+				id={id}
+				className={props.className}
+				name={props.name}
+				defaultValue={props.content}
 			/>
 		)
 	}
 
 	_init(config, content) {
-		if (this._isInit) {
-			this._remove()
+		if (_isInit) {
+			_remove()
 		}
 
 		// hide the textarea that is me so that no one sees it
@@ -140,11 +140,11 @@ export default class TinyMCE extends React.Component {
 		const setupCallback = config.setup
 		const hasSetupCallback = typeof setupCallback === 'function'
 
-		config.selector = `#${this.id}`
+		config.selector = `#${id}`
 		config.setup = (editor) => {
 			EVENTS.forEach((eventType, index) => {
 				editor.on(eventType, (e) => {
-					const handler = this.props[HANDLER_NAMES[index]]
+					const handler = props[HANDLER_NAMES[index]]
 					if (typeof handler === 'function') {
 						// native DOM events don't have access to the editor so we pass it here
 						handler(e, editor)
@@ -152,7 +152,7 @@ export default class TinyMCE extends React.Component {
 				})
 			})
 			// need to set content here because the textarea will still have the
-			// old `this.props.content`
+			// old `props.content`
 			if (typeof content !== 'undefined') {
 				editor.on('init', () => {
 					editor.setContent(content)
@@ -167,11 +167,11 @@ export default class TinyMCE extends React.Component {
 
 		findDOMNode(this).style.hidden = ''
 
-		this._isInit = true
+		_isInit = true
 	}
 
 	_remove() {
-		tinymce.EditorManager.execCommand('mceRemoveEditor', true, this.id)
-		this._isInit = false
+		tinymce.EditorManager.execCommand('mceRemoveEditor', true, id)
+		_isInit = false
 	}
 }

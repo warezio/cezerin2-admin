@@ -1,16 +1,13 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { Link } from 'react-router-dom'
 import { TextField } from 'redux-form-material-ui'
 
-import { CustomToggle } from 'modules/shared/form'
-import messages from 'lib/text'
+import { CustomToggle } from '../../../../modules/shared/form'
+import messages from '../../../../lib/text'
 
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import Divider from 'material-ui/Divider'
-import FontIcon from 'material-ui/FontIcon'
-import { List, ListItem } from 'material-ui/List'
 import './style.sass'
 
 const ServiceSettingsForm = ({
@@ -86,7 +83,7 @@ const ServiceSettingsForm = ({
 							type="submit"
 							label={messages.save}
 							primary
-							className={style.button}
+							className="button"
 							disabled={pristine || submitting}
 						/>
 					</div>

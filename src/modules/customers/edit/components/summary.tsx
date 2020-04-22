@@ -19,31 +19,31 @@ import SummaryForm from './summaryForm.js'
 import './style.sass'
 
 const CustomerSummary = () => {
-	this.state = {
+	state = {
 		openSummaryEdit: false,
 	}
 
 	showSummaryEdit = () => {
-		this.setState({ openSummaryEdit: true })
+		set( openSummaryEdit: true })
 	}
 
 	hideSummaryEdit = () => {
-		this.setState({ openSummaryEdit: false })
+		set( openSummaryEdit: false })
 	}
 
 	saveSummaryEdit = (customer) => {
-		this.props.onCustomerSummaryUpdate(customer)
-		this.hideSummaryEdit()
+		props.onCustomerSummaryUpdate(customer)
+		hideSummaryEdit()
 	}
 
-	const { customer, settings } = this.props
+	const { customer, settings } = props
 	const totalSpent = helper.formatCurrency(customer.total_spent, settings)
 
 	return (
 		<Paper className="paper-box" zDepth={1}>
-			<div className={style.innerBox}>
+			<div className="innerBox}>
 				<div
-					className={style.customerName}
+					className="customerName}
 					style={{ paddingBottom: 26, paddingTop: 0 }}
 				>
 					{customer.full_name}
@@ -52,35 +52,35 @@ const CustomerSummary = () => {
 					</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.email}</span>
 					</div>
 					<div className="col-xs-7">
 						<a
 							href={`MailTo:${customer.email}`}
-							className={style.link}
+							className="link}
 						>
 							{customer.email}
 						</a>
 					</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.mobile}</span>
 					</div>
 					<div className="col-xs-7">{customer.mobile}</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.customers_totalSpent}</span>
 					</div>
 					<div className="col-xs-7">{totalSpent}</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.note}</span>
 					</div>
@@ -91,21 +91,21 @@ const CustomerSummary = () => {
 					<RaisedButton
 						label="Edit"
 						style={{ marginRight: 15 }}
-						onClick={this.showSummaryEdit}
+						onClick={showSummaryEdit}
 					/>
 				</div>
 
 				<Dialog
 					title={messages.customers_titleEdit}
 					modal={false}
-					open={this.state.openSummaryEdit}
-					onRequestClose={this.hideSummaryEdit}
+					open={state.openSummaryEdit}
+					onRequestClose={hideSummaryEdit}
 					contentStyle={{ width: 600 }}
 				>
 					<SummaryForm
 						initialValues={customer}
-						onCancel={this.hideSummaryEdit}
-						onSubmit={this.saveSummaryEdit}
+						onCancel={hideSummaryEdit}
+						onSubmit={saveSummaryEdit}
 					/>
 				</Dialog>
 			</div>

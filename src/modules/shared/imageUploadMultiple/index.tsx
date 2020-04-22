@@ -5,12 +5,12 @@ import {
 	arrayMove,
 } from 'react-sortable-hoc'
 import settings from 'lib/settings'
-import style from './style.css'
+import './style.sass'
 import GalleryItem from './item'
 import MultiUploader from './uploader'
 
 const SortableItem = SortableElement(({ image, onDelete, onImageEdit }) => (
-	<li className={style.item}>
+	<li className="item}>
 		<GalleryItem
 			url={image.url}
 			alt={image.alt}
@@ -24,7 +24,7 @@ const SortableItem = SortableElement(({ image, onDelete, onImageEdit }) => (
 ))
 
 const SortableList = SortableContainer(({ items, onDelete, onImageEdit }) => (
-	<ul className={style.list}>
+	<ul className="list}>
 		{items.map((value, index) => (
 			<SortableItem
 				key={`item-${index}`}
@@ -49,7 +49,7 @@ const Gallery = ({
 	if (images && images.length > 0) {
 		return (
 			<MultiUploader onUpload={onImageUpload} uploading={uploading}>
-				<div className={style.gallery}>
+				<div className="gallery}>
 					<SortableList
 						axis="x"
 						items={images}

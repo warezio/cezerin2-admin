@@ -7,25 +7,25 @@ import Snackbar from 'material-ui/Snackbar'
 import FontIcon from 'material-ui/FontIcon'
 import IconButton from 'material-ui/IconButton'
 
-import style from './style.css'
+import './style.sass'
 
-export default class ImageUpload extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			imagePreview: this.props.imageUrl,
+export default const ImageUpload = () => {
+	
+		
+		state = {
+			imagePreview: props.imageUrl,
 		}
 	}
 
 	onDelete = () => {
-		this.setState({
+		set(
 			imagePreview: null,
 		})
-		this.props.onDelete()
+		props.onDelete()
 	}
 
-	componentWillReceiveProps(nextProps) {
-		this.setState({
+	useEffect([prop.count](nextProps) {
+		set(
 			imagePreview: nextProps.imageUrl,
 		})
 	}
@@ -33,12 +33,12 @@ export default class ImageUpload extends React.Component {
 	onDrop = (files) => {
 		const form = new FormData()
 		form.append('file', files[0])
-		this.props.onUpload(form)
+		props.onUpload(form)
 	}
 
-	render() {
-		const { imagePreview } = this.state
-		const { uploading } = this.props
+	
+		const { imagePreview } = state
+		const { uploading } = props
 
 		const hasPreview = imagePreview !== null && imagePreview !== ''
 		const previewIsFileUrl = hasPreview
@@ -46,14 +46,14 @@ export default class ImageUpload extends React.Component {
 			: null
 
 		let htmlPreview = (
-			<div className={style.noImage}>
+			<div className="noImage}>
 				<FontIcon
 					style={{ fontSize: 90, color: '#cccccc' }}
 					className="material-icons"
 				>
 					photo_camera
 				</FontIcon>
-				<div className={style.dropText}>{messages.help_dropHere}</div>
+				<div className="dropText}>{messages.help_dropHere}</div>
 			</div>
 		)
 
@@ -66,25 +66,25 @@ export default class ImageUpload extends React.Component {
 		return (
 			<Paper zDepth={1} rounded={false} style={{ width: 200 }}>
 				<Dropzone
-					onDrop={this.onDrop}
+					onDrop={onDrop}
 					multiple={false}
 					disableClick={hasPreview}
 					accept="image/*"
 					ref={(node) => {
-						this.dropzone = node
+						dropzone = node
 					}}
 					style={{}}
-					className={style.dropzone}
-					activeClassName={style.dropzoneActive}
-					rejectClassName={style.dropzoneReject}
+					className="dropzone}
+					activeClassName="dropzoneActive}
+					rejectClassName="dropzoneReject}
 				>
 					{({ getRootProps, getInputProps }) =>
-						this.props.children != null ? (
-							this.props.children
+						props.children != null ? (
+							props.children
 						) : (
 							<div {...getRootProps()}>
 								<input {...getInputProps()} />
-								<div className={style.preview}>
+								<div className="preview}>
 									{htmlPreview}
 								</div>
 							</div>
@@ -92,12 +92,12 @@ export default class ImageUpload extends React.Component {
 					}
 				</Dropzone>
 
-				<div className={style.footer}>
+				<div className="footer}>
 					<IconButton
 						touch
 						tooltip={messages.actions_upload}
 						onClick={() => {
-							this.dropzone.open()
+							dropzone.open()
 						}}
 						tooltipPosition="top-right"
 					>
@@ -112,7 +112,7 @@ export default class ImageUpload extends React.Component {
 						<IconButton
 							touch
 							tooltip={messages.actions_delete}
-							onClick={this.onDelete}
+							onClick={onDelete}
 							tooltipPosition="top-right"
 						>
 							<FontIcon

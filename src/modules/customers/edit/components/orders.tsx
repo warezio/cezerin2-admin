@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-import api from 'lib/api'
-import messages from 'lib/text'
-import * as helper from 'lib/helper'
+import api from '../../../../lib/api'
+import messages from '../../../../lib/text'
+import * as helper from '../../../../lib/helper'
 
 import Paper from 'material-ui/Paper'
 import Divider from 'material-ui/Divider'
@@ -17,7 +17,7 @@ const getOrderStates = (order) => {
 
 	if (order.hold) {
 		states.push(
-			<span key="hold" className={style.holdState}>
+			<span key="hold" className="holdState">
 				{messages.orders_hold}
 			</span>
 		)
@@ -25,7 +25,7 @@ const getOrderStates = (order) => {
 
 	if (order.paid) {
 		states.push(
-			<span key="paid" className={style.paidState}>
+			<span key="paid" className="paidState">
 				{messages.orders_paid}
 			</span>
 		)
@@ -33,7 +33,7 @@ const getOrderStates = (order) => {
 
 	if (order.delivered) {
 		states.push(
-			<span key="delivered" className={style.deliveredState}>
+			<span key="delivered" className="deliveredState">
 				{messages.orders_delivered}
 			</span>
 		)
@@ -41,7 +41,7 @@ const getOrderStates = (order) => {
 
 	if (order.cancelled) {
 		return [
-			<span key="cancelled" className={style.cancelledState}>
+			<span key="cancelled" className="cancelledState">
 				{messages.orders_cancelled}
 			</span>,
 		]
@@ -49,7 +49,7 @@ const getOrderStates = (order) => {
 
 	if (order.closed) {
 		return [
-			<span key="closed" className={style.closedState}>
+			<span key="closed" className="closedState">
 				{messages.orders_closed}
 			</span>,
 		]
@@ -57,7 +57,7 @@ const getOrderStates = (order) => {
 
 	if (states.length === 0 && order.draft) {
 		states.unshift(
-			<span key="draft" className={style.draftState}>
+			<span key="draft" className="draftState">
 				{messages.orders_draft}
 			</span>
 		)
@@ -73,7 +73,6 @@ const CustomerOrder = ({ order, settings }) => {
 	)
 	const dateCreated = moment(order.date_placed || order.date_created)
 	const dateCreatedFormated = dateCreated.format(settings.date_format)
-	const states = getOrderStates(order)
 
 	return (
 		<>
@@ -95,7 +94,7 @@ const CustomerOrder = ({ order, settings }) => {
 								{dateCreatedFormated}
 							</div>
 							<div className="col-xs-4">
-								<div className={style.states}>{states}</div>
+								<div className="states}>{states}</div>
 							</div>
 							<div
 								className="col-xs-3"
@@ -111,18 +110,17 @@ const CustomerOrder = ({ order, settings }) => {
 	)
 }
 
-const CustomerOrders = () => {
+const CustomerOrders = (props) => {
 	const [oders, setOders] = useState([])
 
 	useEffect(() => {
 		api.orders
-			.list({ customer_id: this.props.customerId })
-			.then(({ status, json }) => {
-				this.setState({ orders: json.data })
+			.list({ customer_id: props.customerId })
+			.then(({  json }) => {
+				setOrders(json.data )
 			})
 	}, [])
-	const { customerId, settings } = this.props
-	const { orders } = this.state
+	const {  settings } = props
 
 	let orderItems = []
 	if (orders.length > 0) {

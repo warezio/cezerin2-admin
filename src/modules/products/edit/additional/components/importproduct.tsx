@@ -17,15 +17,15 @@ const imageFilesArray = []
 /**
  * Google Spreadsheet product import mapping
  *
- * @class modules:products/edit~ProductImport
- * @extends React.Component
+ * @const modules:products/edit~ProductImport
+ * @= () =>
  *
  * @returns {undefined}
  */
-export default class ProductImport extends React.Component {
-	constructor(props) {
+export default const ProductImport = () => {
+	
 		super()
-		this.state = {
+		state = {
 			propstate: props,
 			product_items: [],
 			deleteCounter: 1,
@@ -33,10 +33,10 @@ export default class ProductImport extends React.Component {
 			errors: 0,
 			dashboardsettings: true,
 		}
-		this.loader = React.createRef()
-		this.fetchData = this.fetchData.bind(this)
-		this.deleteProducts = this.deleteProducts.bind(this)
-		this.uploadProducts = this.uploadProducts.bind(this)
+		loader = React.createRef()
+		fetchData = fetchData.bind(this)
+		deleteProducts = deleteProducts.bind(this)
+		uploadProducts = uploadProducts.bind(this)
 	}
 
 	/**
@@ -45,7 +45,7 @@ export default class ProductImport extends React.Component {
 	 * @returns {undefined}
 	 */
 	fetchData = () => {
-		this.loader.current.style.setProperty('display', 'inline-block')
+		loader.current.style.setProperty('display', 'inline-block')
 		const filter = {
 			fields:
 				'id,name,category_id,category_ids,category_name,sku,images,enabled,discontinued,stock_status,stock_quantity,price,on_sale,regular_price,url',
@@ -56,12 +56,12 @@ export default class ProductImport extends React.Component {
 			.then(({ status, json }) => {
 				// db has no products saved
 				if (json.data.length < 1) {
-					this.uploadProducts()
+					uploadProducts()
 					return
 				}
 
 				for (let i in json.data) {
-					this.deleteProducts(json.data[i].id, json.data.length)
+					deleteProducts(json.data[i].id, json.data.length)
 					if (json.data[i].images.length > 0) {
 						api.products.images.delete(
 							json.data[i].id,
@@ -82,10 +82,10 @@ export default class ProductImport extends React.Component {
 	 */
 	deleteProducts(id, arrayLength) {
 		api.products.delete(id).then(() => {
-			if (parseInt(this.state.deleteCounter) === parseInt(arrayLength)) {
-				this.uploadProducts() //upload just once
+			if (parseInt(state.deleteCounter) === parseInt(arrayLength)) {
+				uploadProducts() //upload just once
 			}
-			this.setState({ deleteCounter: this.state.deleteCounter + 1 })
+			set( deleteCounter: state.deleteCounter + 1 })
 		})
 	}
 
@@ -97,9 +97,9 @@ export default class ProductImport extends React.Component {
 	uploadProducts() {
 		let productDraft = {}
 		const statusCell = document.getElementsByClassName('sheet-cell-state')
-		let errorsCounter = this.state.errors
+		let errorsCounter = state.errors
 
-		for (let i = 1; i < this.state.product_items.length; i++) {
+		for (let i = 1; i < state.product_items.length; i++) {
 			productDraft = {
 				enabled: true,
 				category_id: null,
@@ -111,23 +111,19 @@ export default class ProductImport extends React.Component {
 				sku: null,
 				path: null,
 			}
-			if (this.state.product_items[i] !== undefined) {
-				productDraft.category_name = this.state.product_items[i][
-					'category_name'
-				]
-				productDraft.sub_category_name = this.state.product_items[i][
-					'sub_category_name'
-				]
-				productDraft.name = this.state.product_items[i]['name']
-				productDraft.stock_quantity = this.state.product_items[i][
-					'stock_quantity'
-				]
-				productDraft.regular_price = this.state.product_items[i][
-					'regular_price'
-				]
-				productDraft.enabled = this.state.product_items[i]['enabled']
-				productDraft.sku = this.state.product_items[i]['sku']
-				productDraft.path = this.state.product_items[i]['images']
+			if (state.product_items[i] !== undefined) {
+				productDraft.category_name =
+					state.product_items[i]['category_name']
+				productDraft.sub_category_name =
+					state.product_items[i]['sub_category_name']
+				productDraft.name = state.product_items[i]['name']
+				productDraft.stock_quantity =
+					state.product_items[i]['stock_quantity']
+				productDraft.regular_price =
+					state.product_items[i]['regular_price']
+				productDraft.enabled = state.product_items[i]['enabled']
+				productDraft.sku = state.product_items[i]['sku']
+				productDraft.path = state.product_items[i]['images']
 
 				if (
 					productDraft.category_name !== '' &&
@@ -141,7 +137,7 @@ export default class ProductImport extends React.Component {
 					statusCell[i].style.color = 'green'
 				} else {
 					errorsCounter += 1
-					this.setState({ errors: errorsCounter })
+					set( errors: errorsCounter })
 				}
 
 				updateProductArray.push({
@@ -149,12 +145,12 @@ export default class ProductImport extends React.Component {
 					sub_category_name: productDraft.sub_category_name,
 					draft: productDraft,
 				})
-				if (i === this.state.product_items.length - 1) {
-					this.removeCategories()
+				if (i === state.product_items.length - 1) {
+					removeCategories()
 				}
 			} else {
 				errorsCounter += 1
-				this.setState({ errors: errorsCounter })
+				set( errors: errorsCounter })
 			}
 		}
 	}
@@ -173,14 +169,14 @@ export default class ProductImport extends React.Component {
 					.delete(element.id)
 					.then(({ status, json }) => {
 						if (catArray.length <= 1) {
-							this.recreateCategories()
+							recreateCategories()
 						}
 					})
 			})
 		})
 
 		if (catArray.length < 1) {
-			this.recreateCategories()
+			recreateCategories()
 		}
 	}
 
@@ -254,7 +250,7 @@ export default class ProductImport extends React.Component {
 					})
 
 					if (i === updateProductArray.length - 1) {
-						this.setSubCategories()
+						setSubCategories()
 					}
 				})
 			})
@@ -288,7 +284,7 @@ export default class ProductImport extends React.Component {
 									elem.draft.category_id = json.id
 									elem.draft.category_ids.push(json.id)
 									if (j === updateProductArray.length - 1) {
-										this.updateProduct()
+										updateProduct()
 									}
 								})
 						}
@@ -324,8 +320,8 @@ export default class ProductImport extends React.Component {
 						id: json.id,
 						url: pArrayItem.draft.path.split(','),
 					})
-					that.setState({ deleteCounter: 0 })
-					that.setState({ uploadedProducts: i + 1 })
+					that.set( deleteCounter: 0 })
+					that.set( uploadedProducts: i + 1 })
 
 					if (i + 1 === that.state.product_items.length - 1) {
 						that.loader.current.style.setProperty('display', 'none')
@@ -356,9 +352,7 @@ export default class ProductImport extends React.Component {
 
 							xhr.onload = function (e) {
 								// Obtain a blob: URL for the image data.
-								var arrayBufferView = new Uint8Array(
-									this.response
-								)
+								var arrayBufferView = new Uint8Array(response)
 								var blob = new Blob([arrayBufferView], {
 									type: 'image/jpeg',
 								})
@@ -390,7 +384,7 @@ export default class ProductImport extends React.Component {
 		})
 	}
 
-	componentDidMount() {
+	useEffect(,[]() {
 		let spreadsheetApiCredentials = null
 		document.getElementsByClassName('product-list')[0].style.display =
 			'none'
@@ -421,7 +415,7 @@ export default class ProductImport extends React.Component {
 						rows.push(rowObject)
 					}
 
-					this.setState({ product_items: rows })
+					set( product_items: rows })
 
 					let status = document.getElementsByClassName(
 						'sheet-cell-state'
@@ -434,16 +428,16 @@ export default class ProductImport extends React.Component {
 					})
 				})
 				.catch((error) => {
-					this.setState({ dashboardsettings: false })
+					set( dashboardsettings: false })
 				})
 		})
 	}
 
-	render() {
-		const { onImportProducts, files } = this.props
+	
+		const { onImportProducts, files } = props
 
 		let keyCounter = 0
-		const listHeader = this.state.product_items.map((p, j) => {
+		const listHeader = state.product_items.map((p, j) => {
 			if (j < 1) {
 				return (
 					<tr className="tr-header" key={keyCounter}>
@@ -466,7 +460,7 @@ export default class ProductImport extends React.Component {
 											key={p[i] + j + i + p[j]}
 											contentEditable="true"
 											value={k}
-											onInput={this.editColumn}
+											onInput={editColumn}
 										>
 											{p[k]}
 										</div>
@@ -478,7 +472,7 @@ export default class ProductImport extends React.Component {
 			}
 			keyCounter++
 		})
-		const list = this.state.product_items.map((p, j) => {
+		const list = state.product_items.map((p, j) => {
 			if (j >= 1) {
 				return (
 					<tr className="tr-body" key={keyCounter + j}>
@@ -500,7 +494,7 @@ export default class ProductImport extends React.Component {
 											key={p[i] + j + i + p[j]}
 											contentEditable="true"
 											value={k}
-											onInput={this.editColumn}
+											onInput={editColumn}
 										>
 											{p[k]}
 										</div>
@@ -525,7 +519,7 @@ export default class ProductImport extends React.Component {
 				<div style={{ width: '100%' }}>
 					<div
 						className="spread-sheet-container"
-						style={this.state.productsImport}
+						style={state.productsImport}
 					>
 						<div
 							style={{ margin: 20, color: 'rgba(0, 0, 0, 0.52)' }}
@@ -534,28 +528,26 @@ export default class ProductImport extends React.Component {
 							<p>
 								{' '}
 								{messages.settings_googlesheet_products}{' '}
-								{this.state.product_items.length - 1} /{' '}
+								{state.product_items.length - 1} /{' '}
 								{messages.settings_googlesheet_uploaded}{' '}
-								{this.state.uploadedProducts}
-								{this.state.errors > 0
+								{state.uploadedProducts}
+								{state.errors > 0
 									? '/ ' +
 									  messages.settings_googlesheet_errors +
 									  ' ' +
-									  this.state.errors
+									  state.errors
 									: ''}
-								{this.state.errors > 0
-									? this.state.errors
-									: null}
+								{state.errors > 0 ? state.errors : null}
 								<h3 className="dashboardErrorResponse">
-									{!this.state.dashboardsettings
+									{!state.dashboardsettings
 										? messages.missing_dashboardsettings
 										: null}
 								</h3>
-								{!this.state.dashboardsettings
+								{!state.dashboardsettings
 									? messages.setup_google_spreadsheet
 									: null}
 								<span
-									ref={this.loader}
+									ref={loader}
 									style={showLoader}
 									className="loader loader-product-import"
 								>
@@ -607,7 +599,7 @@ export default class ProductImport extends React.Component {
 									files={files}
 									primary={true}
 									keyboardFocused={true}
-									onClick={this.fetchData}
+									onClick={fetchData}
 									className={'spread-sheet-save-btn'}
 								/>
 							</div>

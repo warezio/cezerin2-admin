@@ -23,7 +23,7 @@ const validate = (values) => {
 }
 
 const SummaryForm = () => {
-	this.state = {
+	state = {
 		shippingMethods: [],
 		paymentMethods: [],
 		orderStatuses: [],
@@ -36,15 +36,15 @@ const SummaryForm = () => {
 		}
 
 		api.orderStatuses.list().then(({ status, json }) => {
-			this.setState({ orderStatuses: json })
+			set( orderStatuses: json })
 		})
 
 		api.shippingMethods.list(filter).then(({ status, json }) => {
-			this.setState({ shippingMethods: json })
+			set( shippingMethods: json })
 		})
 
 		api.paymentMethods.list(filter).then(({ status, json }) => {
-			this.setState({ paymentMethods: json })
+			set( paymentMethods: json })
 		})
 	}
 
@@ -56,13 +56,13 @@ const SummaryForm = () => {
 		onCancel,
 	} = props
 
-	const statusItems = this.state.orderStatuses.map((item, index) => (
+	const statusItems = state.orderStatuses.map((item, index) => (
 		<MenuItem key={index} value={item.id} primaryText={item.name} />
 	))
-	const shippingItems = this.state.shippingMethods.map((item, index) => (
+	const shippingItems = state.shippingMethods.map((item, index) => (
 		<MenuItem key={index} value={item.id} primaryText={item.name} />
 	))
-	const paymentItems = this.state.paymentMethods.map((item, index) => (
+	const paymentItems = state.paymentMethods.map((item, index) => (
 		<MenuItem key={index} value={item.id} primaryText={item.name} />
 	))
 

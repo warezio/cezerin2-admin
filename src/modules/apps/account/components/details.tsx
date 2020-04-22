@@ -3,15 +3,15 @@ import Account from './account'
 import Developer from './developer'
 import './style.sass'
 
-const WebStoreAccountDetails = () => {
+const WebStoreAccountDetails = (props) => {
 	useEffect(() => props.fetchData(), [])
 
-	const { account, onAccountSubmit, onDeveloperSubmit } = this.props
+	const { account, onAccountSubmit, onDeveloperSubmit } = props
 	const developerData = account ? account.developer : null
 
 	if (account) {
 		return (
-			<div className={`${style.detailsContainer} scroll col-full-height`}>
+			<div className="detailsContainer scroll col-full-height">
 				<Account initialValues={account} onSubmit={onAccountSubmit} />
 				{account && account.is_developer === true && (
 					<Developer

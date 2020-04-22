@@ -4,43 +4,43 @@ import messages from 'lib/text'
 
 import Snackbar from 'material-ui/Snackbar'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 
-export default class MultiUploader extends React.Component {
+export default const MultiUploader = () => {
 	onDrop = (files) => {
 		const form = new FormData()
 		files.map((file) => {
 			form.append('file', file)
 		})
-		this.props.onUpload(form)
+		props.onUpload(form)
 	}
 
-	render() {
-		const { uploading } = this.props
+	
+		const { uploading } = props
 
 		return (
 			<div>
 				<Dropzone
-					onDrop={this.onDrop}
+					onDrop={onDrop}
 					multiple
 					disableClick
 					noClick
 					accept="image/*"
 					ref={(node) => {
-						this.dropzone = node
+						dropzone = node
 					}}
 					style={{}}
-					className={style.dropzone}
-					activeClassName={style.dropzoneActive}
-					rejectClassName={style.dropzoneReject}
+					className="dropzone}
+					activeClassName="dropzoneActive}
+					rejectClassName="dropzoneReject}
 				>
 					{({ getRootProps, getInputProps }) => (
 						<div {...getRootProps()}>
 							<input {...getInputProps()} />
-							{this.props.children != null ? (
-								this.props.children
+							{props.children != null ? (
+								props.children
 							) : (
-								<div className={style.dropzoneEmpty}>
+								<div className="dropzoneEmpty}>
 									{messages.help_dropHere}
 								</div>
 							)}{' '}
@@ -54,7 +54,7 @@ export default class MultiUploader extends React.Component {
 						label={messages.chooseImage}
 						style={{ marginLeft: 20, marginTop: 10 }}
 						onClick={() => {
-							this.dropzone.open()
+							dropzone.open()
 						}}
 					/>
 				)}

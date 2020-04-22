@@ -1,24 +1,21 @@
-import { connect } from 'react-redux';
-import { fetchSettings, deleteLogo, uploadLogo } from '../actions';
-import Form from './components/form';
+import { connect } from 'react-redux'
+import { fetchSettings, deleteLogo, uploadLogo } from '../actions'
+import Form from './components/form'
 
-const mapStateToProps = state => ({
-	settings: state.settings.settings
-});
+const mapStateToProps = (state) => ({
+	settings: state.settings.settings,
+})
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
 	onLoad: () => {
-		dispatch(fetchSettings());
+		dispatch(fetchSettings())
 	},
 	onImageDelete: () => {
-		dispatch(deleteLogo());
+		dispatch(deleteLogo())
 	},
-	onImageUpload: form => {
-		dispatch(uploadLogo(form));
-	}
-});
+	onImageUpload: (form) => {
+		dispatch(uploadLogo(form))
+	},
+})
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form)

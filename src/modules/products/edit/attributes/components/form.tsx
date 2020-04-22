@@ -8,15 +8,15 @@ import FontIcon from 'material-ui/FontIcon'
 import IconButton from 'material-ui/IconButton'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 
 const AttributesGrid = ({ fields, meta: { touched, error, submitFailed } }) => (
 	<div>
 		<div className="row row--no-gutter middle-xs">
-			<div className={`col-xs-5 col--no-gutter ${style.head}`}>
+			<div className={`col-xs-5 col--no-gutter $"head}`}>
 				{messages.attributeName}
 			</div>
-			<div className={`col-xs-7 col--no-gutter ${style.head}`}>
+			<div className={`col-xs-7 col--no-gutter $"head}`}>
 				{messages.attributeValue}
 			</div>
 		</div>
@@ -34,7 +34,7 @@ const AttributesGrid = ({ fields, meta: { touched, error, submitFailed } }) => (
 						<Field
 							component="input"
 							type="text"
-							className={style.input}
+							className="input}
 							name={fieldName}
 							placeholder={messages.attributeName}
 						/>
@@ -43,7 +43,7 @@ const AttributesGrid = ({ fields, meta: { touched, error, submitFailed } }) => (
 						<Field
 							component="input"
 							type="text"
-							className={style.input}
+							className="input}
 							name={fieldValue}
 							placeholder={messages.attributeValue}
 						/>
@@ -93,7 +93,7 @@ const ProductAttributesForm = ({
 			>
 				<FlatButton
 					label={messages.cancel}
-					className={style.button}
+					className="button}
 					onClick={reset}
 					disabled={pristine || submitting}
 				/>
@@ -101,7 +101,7 @@ const ProductAttributesForm = ({
 					type="submit"
 					label={messages.save}
 					primary
-					className={style.button}
+					className="button}
 					disabled={pristine || submitting}
 				/>
 			</div>

@@ -26,16 +26,16 @@ const validate = (values) => {
 	return errors
 }
 
-class ProductOptionForm extends React.Component {
-	constructor(props) {
-		super(props)
+const ProductOptionForm = () => {
+	
+		
 	}
 
-	componentDidMount() {
-		this.props.fetchData()
+	useEffect(,[]() {
+		props.fetchData()
 	}
 
-	render() {
+	
 		const {
 			handleSubmit,
 			pristine,
@@ -47,13 +47,13 @@ class ProductOptionForm extends React.Component {
 			createOptionValue,
 			updateOptionValue,
 			deleteOptionValue,
-		} = this.props
+		} = props
 
 		return (
 			<div>
 				<form onSubmit={handleSubmit}>
 					<Paper className="paper-box" zDepth={1}>
-						<div className={style.innerBox}>
+						<div className="innerBox}>
 							<Field
 								name="name"
 								component={TextField}
@@ -89,7 +89,7 @@ class ProductOptionForm extends React.Component {
 									</Field>
 								</div>
 							</div>
-							<div className={style.shortControl}>
+							<div className="shortControl}>
 								<Field
 									name="required"
 									component={CustomToggle}
@@ -113,7 +113,7 @@ class ProductOptionForm extends React.Component {
 								type="submit"
 								label={messages.save}
 								primary
-								className={style.button}
+								className="button}
 								disabled={pristine || submitting}
 							/>
 						</div>

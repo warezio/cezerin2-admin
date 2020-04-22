@@ -5,17 +5,17 @@ import moment from 'moment'
 import BarChart from './barChart'
 import * as utils from './utils'
 
-export default class OrdersBar extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
+export default const OrdersBar = () => {
+	
+		
+		state = {
 			ordersData: null,
 			salesData: null,
 		}
 	}
 
-	componentDidMount() {
-		this.fetchData()
+	useEffect(,[]() {
+		fetchData()
 	}
 
 	fetchData = () => {
@@ -36,15 +36,15 @@ export default class OrdersBar extends React.Component {
 				const reportData = utils.getReportDataFromOrders(json)
 				const ordersData = utils.getOrdersDataFromReportData(reportData)
 				const salesData = utils.getSalesDataFromReportData(reportData)
-				this.setState({ ordersData, salesData })
+				set( ordersData, salesData })
 			})
 			.catch((error) => {
 				console.log(error)
 			})
 	}
 
-	render() {
-		const { ordersData, salesData } = this.state
+	
+		const { ordersData, salesData } = state
 		return (
 			<div>
 				<BarChart

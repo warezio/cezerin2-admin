@@ -14,40 +14,40 @@ import TextField from 'material-ui/TextField'
 import Search from './search'
 
 const Buttons = () => {
-	this.state = {
+	state = {
 		groupId: null,
 		openSetGroup: false,
 		openDelete: false,
 	}
 
 	showSetGroup = () => {
-		this.setState({ openSetGroup: true })
+		set( openSetGroup: true })
 	}
 
 	showDelete = () => {
-		this.setState({ openDelete: true })
+		set( openDelete: true })
 	}
 
 	closeSetGroup = () => {
-		this.setState({ openSetGroup: false })
+		set( openSetGroup: false })
 	}
 
 	closeDelete = () => {
-		this.setState({ openDelete: false })
+		set( openDelete: false })
 	}
 
 	deleteCustomers = () => {
-		this.setState({ openDelete: false })
-		this.props.onDelete()
+		set( openDelete: false })
+		props.onDelete()
 	}
 
 	saveSetGroup = () => {
-		this.setState({ openSetGroup: false })
-		this.props.onSetGroup(this.state.groupId)
+		set( openSetGroup: false })
+		props.onSetGroup(state.groupId)
 	}
 
 	selectSetGroup = (groupId) => {
-		this.setState({ groupId })
+		set( groupId })
 	}
 
 	const {
@@ -57,19 +57,19 @@ const Buttons = () => {
 		onDelete,
 		onCreate,
 		onEdit,
-	} = this.props
+	} = props
 
 	const actionsSetGroup = [
 		<FlatButton
 			label={messages.cancel}
-			onClick={this.closeSetGroup}
+			onClick={closeSetGroup}
 			style={{ marginRight: 10 }}
 		/>,
 		<FlatButton
 			label={messages.save}
 			primary
 			keyboardFocused
-			onClick={this.saveSetGroup}
+			onClick={saveSetGroup}
 		/>,
 	]
 
@@ -94,7 +94,7 @@ const Buttons = () => {
 						touch
 						tooltipPosition="bottom-left"
 						tooltip={messages.actions_delete}
-						onClick={this.showDelete}
+						onClick={showDelete}
 					>
 						<FontIcon color="#fff" className="material-icons">
 							delete
@@ -104,30 +104,30 @@ const Buttons = () => {
 						touch
 						tooltipPosition="bottom-left"
 						tooltip={messages.customers_setGroup}
-						onClick={this.showSetGroup}
+						onClick={showSetGroup}
 					>
 						<FontIcon color="#fff" className="material-icons">
 							folder
 						</FontIcon>
 					</IconButton>
 					<DeleteConfirmation
-						open={this.state.openDelete}
+						open={state.openDelete}
 						isSingle={false}
 						itemsCount={selectedCount}
-						onCancel={this.closeDelete}
-						onDelete={this.deleteCustomers}
+						onCancel={closeDelete}
+						onDelete={deleteCustomers}
 					/>
 					<Dialog
 						title={messages.customers_setGroup}
 						actions={actionsSetGroup}
 						modal={false}
-						open={this.state.openSetGroup}
-						onRequestClose={this.closeSetGroup}
+						open={state.openSetGroup}
+						onRequestClose={closeSetGroup}
 						autoScrollBodyContent
 					>
 						<GroupSelect
-							onSelect={this.selectSetGroup}
-							selectedId={this.state.groupId}
+							onSelect={selectSetGroup}
+							selectedId={state.groupId}
 							showRoot
 							showAll={false}
 						/>

@@ -3,48 +3,48 @@ import { Field, reduxForm } from 'redux-form'
 import { List, ListItem } from 'material-ui/List'
 import Checkbox from 'material-ui/Checkbox'
 
-export default class SelectShippingMethodsField extends React.Component {
-	constructor(props) {
-		super(props)
+export default const SelectShippingMethodsField = () => {
+	
+		
 		const ids = Array.isArray(props.input.value) ? props.input.value : []
-		this.state = {
+		state = {
 			selectedIds: ids,
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
+	useEffect([prop.count](nextProps) {
 		const newIds = Array.isArray(nextProps.input.value)
 			? nextProps.input.value
 			: []
-		if (newIds !== this.state.selectedIds) {
-			this.setState({
+		if (newIds !== state.selectedIds) {
+			set(
 				selectedIds: newIds,
 			})
 		}
 	}
 
 	onCheckboxChecked = (methodId) => {
-		let ids = this.state.selectedIds
+		let ids = state.selectedIds
 		if (ids.includes(methodId)) {
 			ids = ids.filter((id) => id !== methodId)
 		} else {
 			ids.push(methodId)
 		}
-		this.setState({ selectedIds: ids })
-		this.props.input.onChange(ids)
+		set( selectedIds: ids })
+		props.input.onChange(ids)
 	}
 
-	isCheckboxChecked = (methodId) => this.state.selectedIds.includes(methodId)
+	isCheckboxChecked = (methodId) => state.selectedIds.includes(methodId)
 
-	render() {
-		const items = this.props.shippingMethods.map((method) => (
+	
+		const items = props.shippingMethods.map((method) => (
 			<ListItem
 				key={method.id}
 				leftCheckbox={
 					<Checkbox
-						checked={this.isCheckboxChecked(method.id)}
+						checked={isCheckboxChecked(method.id)}
 						onCheck={(e, isChecked) => {
-							this.onCheckboxChecked(method.id)
+							onCheckboxChecked(method.id)
 						}}
 					/>
 				}

@@ -9,38 +9,38 @@ import IconButton from 'material-ui/IconButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import MenuItem from 'material-ui/MenuItem'
 import DropDownMenu from 'material-ui/DropDownMenu'
-import style from './style.css'
+import './style.sass'
 
-class VariantInput extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
+const VariantInput = () => {
+	
+		
+		state = {
 			value: props.value,
 		}
-		this.onChange = this.onChange.bind(this)
-		this.onBlur = this.onBlur.bind(this)
+		onChange = onChange.bind(this)
+		onBlur = onBlur.bind(this)
 	}
 
 	onChange = (e) => {
-		this.setState({ value: e.target.value })
+		set( value: e.target.value })
 	}
 
 	onBlur = (e) => {
-		this.props.onChange(this.props.variantId, this.state.value)
+		props.onChange(props.variantId, state.value)
 	}
 
-	render() {
-		const { type, placeholder } = this.props
-		const { value } = this.state
+	
+		const { type, placeholder } = props
+		const { value } = state
 
 		return (
 			<input
 				type={type}
-				className={style.textInput}
+				className="textInput}
 				placeholder={placeholder}
 				value={value}
-				onChange={this.onChange}
-				onBlur={this.onBlur}
+				onChange={onChange}
+				onBlur={onBlur}
 				min="0"
 			/>
 		)
@@ -78,7 +78,7 @@ const VariantRow = ({
 					/>
 				))
 			return (
-				<div key={option.id} className={style.gridCol}>
+				<div key={option.id} className="gridCol}>
 					<DropDownMenu
 						value={variantOptionValueId}
 						style={{ width: '100%' }}
@@ -92,12 +92,12 @@ const VariantRow = ({
 				</div>
 			)
 		}
-		return <div key={option.id} className={style.gridCol} />
+		return <div key={option.id} className="gridCol} />
 	})
 
 	return (
-		<div className={style.gridRow}>
-			<div className={style.gridCol}>
+		<div className="gridRow}>
+			<div className="gridCol}>
 				<VariantInput
 					type="text"
 					placeholder=""
@@ -106,7 +106,7 @@ const VariantRow = ({
 					onChange={onSkuChange}
 				/>
 			</div>
-			<div className={style.gridCol}>
+			<div className="gridCol}>
 				<VariantInput
 					type="number"
 					placeholder="0"
@@ -115,7 +115,7 @@ const VariantRow = ({
 					onChange={onPriceChange}
 				/>
 			</div>
-			<div className={style.gridCol}>
+			<div className="gridCol}>
 				<VariantInput
 					type="number"
 					placeholder="0"
@@ -124,7 +124,7 @@ const VariantRow = ({
 					onChange={onStockChange}
 				/>
 			</div>
-			<div className={style.gridCol}>
+			<div className="gridCol}>
 				<VariantInput
 					type="number"
 					placeholder="0"
@@ -134,7 +134,7 @@ const VariantRow = ({
 				/>
 			</div>
 			{cols}
-			<div className={style.gridCol}>
+			<div className="gridCol}>
 				<IconButton
 					title={messages.actions_delete}
 					onClick={() => {
@@ -170,7 +170,7 @@ const ProductVariantsGrid = ({
 
 	const headRowCols = hasOptions
 		? options.map((option, index) => (
-				<div key={index} className={style.gridCol}>
+				<div key={index} className="gridCol}>
 					<Link
 						title={messages.editProductOption}
 						to={`/product/${productId}/option/${option.id}`}
@@ -199,24 +199,24 @@ const ProductVariantsGrid = ({
 
 	return (
 		<Paper className="paper-box" zDepth={1}>
-			<div className={style.grid}>
-				<div className={style.gridHeadRow}>
-					<div className={style.gridCol}>{messages.products_sku}</div>
-					<div className={style.gridCol}>
+			<div className="grid}>
+				<div className="gridHeadRow}>
+					<div className="gridCol}>{messages.products_sku}</div>
+					<div className="gridCol}>
 						{messages.products_price}
 					</div>
-					<div className={style.gridCol}>
+					<div className="gridCol}>
 						{messages.products_stock}
 					</div>
-					<div className={style.gridCol}>
+					<div className="gridCol}>
 						{messages.products_weight}
 					</div>
 					{headRowCols}
-					<div className={style.gridCol} />
+					<div className="gridCol} />
 				</div>
 				{variantRows}
 			</div>
-			<div className={style.innerBox}>
+			<div className="innerBox}>
 				<RaisedButton
 					label={messages.addVariant}
 					onClick={createVariant}

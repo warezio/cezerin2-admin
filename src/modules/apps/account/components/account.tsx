@@ -2,8 +2,8 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { TextField } from 'redux-form-material-ui'
 
-import { CustomToggle } from 'modules/shared/form'
-import messages from 'lib/text'
+import { CustomToggle } from '../../../../modules/shared/form'
+import messages from '../../../../lib/text'
 
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -62,7 +62,7 @@ const AccountForm = ({ handleSubmit, pristine, submitting, initialValues }) => (
 						type="submit"
 						label={messages.save}
 						primary
-						className={style.button}
+						className="button"
 						disabled={pristine || submitting}
 					/>
 				</div>

@@ -20,14 +20,14 @@ const styles = {
 const FolderIcon = <FontIcon className="material-icons">folder</FontIcon>
 const DraftIcon = <FontIcon className="material-icons">visibility_off</FontIcon>
 
-class Item extends React.PureComponent {
+const Item extends React.PureComponent {
 	handleCheck = (event, isInputChecked) => {
-		const { item } = this.props
-		this.props.onCheck(item.id)
+		const { item } = props
+		props.onCheck(item.id)
 	}
 
-	render() {
-		const { item, opened, selectedIds, nestedItems } = this.props
+	
+		const { item, opened, selectedIds, nestedItems } = props
 		const isChecked =
 			selectedIds &&
 			selectedIds.length > 0 &&
@@ -42,7 +42,7 @@ class Item extends React.PureComponent {
 				primaryText={item.name}
 				nestedItems={nestedItems}
 				leftCheckbox={
-					<Checkbox checked={isChecked} onCheck={this.handleCheck} />
+					<Checkbox checked={isChecked} onCheck={handleCheck} />
 				}
 				nestedListStyle={styles.nestedListStyle}
 			/>
@@ -50,18 +50,13 @@ class Item extends React.PureComponent {
 	}
 }
 
-export default class Categories extends React.Component {
-	constructor(props) {
-		super(props)
+export default const Categories = () => {
+	
+		
 	}
 
 	getItem(selectedIds, allItems, item, opened) {
-		const nestedItems = this.getChildren(
-			selectedIds,
-			allItems,
-			item.id,
-			opened
-		)
+		const nestedItems = getChildren(selectedIds, allItems, item.id, opened)
 		return (
 			<Item
 				key={item.id}
@@ -69,7 +64,7 @@ export default class Categories extends React.Component {
 				opened={opened}
 				selectedIds={selectedIds}
 				nestedItems={nestedItems}
-				onCheck={this.props.onCheck}
+				onCheck={props.onCheck}
 			/>
 		)
 	}
@@ -78,19 +73,17 @@ export default class Categories extends React.Component {
 		if (allItems && id) {
 			return allItems
 				.filter((item) => item.parent_id === id)
-				.map((item) =>
-					this.getItem(selectedIds, allItems, item, opened)
-				)
+				.map((item) => getItem(selectedIds, allItems, item, opened))
 		}
 		return []
 	}
 
-	render() {
-		const { selectedIds, items, opened = false } = this.props
+	
+		const { selectedIds, items, opened = false } = props
 
 		const rows = items
 			.filter((item) => item.parent_id === null)
-			.map((item) => this.getItem(selectedIds, items, item, opened))
+			.map((item) => getItem(selectedIds, items, item, opened))
 
 		return <List>{rows}</List>
 	}

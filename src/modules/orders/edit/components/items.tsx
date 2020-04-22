@@ -60,50 +60,50 @@ const ProductOptions = ({ options, onChange, selectedOptions }) => {
 	return null
 }
 
-export class OrderItem extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
+export const OrderItem = () => {
+	
+		
+		state = {
 			quantity: props.item.quantity,
 			variantId: props.item.variant_id,
-			selectedOptions: this.getOptionsByVariant(),
-			selectedVariant: this.getCurrentVariant(),
+			selectedOptions: getOptionsByVariant(),
+			selectedVariant: getCurrentVariant(),
 			showEdit: false,
 		}
 	}
 
 	showEditForm = () => {
-		this.setState({ showEdit: true })
+		set( showEdit: true })
 	}
 
 	hideEditForm = () => {
-		this.setState({ showEdit: false })
+		set( showEdit: false })
 	}
 
 	quantityChange = (event, index, value) => {
-		this.setState({ quantity: value })
+		set( quantity: value })
 	}
 
 	submitEditForm = () => {
-		this.hideEditForm()
+		hideEditForm()
 		const newVariantId =
-			this.state.selectedVariant && this.state.selectedVariant.id
-				? this.state.selectedVariant.id
-				: this.state.variantId
-		this.props.onItemUpdate(
-			this.props.item.id,
-			this.state.quantity,
+			state.selectedVariant && state.selectedVariant.id
+				? state.selectedVariant.id
+				: state.variantId
+		props.onItemUpdate(
+			props.item.id,
+			state.quantity,
 			newVariantId
 		)
 	}
 
 	deleteItem = () => {
-		this.props.onItemDelete(this.props.item.id)
+		props.onItemDelete(props.item.id)
 	}
 
 	onOptionChange = (optionId, valueId) => {
-		this.setState({ quantity: 1 })
-		const { selectedOptions } = this.state
+		set( quantity: 1 })
+		const { selectedOptions } = state
 
 		if (valueId === '') {
 			delete selectedOptions[optionId]
@@ -111,13 +111,13 @@ export class OrderItem extends React.Component {
 			selectedOptions[optionId] = valueId
 		}
 
-		this.setState({ selectedOptions })
-		this.findVariantBySelectedOptions()
+		set( selectedOptions })
+		findVariantBySelectedOptions()
 	}
 
 	findVariantBySelectedOptions = () => {
-		const { selectedOptions } = this.state
-		const { product } = this.props.item
+		const { selectedOptions } = state
+		const { product } = props.item
 		for (const variant of product.variants) {
 			const variantMutchSelectedOptions = variant.options.every(
 				(variantOption) =>
@@ -125,17 +125,17 @@ export class OrderItem extends React.Component {
 					variantOption.value_id
 			)
 			if (variantMutchSelectedOptions) {
-				this.setState({ selectedVariant: variant })
+				set( selectedVariant: variant })
 				return
 			}
 		}
 
-		this.setState({ selectedVariant: null })
+		set( selectedVariant: null })
 	}
 
 	getCurrentVariant = () => {
-		const variantId = this.props.item.variant_id
-		const { product } = this.props.item
+		const variantId = props.item.variant_id
+		const { product } = props.item
 		let variant = null
 
 		if (
@@ -151,8 +151,8 @@ export class OrderItem extends React.Component {
 	}
 
 	getOptionsByVariant = () => {
-		const variantId = this.props.item.variant_id
-		const { product } = this.props.item
+		const variantId = props.item.variant_id
+		const { product } = props.item
 		const selectedOptions = {}
 		if (
 			variantId &&
@@ -171,24 +171,24 @@ export class OrderItem extends React.Component {
 		return selectedOptions
 	}
 
-	render() {
-		const { item, settings, allowEdit } = this.props
+	
+		const { item, settings, allowEdit } = props
 
 		const editFormActions = [
 			<FlatButton
 				label={messages.cancel}
-				onClick={this.hideEditForm}
+				onClick={hideEditForm}
 				style={{ marginRight: 10 }}
 			/>,
 			<FlatButton
 				label={messages.save}
 				primary
-				onClick={this.submitEditForm}
+				onClick={submitEditForm}
 			/>,
 		]
 
-		let { quantity } = this.state
-		const { selectedOptions, selectedVariant } = this.state
+		let { quantity } = state
+		const { selectedOptions, selectedVariant } = state
 		const { product } = item
 		const price = helper.formatCurrency(item.price, settings)
 		const priceTotal = helper.formatCurrency(item.price_total, settings)
@@ -231,16 +231,16 @@ export class OrderItem extends React.Component {
 
 		return (
 			<div>
-				<div className={`${style.item} row row--no-gutter middle-xs`}>
+				<div className={`$"item} row row--no-gutter middle-xs`}>
 					<div className="col-xs-2">
 						{thumbnailUrl && thumbnailUrl !== '' && (
 							<img
 								src={thumbnailUrl}
-								className={style.itemImage}
+								className="itemImage}
 							/>
 						)}
 					</div>
-					<div className={`${style.itemName} col-xs-4`}>
+					<div className={`$"itemName} col-xs-4`}>
 						<Link to={`/product/${item.product_id}`}>
 							{item.name}
 						</Link>
@@ -258,7 +258,7 @@ export class OrderItem extends React.Component {
 					<div className="col-xs-2" style={{ textAlign: 'right' }}>
 						{priceTotal}
 						{item.discount_total > 0 && (
-							<small className={style.itemDiscount}>
+							<small className="itemDiscount}>
 								{discountTotal}
 							</small>
 						)}
@@ -276,10 +276,10 @@ export class OrderItem extends React.Component {
 									vertical: 'top',
 								}}
 							>
-								<MenuItem onClick={this.showEditForm}>
+								<MenuItem onClick={showEditForm}>
 									{messages.edit}
 								</MenuItem>
-								<MenuItem onClick={this.deleteItem}>
+								<MenuItem onClick={deleteItem}>
 									{messages.actions_delete}
 								</MenuItem>
 							</IconMenu>
@@ -291,21 +291,21 @@ export class OrderItem extends React.Component {
 					title={messages.editOrderItem}
 					actions={editFormActions}
 					modal={false}
-					open={this.state.showEdit}
-					onRequestClose={this.hideEditForm}
+					open={state.showEdit}
+					onRequestClose={hideEditForm}
 					contentStyle={{ width: 400 }}
 				>
 					<div>
 						<ProductOptions
 							options={productOptions}
-							onChange={this.onOptionChange}
+							onChange={onOptionChange}
 							selectedOptions={selectedOptions}
 						/>
 						<SelectField
 							floatingLabelText={messages.quantity}
 							fullWidth
 							value={quantity}
-							onChange={this.quantityChange}
+							onChange={quantityChange}
 						>
 							{quantityItems}
 						</SelectField>

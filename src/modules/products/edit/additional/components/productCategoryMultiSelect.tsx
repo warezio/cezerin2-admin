@@ -23,57 +23,57 @@ const CategoryItem = ({ categoryName, actions }) => (
 	</span>
 )
 
-export default class ProductCategoryMultiSelect extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
+export default const ProductCategoryMultiSelect = () => {
+	
+		
+		state = {
 			open: false,
 		}
 	}
 
 	close = () => {
-		this.setState({ open: false })
+		set( open: false })
 	}
 
 	open = () => {
-		this.setState({ open: true })
+		set( open: true })
 	}
 
 	handleCheck = (categoryId) => {
-		const selectedIds = this.props.fields.getAll()
+		const selectedIds = props.fields.getAll()
 		if (selectedIds && selectedIds.includes(categoryId)) {
 			// remove
-			this.props.fields.forEach((name, index, fields) => {
+			props.fields.forEach((name, index, fields) => {
 				if (fields.get(index) === categoryId) {
 					fields.remove(index)
 				}
 			})
 		} else {
 			// add
-			this.props.fields.push(categoryId)
+			props.fields.push(categoryId)
 		}
 	}
 
-	render() {
+	
 		const {
 			categories,
 			fields,
 			meta: { touched, error, submitFailed },
-		} = this.props
-		const { open } = this.state
+		} = props
+		const { open } = state
 		const selectedIds = fields.getAll()
 
 		const dialogButtons = [
 			<FlatButton
 				label={messages.cancel}
-				onClick={this.close}
+				onClick={close}
 				style={{ marginRight: 10 }}
 			/>,
 			<FlatButton
 				label={messages.save}
 				primary
 				keyboardFocused
-				onClick={this.close}
+				onClick={close}
 			/>,
 		]
 
@@ -105,19 +105,19 @@ export default class ProductCategoryMultiSelect extends React.Component {
 						actions={dialogButtons}
 						modal={false}
 						open={open}
-						onRequestClose={this.close}
+						onRequestClose={close}
 						autoScrollBodyContent
 					>
 						<CategoryMultiselect
 							items={categories}
 							selectedIds={selectedIds}
 							opened={false}
-							onCheck={this.handleCheck}
+							onCheck={handleCheck}
 						/>
 					</Dialog>
 					<FlatButton
 						style={{ minWidth: 52 }}
-						onClick={this.open}
+						onClick={open}
 						icon={
 							<FontIcon color="#333" className="material-icons">
 								add

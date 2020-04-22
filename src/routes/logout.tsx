@@ -3,7 +3,7 @@ import * as auth from '../lib/auth'
 
 const Logout = () => {
 	useEffect(()=>
-	componentWillMount() {
+	useEffect(,[]Mount() {
 		auth.removeToken()
 	})
 

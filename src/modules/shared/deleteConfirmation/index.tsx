@@ -3,42 +3,42 @@ import messages from 'lib/text'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 
-export default class ConfirmationDialog extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
+export default const ConfirmationDialog = () => {
+	
+		
+		state = {
 			open: props.open,
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
-		if (this.state.open !== nextProps.open) {
-			this.setState({
+	useEffect([prop.count](nextProps) {
+		if (state.open !== nextProps.open) {
+			set(
 				open: nextProps.open,
 			})
 		}
 	}
 
 	close = () => {
-		this.setState({ open: false })
+		set( open: false })
 	}
 
 	handleCancel = () => {
-		this.close()
-		if (this.props.onCancel) {
-			this.props.onCancel()
+		close()
+		if (props.onCancel) {
+			props.onCancel()
 		}
 	}
 
 	handleDelete = () => {
-		this.close()
-		if (this.props.onDelete) {
-			this.props.onDelete()
+		close()
+		if (props.onDelete) {
+			props.onDelete()
 		}
 	}
 
-	render() {
-		const { isSingle = true, itemsCount = 0, itemName = '' } = this.props
+	
+		const { isSingle = true, itemsCount = 0, itemName = '' } = props
 
 		const title = isSingle
 			? messages.singleDeleteTitle.replace('{name}', itemName)
@@ -51,14 +51,14 @@ export default class ConfirmationDialog extends React.Component {
 		const actions = [
 			<FlatButton
 				label={messages.cancel}
-				onClick={this.handleCancel}
+				onClick={handleCancel}
 				style={{ marginRight: 10 }}
 			/>,
 			<FlatButton
 				label={messages.actions_delete}
 				primary
 				keyboardFocused
-				onClick={this.handleDelete}
+				onClick={handleDelete}
 			/>,
 		]
 
@@ -67,8 +67,8 @@ export default class ConfirmationDialog extends React.Component {
 				title={title}
 				actions={actions}
 				modal={false}
-				open={this.state.open}
-				onRequestClose={this.handleCancel}
+				open={state.open}
+				onRequestClose={handleCancel}
 				contentStyle={{ maxWidth: 540 }}
 				titleStyle={{ fontSize: '18px', lineHeight: '28px' }}
 			>

@@ -12,36 +12,36 @@ const MultiUploader = () => {
 		files.map((file) => {
 			form.append('file', file)
 		})
-		this.props.onUpload(form)
+		props.onUpload(form)
 	}
 
-	const { uploading } = this.props
+	const { uploading } = props
 	return (
 		<>
 			<Dropzone
-				onDrop={this.onDrop}
+				onDrop={onDrop}
 				multiple
 				disableClick
 				ref={(node) => {
-					this.dropzone = node
+					dropzone = node
 				}}
 				style={{}}
 				className={
-					style.dropzone + (uploading ? ` ${style.uploading}` : '')
+					style.dropzone + (uploading ? ` $"uploading}` : '')
 				}
-				activeClassName={style.dropzoneActive}
-				rejectClassName={style.dropzoneReject}
+				activeClassName="dropzoneActive}
+				rejectClassName="dropzoneReject}
 			>
 				{({ getRootProps, getInputProps }) => (
 					<div {...getRootProps()}>
 						<input {...getInputProps()} />
-						<div className={style.dropzoneEmpty}>
+						<div className="dropzoneEmpty}>
 							{messages.help_dropHere}
 							<FlatButton
 								label={messages.chooseImage}
-								className={style.button}
+								className="button}
 								onClick={() => {
-									this.dropzone.open()
+									dropzone.open()
 								}}
 							/>
 						</div>

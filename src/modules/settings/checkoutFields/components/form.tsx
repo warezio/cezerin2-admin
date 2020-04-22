@@ -14,13 +14,13 @@ const radioButtonStyle = {
 	marginBottom: 14,
 }
 
-class CheckoutFieldForm extends React.Component {
-	componentDidMount() {
-		this.props.onLoad()
+const CheckoutFieldForm = () => {
+	useEffect(,[]() {
+		props.onLoad()
 	}
 
-	render() {
-		const { handleSubmit, pristine, submitting, initialValues } = this.props
+	
+		const { handleSubmit, pristine, submitting, initialValues } = props
 
 		return (
 			<form
@@ -31,7 +31,7 @@ class CheckoutFieldForm extends React.Component {
 				}}
 			>
 				<Paper className="paper-box" zDepth={1}>
-					<div className={style.innerBox}>
+					<div className="innerBox}>
 						<div>
 							<Field
 								component={TextField}
@@ -78,7 +78,7 @@ class CheckoutFieldForm extends React.Component {
 							type="submit"
 							label={messages.save}
 							primary
-							className={style.button}
+							className="button}
 							disabled={pristine || submitting}
 						/>
 					</div>

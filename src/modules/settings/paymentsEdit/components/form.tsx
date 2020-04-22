@@ -32,8 +32,8 @@ const EditPaymentMethodForm = () => {
 
 	useEffect(() => (props.onLoad()),[])
 
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.initialValues !== this.props.initialValues) {
+	useEffect([prop.count](nextProps) {
+		if (nextProps.initialValues !== props.initialValues) {
 			setGateway(nextProps.initialValues.gateway)
 		}
 	}
@@ -67,7 +67,7 @@ const EditPaymentMethodForm = () => {
 		return (
 			<form onSubmit={handleSubmit}>
 				<Paper className="paper-box" zDepth={1}>
-					<div className={style.innerBox}>
+					<div className="innerBox}>
 						<div className="row">
 							<div className="col-xs-12 col-sm-4">
 								<div className="blue-title">

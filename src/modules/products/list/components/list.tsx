@@ -8,12 +8,12 @@ import ProductsListItem from './item'
 import Head from './head'
 import './style.sass'
 
-export default class ProductsList extends React.Component {
-	componentDidMount() {
-		this.props.onLoad()
+export default const ProductsList = () => {
+	useEffect(,[]() {
+		props.onLoad()
 	}
 
-	render() {
+	
 		const {
 			items,
 			selected,
@@ -25,7 +25,7 @@ export default class ProductsList extends React.Component {
 			settings,
 			hasMore,
 			totalCount,
-		} = this.props
+		} = props
 
 		const rows = items.map((item, index) => {
 			const itemSelected = selected.includes(item.id)
@@ -46,7 +46,7 @@ export default class ProductsList extends React.Component {
 					<Head onSelectAll={onSelectAll} />
 					<Divider />
 					{rows}
-					<div className={style.more}>
+					<div className="more}>
 						<RaisedButton
 							disabled={loadingItems || !hasMore}
 							label={messages.actions_loadMore}

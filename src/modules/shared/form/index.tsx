@@ -48,28 +48,28 @@ export const ColorField = ({ input, meta: { touched, error } }) => (
 	<input {...input} type="color" />
 )
 
-export class MultiSelect extends React.Component {
-	constructor(props) {
-		super(props)
+export const MultiSelect = () => {
+	
+		
 		const values = Array.isArray(props.input.value) ? props.input.value : []
-		this.state = {
+		state = {
 			selectedItems: values,
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
+	useEffect([prop.count](nextProps) {
 		const values = Array.isArray(nextProps.input.value)
 			? nextProps.input.value
 			: []
-		if (values !== this.state.selectedItems) {
-			this.setState({
+		if (values !== state.selectedItems) {
+			set(
 				selectedItems: values,
 			})
 		}
 	}
 
 	onCheckboxChecked = (item) => {
-		const { selectedItems } = this.state
+		const { selectedItems } = state
 		let newSelectedItems = []
 		if (selectedItems.includes(item)) {
 			newSelectedItems = selectedItems.filter((i) => i !== item)
@@ -77,15 +77,15 @@ export class MultiSelect extends React.Component {
 			newSelectedItems = [...selectedItems, item]
 		}
 		newSelectedItems.sort()
-		this.setState({ selectedItems: newSelectedItems })
-		this.props.input.onChange(newSelectedItems)
+		set( selectedItems: newSelectedItems })
+		props.input.onChange(newSelectedItems)
 	}
 
-	isCheckboxChecked = (item) => this.state.selectedItems.includes(item)
+	isCheckboxChecked = (item) => state.selectedItems.includes(item)
 
-	render() {
-		const { items, disabled, columns = 2 } = this.props
-		const columnsClass = 12 / columns
+	
+		const { items, disabled, columns = 2 } = props
+		const columnsconst = 12 / columns
 
 		const elements = items.map((item, index) => (
 			<div className={`col-xs-12 col-sm-${columnsClass}`} key={index}>
@@ -93,10 +93,10 @@ export class MultiSelect extends React.Component {
 					<ListItem
 						leftCheckbox={
 							<Checkbox
-								checked={this.isCheckboxChecked(item)}
+								checked={isCheckboxChecked(item)}
 								disabled={disabled}
 								onCheck={(e, isChecked) => {
-									this.onCheckboxChecked(item)
+									onCheckboxChecked(item)
 								}}
 							/>
 						}

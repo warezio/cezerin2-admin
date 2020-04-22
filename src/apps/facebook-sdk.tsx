@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import messages from 'lib/text'
-import api from 'lib/api'
+import messages from './../lib/text'
+import api from './../lib/api'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
@@ -39,29 +39,25 @@ const FACEBOOK_CODE = `<script>
 </script>`
 
 export const App = () => {
-	this.state = {
-		appId: '',
-		locale: 'en_US',
+		const [appID,setAppID]=useState('')
+		const [locale,setLocale] =('en_US')
+
+	const handleAppIdChange = (event) => {
+		setAppID(event.target.value)
 	}
 
-	handleAppIdChange = (event) => {
-		this.setState({ appId: event.target.value })
+	const handleLocaleChange = (event) => {
+		setLocale(event.target.value )
 	}
 
-	handleLocaleChange = (event) => {
-		this.setState({ locale: event.target.value })
-	}
-
-	fetchSettings = () => {
+	const fetchSettings = () => {
 		api.apps.settings
 			.retrieve('facebook-sdk')
-			.then(({ status, json }) => {
+			.then(({ json }) => {
 				const appSettings = json
 				if (appSettings) {
-					this.setState({
-						appId: appSettings.appId,
-						locale: appSettings.locale,
-					})
+						setAppId: appSettings.appId,
+						setLocale: appSettings.locale,
 				}
 			})
 			.catch((error) => {
@@ -69,8 +65,8 @@ export const App = () => {
 			})
 	}
 
-	updateSettings = () => {
-		const { appId, locale } = this.state
+	const updateSettings = () => {
+		const { appId, locale } = state
 		const htmlCode =
 			appId && appId.length > 0
 				? FACEBOOK_CODE.replace(/YOUR_APP_ID/g, appId).replace(
@@ -93,16 +89,16 @@ export const App = () => {
 			<TextField
 				type="text"
 				fullWidth
-				value={this.state.appId}
-				onChange={this.handleAppIdChange}
+				value={state.appId}
+				onChange={handleAppIdChange}
 				floatingLabelText="App ID"
 			/>
 
 			<TextField
 				type="text"
 				fullWidth
-				value={this.state.locale}
-				onChange={this.handleLocaleChange}
+				value={state.locale}
+				onChange={handleLocaleChange}
 				floatingLabelText="Locale"
 				hintText="en_US"
 			/>
@@ -112,7 +108,7 @@ export const App = () => {
 					label={messages.save}
 					primary
 					disabled={false}
-					onClick={this.updateSettings}
+					onClick={updateSettings}
 				/>
 			</div>
 		</>

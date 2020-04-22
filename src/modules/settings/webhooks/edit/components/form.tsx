@@ -7,7 +7,7 @@ import { CustomToggle, MultiSelect } from 'modules/shared/form'
 
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 
 const WEBHOOK_EVENTS = [
 	'order.created',
@@ -34,26 +34,26 @@ const validate = (values) => {
 	return errors
 }
 
-class EditWebhookForm extends React.Component {
-	componentDidMount() {
-		this.props.onLoad()
+const EditWebhookForm = () => {
+	useEffect(,[]() {
+		props.onLoad()
 	}
 
-	render() {
+	
 		const {
 			handleSubmit,
 			pristine,
 			submitting,
 			initialValues,
 			webhookId,
-		} = this.props
+		} = props
 		const isAdd = webhookId === null || webhookId === undefined
 
 		return (
 			<div>
 				<form onSubmit={handleSubmit}>
 					<Paper className="paper-box" zDepth={1}>
-						<div className={style.innerBox}>
+						<div className="innerBox}>
 							<Field
 								name="description"
 								component={TextField}
@@ -105,7 +105,7 @@ class EditWebhookForm extends React.Component {
 								type="submit"
 								label={isAdd ? messages.add : messages.save}
 								primary
-								className={style.button}
+								className="button}
 								disabled={pristine || submitting}
 							/>
 						</div>

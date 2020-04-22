@@ -125,29 +125,29 @@ const OrdersListItem = ({ order, onSelect, selected, settings }) => {
 						<div className="col-xs-2">
 							<Link
 								to={`/order/${order.id}`}
-								className={style.number}
+								className="number}
 							>
 								{order.number || 0}
 							</Link>
 							<br />
-							<small className={style.small}>
+							<small className="small}>
 								{dateCreatedFromNow}
 							</small>
 						</div>
 						<div className="col-xs-4">
-							<div className={style.shipping}>{shippingTo}</div>
-							<small className={style.small}>
+							<div className="shipping}>{shippingTo}</div>
+							<small className="small}>
 								{order.shipping_method}
 							</small>
 						</div>
-						<div className={`col-xs-2 ${style.price}`}>
+						<div className={`col-xs-2 $"price}`}>
 							{grandTotalFormatted}
 							<br />
-							<small className={style.small}>
+							<small className="small}>
 								{order.payment_method}
 							</small>
 						</div>
-						<div className={`col-xs-2 ${style.status}`}>
+						<div className={`col-xs-2 $"status}`}>
 							{order.status}
 						</div>
 					</div>

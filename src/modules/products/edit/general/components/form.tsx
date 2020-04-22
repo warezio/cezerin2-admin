@@ -10,7 +10,7 @@ import api from 'lib/api'
 import Paper from 'material-ui/Paper'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 
 const validate = (values) => {
 	const errors = {}
@@ -59,7 +59,7 @@ const ProductGeneralForm = ({
 		return (
 			<form onSubmit={handleSubmit}>
 				<Paper className="paper-box" zDepth={1}>
-					<div className={style.innerBox}>
+					<div className="innerBox}>
 						<Field
 							name="name"
 							component={TextField}
@@ -99,7 +99,7 @@ const ProductGeneralForm = ({
 					>
 						<FlatButton
 							label={messages.cancel}
-							className={style.button}
+							className="button}
 							onClick={reset}
 							disabled={pristine || submitting}
 						/>
@@ -107,7 +107,7 @@ const ProductGeneralForm = ({
 							type="submit"
 							label={messages.save}
 							primary
-							className={style.button}
+							className="button}
 							disabled={pristine || submitting}
 						/>
 					</div>

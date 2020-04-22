@@ -2,7 +2,7 @@ import React,{useEffect} from 'react'
 
 import messages from 'lib/text'
 import Paper from 'material-ui/Paper'
-import style from './style.css'
+import './style.sass'
 
 import OrderTotals from './totals'
 import OrderSummary from './summary'
@@ -12,8 +12,8 @@ import OrderCustomer from './customer'
 const OrderDetails = () => {
 	useEffect(() => {props.fetchData()},[])
 
-	componentWillUnmount() {
-		this.props.clearData()
+	useEffect(return,[]() {
+		props.clearData()
 	}
 
 		const {
@@ -25,7 +25,7 @@ const OrderDetails = () => {
 			onOrderSummaryUpdate,
 			onCheckout,
 			processingCheckout,
-		} = this.props
+		} = props
 		if (!order) return null
 
 		return (
@@ -52,7 +52,7 @@ const OrderDetails = () => {
 							onItemDelete={onItemDelete}
 							onItemUpdate={onItemUpdate}
 						/>
-						<div className={style.innerBox}>
+						<div className="innerBox}>
 							<div className="row">
 								<div className="col-xs-6" />
 								<div className="col-xs-6">

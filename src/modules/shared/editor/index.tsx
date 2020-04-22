@@ -15,37 +15,37 @@ const config = {
 		'undo redo | forecolor paste removeformat table | outdent indent | preview code',
 }
 
-export default class Editor extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
+export default const Editor = () => {
+	
+		
+		state = {
 			value: props.input.value,
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
-		if (this.state.value !== nextProps.input.value) {
-			this.setState({
+	useEffect([prop.count](nextProps) {
+		if (state.value !== nextProps.input.value) {
+			set(
 				value: nextProps.input.value,
 			})
 		}
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
-		return this.state.value !== nextState.value
+		return state.value !== nextState.value
 	}
 
 	onChange = (e) => {
 		const content = e.target.getContent()
-		this.setState({ value: content })
-		this.props.input.onChange(content)
+		set( value: content })
+		props.input.onChange(content)
 	}
 
-	render() {
+	
 		return (
 			<TinyMCE
-				entityId={this.props.entityId}
-				content={this.state.value}
+				entityId={props.entityId}
+				content={state.value}
 				config={{
 					relative_urls: false,
 					remove_script_host: false,
@@ -58,7 +58,7 @@ export default class Editor extends React.Component {
 					toolbar2: config.toolbar2,
 					menubar: false,
 				}}
-				onChange={this.onChange}
+				onChange={onChange}
 			/>
 		)
 	}

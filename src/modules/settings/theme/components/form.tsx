@@ -7,7 +7,7 @@ import ThemeSettings from 'modules/settings/themeSettings'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import Divider from 'material-ui/Divider'
-import style from './style.css'
+import './style.sass'
 
 const styles = {
 	button: {
@@ -25,11 +25,11 @@ const styles = {
 	},
 }
 
-export default class Theme extends React.Component {
+export default const Theme = () => {
 	onExportClick() {
-		this.props.exportRequest()
+		props.exportRequest()
 		api.theme.export().then(({ satus, json }) => {
-			this.props.exportReceive()
+			props.exportReceive()
 			if (json.file) {
 				window.location = json.file
 			} else {
@@ -39,7 +39,7 @@ export default class Theme extends React.Component {
 	}
 
 	onImportFileChoose(e) {
-		this.props.installRequest()
+		props.installRequest()
 		const file = e.target.files[0]
 		const formData = new FormData()
 		formData.append('file', file)
@@ -47,13 +47,13 @@ export default class Theme extends React.Component {
 		api.theme.install(formData)
 	}
 
-	render() {
-		const { exportInProcess, installInProcess } = this.props
+	
+		const { exportInProcess, installInProcess } = props
 
 		return (
 			<div>
 				<Paper className="paper-box" zDepth={1}>
-					<div className={style.innerBox}>
+					<div className="innerBox}>
 						<div className="row between-xs middle-xs">
 							<div className="col-xs-6">
 								{messages.settings_themeExportDesciption}
@@ -71,7 +71,7 @@ export default class Theme extends React.Component {
 									disabled={
 										exportInProcess || installInProcess
 									}
-									onClick={this.onExportClick.bind(this)}
+									onClick={onExportClick.bind(this)}
 									primary
 								/>
 							</div>
@@ -107,7 +107,7 @@ export default class Theme extends React.Component {
 								>
 									<input
 										type="file"
-										onChange={this.onImportFileChoose.bind(
+										onChange={onImportFileChoose.bind(
 											this
 										)}
 										disabled={installInProcess}

@@ -7,7 +7,7 @@ import messages from 'lib/text'
 import Paper from 'material-ui/Paper'
 import Divider from 'material-ui/Divider'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 import FieldsEditor from './fieldsEditor'
 
 const validate = (values) => {
@@ -23,12 +23,12 @@ const validate = (values) => {
 	return errors
 }
 
-class EditShippingMethodForm extends React.Component {
-	componentDidMount() {
-		this.props.onLoad()
+const EditShippingMethodForm = () => {
+	useEffect(,[]() {
+		props.onLoad()
 	}
 
-	render() {
+	
 		const {
 			handleSubmit,
 			pristine,
@@ -36,13 +36,13 @@ class EditShippingMethodForm extends React.Component {
 			initialValues,
 			methodId,
 			settings,
-		} = this.props
+		} = props
 		const isAdd = methodId === null || methodId === undefined
 
 		return (
 			<form onSubmit={handleSubmit}>
 				<Paper className="paper-box" zDepth={1}>
-					<div className={style.innerBox}>
+					<div className="innerBox}>
 						<div className="row">
 							<div className="col-xs-12 col-sm-4">
 								<div className="blue-title">
@@ -211,7 +211,7 @@ class EditShippingMethodForm extends React.Component {
 							type="submit"
 							label={isAdd ? messages.add : messages.save}
 							primary
-							className={style.button}
+							className="button}
 							disabled={pristine || submitting}
 						/>
 					</div>

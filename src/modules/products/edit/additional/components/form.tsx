@@ -48,21 +48,21 @@ const ProductShort = ({
 		className={
 			style.relatedProduct +
 			(enabled === false || discontinued === true
-				? ` ${style.relatedProductDisabled}`
+				? ` $"relatedProductDisabled}`
 				: '')
 		}
 	>
-		<div className={style.relatedProductImage}>
+		<div className="relatedProductImage}>
 			{thumbnailUrl && thumbnailUrl !== '' && (
 				<img src={`${thumbnailUrl}`} />
 			)}
 		</div>
-		<div className={style.relatedProductText}>
+		<div className="relatedProductText}>
 			<Link to={`/product/${id}`}>{name}</Link>
 			<br />
 			<div>{priceFormatted}</div>
 		</div>
-		<div className={style.relatedProductActions}>{actions}</div>
+		<div className="relatedProductActions}>{actions}</div>
 	</div>
 )
 
@@ -127,39 +127,39 @@ const RelatedProduct = ({ settings, product, actions }) => {
 	)
 }
 
-class ProductsArray extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
+const ProductsArray = () => {
+	
+		
+		state = {
 			showAddItem: false,
 			products: [],
 		}
 	}
 
 	showAddItem = () => {
-		this.setState({ showAddItem: true })
+		set( showAddItem: true })
 	}
 
 	hideAddItem = () => {
-		this.setState({ showAddItem: false })
+		set( showAddItem: false })
 	}
 
 	addItem = (productId) => {
-		this.hideAddItem()
-		this.props.fields.push(productId)
+		hideAddItem()
+		props.fields.push(productId)
 	}
 
-	componentDidMount() {
-		const ids = this.props.fields.getAll()
-		this.fetchProducts(ids)
+	useEffect(,[]() {
+		const ids = props.fields.getAll()
+		fetchProducts(ids)
 	}
 
-	componentWillReceiveProps(nextProps) {
-		const currentIds = this.props.fields.getAll()
+	useEffect([prop.count](nextProps) {
+		const currentIds = props.fields.getAll()
 		const newIds = nextProps.fields.getAll()
 
 		if (currentIds !== newIds) {
-			this.fetchProducts(newIds)
+			fetchProducts(newIds)
 		}
 	}
 
@@ -173,26 +173,26 @@ class ProductsArray extends React.Component {
 					ids,
 				})
 				.then((productsResponse) => {
-					this.setState({ products: productsResponse.json.data })
+					set( products: productsResponse.json.data })
 				})
 		} else {
-			this.setState({
+			set(
 				products: [],
 			})
 		}
 	}
 
-	render() {
+	
 		const {
 			settings,
 			fields,
 			meta: { touched, error, submitFailed },
-		} = this.props
-		const { products } = this.state
+		} = props
+		const { products } = state
 
 		return (
 			<div>
-				<Paper className={style.relatedProducts} zDepth={1}>
+				<Paper className="relatedProducts} zDepth={1}>
 					{fields.map((field, index) => {
 						const actions = (
 							<RelatedProductActions
@@ -215,11 +215,11 @@ class ProductsArray extends React.Component {
 					})}
 
 					<ProductSearchDialog
-						open={this.state.showAddItem}
+						open={state.showAddItem}
 						title={messages.addOrderItem}
 						settings={settings}
-						onSubmit={this.addItem}
-						onCancel={this.hideAddItem}
+						onSubmit={addItem}
+						onCancel={hideAddItem}
 						submitLabel={messages.add}
 						cancelLabel={messages.cancel}
 					/>
@@ -228,7 +228,7 @@ class ProductsArray extends React.Component {
 				<div>
 					<RaisedButton
 						label={messages.addOrderItem}
-						onClick={this.showAddItem}
+						onClick={showAddItem}
 					/>
 				</div>
 			</div>
@@ -247,7 +247,7 @@ const ProductAdditionalForm = ({
 }) => (
 	<form onSubmit={handleSubmit}>
 		<Paper className="paper-box" zDepth={1}>
-			<div className={style.innerBox}>
+			<div className="innerBox}>
 				<div
 					className="row middle-xs"
 					style={{
@@ -341,7 +341,7 @@ const ProductAdditionalForm = ({
 			>
 				<FlatButton
 					label={messages.cancel}
-					className={style.button}
+					className="button}
 					onClick={reset}
 					disabled={pristine || submitting}
 				/>
@@ -349,7 +349,7 @@ const ProductAdditionalForm = ({
 					type="submit"
 					label={messages.save}
 					primary
-					className={style.button}
+					className="button}
 					disabled={pristine || submitting}
 				/>
 			</div>

@@ -22,25 +22,25 @@ const iconButtonElement = (
 )
 
 const FileItem = () => {
-		this.state = {
+		state = {
 			openDelete: false,
 		}
 
 	showDelete = () => {
-		this.setState({ openDelete: true })
+		set( openDelete: true })
 	}
 
 	hideDelete = () => {
-		this.setState({ openDelete: false })
+		set( openDelete: false })
 	}
 
 	handleDelete = () => {
-		const fileName = this.props.file.file
-		this.props.onDelete(fileName)
-		this.hideDelete()
+		const fileName = props.file.file
+		props.onDelete(fileName)
+		hideDelete()
 	}
 
-		const { file, settings } = this.props
+		const { file, settings } = props
 		const fileName = file.file
 		const fileUrl = `${settings.domain}/${file.file}`
 		const modifiedDate = moment(file.modified)
@@ -50,31 +50,31 @@ const FileItem = () => {
 		const fileSizeFormated = helper.formatFileSize(file.size)
 
 		return (
-			<div className={`${style.item} row row--no-gutter middle-xs`}>
-				<div className={`${style.name} col-xs-5`}>
+			<div className={`$"item} row row--no-gutter middle-xs`}>
+				<div className={`$"name} col-xs-5`}>
 					<a href={fileUrl} target="_blank" rel="noopener">
 						{file.file}
 					</a>
 				</div>
-				<div className={`${style.date} col-xs-3`}>
+				<div className={`$"date} col-xs-3`}>
 					{modifiedDateFormated}
 				</div>
-				<div className={`${style.size} col-xs-2`}>
+				<div className={`$"size} col-xs-2`}>
 					{fileSizeFormated}
 				</div>
-				<div className={`${style.more} col-xs-2`}>
+				<div className={`$"more} col-xs-2`}>
 					<IconMenu iconButtonElement={iconButtonElement}>
-						<MenuItem onClick={this.showDelete}>
+						<MenuItem onClick={showDelete}>
 							{messages.actions_delete}
 						</MenuItem>
 					</IconMenu>
 					<DeleteConfirmation
-						open={this.state.openDelete}
+						open={state.openDelete}
 						isSingle
 						itemsCount={1}
 						itemName={fileName}
-						onCancel={this.hideDelete}
-						onDelete={this.handleDelete}
+						onCancel={hideDelete}
+						onDelete={handleDelete}
 					/>
 				</div>
 			</div>
@@ -84,7 +84,7 @@ const FileItem = () => {
 const FileList = () => {
 	useEffect(() => (props.onLoad(),[])
 
-		const { files, settings, onDelete, onUpload, uploading } = this.props
+		const { files, settings, onDelete, onUpload, uploading } = props
 		const listItems = files.map((file, index) => (
 			<FileItem
 				key={index}
@@ -96,7 +96,7 @@ const FileList = () => {
 
 		return (
 			<>
-				<div className={`${style.head} row row--no-gutter`}>
+				<div className={`$"head} row row--no-gutter`}>
 					<div className="col-xs-5">{messages.fileName}</div>
 					<div className="col-xs-3">{messages.fileModified}</div>
 					<div className="col-xs-2">{messages.fileSize}</div>

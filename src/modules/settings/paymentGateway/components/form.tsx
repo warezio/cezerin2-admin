@@ -6,47 +6,47 @@ import messages from 'lib/text'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 import { AVAILABLE_PAYMENT_GATEWAYS } from '../availablePaymentGateways'
 import GatewaySettings from './gatewaySettings.js'
 
-class EditPaymentGatewayForm extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
+const EditPaymentGatewayForm = () => {
+	
+		
+		state = {
 			open: false,
 		}
 	}
 
-	componentDidMount() {
-		this.props.onLoad()
+	useEffect(,[]() {
+		props.onLoad()
 	}
 
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.gateway !== this.props.gateway) {
-			this.props.onLoad(nextProps.gateway)
+	useEffect([prop.count](nextProps) {
+		if (nextProps.gateway !== props.gateway) {
+			props.onLoad(nextProps.gateway)
 		}
 	}
 
 	handleOpen = () => {
-		this.setState({ open: true })
+		set( open: true })
 	}
 
 	handleClose = () => {
-		this.setState({ open: false })
+		set( open: false })
 	}
 
-	render() {
-		const { handleSubmit, pristine, submitting, initialValues } = this.props
+	
+		const { handleSubmit, pristine, submitting, initialValues } = props
 		const gatewayDetails = AVAILABLE_PAYMENT_GATEWAYS.find(
-			(item) => item.key === this.props.gateway
+			(item) => item.key === props.gateway
 		)
 
-		if (this.props.gateway && this.props.gateway.length > 0) {
+		if (props.gateway && props.gateway.length > 0) {
 			return (
 				<div>
 					<RaisedButton
-						onClick={this.handleOpen}
+						onClick={handleOpen}
 						label={messages.drawer_settings}
 						style={{ margin: '15px 0 30px 0' }}
 					/>
@@ -54,27 +54,27 @@ class EditPaymentGatewayForm extends React.Component {
 					<Dialog
 						title={gatewayDetails.name}
 						modal={false}
-						open={this.state.open}
+						open={state.open}
 						autoScrollBodyContent
 						contentStyle={{ width: 600 }}
-						onRequestClose={this.handleClose}
+						onRequestClose={handleClose}
 					>
 						<form
 							onSubmit={handleSubmit}
 							style={{ display: 'initial', width: '100%' }}
 						>
-							<GatewaySettings gateway={this.props.gateway} />
+							<GatewaySettings gateway={props.gateway} />
 
-							<div className={style.buttons}>
+							<div className="buttons}>
 								<FlatButton
 									label={messages.cancel}
-									onClick={this.handleClose}
+									onClick={handleClose}
 								/>
 								<FlatButton
 									label={messages.save}
 									primary
 									type="submit"
-									onClick={this.handleClose}
+									onClick={handleClose}
 									style={{ marginLeft: 12 }}
 									disabled={pristine || submitting}
 								/>

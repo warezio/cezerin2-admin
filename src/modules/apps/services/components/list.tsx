@@ -7,10 +7,10 @@ import ServiceItem from './serviceItem'
 import AppItem from './appItem'
 import './style.sass'
 
-const ServicesList = () => {
-	useEffect(() => (props.fetchData()),[])
+const ServicesList = (props) => {
+	useEffect(() => props.fetchData(),[])
 
-		const { services, webstoreAuthorized } = this.props
+		const { services, webstoreAuthorized } = props
 
 		let serviceItems = null
 		if (services && services.data) {

@@ -5,7 +5,7 @@ import { TextField, SelectField } from 'redux-form-material-ui'
 import { CustomToggle, NumberField, ColorField } from 'modules/shared/form'
 import * as helper from 'lib/helper'
 import MenuItem from 'material-ui/MenuItem'
-import style from './style.css'
+import './style.sass'
 import ArrayEditor from './arrayEditor'
 import ImageEditor from './imageEditor'
 
@@ -55,7 +55,7 @@ const DynamicEditControl = ({
 	}
 	if (type === 'color') {
 		return (
-			<div className={style.colorInput}>
+			<div className="colorInput}>
 				<label>{label}</label>
 				<Field component={ColorField} name={fieldName} />
 			</div>

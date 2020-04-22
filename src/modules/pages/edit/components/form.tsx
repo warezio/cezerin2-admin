@@ -58,30 +58,30 @@ const asyncValidate = (values /* , dispatch */) =>
 		}
 	})
 
-class EditPageForm extends React.Component {
-	componentDidMount() {
-		this.props.onLoad()
+const EditPageForm = () => {
+	useEffect(,[]() {
+		props.onLoad()
 	}
 
-	componentWillUnmount() {
-		this.props.eraseData()
+	useEffect(return,[]() {
+		props.eraseData()
 	}
 
-	render() {
+	
 		const {
 			handleSubmit,
 			pristine,
 			submitting,
 			initialValues,
 			pageId,
-		} = this.props
+		} = props
 		const isAdd = pageId === null || pageId === undefined
 
 		if (initialValues) {
 			return (
 				<form onSubmit={handleSubmit}>
 					<Paper className="paper-box" zDepth={1}>
-						<div className={style.innerBox}>
+						<div className="innerBox}>
 							<Field
 								name="meta_title"
 								component={TextField}
@@ -142,7 +142,7 @@ class EditPageForm extends React.Component {
 								type="submit"
 								label={isAdd ? messages.add : messages.save}
 								primary
-								className={style.button}
+								className="button}
 								disabled={pristine || submitting}
 							/>
 						</div>

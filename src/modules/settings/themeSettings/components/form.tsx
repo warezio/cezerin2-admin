@@ -8,14 +8,14 @@ import Paper from 'material-ui/Paper'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import DynamicEditControl from './dynamicEditControl'
-import style from './style.css'
+import './style.sass'
 
-class ThemeSettings extends React.Component {
-	componentDidMount() {
-		this.props.onLoad()
+const ThemeSettings = () => {
+	useEffect(,[]() {
+		props.onLoad()
 	}
 
-	render() {
+	
 		const {
 			handleSubmit,
 			pristine,
@@ -23,7 +23,7 @@ class ThemeSettings extends React.Component {
 			initialValues,
 			reset,
 			settingsSchema,
-		} = this.props
+		} = props
 		if (initialValues && settingsSchema) {
 			let lastSection = null
 			const sortedSettingsSchema = sortBy(settingsSchema, [
@@ -37,7 +37,7 @@ class ThemeSettings extends React.Component {
 					lastSection = item.section
 					sectionTitle =
 						item.section && item.section !== '' ? (
-							<div className={style.sectionTitle}>
+							<div className="sectionTitle}>
 								{item.section}
 							</div>
 						) : null
@@ -69,11 +69,11 @@ class ThemeSettings extends React.Component {
 						{messages.themeSettings}
 					</div>
 					<Paper className="paper-box" zDepth={1}>
-						<div className={style.innerBox}>{fields}</div>
+						<div className="innerBox}>{fields}</div>
 						<div className="buttons-box">
 							<FlatButton
 								label={messages.cancel}
-								className={style.button}
+								className="button}
 								onClick={reset}
 								disabled={pristine || submitting}
 							/>
@@ -81,7 +81,7 @@ class ThemeSettings extends React.Component {
 								type="submit"
 								label={messages.save}
 								primary
-								className={style.button}
+								className="button}
 								disabled={pristine || submitting}
 							/>
 						</div>

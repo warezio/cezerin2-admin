@@ -20,7 +20,7 @@ const CustomersList = () => {
 		onSelectAll,
 		loadMore,
 		settings,
-	} = this.props
+	} = props
 	const rows = items.map((item, index) => (
 		<CustomersListItem
 			key={index}
@@ -37,7 +37,7 @@ const CustomersList = () => {
 				<Head onSelectAll={onSelectAll} />
 				<Divider />
 				{rows}
-				<div className={style.more}>
+				<div className="more}>
 					<RaisedButton
 						disabled={loadingItems || !hasMore}
 						label={messages.actions_loadMore}

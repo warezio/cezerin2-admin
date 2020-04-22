@@ -22,15 +22,15 @@ const validate = (values) => {
 	return errors
 }
 
-class Form extends React.Component {
-	render() {
+const Form = () => {
+	
 		const {
 			handleSubmit,
 			pristine,
 			submitting,
 			isSaving,
 			initialValues,
-		} = this.props
+		} = props
 
 		let statusId = null
 
@@ -41,7 +41,7 @@ class Form extends React.Component {
 		return (
 			<Paper className="paper-box" zDepth={1}>
 				<form onSubmit={handleSubmit}>
-					<div className={style.innerBox}>
+					<div className="innerBox}>
 						<Field
 							name="name"
 							component={TextField}
@@ -61,14 +61,14 @@ class Form extends React.Component {
 					<div className="buttons-box">
 						<FlatButton
 							label={messages.cancel}
-							className={style.button}
-							onClick={this.props.onCancel}
+							className="button}
+							onClick={props.onCancel}
 						/>
 						<RaisedButton
 							type="submit"
 							label={statusId ? messages.save : messages.add}
 							primary
-							className={style.button}
+							className="button}
 							disabled={pristine || submitting || isSaving}
 						/>
 					</div>

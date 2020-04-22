@@ -6,15 +6,15 @@ import messages from 'lib/text'
 
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 
-class EmailSettings extends React.Component {
-	componentDidMount() {
-		this.props.onLoad()
+const EmailSettings = () => {
+	useEffect(,[]() {
+		props.onLoad()
 	}
 
-	render() {
-		const { handleSubmit, pristine, submitting, initialValues } = this.props
+	
+		const { handleSubmit, pristine, submitting, initialValues } = props
 
 		return (
 			<form
@@ -25,7 +25,7 @@ class EmailSettings extends React.Component {
 				}}
 			>
 				<Paper className="paper-box" zDepth={1}>
-					<div className={style.innerBox}>
+					<div className="innerBox}>
 						<div>
 							<Field
 								component={TextField}
@@ -89,7 +89,7 @@ class EmailSettings extends React.Component {
 							type="submit"
 							label={messages.save}
 							primary
-							className={style.button}
+							className="button}
 							disabled={pristine || submitting}
 						/>
 					</div>

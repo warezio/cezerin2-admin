@@ -4,7 +4,7 @@ import messages from 'lib/text'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 import Toggle from 'material-ui/Toggle'
-import style from './style.css'
+import './style.sass'
 
 const Filter = ({
 	filter,
@@ -16,7 +16,7 @@ const Filter = ({
 	const { enabled, discontinued, onSale, stockStatus } = filter
 
 	return (
-		<div className={style.filter}>
+		<div className="filter}>
 			<SelectField
 				value={enabled}
 				onChange={(event, index, value) => {

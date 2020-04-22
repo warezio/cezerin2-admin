@@ -11,7 +11,7 @@ import {
 } from '../actions'
 import CustomerDetails from './components/details'
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
 	settings: state.settings.settings,
 	customer: state.customers.editCustomer,
 })

@@ -31,12 +31,12 @@ import IconButton from 'material-ui/IconButton'
 import DrawerMenu from './drawer'
 
 const AppBarTop = () => {
-		this.state = { open: false }
+		state = { open: false }
 	}
 
-	handleToggle = () => this.setState({ open: !this.state.open })
+	handleToggle = () => set( open: !state.open })
 
-	handleClose = () => this.setState({ open: false })
+	handleClose = () => set( open: false })
 
 		const {
 			location,
@@ -47,7 +47,7 @@ const AppBarTop = () => {
 			ordersSelectedCount,
 			orderStatusName,
 			orderNumber,
-		} = this.props
+		} = props
 		const { pathname } = location
 
 		if (pathname === '/login' || pathname === '/logout') {
@@ -56,7 +56,7 @@ const AppBarTop = () => {
 
 		let title = messages.dashboard
 		let leftButton = (
-			<IconButton onClick={this.handleToggle}>
+			<IconButton onClick={handleToggle}>
 				<FontIcon className="material-icons">menu</FontIcon>
 			</IconButton>
 		)
@@ -683,8 +683,8 @@ const AppBarTop = () => {
 					iconElementRight={rightElements}
 				/>
 				<DrawerMenu
-					open={this.state.open}
-					onClose={this.handleClose}
+					open={state.open}
+					onClose={handleClose}
 					currentUrl={pathname}
 				/>
 			</>
