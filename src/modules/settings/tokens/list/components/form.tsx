@@ -37,11 +37,11 @@ const TokenItem = ({ token }) => (
 
 export default class TokensList extends React.Component {
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	render() {
-		const { tokens } = this.props
+		const { tokens } = props
 		const listItems = tokens.map((token, index) => (
 			<TokenItem key={index} token={token} />
 		))

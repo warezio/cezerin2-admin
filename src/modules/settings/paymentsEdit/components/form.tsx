@@ -33,7 +33,7 @@ const EditPaymentMethodForm = () => {
 	useEffect(() => (props.onLoad()),[])
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.initialValues !== this.props.initialValues) {
+		if (nextProps.initialValues !== props.initialValues) {
 			setGateway(nextProps.initialValues.gateway)
 		}
 	}

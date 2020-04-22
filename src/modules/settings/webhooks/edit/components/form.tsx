@@ -36,7 +36,7 @@ const validate = (values) => {
 
 class EditWebhookForm extends React.Component {
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	render() {
@@ -46,7 +46,7 @@ class EditWebhookForm extends React.Component {
 			submitting,
 			initialValues,
 			webhookId,
-		} = this.props
+		} = props
 		const isAdd = webhookId === null || webhookId === undefined
 
 		return (

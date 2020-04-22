@@ -58,7 +58,7 @@ export const App = () => {
 	}
 
 	updateSettings = () => {
-		const { trackingId } = this.state
+		const { trackingId } = state
 		const gtag =
 			trackingId && trackingId.length > 0
 				? GTAG_CODE.replace(/GA_TRACKING_ID/g, trackingId)
@@ -84,8 +84,8 @@ export const App = () => {
 
 				<TextField
 					type="text"
-					value={this.state.trackingId}
-					onChange={this.handleTrackingIdChange}
+					value={state.trackingId}
+					onChange={handleTrackingIdChange}
 					floatingLabelText="Tracking ID"
 					hintText="UA-XXXXXXXX-X"
 				/>
@@ -95,7 +95,7 @@ export const App = () => {
 						label={messages.save}
 						primary
 						disabled={false}
-						onClick={this.updateSettings}
+						onClick={updateSettings}
 					/>
 				</div>
 			</>

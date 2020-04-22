@@ -12,22 +12,22 @@ export default class MultiUploader extends React.Component {
 		files.map((file) => {
 			form.append('file', file)
 		})
-		this.props.onUpload(form)
+		props.onUpload(form)
 	}
 
 	render() {
-		const { uploading } = this.props
+		const { uploading } = props
 
 		return (
 			<div>
 				<Dropzone
-					onDrop={this.onDrop}
+					onDrop={onDrop}
 					multiple
 					disableClick
 					noClick
 					accept="image/*"
 					ref={(node) => {
-						this.dropzone = node
+						dropzone = node
 					}}
 					style={{}}
 					className="dropzone}
@@ -37,8 +37,8 @@ export default class MultiUploader extends React.Component {
 					{({ getRootProps, getInputProps }) => (
 						<div {...getRootProps()}>
 							<input {...getInputProps()} />
-							{this.props.children != null ? (
-								this.props.children
+							{props.children != null ? (
+								props.children
 							) : (
 								<div className="dropzoneEmpty}>
 									{messages.help_dropHere}
@@ -54,7 +54,7 @@ export default class MultiUploader extends React.Component {
 						label={messages.chooseImage}
 						style={{ marginLeft: 20, marginTop: 10 }}
 						onClick={() => {
-							this.dropzone.open()
+							dropzone.open()
 						}}
 					/>
 				)}

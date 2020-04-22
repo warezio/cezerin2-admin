@@ -12,12 +12,12 @@ export const Description = {
 }
 
 export const App = () => {
-	this.state = {
+	state = {
 		code: '',
 	}
 
 	handleChange = (event) => {
-		this.setState({
+		setState({
 			code: event.target.value,
 		})
 	}
@@ -28,7 +28,7 @@ export const App = () => {
 			.then(({ status, json }) => {
 				const appSettings = json
 				if (appSettings) {
-					this.setState({ code: appSettings.code })
+					setState({ code: appSettings.code })
 				}
 			})
 			.catch((error) => {
@@ -37,7 +37,7 @@ export const App = () => {
 	}
 
 	updateSettings = () => {
-		const { code } = this.state
+		const { code } = state
 
 		api.apps.settings.update('jivosite', { code })
 		api.theme.placeholders.update('jivosite', {
@@ -57,8 +57,8 @@ export const App = () => {
 				multiLine
 				fullWidth
 				rows={10}
-				value={this.state.code}
-				onChange={this.handleChange}
+				value={state.code}
+				onChange={handleChange}
 				floatingLabelText="Код чата JivoSite"
 				hintText="<!-- BEGIN JIVOSITE CODE {literal} -->..."
 			/>
@@ -68,7 +68,7 @@ export const App = () => {
 					label={messages.save}
 					primary
 					disabled={false}
-					onClick={this.updateSettings}
+					onClick={updateSettings}
 				/>
 			</div>
 		</>

@@ -9,7 +9,7 @@ import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 
 const LoginForm = () => {
-		this.state = {
+		state = {
 			email: localStorage.getItem('dashboard_email') || '',
 			isFetching: false,
 			isAuthorized: false,
@@ -38,9 +38,9 @@ const LoginForm = () => {
 			error: null,
 		})
 
-		CezerinClient.authorize(settings.apiBaseUrl, this.state.email)
+		CezerinClient.authorize(settings.apiBaseUrl, state.email)
 			.then((authorizeResponse) => {
-				this.setState({
+				setState({
 					isFetching: false,
 					isAuthorized: false,
 					emailIsSent: authorizeResponse.json.sent,
@@ -48,7 +48,7 @@ const LoginForm = () => {
 				})
 			})
 			.catch((error) => {
-				this.setState({
+				setState({
 					isFetching: false,
 					isAuthorized: false,
 					emailIsSent: false,
@@ -89,8 +89,8 @@ useEffect(()=>
 							<TextField
 								type="email"
 								value={email}
-								onChange={this.handleChange}
-								onKeyPress={this.handleKeyPress}
+								onChange={handleChange}
+								onKeyPress={handleKeyPress}
 								label={messages.email}
 								fullWidth
 								hintStyle={{ width: '100%' }}
@@ -101,7 +101,7 @@ useEffect(()=>
 							label={messages.loginButton}
 							primary
 							disabled={isFetching || emailIsSent}
-							onClick={this.handleSubmit}
+							onClick={handleSubmit}
 						/>
 						{response}
 					</Paper>

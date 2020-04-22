@@ -60,11 +60,11 @@ const asyncValidate = (values /* , dispatch */) =>
 
 class EditPageForm extends React.Component {
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	componentWillUnmount() {
-		this.props.eraseData()
+		props.eraseData()
 	}
 
 	render() {
@@ -74,7 +74,7 @@ class EditPageForm extends React.Component {
 			submitting,
 			initialValues,
 			pageId,
-		} = this.props
+		} = props
 		const isAdd = pageId === null || pageId === undefined
 
 		if (initialValues) {

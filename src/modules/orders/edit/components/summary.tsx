@@ -177,7 +177,7 @@ const OrderSummary = (props) => {
 						<RaisedButton
 							label="Edit"
 							style={{ marginRight: 15 }}
-							onClick={this.showSummaryEdit}
+							onClick={showSummaryEdit}
 						/>
 					)}
 					{isDraft && (
@@ -193,15 +193,15 @@ const OrderSummary = (props) => {
 				<Dialog
 					title={messages.order}
 					modal={false}
-					open={this.state.openSummaryEdit}
-					onRequestClose={this.hideSummaryEdit}
+					open={state.openSummaryEdit}
+					onRequestClose={hideSummaryEdit}
 					autoScrollBodyContent
 					contentStyle={{ width: 600 }}
 				>
 					<SummaryForm
 						initialValues={order}
-						onCancel={this.hideSummaryEdit}
-						onSubmit={this.saveSummaryEdit}
+						onCancel={hideSummaryEdit}
+						onSubmit={saveSummaryEdit}
 					/>
 				</Dialog>
 			</div>

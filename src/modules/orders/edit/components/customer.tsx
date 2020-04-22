@@ -140,24 +140,24 @@ const BillingAddress = ({ address, settings }) => {
 }
 
 const OrderCustomer = () => {
-	this.state = {
+	state = {
 		openShippingEdit: false,
 	}
 
 	showShippingEdit = () => {
-		this.setState({ openShippingEdit: true })
+		setState({ openShippingEdit: true })
 	}
 
 	hideShippingEdit = () => {
-		this.setState({ openShippingEdit: false })
+		setState({ openShippingEdit: false })
 	}
 
 	saveShippingEdit = (address) => {
-		this.props.onShippingAddressUpdate(address)
-		this.hideShippingEdit()
+		props.onShippingAddressUpdate(address)
+		hideShippingEdit()
 	}
 
-	const { order, settings } = this.props
+	const { order, settings } = props
 
 	const allowEdit = order.closed === false && order.cancelled === false
 	let mapAddress = `${order.shipping_address.address1} ${order.shipping_address.city} ${order.shipping_address.state} ${order.shipping_address.postal_code}`
@@ -205,7 +205,7 @@ const OrderCustomer = () => {
 						<RaisedButton
 							label={messages.edit}
 							style={{ marginRight: 15 }}
-							onClick={this.showShippingEdit}
+							onClick={showShippingEdit}
 						/>
 					)}
 					<a href={mapUrl} target="_blank">
@@ -220,15 +220,15 @@ const OrderCustomer = () => {
 					<Dialog
 						title={messages.shippingAddress}
 						modal={false}
-						open={this.state.openShippingEdit}
-						onRequestClose={this.hideShippingEdit}
+						open={state.openShippingEdit}
+						onRequestClose={hideShippingEdit}
 						autoScrollBodyContent
 						contentStyle={{ width: 600 }}
 					>
 						<ShippingAddressForm
 							initialValues={order.shipping_address}
-							onCancel={this.hideShippingEdit}
-							onSubmit={this.saveShippingEdit}
+							onCancel={hideShippingEdit}
+							onSubmit={saveShippingEdit}
 							shippingMethod={order.shipping_method_details}
 						/>
 					</Dialog>

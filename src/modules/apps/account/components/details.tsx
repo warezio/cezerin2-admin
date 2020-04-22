@@ -6,7 +6,7 @@ import './style.sass'
 const WebStoreAccountDetails = (props) => {
 	useEffect(() => props.fetchData(), [])
 
-	const { account, onAccountSubmit, onDeveloperSubmit } = this.props
+	const { account, onAccountSubmit, onDeveloperSubmit } = props
 	const developerData = account ? account.developer : null
 
 	if (account) {

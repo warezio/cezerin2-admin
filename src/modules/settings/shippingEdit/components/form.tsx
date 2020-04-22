@@ -25,7 +25,7 @@ const validate = (values) => {
 
 class EditShippingMethodForm extends React.Component {
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	render() {
@@ -36,7 +36,7 @@ class EditShippingMethodForm extends React.Component {
 			initialValues,
 			methodId,
 			settings,
-		} = this.props
+		} = props
 		const isAdd = methodId === null || methodId === undefined
 
 		return (

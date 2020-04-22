@@ -130,36 +130,36 @@ const RelatedProduct = ({ settings, product, actions }) => {
 class ProductsArray extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
+		state = {
 			showAddItem: false,
 			products: [],
 		}
 	}
 
 	showAddItem = () => {
-		this.setState({ showAddItem: true })
+		setState({ showAddItem: true })
 	}
 
 	hideAddItem = () => {
-		this.setState({ showAddItem: false })
+		setState({ showAddItem: false })
 	}
 
 	addItem = (productId) => {
-		this.hideAddItem()
-		this.props.fields.push(productId)
+		hideAddItem()
+		props.fields.push(productId)
 	}
 
 	componentDidMount() {
-		const ids = this.props.fields.getAll()
-		this.fetchProducts(ids)
+		const ids = props.fields.getAll()
+		fetchProducts(ids)
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const currentIds = this.props.fields.getAll()
+		const currentIds = props.fields.getAll()
 		const newIds = nextProps.fields.getAll()
 
 		if (currentIds !== newIds) {
-			this.fetchProducts(newIds)
+			fetchProducts(newIds)
 		}
 	}
 
@@ -173,10 +173,10 @@ class ProductsArray extends React.Component {
 					ids,
 				})
 				.then((productsResponse) => {
-					this.setState({ products: productsResponse.json.data })
+					setState({ products: productsResponse.json.data })
 				})
 		} else {
-			this.setState({
+			setState({
 				products: [],
 			})
 		}
@@ -187,8 +187,8 @@ class ProductsArray extends React.Component {
 			settings,
 			fields,
 			meta: { touched, error, submitFailed },
-		} = this.props
-		const { products } = this.state
+		} = props
+		const { products } = state
 
 		return (
 			<div>
@@ -215,11 +215,11 @@ class ProductsArray extends React.Component {
 					})}
 
 					<ProductSearchDialog
-						open={this.state.showAddItem}
+						open={state.showAddItem}
 						title={messages.addOrderItem}
 						settings={settings}
-						onSubmit={this.addItem}
-						onCancel={this.hideAddItem}
+						onSubmit={addItem}
+						onCancel={hideAddItem}
 						submitLabel={messages.add}
 						cancelLabel={messages.cancel}
 					/>
@@ -228,7 +228,7 @@ class ProductsArray extends React.Component {
 				<div>
 					<RaisedButton
 						label={messages.addOrderItem}
-						onClick={this.showAddItem}
+						onClick={showAddItem}
 					/>
 				</div>
 			</div>

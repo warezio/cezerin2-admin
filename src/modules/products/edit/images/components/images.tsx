@@ -9,35 +9,35 @@ import FlatButton from 'material-ui/FlatButton'
 export default class ProductImages extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
+		state = {
 			openEdit: false,
 			imageData: null,
 		}
 	}
 
 	closeEdit = () => {
-		this.setState({ openEdit: false })
+		setState({ openEdit: false })
 	}
 
 	openEdit = () => {
-		this.setState({ openEdit: true })
+		setState({ openEdit: true })
 	}
 
 	handleEditOpen = (image) => {
-		this.setState({ imageData: image })
-		this.openEdit()
+		setState({ imageData: image })
+		openEdit()
 	}
 
 	handleEditSave = () => {
-		this.props.onImageUpdate(this.state.imageData)
-		this.closeEdit()
+		props.onImageUpdate(state.imageData)
+		closeEdit()
 	}
 
 	handleAltChange = (event, value) => {
-		const newImageData = Object.assign({}, this.state.imageData, {
+		const newImageData = Object.assign({}, state.imageData, {
 			alt: value,
 		})
-		this.setState({ imageData: newImageData })
+		setState({ imageData: newImageData })
 	}
 
 	render() {
@@ -48,21 +48,21 @@ export default class ProductImages extends React.Component {
 			onImageSort,
 			onImageUpload,
 			uploadingImages,
-		} = this.props
-		const { openEdit, imageData } = this.state
+		} = props
+		const { openEdit, imageData } = state
 		const alt = imageData ? imageData.alt : ''
 
 		const dialogButtons = [
 			<FlatButton
 				label={messages.cancel}
-				onClick={this.closeEdit}
+				onClick={closeEdit}
 				style={{ marginRight: 10 }}
 			/>,
 			<FlatButton
 				label={messages.save}
 				primary
 				keyboardFocused
-				onClick={this.handleEditSave}
+				onClick={handleEditSave}
 			/>,
 		]
 
@@ -76,7 +76,7 @@ export default class ProductImages extends React.Component {
 						onImageSort={onImageSort}
 						onImageUpload={onImageUpload}
 						uploading={uploadingImages}
-						onImageEdit={this.handleEditOpen}
+						onImageEdit={handleEditOpen}
 					/>
 					<Dialog
 						contentStyle={{ maxWidth: 540 }}
@@ -84,14 +84,14 @@ export default class ProductImages extends React.Component {
 						actions={dialogButtons}
 						modal={false}
 						open={openEdit}
-						onRequestClose={this.closeEdit}
+						onRequestClose={closeEdit}
 						autoScrollBodyContent={false}
 					>
 						<TextField
 							floatingLabelText={messages.alt}
 							fullWidth
 							value={alt}
-							onChange={this.handleAltChange}
+							onChange={handleAltChange}
 						/>
 					</Dialog>
 				</div>

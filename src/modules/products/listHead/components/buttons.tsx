@@ -14,7 +14,7 @@ const { Fragment } = React
 export default class Buttons extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
+		state = {
 			categoryIdMoveTo: null,
 			openMoveTo: false,
 			openDelete: false,
@@ -22,33 +22,33 @@ export default class Buttons extends React.Component {
 	}
 
 	showMoveTo = () => {
-		this.setState({ openMoveTo: true })
+		setState({ openMoveTo: true })
 	}
 
 	openDelete = () => {
-		this.setState({ openDelete: true })
+		setState({ openDelete: true })
 	}
 
 	closeDelete = () => {
-		this.setState({ openDelete: false })
+		setState({ openDelete: false })
 	}
 
 	deleteProduct = () => {
-		this.setState({ openDelete: false })
-		this.props.onDelete()
+		setState({ openDelete: false })
+		props.onDelete()
 	}
 
 	closeMoveTo = () => {
-		this.setState({ openMoveTo: false })
+		setState({ openMoveTo: false })
 	}
 
 	saveMoveTo = () => {
-		this.setState({ openMoveTo: false })
-		this.props.onMoveTo(this.state.categoryIdMoveTo)
+		setState({ openMoveTo: false })
+		props.onMoveTo(state.categoryIdMoveTo)
 	}
 
 	selectMoveTo = (categoryId) => {
-		this.setState({ categoryIdMoveTo: categoryId })
+		setState({ categoryIdMoveTo: categoryId })
 	}
 
 	render() {
@@ -59,19 +59,19 @@ export default class Buttons extends React.Component {
 			onDelete,
 			onCreate,
 			onImportProducts,
-		} = this.props
+		} = props
 
 		const actionsMoveTo = [
 			<FlatButton
 				label={messages.cancel}
-				onClick={this.closeMoveTo}
+				onClick={closeMoveTo}
 				style={{ marginRight: 10 }}
 			/>,
 			<FlatButton
 				label={messages.actions_moveHere}
 				primary
 				keyboardFocused
-				onClick={this.saveMoveTo}
+				onClick={saveMoveTo}
 			/>,
 		]
 
@@ -84,7 +84,7 @@ export default class Buttons extends React.Component {
 							touch
 							tooltipPosition="bottom-left"
 							tooltip={messages.actions_delete}
-							onClick={this.openDelete}
+							onClick={openDelete}
 						>
 							<FontIcon color="#fff" className="material-icons">
 								delete
@@ -94,30 +94,30 @@ export default class Buttons extends React.Component {
 							touch
 							tooltipPosition="bottom-left"
 							tooltip={messages.actions_moveTo}
-							onClick={this.showMoveTo}
+							onClick={showMoveTo}
 						>
 							<FontIcon color="#fff" className="material-icons">
 								folder
 							</FontIcon>
 						</IconButton>
 						<DeleteConfirmation
-							open={this.state.openDelete}
+							open={state.openDelete}
 							isSingle={false}
 							itemsCount={selectedCount}
-							onCancel={this.closeDelete}
-							onDelete={this.deleteProduct}
+							onCancel={closeDelete}
+							onDelete={deleteProduct}
 						/>
 						<Dialog
 							title={messages.actions_moveTo}
 							actions={actionsMoveTo}
 							modal={false}
-							open={this.state.openMoveTo}
-							onRequestClose={this.closeMoveTo}
+							open={state.openMoveTo}
+							onRequestClose={closeMoveTo}
 							autoScrollBodyContent
 						>
 							<CategorySelect
-								onSelect={this.selectMoveTo}
-								selectedId={this.state.categoryIdMoveTo}
+								onSelect={selectMoveTo}
+								selectedId={state.categoryIdMoveTo}
 								opened
 							/>
 						</Dialog>

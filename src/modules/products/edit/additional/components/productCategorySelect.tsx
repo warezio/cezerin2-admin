@@ -12,21 +12,21 @@ const { Fragment } = React
 export default class ProductCategorySelect extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
+		state = {
 			open: false,
 		}
 	}
 
 	close = () => {
-		this.setState({ open: false })
+		setState({ open: false })
 	}
 
 	open = () => {
-		this.setState({ open: true })
+		setState({ open: true })
 	}
 
 	handleSelect = (categoryId) => {
-		this.props.input.onChange(categoryId)
+		props.input.onChange(categoryId)
 	}
 
 	render() {
@@ -34,8 +34,8 @@ export default class ProductCategorySelect extends React.Component {
 			categories,
 			input,
 			meta: { touched, error },
-		} = this.props
-		const { open } = this.state
+		} = props
+		const { open } = state
 		const selectedCategoryId = input.value
 		const category = categories.find(
 			(item) => item.id === selectedCategoryId
@@ -45,14 +45,14 @@ export default class ProductCategorySelect extends React.Component {
 		const dialogButtons = [
 			<FlatButton
 				label={messages.cancel}
-				onClick={this.close}
+				onClick={close}
 				style={{ marginRight: 10 }}
 			/>,
 			<FlatButton
 				label={messages.save}
 				primary
 				keyboardFocused
-				onClick={this.close}
+				onClick={close}
 			/>,
 		]
 
@@ -63,18 +63,18 @@ export default class ProductCategorySelect extends React.Component {
 					actions={dialogButtons}
 					modal={false}
 					open={open}
-					onRequestClose={this.close}
+					onRequestClose={close}
 					autoScrollBodyContent
 				>
 					<CategorySelect
-						onSelect={this.handleSelect}
+						onSelect={handleSelect}
 						selectedId={selectedCategoryId}
 						opened={false}
 					/>
 				</Dialog>
 				<FlatButton
 					label={categoryName}
-					onClick={this.open}
+					onClick={open}
 					icon={
 						<FontIcon color="#777" className="material-icons">
 							create

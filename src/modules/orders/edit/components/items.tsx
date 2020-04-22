@@ -63,47 +63,47 @@ const ProductOptions = ({ options, onChange, selectedOptions }) => {
 export class OrderItem extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
+		state = {
 			quantity: props.item.quantity,
 			variantId: props.item.variant_id,
-			selectedOptions: this.getOptionsByVariant(),
-			selectedVariant: this.getCurrentVariant(),
+			selectedOptions: getOptionsByVariant(),
+			selectedVariant: getCurrentVariant(),
 			showEdit: false,
 		}
 	}
 
 	showEditForm = () => {
-		this.setState({ showEdit: true })
+		setState({ showEdit: true })
 	}
 
 	hideEditForm = () => {
-		this.setState({ showEdit: false })
+		setState({ showEdit: false })
 	}
 
 	quantityChange = (event, index, value) => {
-		this.setState({ quantity: value })
+		setState({ quantity: value })
 	}
 
 	submitEditForm = () => {
-		this.hideEditForm()
+		hideEditForm()
 		const newVariantId =
-			this.state.selectedVariant && this.state.selectedVariant.id
-				? this.state.selectedVariant.id
-				: this.state.variantId
-		this.props.onItemUpdate(
-			this.props.item.id,
-			this.state.quantity,
+			state.selectedVariant && state.selectedVariant.id
+				? state.selectedVariant.id
+				: state.variantId
+		props.onItemUpdate(
+			props.item.id,
+			state.quantity,
 			newVariantId
 		)
 	}
 
 	deleteItem = () => {
-		this.props.onItemDelete(this.props.item.id)
+		props.onItemDelete(props.item.id)
 	}
 
 	onOptionChange = (optionId, valueId) => {
-		this.setState({ quantity: 1 })
-		const { selectedOptions } = this.state
+		setState({ quantity: 1 })
+		const { selectedOptions } = state
 
 		if (valueId === '') {
 			delete selectedOptions[optionId]
@@ -111,13 +111,13 @@ export class OrderItem extends React.Component {
 			selectedOptions[optionId] = valueId
 		}
 
-		this.setState({ selectedOptions })
-		this.findVariantBySelectedOptions()
+		setState({ selectedOptions })
+		findVariantBySelectedOptions()
 	}
 
 	findVariantBySelectedOptions = () => {
-		const { selectedOptions } = this.state
-		const { product } = this.props.item
+		const { selectedOptions } = state
+		const { product } = props.item
 		for (const variant of product.variants) {
 			const variantMutchSelectedOptions = variant.options.every(
 				(variantOption) =>
@@ -125,17 +125,17 @@ export class OrderItem extends React.Component {
 					variantOption.value_id
 			)
 			if (variantMutchSelectedOptions) {
-				this.setState({ selectedVariant: variant })
+				setState({ selectedVariant: variant })
 				return
 			}
 		}
 
-		this.setState({ selectedVariant: null })
+		setState({ selectedVariant: null })
 	}
 
 	getCurrentVariant = () => {
-		const variantId = this.props.item.variant_id
-		const { product } = this.props.item
+		const variantId = props.item.variant_id
+		const { product } = props.item
 		let variant = null
 
 		if (
@@ -151,8 +151,8 @@ export class OrderItem extends React.Component {
 	}
 
 	getOptionsByVariant = () => {
-		const variantId = this.props.item.variant_id
-		const { product } = this.props.item
+		const variantId = props.item.variant_id
+		const { product } = props.item
 		const selectedOptions = {}
 		if (
 			variantId &&
@@ -172,23 +172,23 @@ export class OrderItem extends React.Component {
 	}
 
 	render() {
-		const { item, settings, allowEdit } = this.props
+		const { item, settings, allowEdit } = props
 
 		const editFormActions = [
 			<FlatButton
 				label={messages.cancel}
-				onClick={this.hideEditForm}
+				onClick={hideEditForm}
 				style={{ marginRight: 10 }}
 			/>,
 			<FlatButton
 				label={messages.save}
 				primary
-				onClick={this.submitEditForm}
+				onClick={submitEditForm}
 			/>,
 		]
 
-		let { quantity } = this.state
-		const { selectedOptions, selectedVariant } = this.state
+		let { quantity } = state
+		const { selectedOptions, selectedVariant } = state
 		const { product } = item
 		const price = helper.formatCurrency(item.price, settings)
 		const priceTotal = helper.formatCurrency(item.price_total, settings)
@@ -276,10 +276,10 @@ export class OrderItem extends React.Component {
 									vertical: 'top',
 								}}
 							>
-								<MenuItem onClick={this.showEditForm}>
+								<MenuItem onClick={showEditForm}>
 									{messages.edit}
 								</MenuItem>
-								<MenuItem onClick={this.deleteItem}>
+								<MenuItem onClick={deleteItem}>
 									{messages.actions_delete}
 								</MenuItem>
 							</IconMenu>
@@ -291,21 +291,21 @@ export class OrderItem extends React.Component {
 					title={messages.editOrderItem}
 					actions={editFormActions}
 					modal={false}
-					open={this.state.showEdit}
-					onRequestClose={this.hideEditForm}
+					open={state.showEdit}
+					onRequestClose={hideEditForm}
 					contentStyle={{ width: 400 }}
 				>
 					<div>
 						<ProductOptions
 							options={productOptions}
-							onChange={this.onOptionChange}
+							onChange={onOptionChange}
 							selectedOptions={selectedOptions}
 						/>
 						<SelectField
 							floatingLabelText={messages.quantity}
 							fullWidth
 							value={quantity}
-							onChange={this.quantityChange}
+							onChange={quantityChange}
 						>
 							{quantityItems}
 						</SelectField>

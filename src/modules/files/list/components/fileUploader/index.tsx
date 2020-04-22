@@ -12,18 +12,18 @@ const MultiUploader = () => {
 		files.map((file) => {
 			form.append('file', file)
 		})
-		this.props.onUpload(form)
+		props.onUpload(form)
 	}
 
-	const { uploading } = this.props
+	const { uploading } = props
 	return (
 		<>
 			<Dropzone
-				onDrop={this.onDrop}
+				onDrop={onDrop}
 				multiple
 				disableClick
 				ref={(node) => {
-					this.dropzone = node
+					dropzone = node
 				}}
 				style={{}}
 				className={
@@ -41,7 +41,7 @@ const MultiUploader = () => {
 								label={messages.chooseImage}
 								className="button}
 								onClick={() => {
-									this.dropzone.open()
+									dropzone.open()
 								}}
 							/>
 						</div>

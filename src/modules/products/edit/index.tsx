@@ -15,11 +15,11 @@ import { fetchProduct, cancelProductEdit } from '../actions'
 
 class ProductEditContainer extends React.Component {
 	componentDidMount() {
-		this.props.fetchData()
+		props.fetchData()
 	}
 
 	componentWillUnmount() {
-		this.props.eraseData()
+		props.eraseData()
 	}
 
 	render() {

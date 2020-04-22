@@ -17,11 +17,11 @@ const FolderIcon = <FontIcon className="material-icons">folder</FontIcon>
 
 export default class StatusesList extends React.Component {
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	render() {
-		const { onSelect, selectedId, items, showAll, showManage } = this.props
+		const { onSelect, selectedId, items, showAll, showManage } = props
 
 		const rows = items.map((item) => (
 			<ListItem
@@ -32,7 +32,7 @@ export default class StatusesList extends React.Component {
 				primaryText={item.name}
 				leftIcon={FolderIcon}
 				onClick={() => {
-					this.props.onSelect(item.id)
+					props.onSelect(item.id)
 				}}
 			/>
 		))

@@ -58,7 +58,7 @@ const SearchResult = ({ products, selectedId, settings, onSelect }) => {
 export default class ConfirmationDialog extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
+		state = {
 			open: props.open,
 			products: [],
 			search: '',
@@ -67,24 +67,24 @@ export default class ConfirmationDialog extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (this.state.open !== nextProps.open) {
-			this.setState({
+		if (state.open !== nextProps.open) {
+			setState({
 				open: nextProps.open,
 			})
 		}
 	}
 
 	handleCancel = () => {
-		this.setState({ open: false })
-		if (this.props.onCancel) {
-			this.props.onCancel()
+		setState({ open: false })
+		if (props.onCancel) {
+			props.onCancel()
 		}
 	}
 
 	handleSubmit = () => {
-		this.setState({ open: false })
-		if (this.props.onSubmit) {
-			this.props.onSubmit(this.state.selectedId)
+		setState({ open: false })
+		if (props.onSubmit) {
+			props.onSubmit(state.selectedId)
 		}
 	}
 
@@ -92,18 +92,17 @@ export default class ConfirmationDialog extends React.Component {
 		if (selectedRows && selectedRows.length > 0) {
 			const selectedIndex = selectedRows[0]
 			const selectedProductId =
-				this.state.products &&
-				this.state.products.length >= selectedIndex
-					? this.state.products[selectedIndex].id
+				state.products && state.products.length >= selectedIndex
+					? state.products[selectedIndex].id
 					: null
-			this.setState({
+			setState({
 				selectedId: selectedProductId,
 			})
 		}
 	}
 
 	handleSearch = (event, value) => {
-		this.setState({ search: value })
+		setState({ search: value })
 
 		api.products
 			.list({
@@ -115,7 +114,7 @@ export default class ConfirmationDialog extends React.Component {
 				search: value,
 			})
 			.then((productsResponse) => {
-				this.setState({
+				setState({
 					products: productsResponse.json.data,
 				})
 			})
@@ -128,19 +127,15 @@ export default class ConfirmationDialog extends React.Component {
 			cancelLabel,
 			modal = false,
 			settings,
-		} = this.props
+		} = props
 
 		const actions = [
 			<FlatButton
 				label={cancelLabel}
-				onClick={this.handleCancel}
+				onClick={handleCancel}
 				style={{ marginRight: 10 }}
 			/>,
-			<FlatButton
-				label={submitLabel}
-				primary
-				onClick={this.handleSubmit}
-			/>,
+			<FlatButton label={submitLabel} primary onClick={handleSubmit} />,
 		]
 
 		return (
@@ -151,18 +146,15 @@ export default class ConfirmationDialog extends React.Component {
 					borderTop: '1px solid rgb(224, 224, 224)',
 				}}
 				modal={modal}
-				open={this.state.open}
-				onRequestClose={this.handleCancel}
+				open={state.open}
+				onRequestClose={handleCancel}
 			>
 				<div>
-					<SearchBox
-						text={this.state.search}
-						onChange={this.handleSearch}
-					/>
+					<SearchBox text={state.search} onChange={handleSearch} />
 					<SearchResult
-						products={this.state.products}
-						selectedId={this.state.selectedId}
-						onSelect={this.handleRowSelection}
+						products={state.products}
+						selectedId={state.selectedId}
+						onSelect={handleRowSelection}
 						settings={settings}
 					/>
 				</div>

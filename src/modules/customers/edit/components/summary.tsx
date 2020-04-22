@@ -19,24 +19,24 @@ import SummaryForm from './summaryForm.js'
 import './style.sass'
 
 const CustomerSummary = () => {
-	this.state = {
+	state = {
 		openSummaryEdit: false,
 	}
 
 	showSummaryEdit = () => {
-		this.setState({ openSummaryEdit: true })
+		setState({ openSummaryEdit: true })
 	}
 
 	hideSummaryEdit = () => {
-		this.setState({ openSummaryEdit: false })
+		setState({ openSummaryEdit: false })
 	}
 
 	saveSummaryEdit = (customer) => {
-		this.props.onCustomerSummaryUpdate(customer)
-		this.hideSummaryEdit()
+		props.onCustomerSummaryUpdate(customer)
+		hideSummaryEdit()
 	}
 
-	const { customer, settings } = this.props
+	const { customer, settings } = props
 	const totalSpent = helper.formatCurrency(customer.total_spent, settings)
 
 	return (
@@ -91,21 +91,21 @@ const CustomerSummary = () => {
 					<RaisedButton
 						label="Edit"
 						style={{ marginRight: 15 }}
-						onClick={this.showSummaryEdit}
+						onClick={showSummaryEdit}
 					/>
 				</div>
 
 				<Dialog
 					title={messages.customers_titleEdit}
 					modal={false}
-					open={this.state.openSummaryEdit}
-					onRequestClose={this.hideSummaryEdit}
+					open={state.openSummaryEdit}
+					onRequestClose={hideSummaryEdit}
 					contentStyle={{ width: 600 }}
 				>
 					<SummaryForm
 						initialValues={customer}
-						onCancel={this.hideSummaryEdit}
-						onSubmit={this.saveSummaryEdit}
+						onCancel={hideSummaryEdit}
+						onSubmit={saveSummaryEdit}
 					/>
 				</Dialog>
 			</div>

@@ -32,7 +32,7 @@ class ProductOptionForm extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.fetchData()
+		props.fetchData()
 	}
 
 	render() {
@@ -47,7 +47,7 @@ class ProductOptionForm extends React.Component {
 			createOptionValue,
 			updateOptionValue,
 			deleteOptionValue,
-		} = this.props
+		} = props
 
 		return (
 			<div>

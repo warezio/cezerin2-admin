@@ -39,26 +39,26 @@ const FACEBOOK_CODE = `<script>
 </script>`
 
 export const App = () => {
-	this.state = {
+	state = {
 		appId: '',
 		locale: 'en_US',
 	}
 
-	handleAppIdChange = (event) => {
-		this.setState({ appId: event.target.value })
+	const handleAppIdChange = (event) => {
+		setState({ appId: event.target.value })
 	}
 
-	handleLocaleChange = (event) => {
-		this.setState({ locale: event.target.value })
+	const handleLocaleChange = (event) => {
+		setState({ locale: event.target.value })
 	}
 
-	fetchSettings = () => {
+	const fetchSettings = () => {
 		api.apps.settings
 			.retrieve('facebook-sdk')
 			.then(({ status, json }) => {
 				const appSettings = json
 				if (appSettings) {
-					this.setState({
+					setState({
 						appId: appSettings.appId,
 						locale: appSettings.locale,
 					})
@@ -69,8 +69,8 @@ export const App = () => {
 			})
 	}
 
-	updateSettings = () => {
-		const { appId, locale } = this.state
+	const updateSettings = () => {
+		const { appId, locale } = state
 		const htmlCode =
 			appId && appId.length > 0
 				? FACEBOOK_CODE.replace(/YOUR_APP_ID/g, appId).replace(
@@ -93,16 +93,16 @@ export const App = () => {
 			<TextField
 				type="text"
 				fullWidth
-				value={this.state.appId}
-				onChange={this.handleAppIdChange}
+				value={state.appId}
+				onChange={handleAppIdChange}
 				floatingLabelText="App ID"
 			/>
 
 			<TextField
 				type="text"
 				fullWidth
-				value={this.state.locale}
-				onChange={this.handleLocaleChange}
+				value={state.locale}
+				onChange={handleLocaleChange}
 				floatingLabelText="Locale"
 				hintText="en_US"
 			/>
@@ -112,7 +112,7 @@ export const App = () => {
 					label={messages.save}
 					primary
 					disabled={false}
-					onClick={this.updateSettings}
+					onClick={updateSettings}
 				/>
 			</div>
 		</>

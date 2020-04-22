@@ -30,7 +30,7 @@ class Form extends React.Component {
 			submitting,
 			isSaving,
 			initialValues,
-		} = this.props
+		} = props
 
 		let statusId = null
 
@@ -62,7 +62,7 @@ class Form extends React.Component {
 						<FlatButton
 							label={messages.cancel}
 							className="button}
-							onClick={this.props.onCancel}
+							onClick={props.onCancel}
 						/>
 						<RaisedButton
 							type="submit"

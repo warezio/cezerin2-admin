@@ -7,26 +7,26 @@ import IconButton from 'material-ui/IconButton'
 export default class Buttons extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
+		state = {
 			openDelete: false,
 		}
 	}
 
 	showDelete = () => {
-		this.setState({ openDelete: true })
+		setState({ openDelete: true })
 	}
 
 	closeDelete = () => {
-		this.setState({ openDelete: false })
+		setState({ openDelete: false })
 	}
 
 	deleteGroup = () => {
-		this.setState({ openDelete: false })
-		this.props.onDelete(this.props.paymentMethod.id)
+		setState({ openDelete: false })
+		props.onDelete(props.paymentMethod.id)
 	}
 
 	render() {
-		const { paymentMethod, onDelete } = this.props
+		const { paymentMethod, onDelete } = props
 		const methodName =
 			paymentMethod && paymentMethod.name && paymentMethod.name.length > 0
 				? paymentMethod.name
@@ -38,19 +38,19 @@ export default class Buttons extends React.Component {
 					touch
 					tooltipPosition="bottom-left"
 					tooltip={messages.actions_delete}
-					onClick={this.showDelete}
+					onClick={showDelete}
 				>
 					<FontIcon color="#fff" className="material-icons">
 						delete
 					</FontIcon>
 				</IconButton>
 				<DeleteConfirmation
-					open={this.state.openDelete}
+					open={state.openDelete}
 					isSingle
 					itemsCount={1}
 					itemName={methodName}
-					onCancel={this.closeDelete}
-					onDelete={this.deleteGroup}
+					onCancel={closeDelete}
+					onDelete={deleteGroup}
 				/>
 			</span>
 		)

@@ -10,7 +10,7 @@ import './style.sass'
 
 export default class ProductsList extends React.Component {
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	render() {
@@ -25,7 +25,7 @@ export default class ProductsList extends React.Component {
 			settings,
 			hasMore,
 			totalCount,
-		} = this.props
+		} = props
 
 		const rows = items.map((item, index) => {
 			const itemSelected = selected.includes(item.id)

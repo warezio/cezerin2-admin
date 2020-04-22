@@ -5,7 +5,7 @@ import Paper from 'material-ui/Paper'
 const GeneralLogoSettingsForm = () => {
 	useEffect(() => props.onLoad(), [])
 
-	const { onImageUpload, onImageDelete, settings } = this.props
+	const { onImageUpload, onImageDelete, settings } = props
 	const imageUrl = settings && settings.logo ? settings.logo : ''
 
 	return (

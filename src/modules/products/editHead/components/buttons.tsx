@@ -10,26 +10,26 @@ const { Fragment } = React
 export default class Buttons extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
+		state = {
 			openDelete: false,
 		}
 	}
 
 	openDelete = () => {
-		this.setState({ openDelete: true })
+		setState({ openDelete: true })
 	}
 
 	closeDelete = () => {
-		this.setState({ openDelete: false })
+		setState({ openDelete: false })
 	}
 
 	handleDelete = () => {
-		this.closeDelete()
-		this.props.onDelete()
+		closeDelete()
+		props.onDelete()
 	}
 
 	render() {
-		const { product } = this.props
+		const { product } = props
 		const productName =
 			product && product.name && product.name.length > 0
 				? product.name
@@ -41,7 +41,7 @@ export default class Buttons extends React.Component {
 					touch
 					tooltipPosition="bottom-left"
 					tooltip={messages.deleteProduct}
-					onClick={this.openDelete}
+					onClick={openDelete}
 				>
 					<FontIcon color="#fff" className="material-icons">
 						delete
@@ -61,12 +61,12 @@ export default class Buttons extends React.Component {
 					</a>
 				)}
 				<DeleteConfirmation
-					open={this.state.openDelete}
+					open={state.openDelete}
 					isSingle
 					itemsCount={1}
 					itemName={productName}
-					onCancel={this.closeDelete}
-					onDelete={this.handleDelete}
+					onCancel={closeDelete}
+					onDelete={handleDelete}
 				/>
 			</Fragment>
 		)

@@ -11,28 +11,28 @@ import style from './style.css'
 class OptionValueEdit extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
+		state = {
 			value: props.value.name,
 		}
-		this.onChange = this.onChange.bind(this)
-		this.onBlur = this.onBlur.bind(this)
-		this.onDelete = this.onDelete.bind(this)
+		onChange = onChange.bind(this)
+		onBlur = onBlur.bind(this)
+		onDelete = onDelete.bind(this)
 	}
 
 	onChange = (e) => {
-		this.setState({ value: e.target.value })
+		setState({ value: e.target.value })
 	}
 
 	onBlur = (e) => {
-		this.props.onChange(this.props.value.id, this.state.value)
+		props.onChange(props.value.id, state.value)
 	}
 
 	onDelete = () => {
-		this.props.onDelete(this.props.value.id)
+		props.onDelete(props.value.id)
 	}
 
 	render() {
-		const { value } = this.state
+		const { value } = state
 
 		return (
 			<div className="gridRow}>
@@ -41,14 +41,14 @@ class OptionValueEdit extends React.Component {
 						type="text"
 						className="textInput}
 						value={value}
-						onChange={this.onChange}
-						onBlur={this.onBlur}
+						onChange={onChange}
+						onBlur={onBlur}
 					/>
 				</div>
 				<div className="gridColButton}>
 					<IconButton
 						title={messages.actions_delete}
-						onClick={this.onDelete}
+						onClick={onDelete}
 						tabIndex={-1}
 					>
 						<FontIcon color="#a1a1a1" className="material-icons">
@@ -64,33 +64,33 @@ class OptionValueEdit extends React.Component {
 class OptionValueAdd extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
+		state = {
 			value: '',
 		}
-		this.onChange = this.onChange.bind(this)
-		this.onCreate = this.onCreate.bind(this)
-		this.handleKeyPress = this.handleKeyPress.bind(this)
+		onChange = onChange.bind(this)
+		onCreate = onCreate.bind(this)
+		handleKeyPress = handleKeyPress.bind(this)
 	}
 
 	onChange = (e) => {
-		this.setState({ value: e.target.value })
+		setState({ value: e.target.value })
 	}
 
 	onCreate = () => {
-		if (this.state.value !== '') {
-			this.props.onCreate(this.state.value)
-			this.setState({ value: '' })
+		if (state.value !== '') {
+			props.onCreate(state.value)
+			setState({ value: '' })
 		}
 	}
 
 	handleKeyPress(e) {
 		if (e.keyCode === 13 || e.which === 13) {
-			this.onCreate()
+			onCreate()
 		}
 	}
 
 	render() {
-		const { value } = this.state
+		const { value } = state
 
 		return (
 			<div className="gridRow}>
@@ -100,14 +100,14 @@ class OptionValueAdd extends React.Component {
 						className="textInput}
 						value={value}
 						placeholder={messages.newOptionValue}
-						onChange={this.onChange}
-						onKeyPress={this.handleKeyPress}
+						onChange={onChange}
+						onKeyPress={handleKeyPress}
 					/>
 				</div>
 				<div className="gridColButton}>
 					<IconButton
 						title={messages.add}
-						onClick={this.onCreate}
+						onClick={onCreate}
 						tabIndex={-1}
 					>
 						<FontIcon color="#a1a1a1" className="material-icons">

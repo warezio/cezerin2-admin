@@ -21,12 +21,12 @@ const DraftIcon = <FontIcon className="material-icons">visibility_off</FontIcon>
 
 class Item extends React.PureComponent {
 	handleClick = () => {
-		const { item } = this.props
-		this.props.onSelect(item.id)
+		const { item } = props
+		props.onSelect(item.id)
 	}
 
 	render() {
-		const { item, opened, selectedId, nestedItems } = this.props
+		const { item, opened, selectedId, nestedItems } = props
 		const icon = item.enabled ? FolderIcon : DraftIcon
 		const style = item.id === selectedId ? styles.selectedItem : null
 
@@ -39,7 +39,7 @@ class Item extends React.PureComponent {
 				primaryText={item.name}
 				nestedItems={nestedItems}
 				leftIcon={icon}
-				onClick={this.handleClick}
+				onClick={handleClick}
 				nestedListStyle={styles.nestedListStyle}
 			/>
 		)
@@ -52,16 +52,11 @@ export default class Categories extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	getItem(selectedId, allItems, item, opened) {
-		const nestedItems = this.getChildren(
-			selectedId,
-			allItems,
-			item.id,
-			opened
-		)
+		const nestedItems = getChildren(selectedId, allItems, item.id, opened)
 		return (
 			<Item
 				key={item.id}
@@ -69,7 +64,7 @@ export default class Categories extends React.Component {
 				opened={opened}
 				selectedId={selectedId}
 				nestedItems={nestedItems}
-				onSelect={this.props.onSelect}
+				onSelect={props.onSelect}
 			/>
 		)
 	}
@@ -78,13 +73,13 @@ export default class Categories extends React.Component {
 		if (allItems && id) {
 			return allItems
 				.filter((item) => item.parent_id === id)
-				.map((item) => this.getItem(selectedId, allItems, item, opened))
+				.map((item) => getItem(selectedId, allItems, item, opened))
 		}
 		return []
 	}
 
 	handleClickAll = () => {
-		this.props.onSelect('all')
+		props.onSelect('all')
 		document.getElementsByClassName('product-list')[0].style.display =
 			'block'
 		if (
@@ -98,7 +93,7 @@ export default class Categories extends React.Component {
 	}
 
 	handleClickRoot = () => {
-		this.props.onSelect('root')
+		props.onSelect('root')
 		document.getElementsByClassName('product-list')[0].style.display =
 			'block'
 		if (
@@ -135,11 +130,11 @@ export default class Categories extends React.Component {
 			rootName = messages.productCategories_root,
 			allName = messages.productCategories_all,
 			opened = false,
-		} = this.props
+		} = props
 
 		const rows = items
 			.filter((item) => item.parent_id === null)
-			.map((item) => this.getItem(selectedId, items, item, opened))
+			.map((item) => getItem(selectedId, items, item, opened))
 
 		return (
 			<List>
@@ -153,7 +148,7 @@ export default class Categories extends React.Component {
 						leftIcon={
 							<FontIcon className="material-icons">home</FontIcon>
 						}
-						onClick={this.handleClickRoot}
+						onClick={handleClickRoot}
 					/>
 				)}
 
@@ -170,7 +165,7 @@ export default class Categories extends React.Component {
 								folder
 							</FontIcon>
 						}
-						onClick={this.handleClickAll}
+						onClick={handleClickAll}
 					/>
 				)}
 
@@ -210,7 +205,7 @@ export default class Categories extends React.Component {
 									get_app
 								</FontIcon>
 							}
-							onClick={this.handleClickImport}
+							onClick={handleClickImport}
 						/>
 					</Link>
 				)}

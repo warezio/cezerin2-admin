@@ -7,7 +7,7 @@ export default class SelectShippingMethodsField extends React.Component {
 	constructor(props) {
 		super(props)
 		const ids = Array.isArray(props.input.value) ? props.input.value : []
-		this.state = {
+		state = {
 			selectedIds: ids,
 		}
 	}
@@ -16,35 +16,35 @@ export default class SelectShippingMethodsField extends React.Component {
 		const newIds = Array.isArray(nextProps.input.value)
 			? nextProps.input.value
 			: []
-		if (newIds !== this.state.selectedIds) {
-			this.setState({
+		if (newIds !== state.selectedIds) {
+			setState({
 				selectedIds: newIds,
 			})
 		}
 	}
 
 	onCheckboxChecked = (methodId) => {
-		let ids = this.state.selectedIds
+		let ids = state.selectedIds
 		if (ids.includes(methodId)) {
 			ids = ids.filter((id) => id !== methodId)
 		} else {
 			ids.push(methodId)
 		}
-		this.setState({ selectedIds: ids })
-		this.props.input.onChange(ids)
+		setState({ selectedIds: ids })
+		props.input.onChange(ids)
 	}
 
-	isCheckboxChecked = (methodId) => this.state.selectedIds.includes(methodId)
+	isCheckboxChecked = (methodId) => state.selectedIds.includes(methodId)
 
 	render() {
-		const items = this.props.shippingMethods.map((method) => (
+		const items = props.shippingMethods.map((method) => (
 			<ListItem
 				key={method.id}
 				leftCheckbox={
 					<Checkbox
-						checked={this.isCheckboxChecked(method.id)}
+						checked={isCheckboxChecked(method.id)}
 						onCheck={(e, isChecked) => {
-							this.onCheckboxChecked(method.id)
+							onCheckboxChecked(method.id)
 						}}
 					/>
 				}

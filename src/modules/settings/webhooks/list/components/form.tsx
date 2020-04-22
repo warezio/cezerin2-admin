@@ -46,11 +46,11 @@ const WebhookItem = ({ webhook }) => {
 
 class WebhooksList extends React.Component {
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	render() {
-		const { webhooks } = this.props
+		const { webhooks } = props
 		const listItems = webhooks.map((webhook, index) => (
 			<WebhookItem key={index} webhook={webhook} />
 		))

@@ -13,7 +13,7 @@ const OrderDetails = () => {
 	useEffect(() => {props.fetchData()},[])
 
 	componentWillUnmount() {
-		this.props.clearData()
+		props.clearData()
 	}
 
 		const {
@@ -25,7 +25,7 @@ const OrderDetails = () => {
 			onOrderSummaryUpdate,
 			onCheckout,
 			processingCheckout,
-		} = this.props
+		} = props
 		if (!order) return null
 
 		return (

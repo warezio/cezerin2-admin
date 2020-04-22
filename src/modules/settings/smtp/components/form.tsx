@@ -10,11 +10,11 @@ import style from './style.css'
 
 class EmailSettings extends React.Component {
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	render() {
-		const { handleSubmit, pristine, submitting, initialValues } = this.props
+		const { handleSubmit, pristine, submitting, initialValues } = props
 
 		return (
 			<form

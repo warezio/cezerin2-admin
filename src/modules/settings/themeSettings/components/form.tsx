@@ -12,7 +12,7 @@ import style from './style.css'
 
 class ThemeSettings extends React.Component {
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	render() {
@@ -23,7 +23,7 @@ class ThemeSettings extends React.Component {
 			initialValues,
 			reset,
 			settingsSchema,
-		} = this.props
+		} = props
 		if (initialValues && settingsSchema) {
 			let lastSection = null
 			const sortedSettingsSchema = sortBy(settingsSchema, [

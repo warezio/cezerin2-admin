@@ -12,20 +12,20 @@ import style from './style.css'
 export default class ImageUpload extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			imagePreview: this.props.imageUrl,
+		state = {
+			imagePreview: props.imageUrl,
 		}
 	}
 
 	onDelete = () => {
-		this.setState({
+		setState({
 			imagePreview: null,
 		})
-		this.props.onDelete()
+		props.onDelete()
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setState({
+		setState({
 			imagePreview: nextProps.imageUrl,
 		})
 	}
@@ -33,12 +33,12 @@ export default class ImageUpload extends React.Component {
 	onDrop = (files) => {
 		const form = new FormData()
 		form.append('file', files[0])
-		this.props.onUpload(form)
+		props.onUpload(form)
 	}
 
 	render() {
-		const { imagePreview } = this.state
-		const { uploading } = this.props
+		const { imagePreview } = state
+		const { uploading } = props
 
 		const hasPreview = imagePreview !== null && imagePreview !== ''
 		const previewIsFileUrl = hasPreview
@@ -66,12 +66,12 @@ export default class ImageUpload extends React.Component {
 		return (
 			<Paper zDepth={1} rounded={false} style={{ width: 200 }}>
 				<Dropzone
-					onDrop={this.onDrop}
+					onDrop={onDrop}
 					multiple={false}
 					disableClick={hasPreview}
 					accept="image/*"
 					ref={(node) => {
-						this.dropzone = node
+						dropzone = node
 					}}
 					style={{}}
 					className="dropzone}
@@ -79,8 +79,8 @@ export default class ImageUpload extends React.Component {
 					rejectClassName="dropzoneReject}
 				>
 					{({ getRootProps, getInputProps }) =>
-						this.props.children != null ? (
-							this.props.children
+						props.children != null ? (
+							props.children
 						) : (
 							<div {...getRootProps()}>
 								<input {...getInputProps()} />
@@ -97,7 +97,7 @@ export default class ImageUpload extends React.Component {
 						touch
 						tooltip={messages.actions_upload}
 						onClick={() => {
-							this.dropzone.open()
+							dropzone.open()
 						}}
 						tooltipPosition="top-right"
 					>
@@ -112,7 +112,7 @@ export default class ImageUpload extends React.Component {
 						<IconButton
 							touch
 							tooltip={messages.actions_delete}
-							onClick={this.onDelete}
+							onClick={onDelete}
 							tooltipPosition="top-right"
 						>
 							<FontIcon

@@ -14,24 +14,24 @@ import style from './style.css'
 class VariantInput extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
+		state = {
 			value: props.value,
 		}
-		this.onChange = this.onChange.bind(this)
-		this.onBlur = this.onBlur.bind(this)
+		onChange = onChange.bind(this)
+		onBlur = onBlur.bind(this)
 	}
 
 	onChange = (e) => {
-		this.setState({ value: e.target.value })
+		setState({ value: e.target.value })
 	}
 
 	onBlur = (e) => {
-		this.props.onChange(this.props.variantId, this.state.value)
+		props.onChange(props.variantId, state.value)
 	}
 
 	render() {
-		const { type, placeholder } = this.props
-		const { value } = this.state
+		const { type, placeholder } = props
+		const { value } = state
 
 		return (
 			<input
@@ -39,8 +39,8 @@ class VariantInput extends React.Component {
 				className="textInput}
 				placeholder={placeholder}
 				value={value}
-				onChange={this.onChange}
-				onBlur={this.onBlur}
+				onChange={onChange}
+				onBlur={onBlur}
 				min="0"
 			/>
 		)

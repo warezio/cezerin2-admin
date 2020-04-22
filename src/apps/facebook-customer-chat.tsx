@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import messages from 'lib/text'
 import api from 'lib/api'
 import TextField from 'material-ui/TextField'
@@ -23,26 +23,24 @@ export const Description = {
 const CHAT_CODE = `<div class="fb-customerchat" page_id="PAGE_ID" minimized="IS_MINIMIZED"></div>`
 
 export const App = () => {
-		this.state = {
-			pageId: '',
-			minimized: 'false',
-		}
+	const [pageId, setPageID] = useState('')
+	const [minimized, setMinimized] = useState(false)
 
-	handlePageIdChange = (event) => {
-		this.setState({ pageId: event.target.value })
+	const handlePageIdChange = (event) => {
+		setPageId(event.target.value)
 	}
 
-	handleMinimizedChange = (event) => {
-		this.setState({ minimized: event.target.value })
+	const handleMinimizedChange = (event) => {
+		setMinimized(event.target.value)
 	}
 
-	fetchSettings = () => {
+	const fetchSettings = () => {
 		api.apps.settings
 			.retrieve('facebook-customer-chat')
-			.then(({ status, json }) => {
+			.then(({ json }) => {
 				const appSettings = json
 				if (appSettings) {
-					this.setState({
+					setState({
 						pageId: appSettings.pageId,
 						minimized: appSettings.minimized,
 					})
@@ -53,8 +51,8 @@ export const App = () => {
 			})
 	}
 
-	updateSettings = () => {
-		const { pageId, minimized } = this.state
+	const updateSettings = () => {
+		const { pageId, minimized } = state
 		const htmlCode =
 			pageId && pageId.length > 0
 				? CHAT_CODE.replace(/PAGE_ID/g, pageId).replace(
@@ -73,35 +71,35 @@ export const App = () => {
 		})
 	}
 
-	useEffect(() => (fetchSettings(),[])
-	
-		return (
-			<>
-				<TextField
-					type="text"
-					fullWidth
-					value={this.state.pageId}
-					onChange={this.handlePageIdChange}
-					floatingLabelText="Page ID"
-				/>
+	useEffect(() => fetchSettings(), [])
 
-				<TextField
-					type="text"
-					fullWidth
-					value={this.state.minimized}
-					onChange={this.handleMinimizedChange}
-					floatingLabelText="minimized"
-					hintText="false"
-				/>
+	return (
+		<>
+			<TextField
+				type="text"
+				fullWidth
+				value={pageId}
+				onChange={handlePageIdChange}
+				floatingLabelText="Page ID"
+			/>
 
-				<div style={{ textAlign: 'right' }}>
-					<RaisedButton
-						label={messages.save}
-						primary
-						disabled={false}
-						onClick={this.updateSettings}
-					/>
-				</div>
-			</>
-		)
-	}
+			<TextField
+				type="text"
+				fullWidth
+				value={minimized}
+				onChange={handleMinimizedChange}
+				floatingLabelText="minimized"
+				hintText="false"
+			/>
+
+			<div style={{ textAlign: 'right' }}>
+				<RaisedButton
+					label={messages.save}
+					primary
+					disabled={false}
+					onClick={updateSettings}
+				/>
+			</div>
+		</>
+	)
+}

@@ -58,17 +58,17 @@ const validate = (values) => {
 class EditTokenForm extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
+		state = {
 			showRevokeDialog: false,
 		}
 	}
 
 	handleRevoke = () => {
-		this.setState({ showRevokeDialog: true })
+		setState({ showRevokeDialog: true })
 	}
 
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	render() {
@@ -80,7 +80,7 @@ class EditTokenForm extends React.Component {
 			tokenId,
 			newToken,
 			onDelete,
-		} = this.props
+		} = props
 		const isTokenAdded = !!newToken
 		const isAdd = tokenId === null || tokenId === undefined
 
@@ -126,7 +126,7 @@ class EditTokenForm extends React.Component {
 									label={messages.settings_revokeAccess}
 									secondary
 									style={{ float: 'left' }}
-									onClick={this.handleRevoke}
+									onClick={handleRevoke}
 								/>
 							)}
 							<RaisedButton
@@ -154,7 +154,7 @@ class EditTokenForm extends React.Component {
 				/>
 
 				<ConfirmationDialog
-					open={this.state.showRevokeDialog}
+					open={state.showRevokeDialog}
 					title={messages.settings_tokenRevokeTitle}
 					description={messages.settings_tokenRevokeDescription}
 					onSubmit={onDelete}

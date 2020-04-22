@@ -20,7 +20,7 @@ const CustomersList = () => {
 		onSelectAll,
 		loadMore,
 		settings,
-	} = this.props
+	} = props
 	const rows = items.map((item, index) => (
 		<CustomersListItem
 			key={index}

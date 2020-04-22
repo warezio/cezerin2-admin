@@ -26,12 +26,12 @@ const validate = (values) => {
 }
 
 const CustomerEditForm = () => {
-	this.state = {
+	state = {
 		groups: [],
 	}
 	useEffect(() => {
 		api.customerGroups.list().then(({ status, json }) => {
-			this.setState({ groups: json })
+			setState({ groups: json })
 		})
 	}, [])
 
@@ -41,9 +41,9 @@ const CustomerEditForm = () => {
 		submitting,
 		initialValues,
 		onCancel,
-	} = this.props
+	} = props
 
-	const groupItems = this.state.groups.map((item, index) => (
+	const groupItems = state.groups.map((item, index) => (
 		<MenuItem key={index} value={item.id} primaryText={item.name} />
 	))
 	groupItems.push(

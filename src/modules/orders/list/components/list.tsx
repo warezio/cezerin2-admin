@@ -10,7 +10,7 @@ import './style.sass'
 
 export default class OrdersList extends React.Component {
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	render() {
@@ -23,7 +23,7 @@ export default class OrdersList extends React.Component {
 			onSelectAll,
 			loadMore,
 			settings,
-		} = this.props
+		} = props
 		const rows = items.map((item, index) => (
 			<OrdersListItem
 				key={index}

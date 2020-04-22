@@ -46,11 +46,11 @@ const PageItem = ({ page }) => {
 
 export default class PagesList extends React.Component {
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	render() {
-		const { pages } = this.props
+		const { pages } = props
 		const listItems = pages.map((page, index) => (
 			<PageItem key={index} page={page} />
 		))

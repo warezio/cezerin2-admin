@@ -42,37 +42,37 @@ const Buttons = (props) => {
 	}
 
 	const openDelete = () => {
-		this.setState({ openDelete: true })
+		setState({ openDelete: true })
 	}
 
 	const closeDelete = () => {
-		this.setState({ openDelete: false })
+		setState({ openDelete: false })
 	}
 
 	const deleteOrder = () => {
-		this.closeDelete()
-		this.props.onDelete()
+		closeDelete()
+		props.onDelete()
 	}
 
 	const holdOrder = () => {
-		this.props.holdOrder(this.props.order.id)
+		props.holdOrder(props.order.id)
 	}
 
 	const resumeOrder = () => {
-		this.props.resumeOrder(this.props.order.id)
+		props.resumeOrder(props.order.id)
 	}
 
 	const showAddItem = () => {
-		this.setState({ showAddItem: true })
+		setState({ showAddItem: true })
 	}
 
 	const hideAddItem = () => {
-		this.setState({ showAddItem: false })
+		setState({ showAddItem: false })
 	}
 
 	const addItem = (productId) => {
-		this.hideAddItem()
-		this.props.addItem(this.props.order.id, productId)
+		hideAddItem()
+		props.addItem(props.order.id, productId)
 	}
 
 	const { settings, order, onDelete } = props

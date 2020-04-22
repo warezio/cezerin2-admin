@@ -13,11 +13,11 @@ export default class ImportSettings extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.onLoad()
+		props.onLoad()
 	}
 
 	render() {
-		const { importSettings } = this.props
+		const { importSettings } = props
 
 		return (
 			<div>

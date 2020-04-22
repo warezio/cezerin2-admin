@@ -61,7 +61,7 @@ const Form = (props) => {
 					<FlatButton
 						label={messages.cancel}
 						className="button}
-						onClick={this.props.onCancel}
+						onClick={props.onCancel}
 					/>
 					<RaisedButton
 						type="submit"

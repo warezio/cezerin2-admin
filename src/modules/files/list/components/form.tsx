@@ -22,25 +22,25 @@ const iconButtonElement = (
 )
 
 const FileItem = () => {
-		this.state = {
+		state = {
 			openDelete: false,
 		}
 
 	showDelete = () => {
-		this.setState({ openDelete: true })
+		setState({ openDelete: true })
 	}
 
 	hideDelete = () => {
-		this.setState({ openDelete: false })
+		setState({ openDelete: false })
 	}
 
 	handleDelete = () => {
-		const fileName = this.props.file.file
-		this.props.onDelete(fileName)
-		this.hideDelete()
+		const fileName = props.file.file
+		props.onDelete(fileName)
+		hideDelete()
 	}
 
-		const { file, settings } = this.props
+		const { file, settings } = props
 		const fileName = file.file
 		const fileUrl = `${settings.domain}/${file.file}`
 		const modifiedDate = moment(file.modified)
@@ -64,17 +64,17 @@ const FileItem = () => {
 				</div>
 				<div className={`$"more} col-xs-2`}>
 					<IconMenu iconButtonElement={iconButtonElement}>
-						<MenuItem onClick={this.showDelete}>
+						<MenuItem onClick={showDelete}>
 							{messages.actions_delete}
 						</MenuItem>
 					</IconMenu>
 					<DeleteConfirmation
-						open={this.state.openDelete}
+						open={state.openDelete}
 						isSingle
 						itemsCount={1}
 						itemName={fileName}
-						onCancel={this.hideDelete}
-						onDelete={this.handleDelete}
+						onCancel={hideDelete}
+						onDelete={handleDelete}
 					/>
 				</div>
 			</div>
@@ -84,7 +84,7 @@ const FileItem = () => {
 const FileList = () => {
 	useEffect(() => (props.onLoad(),[])
 
-		const { files, settings, onDelete, onUpload, uploading } = this.props
+		const { files, settings, onDelete, onUpload, uploading } = props
 		const listItems = files.map((file, index) => (
 			<FileItem
 				key={index}

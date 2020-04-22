@@ -24,7 +24,7 @@ const PINTEREST_EXAMPLE = '<meta name="p:domain_verify" content="1234" />'
 const YANDEX_EXAMPLE = '<meta name="yandex-verification" content="1234" />'
 
 export const App = () => {
-		this.state = {
+		state = {
 			google: '',
 			bing: '',
 			pinterest: '',
@@ -61,7 +61,7 @@ export const App = () => {
 			.then(({ status, json }) => {
 				const appSettings = json
 				if (appSettings) {
-					this.setState({
+					setState({
 						google: appSettings.google,
 						bing: appSettings.bing,
 						pinterest: appSettings.pinterest,
@@ -75,7 +75,7 @@ export const App = () => {
 	}
 
 	updateSettings = () => {
-		const { google, bing, pinterest, yandex } = this.state
+		const { google, bing, pinterest, yandex } = state
 		const metaTags = [google, bing, pinterest, yandex]
 			.map((tag) => (tag && tag.length > 0 ? tag : null))
 			.filter((tag) => tag !== null)
@@ -100,8 +100,8 @@ export const App = () => {
 			<>
 				<TextField
 					type="text"
-					value={this.state.google}
-					onChange={this.handleGoogleChange}
+					value={state.google}
+					onChange={handleGoogleChange}
 					floatingLabelText="Google"
 					fullWidth
 					hintText={GOOGLE_EXAMPLE}
@@ -109,8 +109,8 @@ export const App = () => {
 
 				<TextField
 					type="text"
-					value={this.state.bing}
-					onChange={this.handleBingChange}
+					value={state.bing}
+					onChange={handleBingChange}
 					floatingLabelText="Bing"
 					fullWidth
 					hintText={BING_EXAMPLE}
@@ -118,8 +118,8 @@ export const App = () => {
 
 				<TextField
 					type="text"
-					value={this.state.pinterest}
-					onChange={this.handlePinterestChange}
+					value={state.pinterest}
+					onChange={handlePinterestChange}
 					floatingLabelText="Pinterest"
 					fullWidth
 					hintText={PINTEREST_EXAMPLE}
@@ -127,8 +127,8 @@ export const App = () => {
 
 				<TextField
 					type="text"
-					value={this.state.yandex}
-					onChange={this.handleYandexChange}
+					value={state.yandex}
+					onChange={handleYandexChange}
 					floatingLabelText="Yandex"
 					fullWidth
 					hintText={YANDEX_EXAMPLE}
@@ -139,7 +139,7 @@ export const App = () => {
 						label={messages.save}
 						primary
 						disabled={false}
-						onClick={this.updateSettings}
+						onClick={updateSettings}
 					/>
 				</div>
 			</>

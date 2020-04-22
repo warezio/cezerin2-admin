@@ -27,9 +27,9 @@ const styles = {
 
 export default class Theme extends React.Component {
 	onExportClick() {
-		this.props.exportRequest()
+		props.exportRequest()
 		api.theme.export().then(({ satus, json }) => {
-			this.props.exportReceive()
+			props.exportReceive()
 			if (json.file) {
 				window.location = json.file
 			} else {
@@ -39,7 +39,7 @@ export default class Theme extends React.Component {
 	}
 
 	onImportFileChoose(e) {
-		this.props.installRequest()
+		props.installRequest()
 		const file = e.target.files[0]
 		const formData = new FormData()
 		formData.append('file', file)
@@ -48,7 +48,7 @@ export default class Theme extends React.Component {
 	}
 
 	render() {
-		const { exportInProcess, installInProcess } = this.props
+		const { exportInProcess, installInProcess } = props
 
 		return (
 			<div>
@@ -71,7 +71,7 @@ export default class Theme extends React.Component {
 									disabled={
 										exportInProcess || installInProcess
 									}
-									onClick={this.onExportClick.bind(this)}
+									onClick={onExportClick.bind(this)}
 									primary
 								/>
 							</div>
@@ -107,7 +107,7 @@ export default class Theme extends React.Component {
 								>
 									<input
 										type="file"
-										onChange={this.onImportFileChoose.bind(
+										onChange={onImportFileChoose.bind(
 											this
 										)}
 										disabled={installInProcess}
