@@ -145,11 +145,11 @@ const OrderCustomer = () => {
 	}
 
 	showShippingEdit = () => {
-		setState({ openShippingEdit: true })
+		set( openShippingEdit: true })
 	}
 
 	hideShippingEdit = () => {
-		setState({ openShippingEdit: false })
+		set( openShippingEdit: false })
 	}
 
 	saveShippingEdit = (address) => {

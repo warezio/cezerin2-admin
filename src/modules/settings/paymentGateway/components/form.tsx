@@ -29,11 +29,11 @@ const EditPaymentGatewayForm = () => {
 	}
 
 	handleOpen = () => {
-		setState({ open: true })
+		set( open: true })
 	}
 
 	handleClose = () => {
-		setState({ open: false })
+		set( open: false })
 	}
 
 	

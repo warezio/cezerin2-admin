@@ -18,14 +18,14 @@ export default const ImageUpload = () => {
 	}
 
 	onDelete = () => {
-		setState({
+		set(
 			imagePreview: null,
 		})
 		props.onDelete()
 	}
 
 	useEffect([prop.count](nextProps) {
-		setState({
+		set(
 			imagePreview: nextProps.imageUrl,
 		})
 	}

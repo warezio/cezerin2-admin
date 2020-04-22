@@ -21,33 +21,33 @@ const Buttons = () => {
 	}
 
 	showSetGroup = () => {
-		setState({ openSetGroup: true })
+		set( openSetGroup: true })
 	}
 
 	showDelete = () => {
-		setState({ openDelete: true })
+		set( openDelete: true })
 	}
 
 	closeSetGroup = () => {
-		setState({ openSetGroup: false })
+		set( openSetGroup: false })
 	}
 
 	closeDelete = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 	}
 
 	deleteCustomers = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 		props.onDelete()
 	}
 
 	saveSetGroup = () => {
-		setState({ openSetGroup: false })
+		set( openSetGroup: false })
 		props.onSetGroup(state.groupId)
 	}
 
 	selectSetGroup = (groupId) => {
-		setState({ groupId })
+		set( groupId })
 	}
 
 	const {

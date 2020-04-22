@@ -36,7 +36,7 @@ export default const OrdersBar = () => {
 				const reportData = utils.getReportDataFromOrders(json)
 				const ordersData = utils.getOrdersDataFromReportData(reportData)
 				const salesData = utils.getSalesDataFromReportData(reportData)
-				setState({ ordersData, salesData })
+				set( ordersData, salesData })
 			})
 			.catch((error) => {
 				console.log(error)

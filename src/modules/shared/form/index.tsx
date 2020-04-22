@@ -62,7 +62,7 @@ export const MultiSelect = () => {
 			? nextProps.input.value
 			: []
 		if (values !== state.selectedItems) {
-			setState({
+			set(
 				selectedItems: values,
 			})
 		}
@@ -77,7 +77,7 @@ export const MultiSelect = () => {
 			newSelectedItems = [...selectedItems, item]
 		}
 		newSelectedItems.sort()
-		setState({ selectedItems: newSelectedItems })
+		set( selectedItems: newSelectedItems })
 		props.input.onChange(newSelectedItems)
 	}
 

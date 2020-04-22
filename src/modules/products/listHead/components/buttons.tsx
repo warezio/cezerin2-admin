@@ -22,33 +22,33 @@ export default const Buttons = () => {
 	}
 
 	showMoveTo = () => {
-		setState({ openMoveTo: true })
+		set( openMoveTo: true })
 	}
 
 	openDelete = () => {
-		setState({ openDelete: true })
+		set( openDelete: true })
 	}
 
 	closeDelete = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 	}
 
 	deleteProduct = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 		props.onDelete()
 	}
 
 	closeMoveTo = () => {
-		setState({ openMoveTo: false })
+		set( openMoveTo: false })
 	}
 
 	saveMoveTo = () => {
-		setState({ openMoveTo: false })
+		set( openMoveTo: false })
 		props.onMoveTo(state.categoryIdMoveTo)
 	}
 
 	selectMoveTo = (categoryId) => {
-		setState({ categoryIdMoveTo: categoryId })
+		set( categoryIdMoveTo: categoryId })
 	}
 
 	

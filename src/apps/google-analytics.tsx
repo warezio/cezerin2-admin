@@ -38,7 +38,7 @@ export const App = () => {
 			trackingId: '',
 		}
 	handleTrackingIdChange = (event) => {
-		setState({
+		set(
 			trackingId: event.target.value,
 		})
 	}
@@ -49,7 +49,7 @@ export const App = () => {
 			.then(({ status, json }) => {
 				const appSettings = json
 				if (appSettings) {
-					setState({ trackingId: appSettings.GA_TRACKING_ID })
+					set( trackingId: appSettings.GA_TRACKING_ID })
 				}
 			})
 			.catch((error) => {

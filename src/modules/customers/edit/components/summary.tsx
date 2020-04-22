@@ -24,11 +24,11 @@ const CustomerSummary = () => {
 	}
 
 	showSummaryEdit = () => {
-		setState({ openSummaryEdit: true })
+		set( openSummaryEdit: true })
 	}
 
 	hideSummaryEdit = () => {
-		setState({ openSummaryEdit: false })
+		set( openSummaryEdit: false })
 	}
 
 	saveSummaryEdit = (customer) => {

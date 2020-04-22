@@ -64,7 +64,7 @@ const EditTokenForm = () => {
 	}
 
 	handleRevoke = () => {
-		setState({ showRevokeDialog: true })
+		set( showRevokeDialog: true })
 	}
 
 	useEffect(,[]() {

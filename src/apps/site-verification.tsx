@@ -32,25 +32,25 @@ export const App = () => {
 		}
 
 	handleGoogleChange = (event) => {
-		setState({
+		set(
 			google: event.target.value,
 		})
 	}
 
 	handleBingChange = (event) => {
-		setState({
+		set(
 			bing: event.target.value,
 		})
 	}
 
 	handlePinterestChange = (event) => {
-		setState({
+		set(
 			pinterest: event.target.value,
 		})
 	}
 
 	handleYandexChange = (event) => {
-		setState({
+		set(
 			yandex: event.target.value,
 		})
 	}
@@ -61,7 +61,7 @@ export const App = () => {
 			.then(({ status, json }) => {
 				const appSettings = json
 				if (appSettings) {
-					setState({
+					set(
 						google: appSettings.google,
 						bing: appSettings.bing,
 						pinterest: appSettings.pinterest,

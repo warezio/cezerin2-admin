@@ -22,7 +22,7 @@ const VariantInput = () => {
 	}
 
 	onChange = (e) => {
-		setState({ value: e.target.value })
+		set( value: e.target.value })
 	}
 
 	onBlur = (e) => {

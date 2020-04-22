@@ -85,7 +85,7 @@ export default const ProductImport = () => {
 			if (parseInt(state.deleteCounter) === parseInt(arrayLength)) {
 				uploadProducts() //upload just once
 			}
-			setState({ deleteCounter: state.deleteCounter + 1 })
+			set( deleteCounter: state.deleteCounter + 1 })
 		})
 	}
 
@@ -137,7 +137,7 @@ export default const ProductImport = () => {
 					statusCell[i].style.color = 'green'
 				} else {
 					errorsCounter += 1
-					setState({ errors: errorsCounter })
+					set( errors: errorsCounter })
 				}
 
 				updateProductArray.push({
@@ -150,7 +150,7 @@ export default const ProductImport = () => {
 				}
 			} else {
 				errorsCounter += 1
-				setState({ errors: errorsCounter })
+				set( errors: errorsCounter })
 			}
 		}
 	}
@@ -320,8 +320,8 @@ export default const ProductImport = () => {
 						id: json.id,
 						url: pArrayItem.draft.path.split(','),
 					})
-					that.setState({ deleteCounter: 0 })
-					that.setState({ uploadedProducts: i + 1 })
+					that.set( deleteCounter: 0 })
+					that.set( uploadedProducts: i + 1 })
 
 					if (i + 1 === that.state.product_items.length - 1) {
 						that.loader.current.style.setProperty('display', 'none')
@@ -415,7 +415,7 @@ export default const ProductImport = () => {
 						rows.push(rowObject)
 					}
 
-					setState({ product_items: rows })
+					set( product_items: rows })
 
 					let status = document.getElementsByClassName(
 						'sheet-cell-state'
@@ -428,7 +428,7 @@ export default const ProductImport = () => {
 					})
 				})
 				.catch((error) => {
-					setState({ dashboardsettings: false })
+					set( dashboardsettings: false })
 				})
 		})
 	}

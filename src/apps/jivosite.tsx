@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import messages from 'lib/text'
-import api from 'lib/api'
-import TextField from 'material-ui/TextField'
-import RaisedButton from 'material-ui/RaisedButton'
+import messages from '../lib/text'
+import api from '../lib/api'
 
 export const Description = {
 	key: 'jivosite',
@@ -16,19 +14,19 @@ export const App = () => {
 		code: '',
 	}
 
-	handleChange = (event) => {
-		setState({
+const	handleChange = (event) => {
+		set(
 			code: event.target.value,
 		})
 	}
 
-	fetchSettings = () => {
+const	fetchSettings = () => {
 		api.apps.settings
 			.retrieve('jivosite')
 			.then(({ status, json }) => {
 				const appSettings = json
 				if (appSettings) {
-					setState({ code: appSettings.code })
+					set( code: appSettings.code })
 				}
 			})
 			.catch((error) => {
@@ -45,13 +43,10 @@ export const App = () => {
 			value: code,
 		})
 	}
-
 	useEffect(() => fetchSettings(), [])
-
 	return (
 		<>
 			<p>Введите код JivoSite</p>
-
 			<TextField
 				type="text"
 				multiLine
@@ -62,7 +57,6 @@ export const App = () => {
 				floatingLabelText="Код чата JivoSite"
 				hintText="<!-- BEGIN JIVOSITE CODE {literal} -->..."
 			/>
-
 			<div style={{ textAlign: 'right' }}>
 				<RaisedButton
 					label={messages.save}

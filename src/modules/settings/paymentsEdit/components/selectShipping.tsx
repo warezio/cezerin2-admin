@@ -17,7 +17,7 @@ export default const SelectShippingMethodsField = () => {
 			? nextProps.input.value
 			: []
 		if (newIds !== state.selectedIds) {
-			setState({
+			set(
 				selectedIds: newIds,
 			})
 		}
@@ -30,7 +30,7 @@ export default const SelectShippingMethodsField = () => {
 		} else {
 			ids.push(methodId)
 		}
-		setState({ selectedIds: ids })
+		set( selectedIds: ids })
 		props.input.onChange(ids)
 	}
 

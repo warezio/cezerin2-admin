@@ -13,14 +13,14 @@ export default const ConfirmationDialog = () => {
 
 	useEffect([prop.count](nextProps) {
 		if (state.open !== nextProps.open) {
-			setState({
+			set(
 				open: nextProps.open,
 			})
 		}
 	}
 
 	close = () => {
-		setState({ open: false })
+		set( open: false })
 	}
 
 	handleCancel = () => {

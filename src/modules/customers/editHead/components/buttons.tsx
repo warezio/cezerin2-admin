@@ -8,11 +8,11 @@ const Buttons = () => {
 	const [openDelete, setOpenDelete] = useState(false)
 
 	openDelete = () => {
-		setState({ openDelete: true })
+		set( openDelete: true })
 	}
 
 	closeDelete = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 	}
 
 	deleteOrder = () => {

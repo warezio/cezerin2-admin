@@ -34,9 +34,9 @@ const AppBarTop = () => {
 		state = { open: false }
 	}
 
-	handleToggle = () => setState({ open: !state.open })
+	handleToggle = () => set( open: !state.open })
 
-	handleClose = () => setState({ open: false })
+	handleClose = () => set( open: false })
 
 		const {
 			location,

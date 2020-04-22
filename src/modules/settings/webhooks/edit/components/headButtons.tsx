@@ -16,15 +16,15 @@ export default const Buttons = () => {
 	}
 
 	openDelete = () => {
-		setState({ openDelete: true })
+		set( openDelete: true })
 	}
 
 	closeDelete = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 	}
 
 	deletePage = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 		props.onDelete(props.webhook.id)
 	}
 

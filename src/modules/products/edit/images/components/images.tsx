@@ -16,15 +16,15 @@ export default const ProductImages = () => {
 	}
 
 	closeEdit = () => {
-		setState({ openEdit: false })
+		set( openEdit: false })
 	}
 
 	openEdit = () => {
-		setState({ openEdit: true })
+		set( openEdit: true })
 	}
 
 	handleEditOpen = (image) => {
-		setState({ imageData: image })
+		set( imageData: image })
 		openEdit()
 	}
 
@@ -37,7 +37,7 @@ export default const ProductImages = () => {
 		const newImageData = Object.assign({}, state.imageData, {
 			alt: value,
 		})
-		setState({ imageData: newImageData })
+		set( imageData: newImageData })
 	}
 
 	

@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { fetchCheckoutField, updateCheckoutField } from '../actions'
 import Form from './components/form'
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
 	initialValues: state.settings.checkoutField,
 })
 

@@ -12,21 +12,21 @@ export default const ConfirmationDialog = () => {
 
 	useEffect([prop.count](nextProps) {
 		if (state.open !== nextProps.open) {
-			setState({
+			set(
 				open: nextProps.open,
 			})
 		}
 	}
 
 	handleCancel = () => {
-		setState({ open: false })
+		set( open: false })
 		if (props.onCancel) {
 			props.onCancel()
 		}
 	}
 
 	handleSubmit = () => {
-		setState({ open: false })
+		set( open: false })
 		if (props.onSubmit) {
 			props.onSubmit()
 		}

@@ -19,7 +19,7 @@ const LoginForm = () => {
 	}
 
 	handleChange = (event) => {
-		setState({
+		set(
 			email: event.target.value,
 		})
 	}
@@ -31,7 +31,7 @@ const LoginForm = () => {
 	}
 
 	handleSubmit = () => {
-		setState({
+		set(
 			isFetching: true,
 			isAuthorized: false,
 			emailIsSent: false,
@@ -40,7 +40,7 @@ const LoginForm = () => {
 
 		CezerinClient.authorize(settings.apiBaseUrl, state.email)
 			.then((authorizeResponse) => {
-				setState({
+				set(
 					isFetching: false,
 					isAuthorized: false,
 					emailIsSent: authorizeResponse.json.sent,
@@ -48,7 +48,7 @@ const LoginForm = () => {
 				})
 			})
 			.catch((error) => {
-				setState({
+				set(
 					isFetching: false,
 					isAuthorized: false,
 					emailIsSent: false,

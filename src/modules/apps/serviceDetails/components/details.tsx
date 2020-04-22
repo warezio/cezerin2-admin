@@ -19,7 +19,7 @@ const ServiceDetails = (props) => {
 			}
 		}, 5000)
 
-		setState({ timer })
+		set( timer })
 	}, [])
 
 	useEffect(() => {

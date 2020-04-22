@@ -73,15 +73,15 @@ export const OrderItem = () => {
 	}
 
 	showEditForm = () => {
-		setState({ showEdit: true })
+		set( showEdit: true })
 	}
 
 	hideEditForm = () => {
-		setState({ showEdit: false })
+		set( showEdit: false })
 	}
 
 	quantityChange = (event, index, value) => {
-		setState({ quantity: value })
+		set( quantity: value })
 	}
 
 	submitEditForm = () => {
@@ -102,7 +102,7 @@ export const OrderItem = () => {
 	}
 
 	onOptionChange = (optionId, valueId) => {
-		setState({ quantity: 1 })
+		set( quantity: 1 })
 		const { selectedOptions } = state
 
 		if (valueId === '') {
@@ -111,7 +111,7 @@ export const OrderItem = () => {
 			selectedOptions[optionId] = valueId
 		}
 
-		setState({ selectedOptions })
+		set( selectedOptions })
 		findVariantBySelectedOptions()
 	}
 
@@ -125,12 +125,12 @@ export const OrderItem = () => {
 					variantOption.value_id
 			)
 			if (variantMutchSelectedOptions) {
-				setState({ selectedVariant: variant })
+				set( selectedVariant: variant })
 				return
 			}
 		}
 
-		setState({ selectedVariant: null })
+		set( selectedVariant: null })
 	}
 
 	getCurrentVariant = () => {

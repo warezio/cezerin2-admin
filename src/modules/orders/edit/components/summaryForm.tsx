@@ -36,15 +36,15 @@ const SummaryForm = () => {
 		}
 
 		api.orderStatuses.list().then(({ status, json }) => {
-			setState({ orderStatuses: json })
+			set( orderStatuses: json })
 		})
 
 		api.shippingMethods.list(filter).then(({ status, json }) => {
-			setState({ shippingMethods: json })
+			set( shippingMethods: json })
 		})
 
 		api.paymentMethods.list(filter).then(({ status, json }) => {
-			setState({ paymentMethods: json })
+			set( paymentMethods: json })
 		})
 	}
 

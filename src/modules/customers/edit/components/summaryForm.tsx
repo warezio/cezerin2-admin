@@ -31,7 +31,7 @@ const CustomerEditForm = () => {
 	}
 	useEffect(() => {
 		api.customerGroups.list().then(({ status, json }) => {
-			setState({ groups: json })
+			set( groups: json })
 		})
 	}, [])
 

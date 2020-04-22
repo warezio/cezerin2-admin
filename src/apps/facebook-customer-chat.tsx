@@ -40,7 +40,7 @@ export const App = () => {
 			.then(({ json }) => {
 				const appSettings = json
 				if (appSettings) {
-					setState({
+					set(
 						pageId: appSettings.pageId,
 						minimized: appSettings.minimized,
 					})

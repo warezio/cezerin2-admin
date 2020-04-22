@@ -13,15 +13,15 @@ export default const Buttons = () => {
 	}
 
 	showDelete = () => {
-		setState({ openDelete: true })
+		set( openDelete: true })
 	}
 
 	closeDelete = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 	}
 
 	deleteGroup = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 		props.onDelete(props.shippingMethod.id)
 	}
 

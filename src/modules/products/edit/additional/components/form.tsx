@@ -137,11 +137,11 @@ const ProductsArray = () => {
 	}
 
 	showAddItem = () => {
-		setState({ showAddItem: true })
+		set( showAddItem: true })
 	}
 
 	hideAddItem = () => {
-		setState({ showAddItem: false })
+		set( showAddItem: false })
 	}
 
 	addItem = (productId) => {
@@ -173,10 +173,10 @@ const ProductsArray = () => {
 					ids,
 				})
 				.then((productsResponse) => {
-					setState({ products: productsResponse.json.data })
+					set( products: productsResponse.json.data })
 				})
 		} else {
-			setState({
+			set(
 				products: [],
 			})
 		}

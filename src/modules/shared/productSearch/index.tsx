@@ -68,21 +68,21 @@ export default const ConfirmationDialog = () => {
 
 	useEffect([prop.count](nextProps) {
 		if (state.open !== nextProps.open) {
-			setState({
+			set(
 				open: nextProps.open,
 			})
 		}
 	}
 
 	handleCancel = () => {
-		setState({ open: false })
+		set( open: false })
 		if (props.onCancel) {
 			props.onCancel()
 		}
 	}
 
 	handleSubmit = () => {
-		setState({ open: false })
+		set( open: false })
 		if (props.onSubmit) {
 			props.onSubmit(state.selectedId)
 		}
@@ -95,14 +95,14 @@ export default const ConfirmationDialog = () => {
 				state.products && state.products.length >= selectedIndex
 					? state.products[selectedIndex].id
 					: null
-			setState({
+			set(
 				selectedId: selectedProductId,
 			})
 		}
 	}
 
 	handleSearch = (event, value) => {
-		setState({ search: value })
+		set( search: value })
 
 		api.products
 			.list({
@@ -114,7 +114,7 @@ export default const ConfirmationDialog = () => {
 				search: value,
 			})
 			.then((productsResponse) => {
-				setState({
+				set(
 					products: productsResponse.json.data,
 				})
 			})

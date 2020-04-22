@@ -1,50 +1,39 @@
-import React from 'react'
+import React,{useState} from 'react'
 
-import messages from 'lib/text'
+import messages from '../../../../../lib/text'
 
 import Paper from 'material-ui/Paper'
-import FontIcon from 'material-ui/FontIcon'
-import IconButton from 'material-ui/IconButton'
 import './style.sass'
 
-const OptionValueEdit = () => {
-	
-		
-		state = {
-			value: props.value.name,
-		}
+const OptionValueEdit = (props) => {
+		const[value,setValue]=useState(props.value.name)
 		onChange = onChange.bind(this)
 		onBlur = onBlur.bind(this)
 		onDelete = onDelete.bind(this)
+
+const	onChange = (e) => {
+		setValue: e.target.value })
 	}
 
-	onChange = (e) => {
-		setState({ value: e.target.value })
-	}
-
-	onBlur = (e) => {
+const	onBlur = (e) => {
 		props.onChange(props.value.id, state.value)
 	}
 
-	onDelete = () => {
+const	onDelete = () => {
 		props.onDelete(props.value.id)
-	}
-
-	
-		const { value } = state
 
 		return (
-			<div className="gridRow}>
-				<div className="gridColInput}>
+			<div className="gridRow">
+				<div className="gridColInput">
 					<input
 						type="text"
-						className="textInput}
+						className="textInput"
 						value={value}
 						onChange={onChange}
 						onBlur={onBlur}
 					/>
 				</div>
-				<div className="gridColButton}>
+				<div className="gridColButton">
 					<IconButton
 						title={messages.actions_delete}
 						onClick={onDelete}
@@ -61,35 +50,27 @@ const OptionValueEdit = () => {
 }
 
 const OptionValueAdd = () => {
-	
-		
-		state = {
-			value: '',
-		}
+		const[value,setValue]=useState('')
 		onChange = onChange.bind(this)
 		onCreate = onCreate.bind(this)
 		handleKeyPress = handleKeyPress.bind(this)
+
+	const onChange = (e) => {
+		set( value: e.target.value })
 	}
 
-	onChange = (e) => {
-		setState({ value: e.target.value })
-	}
-
-	onCreate = () => {
+const	onCreate = () => {
 		if (state.value !== '') {
 			props.onCreate(state.value)
-			setState({ value: '' })
+			set( value: '' })
 		}
 	}
 
-	handleKeyPress(e) {
+const	handleKeyPress(e) {
 		if (e.keyCode === 13 || e.which === 13) {
 			onCreate()
 		}
 	}
-
-	
-		const { value } = state
 
 		return (
 			<div className="gridRow}>
@@ -138,7 +119,7 @@ const OptionValues = ({
 			<div className="blue-title" style={{ padding: '20px 30px' }}>
 				{messages.optionValues}
 			</div>
-			<div className="grid}>
+			<div className="grid">
 				{valueRows}
 				<OptionValueAdd onCreate={createOptionValue} />
 			</div>

@@ -27,11 +27,11 @@ const FileItem = () => {
 		}
 
 	showDelete = () => {
-		setState({ openDelete: true })
+		set( openDelete: true })
 	}
 
 	hideDelete = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 	}
 
 	handleDelete = () => {

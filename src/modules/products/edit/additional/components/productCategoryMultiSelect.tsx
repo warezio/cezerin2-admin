@@ -32,11 +32,11 @@ export default const ProductCategoryMultiSelect = () => {
 	}
 
 	close = () => {
-		setState({ open: false })
+		set( open: false })
 	}
 
 	open = () => {
-		setState({ open: true })
+		set( open: true })
 	}
 
 	handleCheck = (categoryId) => {

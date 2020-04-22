@@ -14,15 +14,15 @@ export default const Buttons = () => {
 	}
 
 	showDelete = () => {
-		setState({ openDelete: true })
+		set( openDelete: true })
 	}
 
 	closeDelete = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 	}
 
 	deleteStatus = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 		props.onDelete(props.selected.id)
 	}
 

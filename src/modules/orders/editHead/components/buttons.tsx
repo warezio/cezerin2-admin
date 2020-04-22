@@ -42,11 +42,11 @@ const Buttons = (props) => {
 	}
 
 	const openDelete = () => {
-		setState({ openDelete: true })
+		set( openDelete: true })
 	}
 
 	const closeDelete = () => {
-		setState({ openDelete: false })
+		set( openDelete: false })
 	}
 
 	const deleteOrder = () => {
@@ -63,11 +63,11 @@ const Buttons = (props) => {
 	}
 
 	const showAddItem = () => {
-		setState({ showAddItem: true })
+		set( showAddItem: true })
 	}
 
 	const hideAddItem = () => {
-		setState({ showAddItem: false })
+		set( showAddItem: false })
 	}
 
 	const addItem = (productId) => {

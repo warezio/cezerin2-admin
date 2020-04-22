@@ -25,7 +25,7 @@ export default const Editor = () => {
 
 	useEffect([prop.count](nextProps) {
 		if (state.value !== nextProps.input.value) {
-			setState({
+			set(
 				value: nextProps.input.value,
 			})
 		}
@@ -37,7 +37,7 @@ export default const Editor = () => {
 
 	onChange = (e) => {
 		const content = e.target.getContent()
-		setState({ value: content })
+		set( value: content })
 		props.input.onChange(content)
 	}
 
