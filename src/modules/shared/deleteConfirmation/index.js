@@ -1,6 +1,7 @@
 import React from 'react';
 import messages from 'lib/text';
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
 import FlatButton from 'material-ui/FlatButton';
 
 export default class ConfirmationDialog extends React.Component {
@@ -48,31 +49,30 @@ export default class ConfirmationDialog extends React.Component {
 			? messages.singleDeleteDescription
 			: messages.multipleDeleteDescription.replace('{count}', itemsCount);
 
-		const actions = [
-			<FlatButton
-				label={messages.cancel}
-				onClick={this.handleCancel}
-				style={{ marginRight: 10 }}
-			/>,
-			<FlatButton
-				label={messages.actions_delete}
-				primary
-				keyboardFocused
-				onClick={this.handleDelete}
-			/>
-		];
-
 		return (
 			<Dialog
 				title={title}
-				actions={actions}
 				modal={false}
 				open={this.state.open}
 				onRequestClose={this.handleCancel}
 				contentStyle={{ maxWidth: 540 }}
 				titleStyle={{ fontSize: '18px', lineHeight: '28px' }}
 			>
-				<div style={{ wordWrap: 'break-word' }}>{description}</div>
+				<div style={{ wordWrap: 'break-word', width:"500px", margin:"25px" }}>{description}</div>
+				<DialogActions>
+					<FlatButton
+						label={messages.cancel}
+						onClick={this.handleCancel}
+						style={{ marginRight: 10 }}
+					/>
+					<FlatButton
+						label={messages.actions_delete}
+						primary
+						keyboardFocused
+						onClick={this.handleDelete}
+					/>
+        </DialogActions>
+
 			</Dialog>
 		);
 	}

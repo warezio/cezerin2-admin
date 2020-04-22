@@ -7,7 +7,8 @@ import FontIcon from 'material-ui/FontIcon';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
@@ -65,20 +66,6 @@ export default class Buttons extends React.Component {
 			onEdit
 		} = this.props;
 
-		const actionsSetGroup = [
-			<FlatButton
-				label={messages.cancel}
-				onClick={this.closeSetGroup}
-				style={{ marginRight: 10 }}
-			/>,
-			<FlatButton
-				label={messages.save}
-				primary
-				keyboardFocused
-				onClick={this.saveSetGroup}
-			/>
-		];
-
 		return (
 			<Fragment>
 				<Search value={search} setSearch={setSearch} />
@@ -125,7 +112,6 @@ export default class Buttons extends React.Component {
 						/>
 						<Dialog
 							title={messages.customers_setGroup}
-							actions={actionsSetGroup}
 							modal={false}
 							open={this.state.openSetGroup}
 							onRequestClose={this.closeSetGroup}
@@ -137,6 +123,19 @@ export default class Buttons extends React.Component {
 								showRoot
 								showAll={false}
 							/>
+							<DialogActions>
+								<FlatButton
+									label={messages.cancel}
+									onClick={this.closeSetGroup}
+									style={{ marginRight: 10 }}
+								/>
+								<FlatButton
+									label={messages.save}
+									primary
+									keyboardFocused
+									onClick={this.saveSetGroup}
+								/>
+							</DialogActions>
 						</Dialog>
 					</Fragment>
 				)}

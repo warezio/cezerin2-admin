@@ -6,7 +6,8 @@ import DeleteConfirmation from 'modules/shared/deleteConfirmation';
 import FontIcon from 'material-ui/FontIcon';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
 import FlatButton from 'material-ui/FlatButton';
 import Search from './search';
 const { Fragment } = React;
@@ -61,20 +62,6 @@ export default class Buttons extends React.Component {
 			onImportProducts
 		} = this.props;
 
-		const actionsMoveTo = [
-			<FlatButton
-				label={messages.cancel}
-				onClick={this.closeMoveTo}
-				style={{ marginRight: 10 }}
-			/>,
-			<FlatButton
-				label={messages.actions_moveHere}
-				primary
-				keyboardFocused
-				onClick={this.saveMoveTo}
-			/>
-		];
-
 		return (
 			<Fragment>
 				<Search value={search} setSearch={setSearch} />
@@ -109,7 +96,6 @@ export default class Buttons extends React.Component {
 						/>
 						<Dialog
 							title={messages.actions_moveTo}
-							actions={actionsMoveTo}
 							modal={false}
 							open={this.state.openMoveTo}
 							onRequestClose={this.closeMoveTo}
@@ -120,6 +106,19 @@ export default class Buttons extends React.Component {
 								selectedId={this.state.categoryIdMoveTo}
 								opened
 							/>
+							<DialogActions>
+								<FlatButton
+									label={messages.cancel}
+									onClick={this.closeMoveTo}
+									style={{ marginRight: 10 }}
+								/>
+								<FlatButton
+									label={messages.actions_moveHere}
+									primary
+									keyboardFocused
+									onClick={this.saveMoveTo}
+								/>
+							</DialogActions>
 						</Dialog>
 					</Fragment>
 				)}

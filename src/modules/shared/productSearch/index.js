@@ -4,7 +4,8 @@ import messages from 'lib/text';
 import api from 'lib/api';
 import * as helper from 'lib/helper';
 
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import {
@@ -129,19 +130,9 @@ export default class ConfirmationDialog extends React.Component {
 			settings
 		} = this.props;
 
-		const actions = [
-			<FlatButton
-				label={cancelLabel}
-				onClick={this.handleCancel}
-				style={{ marginRight: 10 }}
-			/>,
-			<FlatButton label={submitLabel} primary onClick={this.handleSubmit} />
-		];
-
 		return (
 			<Dialog
 				title={title}
-				actions={actions}
 				actionsContainerStyle={{ borderTop: '1px solid rgb(224, 224, 224)' }}
 				modal={modal}
 				open={this.state.open}
@@ -156,6 +147,18 @@ export default class ConfirmationDialog extends React.Component {
 						settings={settings}
 					/>
 				</div>
+				<DialogActions>
+					<FlatButton
+						label={cancelLabel}
+						onClick={this.handleCancel}
+						style={{ marginRight: 10 }}
+					/>
+					<FlatButton
+						label={submitLabel}
+						primary
+						onClick={this.handleSubmit}
+					/>
+				</DialogActions>
 			</Dialog>
 		);
 	}

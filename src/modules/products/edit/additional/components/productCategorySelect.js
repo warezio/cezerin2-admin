@@ -3,7 +3,8 @@ import { Field, FieldArray, reduxForm } from 'redux-form';
 import messages from 'lib/text';
 import CategorySelect from 'modules/productCategories/select';
 import FontIcon from 'material-ui/FontIcon';
-import Dialog from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import style from './style.css';
@@ -40,25 +41,10 @@ export default class ProductCategorySelect extends React.Component {
 		const category = categories.find(item => item.id === selectedCategoryId);
 		const categoryName = category ? category.name : '';
 
-		const dialogButtons = [
-			<FlatButton
-				label={messages.cancel}
-				onClick={this.close}
-				style={{ marginRight: 10 }}
-			/>,
-			<FlatButton
-				label={messages.save}
-				primary
-				keyboardFocused
-				onClick={this.close}
-			/>
-		];
-
 		return (
 			<Fragment>
 				<Dialog
 					title={messages.category}
-					actions={dialogButtons}
 					modal={false}
 					open={open}
 					onRequestClose={this.close}
@@ -69,6 +55,19 @@ export default class ProductCategorySelect extends React.Component {
 						selectedId={selectedCategoryId}
 						opened={false}
 					/>
+					<DialogActions>
+						<FlatButton
+							label={messages.cancel}
+							onClick={this.close}
+							style={{ marginRight: 10 }}
+						/>
+						<FlatButton
+							label={messages.save}
+							primary
+							keyboardFocused
+							onClick={this.close}
+						/>
+					</DialogActions>
 				</Dialog>
 				<FlatButton
 					label={categoryName}
