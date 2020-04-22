@@ -46,14 +46,14 @@ export default class ImageUpload extends React.Component {
 			: null
 
 		let htmlPreview = (
-			<div className={style.noImage}>
+			<div className="noImage}>
 				<FontIcon
 					style={{ fontSize: 90, color: '#cccccc' }}
 					className="material-icons"
 				>
 					photo_camera
 				</FontIcon>
-				<div className={style.dropText}>{messages.help_dropHere}</div>
+				<div className="dropText}>{messages.help_dropHere}</div>
 			</div>
 		)
 
@@ -74,9 +74,9 @@ export default class ImageUpload extends React.Component {
 						this.dropzone = node
 					}}
 					style={{}}
-					className={style.dropzone}
-					activeClassName={style.dropzoneActive}
-					rejectClassName={style.dropzoneReject}
+					className="dropzone}
+					activeClassName="dropzoneActive}
+					rejectClassName="dropzoneReject}
 				>
 					{({ getRootProps, getInputProps }) =>
 						this.props.children != null ? (
@@ -84,7 +84,7 @@ export default class ImageUpload extends React.Component {
 						) : (
 							<div {...getRootProps()}>
 								<input {...getInputProps()} />
-								<div className={style.preview}>
+								<div className="preview}>
 									{htmlPreview}
 								</div>
 							</div>
@@ -92,7 +92,7 @@ export default class ImageUpload extends React.Component {
 					}
 				</Dropzone>
 
-				<div className={style.footer}>
+				<div className="footer}>
 					<IconButton
 						touch
 						tooltip={messages.actions_upload}

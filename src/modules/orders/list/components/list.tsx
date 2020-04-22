@@ -40,7 +40,7 @@ export default class OrdersList extends React.Component {
 					<Head onSelectAll={onSelectAll} />
 					<Divider />
 					{rows}
-					<div className={style.more}>
+					<div className="more}>
 						<RaisedButton
 							disabled={loadingItems || !hasMore}
 							label={messages.actions_loadMore}

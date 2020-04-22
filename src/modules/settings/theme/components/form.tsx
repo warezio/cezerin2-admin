@@ -53,7 +53,7 @@ export default class Theme extends React.Component {
 		return (
 			<div>
 				<Paper className="paper-box" zDepth={1}>
-					<div className={style.innerBox}>
+					<div className="innerBox}>
 						<div className="row between-xs middle-xs">
 							<div className="col-xs-6">
 								{messages.settings_themeExportDesciption}

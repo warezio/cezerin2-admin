@@ -41,9 +41,9 @@ const CustomerSummary = () => {
 
 	return (
 		<Paper className="paper-box" zDepth={1}>
-			<div className={style.innerBox}>
+			<div className="innerBox}>
 				<div
-					className={style.customerName}
+					className="customerName}
 					style={{ paddingBottom: 26, paddingTop: 0 }}
 				>
 					{customer.full_name}
@@ -52,35 +52,35 @@ const CustomerSummary = () => {
 					</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.email}</span>
 					</div>
 					<div className="col-xs-7">
 						<a
 							href={`MailTo:${customer.email}`}
-							className={style.link}
+							className="link}
 						>
 							{customer.email}
 						</a>
 					</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.mobile}</span>
 					</div>
 					<div className="col-xs-7">{customer.mobile}</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.customers_totalSpent}</span>
 					</div>
 					<div className="col-xs-7">{totalSpent}</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.note}</span>
 					</div>

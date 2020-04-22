@@ -60,14 +60,14 @@ const Form = (props) => {
 				<div className="buttons-box">
 					<FlatButton
 						label={messages.cancel}
-						className={style.button}
+						className="button}
 						onClick={this.props.onCancel}
 					/>
 					<RaisedButton
 						type="submit"
 						label={groupId ? messages.save : messages.add}
 						primary
-						className={style.button}
+						className="button}
 						disabled={pristine || submitting || isSaving}
 					/>
 				</div>

@@ -71,7 +71,7 @@ const GeneralSettings = (props) => {
 			}}
 		>
 			<Paper className="paper-box" zDepth={1}>
-				<div className={style.innerBox}>
+				<div className="innerBox}>
 					<div style={{ width: '100%' }}>
 						<List>
 							<Link
@@ -596,7 +596,7 @@ const GeneralSettings = (props) => {
 						type="submit"
 						label={messages.save}
 						primary
-						className={style.button}
+						className="button}
 						disabled={pristine || submitting}
 					/>
 				</div>

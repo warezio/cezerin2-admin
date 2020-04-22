@@ -37,7 +37,7 @@ class ThemeSettings extends React.Component {
 					lastSection = item.section
 					sectionTitle =
 						item.section && item.section !== '' ? (
-							<div className={style.sectionTitle}>
+							<div className="sectionTitle}>
 								{item.section}
 							</div>
 						) : null
@@ -69,11 +69,11 @@ class ThemeSettings extends React.Component {
 						{messages.themeSettings}
 					</div>
 					<Paper className="paper-box" zDepth={1}>
-						<div className={style.innerBox}>{fields}</div>
+						<div className="innerBox}>{fields}</div>
 						<div className="buttons-box">
 							<FlatButton
 								label={messages.cancel}
-								className={style.button}
+								className="button}
 								onClick={reset}
 								disabled={pristine || submitting}
 							/>
@@ -81,7 +81,7 @@ class ThemeSettings extends React.Component {
 								type="submit"
 								label={messages.save}
 								primary
-								className={style.button}
+								className="button}
 								disabled={pristine || submitting}
 							/>
 						</div>

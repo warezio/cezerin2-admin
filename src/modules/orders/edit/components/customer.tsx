@@ -51,7 +51,7 @@ const ShippingAddress = ({ order, settings }) => {
 	const shippingMethod = order.shipping_method_details
 
 	return (
-		<div className={style.address} style={{ marginBottom: 20 }}>
+		<div className="address} style={{ marginBottom: 20 }}>
 			<ShippingFields order={order} shippingMethod={shippingMethod} />
 			<div>
 				<label>{messages.city}: </label>
@@ -170,17 +170,17 @@ const OrderCustomer = () => {
 				{messages.customer}
 			</div>
 			<Paper className="paper-box" zDepth={1}>
-				<div className={style.innerBox}>
-					<div className={style.address}>
+				<div className="innerBox}>
+					<div className="address}>
 						<Link
 							to={`/customer/${order.customer_id}`}
-							className={style.link}
+							className="link}
 						>
 							{order.customer && order.customer.full_name}
 						</Link>
 						<a
 							href={`MailTo:${order.email}`}
-							className={style.link}
+							className="link}
 						>
 							{order.email}
 						</a>

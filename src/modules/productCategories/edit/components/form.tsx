@@ -69,7 +69,7 @@ const ProductCategoryEditForm = ({
 		return (
 			<Paper className="paper-box" zDepth={1}>
 				<form onSubmit={handleSubmit}>
-					<div className={style.innerBox}>
+					<div className="innerBox}>
 						<Field
 							name="name"
 							component={TextField}
@@ -84,12 +84,12 @@ const ProductCategoryEditForm = ({
 							entityId={categoryId}
 							component={Editor}
 						/>
-						<div className={style.shortBox}>
+						<div className="shortBox}>
 							<Field
 								name="enabled"
 								component={CustomToggle}
 								label={messages.enabled}
-								className={style.toggle}
+								className="toggle}
 							/>
 							<ImageUpload
 								uploading={uploadingImage}
@@ -128,7 +128,7 @@ const ProductCategoryEditForm = ({
 					>
 						<FlatButton
 							label={messages.cancel}
-							className={style.button}
+							className="button}
 							onClick={reset}
 							disabled={pristine || submitting}
 						/>
@@ -136,7 +136,7 @@ const ProductCategoryEditForm = ({
 							type="submit"
 							label={messages.save}
 							primary
-							className={style.button}
+							className="button}
 							disabled={pristine || submitting || isSaving}
 						/>
 					</div>

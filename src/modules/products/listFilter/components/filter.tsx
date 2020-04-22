@@ -16,7 +16,7 @@ const Filter = ({
 	const { enabled, discontinued, onSale, stockStatus } = filter
 
 	return (
-		<div className={style.filter}>
+		<div className="filter}>
 			<SelectField
 				value={enabled}
 				onChange={(event, index, value) => {

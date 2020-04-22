@@ -52,7 +52,7 @@ const OrderDetails = () => {
 							onItemDelete={onItemDelete}
 							onItemUpdate={onItemUpdate}
 						/>
-						<div className={style.innerBox}>
+						<div className="innerBox}>
 							<div className="row">
 								<div className="col-xs-6" />
 								<div className="col-xs-6">

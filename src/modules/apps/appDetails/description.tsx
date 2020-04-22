@@ -6,7 +6,7 @@ import './style.sass'
 const AppDescription = ({ name, description, coverUrl, developer }) => (
 	<div style={{ maxWidth: 720, width: '100%' }}>
 		<Paper className="paper-box" zDepth={1}>
-			<div className={style.innerBox}>
+			<div className="innerBox}>
 				<div className="row">
 					<div className="col-xs-4">
 						<img src={coverUrl} alt={name} className="cover" />

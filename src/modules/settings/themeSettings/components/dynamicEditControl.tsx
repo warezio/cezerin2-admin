@@ -55,7 +55,7 @@ const DynamicEditControl = ({
 	}
 	if (type === 'color') {
 		return (
-			<div className={style.colorInput}>
+			<div className="colorInput}>
 				<label>{label}</label>
 				<Field component={ColorField} name={fieldName} />
 			</div>

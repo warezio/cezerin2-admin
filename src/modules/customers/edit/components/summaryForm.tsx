@@ -105,7 +105,7 @@ const CustomerEditForm = () => {
 					/>
 				</div>
 			</div>
-			<div className={style.shippingButtons}>
+			<div className="shippingButtons}>
 				<FlatButton label={messages.cancel} onClick={onCancel} />
 				<FlatButton
 					label={messages.save}

@@ -48,21 +48,21 @@ const ProductShort = ({
 		className={
 			style.relatedProduct +
 			(enabled === false || discontinued === true
-				? ` ${style.relatedProductDisabled}`
+				? ` $"relatedProductDisabled}`
 				: '')
 		}
 	>
-		<div className={style.relatedProductImage}>
+		<div className="relatedProductImage}>
 			{thumbnailUrl && thumbnailUrl !== '' && (
 				<img src={`${thumbnailUrl}`} />
 			)}
 		</div>
-		<div className={style.relatedProductText}>
+		<div className="relatedProductText}>
 			<Link to={`/product/${id}`}>{name}</Link>
 			<br />
 			<div>{priceFormatted}</div>
 		</div>
-		<div className={style.relatedProductActions}>{actions}</div>
+		<div className="relatedProductActions}>{actions}</div>
 	</div>
 )
 
@@ -192,7 +192,7 @@ class ProductsArray extends React.Component {
 
 		return (
 			<div>
-				<Paper className={style.relatedProducts} zDepth={1}>
+				<Paper className="relatedProducts} zDepth={1}>
 					{fields.map((field, index) => {
 						const actions = (
 							<RelatedProductActions
@@ -247,7 +247,7 @@ const ProductAdditionalForm = ({
 }) => (
 	<form onSubmit={handleSubmit}>
 		<Paper className="paper-box" zDepth={1}>
-			<div className={style.innerBox}>
+			<div className="innerBox}>
 				<div
 					className="row middle-xs"
 					style={{
@@ -341,7 +341,7 @@ const ProductAdditionalForm = ({
 			>
 				<FlatButton
 					label={messages.cancel}
-					className={style.button}
+					className="button}
 					onClick={reset}
 					disabled={pristine || submitting}
 				/>
@@ -349,7 +349,7 @@ const ProductAdditionalForm = ({
 					type="submit"
 					label={messages.save}
 					primary
-					className={style.button}
+					className="button}
 					disabled={pristine || submitting}
 				/>
 			</div>

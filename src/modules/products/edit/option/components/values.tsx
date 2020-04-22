@@ -35,17 +35,17 @@ class OptionValueEdit extends React.Component {
 		const { value } = this.state
 
 		return (
-			<div className={style.gridRow}>
-				<div className={style.gridColInput}>
+			<div className="gridRow}>
+				<div className="gridColInput}>
 					<input
 						type="text"
-						className={style.textInput}
+						className="textInput}
 						value={value}
 						onChange={this.onChange}
 						onBlur={this.onBlur}
 					/>
 				</div>
-				<div className={style.gridColButton}>
+				<div className="gridColButton}>
 					<IconButton
 						title={messages.actions_delete}
 						onClick={this.onDelete}
@@ -93,18 +93,18 @@ class OptionValueAdd extends React.Component {
 		const { value } = this.state
 
 		return (
-			<div className={style.gridRow}>
-				<div className={style.gridColInput}>
+			<div className="gridRow}>
+				<div className="gridColInput}>
 					<input
 						type="text"
-						className={style.textInput}
+						className="textInput}
 						value={value}
 						placeholder={messages.newOptionValue}
 						onChange={this.onChange}
 						onKeyPress={this.handleKeyPress}
 					/>
 				</div>
-				<div className={style.gridColButton}>
+				<div className="gridColButton}>
 					<IconButton
 						title={messages.add}
 						onClick={this.onCreate}
@@ -140,7 +140,7 @@ const OptionValues = ({
 			<div className="blue-title" style={{ padding: '20px 30px' }}>
 				{messages.optionValues}
 			</div>
-			<div className={style.grid}>
+			<div className="grid}>
 				{valueRows}
 				<OptionValueAdd onCreate={createOptionValue} />
 			</div>

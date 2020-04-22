@@ -16,14 +16,14 @@ export default ({
 	setOnSale,
 	setStock,
 }) => (
-	<div className={style.filter}>
+	<div className="filter}>
 		<Toggle
 			label={messages.products_onlyEnabled}
 			onToggle={(e, value) => {
 				setActive(value)
 			}}
 			toggled={active}
-			className={style.toggle}
+			className="toggle}
 		/>
 		<Toggle
 			label={messages.products_onlyDiscontinued}
@@ -31,7 +31,7 @@ export default ({
 				setDiscontinued(value)
 			}}
 			toggled={discontinued}
-			className={style.toggle}
+			className="toggle}
 		/>
 		<Toggle
 			label={messages.products_onlyOnSale}
@@ -39,7 +39,7 @@ export default ({
 				setOnSale(value)
 			}}
 			toggled={on_sale}
-			className={style.toggle}
+			className="toggle}
 		/>
 		<SelectField
 			value={stock_status}

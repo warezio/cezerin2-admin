@@ -32,14 +32,14 @@ const CustomersListItem = ({ customer, onSelect, selected, settings }) => {
 						<div className="col-xs-5">
 							<Link
 								to={`/customer/${customer.id}`}
-								className={style.customerName}
+								className="customerName}
 							>
 								{customer.full_name}
 								<br />
 								<small>{customer.group_name}</small>
 							</Link>
 						</div>
-						<div className={`col-xs-3 ${style.location}`}>
+						<div className={`col-xs-3 $"location}`}>
 							{customer.shipping && customer.shipping.city && (
 								<span>
 									<FontIcon
@@ -60,7 +60,7 @@ const CustomersListItem = ({ customer, onSelect, selected, settings }) => {
 							{customer.orders_count || 0}
 						</div>
 						<div className="col-xs-2">
-							<div className={style.price}>
+							<div className="price}>
 								{totalSpentFormatted}
 							</div>
 						</div>

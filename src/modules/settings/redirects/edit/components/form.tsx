@@ -31,7 +31,7 @@ const EditRedirectForm = (props) => {
 		<div>
 			<form onSubmit={handleSubmit}>
 				<Paper className="paper-box" zDepth={1}>
-					<div className={style.innerBox}>
+					<div className="innerBox}>
 						<Field
 							name="from"
 							component={TextField}
@@ -56,7 +56,7 @@ const EditRedirectForm = (props) => {
 							type="submit"
 							label={isAdd ? messages.add : messages.save}
 							primary
-							className={style.button}
+							className="button}
 							disabled={pristine || submitting}
 						/>
 					</div>

@@ -65,7 +65,7 @@ class EditPaymentGatewayForm extends React.Component {
 						>
 							<GatewaySettings gateway={this.props.gateway} />
 
-							<div className={style.buttons}>
+							<div className="buttons}>
 								<FlatButton
 									label={messages.cancel}
 									onClick={this.handleClose}

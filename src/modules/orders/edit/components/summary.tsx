@@ -14,7 +14,7 @@ const getOrderStates = (order) => {
 
 	if (order.hold) {
 		states.push(
-			<span key="hold" className={style.holdState}>
+			<span key="hold" className="holdState}>
 				{messages.orders_hold}
 			</span>
 		)
@@ -46,7 +46,7 @@ const getOrderStates = (order) => {
 
 	if (order.closed) {
 		return [
-			<span key="closed" className={style.closedState}>
+			<span key="closed" className="closedState}>
 				{messages.orders_closed}
 			</span>,
 		]
@@ -54,7 +54,7 @@ const getOrderStates = (order) => {
 
 	if (states.length === 0 && order.draft) {
 		states.unshift(
-			<span key="draft" className={style.draftState}>
+			<span key="draft" className="draftState}>
 				{messages.orders_draft}
 			</span>
 		)
@@ -97,7 +97,7 @@ const OrderSummary = (props) => {
 
 	const referrerLink =
 		order.referrer_url && order.referrer_url.includes('http') ? (
-			<a className={style.link} href={order.referrer_url} target="_blank">
+			<a className="link} href={order.referrer_url} target="_blank">
 				{referrerDomain}
 			</a>
 		) : (
@@ -106,66 +106,66 @@ const OrderSummary = (props) => {
 
 	return (
 		<Paper className="paper-box" zDepth={1}>
-			<div className={style.innerBox}>
-				<div className={style.states}>{states}</div>
+			<div className="innerBox}>
+				<div className="states}>{states}</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.orderDate}</span>
 					</div>
 					<div className="col-xs-7">{dateCreatedFormated}</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.orderStatus}</span>
 					</div>
 					<div className="col-xs-7">{order.status}</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.referrer}</span>
 					</div>
 					<div className="col-xs-7">{referrerLink}</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.trackingNumber}</span>
 					</div>
 					<div className="col-xs-7">{order.tracking_number}</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.shippingStatus}</span>
 					</div>
 					<div className="col-xs-7">{order.shipping_status}</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.shippingMethod}</span>
 					</div>
 					<div className="col-xs-7">{order.shipping_method}</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.paymentsMethod}</span>
 					</div>
 					<div className="col-xs-7">{order.payment_method}</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.customerComment}</span>
 					</div>
 					<div className="col-xs-7">{order.comments}</div>
 				</div>
 
-				<div className={`${style.summaryRow} row`}>
+				<div className={`$"summaryRow} row`}>
 					<div className="col-xs-5">
 						<span>{messages.note}</span>
 					</div>

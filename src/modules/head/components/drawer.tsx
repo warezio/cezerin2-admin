@@ -110,7 +110,7 @@ const NavListItem = ({ currentUrl, item, subItem, onClick }) => (
 					{item.icon}
 				</Icon>
 			</ListItemIcon>
-			<ListItemText primary={item.title} className={style.item} />
+			<ListItemText primary={item.title} className="item} />
 		</ListItem>
 	</Link>
 )
@@ -128,15 +128,15 @@ const SubNavListItem = ({ currentUrl, item, onClick }) => {
 			<ListItem
 				button
 				onClick={subMenuClick}
-				className={style.itemInnerDiv}
+				className="itemInnerDiv}
 			>
 				{item.icon && (
-					<ListItemIcon className={style.icon}>
+					<ListItemIcon className="icon}>
 						<Icon>{item.icon}</Icon>
 					</ListItemIcon>
 				)}
 
-				<ListItemText primary={item.title} className={style.item} />
+				<ListItemText primary={item.title} className="item} />
 
 				{open ? <ExpandLess /> : <ExpandMore />}
 			</ListItem>
@@ -195,23 +195,23 @@ const DrawerMenu = ({ open, onClose, currentUrl }) => {
 		<Drawer
 			width="280px"
 			anchor="left"
-			className={style.drawer}
+			className="drawer}
 			open={open}
 		>
-			<AppBar className={style.appBar} position="absolute">
-				<Toolbar className={style.toolbar}>
-					<Typography variant="h6" className={style.appBarTitle}>
+			<AppBar className="appBar} position="absolute">
+				<Toolbar className="toolbar}>
+					<Typography variant="h6" className="appBarTitle}>
 						{messages.drawer_title}
 					</Typography>
 					<IconButton
-						className={style.closeMenuIcon}
+						className="closeMenuIcon}
 						onClick={onClose}
 					>
 						<ChevronLeftIcon />
 					</IconButton>
 				</Toolbar>
 			</AppBar>
-			<List component="nav" className={style.menu}>
+			<List component="nav" className="menu}>
 				{items}
 			</List>
 		</Drawer>

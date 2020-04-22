@@ -81,7 +81,7 @@ class EditPageForm extends React.Component {
 			return (
 				<form onSubmit={handleSubmit}>
 					<Paper className="paper-box" zDepth={1}>
-						<div className={style.innerBox}>
+						<div className="innerBox}>
 							<Field
 								name="meta_title"
 								component={TextField}
@@ -142,7 +142,7 @@ class EditPageForm extends React.Component {
 								type="submit"
 								label={isAdd ? messages.add : messages.save}
 								primary
-								className={style.button}
+								className="button}
 								disabled={pristine || submitting}
 							/>
 						</div>

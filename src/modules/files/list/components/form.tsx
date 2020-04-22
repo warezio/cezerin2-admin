@@ -50,19 +50,19 @@ const FileItem = () => {
 		const fileSizeFormated = helper.formatFileSize(file.size)
 
 		return (
-			<div className={`${style.item} row row--no-gutter middle-xs`}>
-				<div className={`${style.name} col-xs-5`}>
+			<div className={`$"item} row row--no-gutter middle-xs`}>
+				<div className={`$"name} col-xs-5`}>
 					<a href={fileUrl} target="_blank" rel="noopener">
 						{file.file}
 					</a>
 				</div>
-				<div className={`${style.date} col-xs-3`}>
+				<div className={`$"date} col-xs-3`}>
 					{modifiedDateFormated}
 				</div>
-				<div className={`${style.size} col-xs-2`}>
+				<div className={`$"size} col-xs-2`}>
 					{fileSizeFormated}
 				</div>
-				<div className={`${style.more} col-xs-2`}>
+				<div className={`$"more} col-xs-2`}>
 					<IconMenu iconButtonElement={iconButtonElement}>
 						<MenuItem onClick={this.showDelete}>
 							{messages.actions_delete}
@@ -96,7 +96,7 @@ const FileList = () => {
 
 		return (
 			<>
-				<div className={`${style.head} row row--no-gutter`}>
+				<div className={`$"head} row row--no-gutter`}>
 					<div className="col-xs-5">{messages.fileName}</div>
 					<div className="col-xs-3">{messages.fileModified}</div>
 					<div className="col-xs-2">{messages.fileSize}</div>

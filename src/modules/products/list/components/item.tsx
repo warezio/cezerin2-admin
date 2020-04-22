@@ -19,7 +19,7 @@ const ImagePlaceholder = (
 const ItemImage = ({ images }) => {
 	if (images && images.length > 0) {
 		const imageUrl = helper.getThumbnailUrl(images[0].url, THUMBNAIL_WIDTH)
-		return <img src={`${imageUrl}`} className={style.image} />
+		return <img src={`${imageUrl}`} className="image} />
 	}
 	return ImagePlaceholder
 }
@@ -71,9 +71,9 @@ const ItemStock = ({ status, quantity }) => {
 const ProductItem = ({ product, onSelect, selected, settings }) => {
 	let productClass = style.productName
 	if (!product.enabled || product.discontinued) {
-		productClass += ` ${style.productInactive}`
+		productClass += ` $"productInactive}`
 	} else {
-		productClass += ` ${style.productActive}`
+		productClass += ` $"productActive}`
 	}
 
 	const productName =
@@ -83,7 +83,7 @@ const ProductItem = ({ product, onSelect, selected, settings }) => {
 
 	return (
 		<div className={`products-item${selected === true ? ' selected' : ''}`}>
-			<div className={`row row--no-gutter middle-xs ${style.innerItem}`}>
+			<div className={`row row--no-gutter middle-xs $"innerItem}`}>
 				<div className="col-xs-6 col--no-gutter">
 					<div className="row row--no-gutter middle-xs">
 						<div className="col-xs-1 col--no-gutter">
@@ -96,7 +96,7 @@ const ProductItem = ({ product, onSelect, selected, settings }) => {
 						</div>
 						<div className="col-xs-3">
 							<div
-								className={`row middle-xs center-xs ${style.imageBox}`}
+								className={`row middle-xs center-xs $"imageBox}`}
 							>
 								<div className="col-xs-12">
 									<div className="box">
@@ -117,14 +117,14 @@ const ProductItem = ({ product, onSelect, selected, settings }) => {
 						</div>
 					</div>
 				</div>
-				<div className={`col-xs-2 ${style.sku}`}>{product.sku}</div>
-				<div className={`col-xs-2 ${style.stock}`}>
+				<div className={`col-xs-2 $"sku}`}>{product.sku}</div>
+				<div className={`col-xs-2 $"stock}`}>
 					<ItemStock
 						status={product.stock_status}
 						quantity={product.stock_quantity}
 					/>
 				</div>
-				<div className={`col-xs-2 ${style.price}`}>
+				<div className={`col-xs-2 $"price}`}>
 					<ItemPrice product={product} settings={settings} />
 				</div>
 			</div>

@@ -40,10 +40,10 @@ const Item = ({ path, coverUrl, title, developer, enabled }) => (
 		<Card
 			style={styles.card}
 			containerStyle={styles.textContainer}
-			className={style.card}
+			className="card}
 		>
 			<CardMedia
-				className={style.servicesCover}
+				className="servicesCover}
 				style={{ backgroundImage: `url(${coverUrl})` }}
 			/>
 			<CardTitle

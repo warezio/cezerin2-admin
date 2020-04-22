@@ -87,7 +87,7 @@ const CustomerAddressForm = (props) => {
 					floatingLabelText={messages.phone}
 				/>
 			</>
-			<div className={style.shippingButtons}>
+			<div className="shippingButtons">
 				<FlatButton label={messages.cancel} onClick={onCancel} />
 				<FlatButton
 					label={messages.save}

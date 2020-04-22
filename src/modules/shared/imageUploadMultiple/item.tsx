@@ -8,10 +8,10 @@ import style from './style.css'
 
 const GalleryItem = ({ url, alt, id, onDelete, onImageEdit }) => (
 	<Paper zDepth={1} rounded={false}>
-		<div className={style.preview}>
+		<div className="preview}>
 			<img src={url} title={alt} />
 		</div>
-		<div className={style.footer}>
+		<div className="footer}>
 			<IconButton
 				touch
 				tooltip={messages.edit}

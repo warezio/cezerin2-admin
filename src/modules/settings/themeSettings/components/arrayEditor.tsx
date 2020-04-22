@@ -16,7 +16,7 @@ const ArrayEditor = ({
 	meta: { touched, error, submitFailed },
 }) => (
 	<div>
-		<div className={style.arrayTitle}>
+		<div className="arrayTitle}>
 			{label}
 			<FloatingActionButton
 				mini
@@ -38,7 +38,7 @@ const ArrayEditor = ({
 						}}
 						zDepth={1}
 					>
-						<div className={style.arrayItemHead}>
+						<div className="arrayItemHead}>
 							<FlatButton
 								label={messages.actions_delete}
 								secondary
@@ -64,7 +64,7 @@ const ArrayEditor = ({
 							)}
 						</div>
 
-						<div className={style.arrayInnerBox}>
+						<div className="arrayInnerBox}>
 							{properties.map((property, propertyIndex) => {
 								const fieldName = `${field}.${property.key}`
 								return (

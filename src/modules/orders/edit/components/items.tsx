@@ -231,16 +231,16 @@ export class OrderItem extends React.Component {
 
 		return (
 			<div>
-				<div className={`${style.item} row row--no-gutter middle-xs`}>
+				<div className={`$"item} row row--no-gutter middle-xs`}>
 					<div className="col-xs-2">
 						{thumbnailUrl && thumbnailUrl !== '' && (
 							<img
 								src={thumbnailUrl}
-								className={style.itemImage}
+								className="itemImage}
 							/>
 						)}
 					</div>
-					<div className={`${style.itemName} col-xs-4`}>
+					<div className={`$"itemName} col-xs-4`}>
 						<Link to={`/product/${item.product_id}`}>
 							{item.name}
 						</Link>
@@ -258,7 +258,7 @@ export class OrderItem extends React.Component {
 					<div className="col-xs-2" style={{ textAlign: 'right' }}>
 						{priceTotal}
 						{item.discount_total > 0 && (
-							<small className={style.itemDiscount}>
+							<small className="itemDiscount}>
 								{discountTotal}
 							</small>
 						)}

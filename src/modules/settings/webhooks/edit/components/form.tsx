@@ -53,7 +53,7 @@ class EditWebhookForm extends React.Component {
 			<div>
 				<form onSubmit={handleSubmit}>
 					<Paper className="paper-box" zDepth={1}>
-						<div className={style.innerBox}>
+						<div className="innerBox}>
 							<Field
 								name="description"
 								component={TextField}
@@ -105,7 +105,7 @@ class EditWebhookForm extends React.Component {
 								type="submit"
 								label={isAdd ? messages.add : messages.save}
 								primary
-								className={style.button}
+								className="button}
 								disabled={pristine || submitting}
 							/>
 						</div>

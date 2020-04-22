@@ -42,7 +42,7 @@ class EditShippingMethodForm extends React.Component {
 		return (
 			<form onSubmit={handleSubmit}>
 				<Paper className="paper-box" zDepth={1}>
-					<div className={style.innerBox}>
+					<div className="innerBox}>
 						<div className="row">
 							<div className="col-xs-12 col-sm-4">
 								<div className="blue-title">
@@ -211,7 +211,7 @@ class EditShippingMethodForm extends React.Component {
 							type="submit"
 							label={isAdd ? messages.add : messages.save}
 							primary
-							className={style.button}
+							className="button}
 							disabled={pristine || submitting}
 						/>
 					</div>

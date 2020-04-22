@@ -88,7 +88,7 @@ class EditTokenForm extends React.Component {
 			<div>
 				<form onSubmit={handleSubmit}>
 					<Paper className="paper-box" zDepth={1}>
-						<div className={style.innerBox}>
+						<div className="innerBox}>
 							<Field
 								name="name"
 								component={TextField}
@@ -137,7 +137,7 @@ class EditTokenForm extends React.Component {
 										: messages.save
 								}
 								primary
-								className={style.button}
+								className="button}
 								disabled={pristine || submitting}
 							/>
 						</div>

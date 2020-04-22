@@ -86,7 +86,7 @@ const ProductInventoryForm = ({
 }) => (
 	<form onSubmit={handleSubmit}>
 		<Paper className="paper-box" zDepth={1}>
-			<div className={style.innerBox}>
+			<div className="innerBox}>
 				<div className="row" style={{ marginBottom: 50 }}>
 					<div className="col-xs-5">
 						<div className="blue-title">
@@ -242,7 +242,7 @@ const ProductInventoryForm = ({
 			>
 				<FlatButton
 					label={messages.cancel}
-					className={style.button}
+					className="button}
 					onClick={reset}
 					disabled={pristine || submitting}
 				/>
@@ -250,7 +250,7 @@ const ProductInventoryForm = ({
 					type="submit"
 					label={messages.save}
 					primary
-					className={style.button}
+					className="button}
 					disabled={pristine || submitting}
 				/>
 			</div>

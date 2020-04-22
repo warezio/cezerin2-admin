@@ -7,9 +7,9 @@ import CustomerSummary from './summary'
 import CustomerOrders from './orders'
 import CustomerAddresses from './addresses'
 
-const CustomerDetails= () => {
-	useEffect(() => (props.fetchData(),[])
-	useEffect(() => ( return () => props.clearData(),[])
+const CustomerDetails= (props) => {
+	useEffect(() => props.fetchData(),[])
+	useEffect(() => return () => props.clearData(),[])
 
 		const {
 			customer,
@@ -19,7 +19,7 @@ const CustomerDetails= () => {
 			onDeleteAddress,
 			onSetDefaultBillingAddress,
 			onSetDefaultShippingAddress,
-		} = this.props
+		} = props
 		if (!customer) return <br />
 
 		return (

@@ -25,7 +25,7 @@ class EmailSettings extends React.Component {
 				}}
 			>
 				<Paper className="paper-box" zDepth={1}>
-					<div className={style.innerBox}>
+					<div className="innerBox}>
 						<div>
 							<Field
 								component={TextField}
@@ -89,7 +89,7 @@ class EmailSettings extends React.Component {
 							type="submit"
 							label={messages.save}
 							primary
-							className={style.button}
+							className="button}
 							disabled={pristine || submitting}
 						/>
 					</div>

@@ -7,8 +7,8 @@ const BarChart = ({ data, title, subTitle, legendDisplay }) => (
 	<div className="row row--no-gutter">
 		<div className="col--no-gutter col-xs-12">
 			<Paper className="paper-box" zDepth={1}>
-				<div className={style.title}>{title}</div>
-				<div className={style.subTitle}>{subTitle}</div>
+				<div className="title}>{title}</div>
+				<div className="subTitle}>{subTitle}</div>
 				<div style={{ padding: 30 }}>
 					<Bar
 						data={data}
