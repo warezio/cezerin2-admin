@@ -58,7 +58,7 @@ const asyncValidate = (values /* , dispatch */) =>
 		}
 	})
 
-class EditPageForm extends React.Component {
+const EditPageForm = () => {
 	useEffect(,[]() {
 		props.onLoad()
 	}
@@ -67,7 +67,7 @@ class EditPageForm extends React.Component {
 		props.eraseData()
 	}
 
-	render() {
+	
 		const {
 			handleSubmit,
 			pristine,

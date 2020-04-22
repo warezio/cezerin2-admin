@@ -11,9 +11,9 @@ import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 const { Fragment } = React
 
-export default class Buttons extends React.Component {
-	constructor(props) {
-		super(props)
+export default const Buttons = () => {
+	
+		
 		state = {
 			categoryIdMoveTo: 'root',
 			openMoveTo: false,
@@ -51,7 +51,7 @@ export default class Buttons extends React.Component {
 		setState({ categoryIdMoveTo: categoryId })
 	}
 
-	render() {
+	
 		const { selected, onMoveUp, onMoveDown, onDelete, onCreate } = props
 		const categoryName =
 			selected && selected.name && selected.name.length > 0

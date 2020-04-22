@@ -5,9 +5,9 @@ import moment from 'moment'
 import BarChart from './barChart'
 import * as utils from './utils'
 
-export default class OrdersBar extends React.Component {
-	constructor(props) {
-		super(props)
+export default const OrdersBar = () => {
+	
+		
 		state = {
 			ordersData: null,
 			salesData: null,
@@ -43,7 +43,7 @@ export default class OrdersBar extends React.Component {
 			})
 	}
 
-	render() {
+	
 		const { ordersData, salesData } = state
 		return (
 			<div>

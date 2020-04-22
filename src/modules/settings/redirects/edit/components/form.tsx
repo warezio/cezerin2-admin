@@ -6,7 +6,7 @@ import messages from 'lib/text'
 
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
-import './style.css'
+import './style.sass'
 
 const validate = (values) => {
 	const errors = {}

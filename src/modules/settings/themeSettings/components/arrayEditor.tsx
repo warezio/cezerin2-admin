@@ -7,7 +7,7 @@ import FlatButton from 'material-ui/FlatButton'
 import FontIcon from 'material-ui/FontIcon'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import DynamicEditControl from './dynamicEditControl'
-import style from './style.css'
+import './style.sass'
 
 const ArrayEditor = ({
 	label,

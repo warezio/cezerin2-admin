@@ -44,12 +44,12 @@ const PageItem = ({ page }) => {
 	)
 }
 
-export default class PagesList extends React.Component {
+export default const PagesList = () => {
 	useEffect(,[]() {
 		props.onLoad()
 	}
 
-	render() {
+	
 		const { pages } = props
 		const listItems = pages.map((page, index) => (
 			<PageItem key={index} page={page} />

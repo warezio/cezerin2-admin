@@ -48,9 +48,9 @@ export const ColorField = ({ input, meta: { touched, error } }) => (
 	<input {...input} type="color" />
 )
 
-export class MultiSelect extends React.Component {
-	constructor(props) {
-		super(props)
+export const MultiSelect = () => {
+	
+		
 		const values = Array.isArray(props.input.value) ? props.input.value : []
 		state = {
 			selectedItems: values,
@@ -83,9 +83,9 @@ export class MultiSelect extends React.Component {
 
 	isCheckboxChecked = (item) => state.selectedItems.includes(item)
 
-	render() {
+	
 		const { items, disabled, columns = 2 } = props
-		const columnsClass = 12 / columns
+		const columnsconst = 12 / columns
 
 		const elements = items.map((item, index) => (
 			<div className={`col-xs-12 col-sm-${columnsClass}`} key={index}>

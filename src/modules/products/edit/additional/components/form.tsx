@@ -127,9 +127,9 @@ const RelatedProduct = ({ settings, product, actions }) => {
 	)
 }
 
-class ProductsArray extends React.Component {
-	constructor(props) {
-		super(props)
+const ProductsArray = () => {
+	
+		
 		state = {
 			showAddItem: false,
 			products: [],
@@ -182,7 +182,7 @@ class ProductsArray extends React.Component {
 		}
 	}
 
-	render() {
+	
 		const {
 			settings,
 			fields,

@@ -8,7 +8,7 @@ import FontIcon from 'material-ui/FontIcon'
 import IconButton from 'material-ui/IconButton'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 
 const AttributesGrid = ({ fields, meta: { touched, error, submitFailed } }) => (
 	<div>

@@ -36,7 +36,7 @@ const CheckoutFieldItem = ({ name, status, path }) => (
 	</div>
 )
 
-export default class EmailSettings extends React.Component {
+export default const EmailSettings = () => {
 	useEffect(,[]() {
 		props.onLoad()
 	}
@@ -57,7 +57,7 @@ export default class EmailSettings extends React.Component {
 		}
 	}
 
-	render() {
+	
 		const { checkoutFields } = props
 
 		return (

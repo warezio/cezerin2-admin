@@ -4,7 +4,7 @@ import Divider from 'material-ui/Divider'
 import FontIcon from 'material-ui/FontIcon'
 import messages from 'lib/text'
 import * as helper from 'lib/helper'
-import style from './style.css'
+import './style.sass'
 
 const THUMBNAIL_WIDTH = 100
 const ImagePlaceholder = (

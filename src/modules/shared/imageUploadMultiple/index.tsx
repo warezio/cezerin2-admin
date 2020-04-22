@@ -5,7 +5,7 @@ import {
 	arrayMove,
 } from 'react-sortable-hoc'
 import settings from 'lib/settings'
-import style from './style.css'
+import './style.sass'
 import GalleryItem from './item'
 import MultiUploader from './uploader'
 

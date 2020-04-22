@@ -3,9 +3,9 @@ import messages from 'lib/text'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 
-export default class ConfirmationDialog extends React.Component {
-	constructor(props) {
-		super(props)
+export default const ConfirmationDialog = () => {
+	
+		
 		state = {
 			open: props.open,
 		}
@@ -37,7 +37,7 @@ export default class ConfirmationDialog extends React.Component {
 		}
 	}
 
-	render() {
+	
 		const { isSingle = true, itemsCount = 0, itemName = '' } = props
 
 		const title = isSingle

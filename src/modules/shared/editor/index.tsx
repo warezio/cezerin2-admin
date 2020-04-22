@@ -15,9 +15,9 @@ const config = {
 		'undo redo | forecolor paste removeformat table | outdent indent | preview code',
 }
 
-export default class Editor extends React.Component {
-	constructor(props) {
-		super(props)
+export default const Editor = () => {
+	
+		
 		state = {
 			value: props.input.value,
 		}
@@ -41,7 +41,7 @@ export default class Editor extends React.Component {
 		props.input.onChange(content)
 	}
 
-	render() {
+	
 		return (
 			<TinyMCE
 				entityId={props.entityId}

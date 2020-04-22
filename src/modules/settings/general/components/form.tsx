@@ -13,7 +13,7 @@ import Divider from 'material-ui/Divider'
 import MenuItem from 'material-ui/MenuItem'
 import FontIcon from 'material-ui/FontIcon'
 import { List, ListItem } from 'material-ui/List'
-import style from './style.css'
+import './style.sass'
 
 const GeneralSettings = (props) => {
 	useEffect(() => props.onLoad(), [])

@@ -7,7 +7,7 @@ import messages from 'lib/text'
 import Paper from 'material-ui/Paper'
 import Divider from 'material-ui/Divider'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 import FieldsEditor from './fieldsEditor'
 
 const validate = (values) => {
@@ -23,12 +23,12 @@ const validate = (values) => {
 	return errors
 }
 
-class EditShippingMethodForm extends React.Component {
+const EditShippingMethodForm = () => {
 	useEffect(,[]() {
 		props.onLoad()
 	}
 
-	render() {
+	
 		const {
 			handleSubmit,
 			pristine,

@@ -1,16 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import messages from 'lib/text'
 
 import Paper from 'material-ui/Paper'
 import FontIcon from 'material-ui/FontIcon'
 import IconButton from 'material-ui/IconButton'
-import style from './style.css'
+import './style.sass'
 
-class OptionValueEdit extends React.Component {
-	constructor(props) {
-		super(props)
+const OptionValueEdit = () => {
+	
+		
 		state = {
 			value: props.value.name,
 		}
@@ -31,7 +30,7 @@ class OptionValueEdit extends React.Component {
 		props.onDelete(props.value.id)
 	}
 
-	render() {
+	
 		const { value } = state
 
 		return (
@@ -61,9 +60,9 @@ class OptionValueEdit extends React.Component {
 	}
 }
 
-class OptionValueAdd extends React.Component {
-	constructor(props) {
-		super(props)
+const OptionValueAdd = () => {
+	
+		
 		state = {
 			value: '',
 		}
@@ -89,7 +88,7 @@ class OptionValueAdd extends React.Component {
 		}
 	}
 
-	render() {
+	
 		const { value } = state
 
 		return (
@@ -118,7 +117,6 @@ class OptionValueAdd extends React.Component {
 			</div>
 		)
 	}
-}
 
 const OptionValues = ({
 	optionValues,

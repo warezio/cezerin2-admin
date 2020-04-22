@@ -9,11 +9,11 @@ import IconButton from 'material-ui/IconButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import MenuItem from 'material-ui/MenuItem'
 import DropDownMenu from 'material-ui/DropDownMenu'
-import style from './style.css'
+import './style.sass'
 
-class VariantInput extends React.Component {
-	constructor(props) {
-		super(props)
+const VariantInput = () => {
+	
+		
 		state = {
 			value: props.value,
 		}
@@ -29,7 +29,7 @@ class VariantInput extends React.Component {
 		props.onChange(props.variantId, state.value)
 	}
 
-	render() {
+	
 		const { type, placeholder } = props
 		const { value } = state
 

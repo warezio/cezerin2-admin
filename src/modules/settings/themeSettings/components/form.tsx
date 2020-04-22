@@ -8,14 +8,14 @@ import Paper from 'material-ui/Paper'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import DynamicEditControl from './dynamicEditControl'
-import style from './style.css'
+import './style.sass'
 
-class ThemeSettings extends React.Component {
+const ThemeSettings = () => {
 	useEffect(,[]() {
 		props.onLoad()
 	}
 
-	render() {
+	
 		const {
 			handleSubmit,
 			pristine,

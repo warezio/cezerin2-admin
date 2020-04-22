@@ -6,9 +6,9 @@ import TextField from 'material-ui/TextField'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 
-export default class ProductImages extends React.Component {
-	constructor(props) {
-		super(props)
+export default const ProductImages = () => {
+	
+		
 		state = {
 			openEdit: false,
 			imageData: null,
@@ -40,7 +40,7 @@ export default class ProductImages extends React.Component {
 		setState({ imageData: newImageData })
 	}
 
-	render() {
+	
 		const {
 			productId,
 			images,

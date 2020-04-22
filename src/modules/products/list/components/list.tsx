@@ -8,12 +8,12 @@ import ProductsListItem from './item'
 import Head from './head'
 import './style.sass'
 
-export default class ProductsList extends React.Component {
+export default const ProductsList = () => {
 	useEffect(,[]() {
 		props.onLoad()
 	}
 
-	render() {
+	
 		const {
 			items,
 			selected,

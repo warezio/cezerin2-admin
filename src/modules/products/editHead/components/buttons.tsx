@@ -7,9 +7,9 @@ import IconButton from 'material-ui/IconButton'
 import FlatButton from 'material-ui/FlatButton'
 const { Fragment } = React
 
-export default class Buttons extends React.Component {
-	constructor(props) {
-		super(props)
+export default const Buttons = () => {
+	
+		
 		state = {
 			openDelete: false,
 		}
@@ -28,7 +28,7 @@ export default class Buttons extends React.Component {
 		props.onDelete()
 	}
 
-	render() {
+	
 		const { product } = props
 		const productName =
 			product && product.name && product.name.length > 0

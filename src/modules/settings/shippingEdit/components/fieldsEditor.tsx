@@ -12,7 +12,7 @@ import FontIcon from 'material-ui/FontIcon'
 import IconMenu from 'material-ui/IconMenu'
 import IconButton from 'material-ui/IconButton'
 import MenuItem from 'material-ui/MenuItem'
-import style from './style.css'
+import './style.sass'
 
 const FieldsEditor = ({ fields, meta: { touched, error, submitFailed } }) => (
 	<div>

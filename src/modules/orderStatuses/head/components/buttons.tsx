@@ -5,9 +5,9 @@ import FontIcon from 'material-ui/FontIcon'
 import IconButton from 'material-ui/IconButton'
 const { Fragment } = React
 
-export default class Buttons extends React.Component {
-	constructor(props) {
-		super(props)
+export default const Buttons = () => {
+	
+		
 		state = {
 			openDelete: false,
 		}
@@ -26,7 +26,7 @@ export default class Buttons extends React.Component {
 		props.onDelete(props.selected.id)
 	}
 
-	render() {
+	
 		const { selected, onDelete, onCreate } = props
 		const statusName =
 			selected && selected.name && selected.name.length > 0

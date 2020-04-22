@@ -4,9 +4,9 @@ import messages from 'lib/text'
 
 import Snackbar from 'material-ui/Snackbar'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 
-export default class MultiUploader extends React.Component {
+export default const MultiUploader = () => {
 	onDrop = (files) => {
 		const form = new FormData()
 		files.map((file) => {
@@ -15,7 +15,7 @@ export default class MultiUploader extends React.Component {
 		props.onUpload(form)
 	}
 
-	render() {
+	
 		const { uploading } = props
 
 		return (

@@ -9,9 +9,9 @@ import RaisedButton from 'material-ui/RaisedButton'
 import './style.sass'
 const { Fragment } = React
 
-export default class ProductCategorySelect extends React.Component {
-	constructor(props) {
-		super(props)
+export default const ProductCategorySelect = () => {
+	
+		
 		state = {
 			open: false,
 		}
@@ -29,7 +29,7 @@ export default class ProductCategorySelect extends React.Component {
 		props.input.onChange(categoryId)
 	}
 
-	render() {
+	
 		const {
 			categories,
 			input,

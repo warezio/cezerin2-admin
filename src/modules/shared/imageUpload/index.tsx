@@ -7,11 +7,11 @@ import Snackbar from 'material-ui/Snackbar'
 import FontIcon from 'material-ui/FontIcon'
 import IconButton from 'material-ui/IconButton'
 
-import style from './style.css'
+import './style.sass'
 
-export default class ImageUpload extends React.Component {
-	constructor(props) {
-		super(props)
+export default const ImageUpload = () => {
+	
+		
 		state = {
 			imagePreview: props.imageUrl,
 		}
@@ -36,7 +36,7 @@ export default class ImageUpload extends React.Component {
 		props.onUpload(form)
 	}
 
-	render() {
+	
 		const { imagePreview } = state
 		const { uploading } = props
 

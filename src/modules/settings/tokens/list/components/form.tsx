@@ -35,12 +35,12 @@ const TokenItem = ({ token }) => (
 	</div>
 )
 
-export default class TokensList extends React.Component {
+export default const TokensList = () => {
 	useEffect(,[]() {
 		props.onLoad()
 	}
 
-	render() {
+	
 		const { tokens } = props
 		const listItems = tokens.map((token, index) => (
 			<TokenItem key={index} token={token} />

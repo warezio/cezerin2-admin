@@ -11,9 +11,9 @@ import FlatButton from 'material-ui/FlatButton'
 import Search from './search'
 const { Fragment } = React
 
-export default class Buttons extends React.Component {
-	constructor(props) {
-		super(props)
+export default const Buttons = () => {
+	
+		
 		state = {
 			categoryIdMoveTo: null,
 			openMoveTo: false,
@@ -51,7 +51,7 @@ export default class Buttons extends React.Component {
 		setState({ categoryIdMoveTo: categoryId })
 	}
 
-	render() {
+	
 		const {
 			search,
 			setSearch,

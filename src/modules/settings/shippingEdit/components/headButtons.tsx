@@ -4,9 +4,9 @@ import DeleteConfirmation from 'modules/shared/deleteConfirmation'
 import FontIcon from 'material-ui/FontIcon'
 import IconButton from 'material-ui/IconButton'
 
-export default class Buttons extends React.Component {
-	constructor(props) {
-		super(props)
+export default const Buttons = () => {
+	
+		
 		state = {
 			openDelete: false,
 		}
@@ -25,7 +25,7 @@ export default class Buttons extends React.Component {
 		props.onDelete(props.shippingMethod.id)
 	}
 
-	render() {
+	
 		const { shippingMethod, onDelete } = props
 		const methodName =
 			shippingMethod &&

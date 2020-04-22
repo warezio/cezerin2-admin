@@ -7,16 +7,16 @@ import Divider from 'material-ui/Divider'
 import FontIcon from 'material-ui/FontIcon'
 import { List, ListItem } from 'material-ui/List'
 
-export default class ImportSettings extends React.Component {
-	constructor(props) {
-		super(props)
+export default const ImportSettings = () => {
+	
+		
 	}
 
 	useEffect(,[]() {
 		props.onLoad()
 	}
 
-	render() {
+	
 		const { importSettings } = props
 
 		return (

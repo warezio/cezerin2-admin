@@ -15,12 +15,12 @@ const styles = {
 
 const FolderIcon = <FontIcon className="material-icons">folder</FontIcon>
 
-export default class StatusesList extends React.Component {
+export default const StatusesList = () => {
 	useEffect(,[]() {
 		props.onLoad()
 	}
 
-	render() {
+	
 		const { onSelect, selectedId, items, showAll, showManage } = props
 
 		const rows = items.map((item) => (

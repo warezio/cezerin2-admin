@@ -10,7 +10,7 @@ import api from 'lib/api'
 import Paper from 'material-ui/Paper'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 
 const validate = (values) => {
 	const errors = {}

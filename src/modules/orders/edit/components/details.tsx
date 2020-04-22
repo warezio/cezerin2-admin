@@ -2,7 +2,7 @@ import React,{useEffect} from 'react'
 
 import messages from 'lib/text'
 import Paper from 'material-ui/Paper'
-import style from './style.css'
+import './style.sass'
 
 import OrderTotals from './totals'
 import OrderSummary from './summary'

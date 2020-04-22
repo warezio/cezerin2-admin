@@ -7,7 +7,7 @@ import { CustomToggle, MultiSelect } from 'modules/shared/form'
 
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 
 const WEBHOOK_EVENTS = [
 	'order.created',
@@ -34,12 +34,12 @@ const validate = (values) => {
 	return errors
 }
 
-class EditWebhookForm extends React.Component {
+const EditWebhookForm = () => {
 	useEffect(,[]() {
 		props.onLoad()
 	}
 
-	render() {
+	
 		const {
 			handleSubmit,
 			pristine,

@@ -6,13 +6,13 @@ import messages from 'lib/text'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 import { AVAILABLE_PAYMENT_GATEWAYS } from '../availablePaymentGateways'
 import GatewaySettings from './gatewaySettings.js'
 
-class EditPaymentGatewayForm extends React.Component {
-	constructor(props) {
-		super(props)
+const EditPaymentGatewayForm = () => {
+	
+		
 		state = {
 			open: false,
 		}
@@ -36,7 +36,7 @@ class EditPaymentGatewayForm extends React.Component {
 		setState({ open: false })
 	}
 
-	render() {
+	
 		const { handleSubmit, pristine, submitting, initialValues } = props
 		const gatewayDetails = AVAILABLE_PAYMENT_GATEWAYS.find(
 			(item) => item.key === props.gateway

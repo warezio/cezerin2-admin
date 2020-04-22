@@ -13,7 +13,7 @@ import { withRouter } from 'react-router'
 import { fetchCategoriesIfNeeded } from 'modules/productCategories/actions'
 import { fetchProduct, cancelProductEdit } from '../actions'
 
-class ProductEditContainer extends React.Component {
+const ProductEditContainer = () => {
 	useEffect(,[]() {
 		props.fetchData()
 	}
@@ -22,7 +22,7 @@ class ProductEditContainer extends React.Component {
 		props.eraseData()
 	}
 
-	render() {
+	
 		return (
 			<div>
 				<div style={{ margin: 20, color: 'rgba(0, 0, 0, 0.52)' }}>

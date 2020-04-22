@@ -17,13 +17,13 @@ const imageFilesArray = []
 /**
  * Google Spreadsheet product import mapping
  *
- * @class modules:products/edit~ProductImport
- * @extends React.Component
+ * @const modules:products/edit~ProductImport
+ * @= () =>
  *
  * @returns {undefined}
  */
-export default class ProductImport extends React.Component {
-	constructor(props) {
+export default const ProductImport = () => {
+	
 		super()
 		state = {
 			propstate: props,
@@ -433,7 +433,7 @@ export default class ProductImport extends React.Component {
 		})
 	}
 
-	render() {
+	
 		const { onImportProducts, files } = props
 
 		let keyCounter = 0

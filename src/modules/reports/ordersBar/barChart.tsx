@@ -1,7 +1,7 @@
 import React from 'react'
 import Paper from 'material-ui/Paper'
 import { Bar } from 'react-chartjs-2'
-import style from './style.css'
+import './style.sass'
 
 const BarChart = ({ data, title, subTitle, legendDisplay }) => (
 	<div className="row row--no-gutter">

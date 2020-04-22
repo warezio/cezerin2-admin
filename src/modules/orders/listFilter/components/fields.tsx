@@ -6,7 +6,7 @@ import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import MomentUtils from '@date-io/moment'
-import style from './style.css'
+import './style.sass'
 
 const empty_string_if_null = (value) => (value != null ? value : '')
 

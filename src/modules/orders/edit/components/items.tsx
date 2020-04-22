@@ -60,9 +60,9 @@ const ProductOptions = ({ options, onChange, selectedOptions }) => {
 	return null
 }
 
-export class OrderItem extends React.Component {
-	constructor(props) {
-		super(props)
+export const OrderItem = () => {
+	
+		
 		state = {
 			quantity: props.item.quantity,
 			variantId: props.item.variant_id,
@@ -171,7 +171,7 @@ export class OrderItem extends React.Component {
 		return selectedOptions
 	}
 
-	render() {
+	
 		const { item, settings, allowEdit } = props
 
 		const editFormActions = [

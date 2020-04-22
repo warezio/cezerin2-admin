@@ -9,7 +9,7 @@ import { MultiSelect } from 'modules/shared/form'
 import Paper from 'material-ui/Paper'
 import Divider from 'material-ui/Divider'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 
 const Scopes = [
 	'admin',
@@ -55,9 +55,9 @@ const validate = (values) => {
 	return errors
 }
 
-class EditTokenForm extends React.Component {
-	constructor(props) {
-		super(props)
+const EditTokenForm = () => {
+	
+		
 		state = {
 			showRevokeDialog: false,
 		}
@@ -71,7 +71,7 @@ class EditTokenForm extends React.Component {
 		props.onLoad()
 	}
 
-	render() {
+	
 		const {
 			handleSubmit,
 			pristine,

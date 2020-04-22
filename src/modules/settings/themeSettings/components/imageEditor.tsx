@@ -3,7 +3,7 @@ import api from 'lib/api'
 import ImageUpload from 'modules/shared/imageUpload'
 import settings from 'lib/settings'
 
-export default class ThemeImageUpload extends React.Component {
+export default const ThemeImageUpload = () => {
 	onDelete = () => {
 		const fileName = props.input.value
 		api.theme.assets.deleteFile(fileName).then(() => {
@@ -18,7 +18,7 @@ export default class ThemeImageUpload extends React.Component {
 		})
 	}
 
-	render() {
+	
 		const { input, label } = props
 
 		return (

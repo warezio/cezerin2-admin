@@ -23,9 +23,9 @@ const CategoryItem = ({ categoryName, actions }) => (
 	</span>
 )
 
-export default class ProductCategoryMultiSelect extends React.Component {
-	constructor(props) {
-		super(props)
+export default const ProductCategoryMultiSelect = () => {
+	
+		
 		state = {
 			open: false,
 		}
@@ -54,7 +54,7 @@ export default class ProductCategoryMultiSelect extends React.Component {
 		}
 	}
 
-	render() {
+	
 		const {
 			categories,
 			fields,

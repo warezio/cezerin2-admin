@@ -26,16 +26,16 @@ const validate = (values) => {
 	return errors
 }
 
-class ProductOptionForm extends React.Component {
-	constructor(props) {
-		super(props)
+const ProductOptionForm = () => {
+	
+		
 	}
 
 	useEffect(,[]() {
 		props.fetchData()
 	}
 
-	render() {
+	
 		const {
 			handleSubmit,
 			pristine,

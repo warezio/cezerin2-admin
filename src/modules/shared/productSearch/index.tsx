@@ -55,9 +55,9 @@ const SearchResult = ({ products, selectedId, settings, onSelect }) => {
 	)
 }
 
-export default class ConfirmationDialog extends React.Component {
-	constructor(props) {
-		super(props)
+export default const ConfirmationDialog = () => {
+	
+		
 		state = {
 			open: props.open,
 			products: [],
@@ -120,7 +120,7 @@ export default class ConfirmationDialog extends React.Component {
 			})
 	}
 
-	render() {
+	
 		const {
 			title,
 			submitLabel,

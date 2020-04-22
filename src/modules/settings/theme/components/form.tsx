@@ -7,7 +7,7 @@ import ThemeSettings from 'modules/settings/themeSettings'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import Divider from 'material-ui/Divider'
-import style from './style.css'
+import './style.sass'
 
 const styles = {
 	button: {
@@ -25,7 +25,7 @@ const styles = {
 	},
 }
 
-export default class Theme extends React.Component {
+export default const Theme = () => {
 	onExportClick() {
 		props.exportRequest()
 		api.theme.export().then(({ satus, json }) => {
@@ -47,7 +47,7 @@ export default class Theme extends React.Component {
 		api.theme.install(formData)
 	}
 
-	render() {
+	
 		const { exportInProcess, installInProcess } = props
 
 		return (

@@ -14,12 +14,12 @@ const radioButtonStyle = {
 	marginBottom: 14,
 }
 
-class CheckoutFieldForm extends React.Component {
+const CheckoutFieldForm = () => {
 	useEffect(,[]() {
 		props.onLoad()
 	}
 
-	render() {
+	
 		const { handleSubmit, pristine, submitting, initialValues } = props
 
 		return (

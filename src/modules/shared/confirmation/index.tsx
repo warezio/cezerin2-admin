@@ -2,9 +2,9 @@ import React from 'react'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 
-export default class ConfirmationDialog extends React.Component {
-	constructor(props) {
-		super(props)
+export default const ConfirmationDialog = () => {
+	
+		
 		state = {
 			open: props.open,
 		}
@@ -32,7 +32,7 @@ export default class ConfirmationDialog extends React.Component {
 		}
 	}
 
-	render() {
+	
 		const {
 			title,
 			description,

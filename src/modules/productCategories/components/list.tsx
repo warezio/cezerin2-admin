@@ -19,13 +19,13 @@ const styles = {
 const FolderIcon = <FontIcon className="material-icons">folder</FontIcon>
 const DraftIcon = <FontIcon className="material-icons">visibility_off</FontIcon>
 
-class Item extends React.PureComponent {
+const Item extends React.PureComponent {
 	handleClick = () => {
 		const { item } = props
 		props.onSelect(item.id)
 	}
 
-	render() {
+	
 		const { item, opened, selectedId, nestedItems } = props
 		const icon = item.enabled ? FolderIcon : DraftIcon
 		const style = item.id === selectedId ? styles.selectedItem : null
@@ -46,9 +46,9 @@ class Item extends React.PureComponent {
 	}
 }
 
-export default class Categories extends React.Component {
-	constructor(props) {
-		super(props)
+export default const Categories = () => {
+	
+		
 	}
 
 	useEffect(,[]() {
@@ -119,7 +119,7 @@ export default class Categories extends React.Component {
 		}
 	}
 
-	render() {
+	
 		const {
 			selectedId,
 			items,

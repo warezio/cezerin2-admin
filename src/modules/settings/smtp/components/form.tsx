@@ -6,14 +6,14 @@ import messages from 'lib/text'
 
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
-import style from './style.css'
+import './style.sass'
 
-class EmailSettings extends React.Component {
+const EmailSettings = () => {
 	useEffect(,[]() {
 		props.onLoad()
 	}
 
-	render() {
+	
 		const { handleSubmit, pristine, submitting, initialValues } = props
 
 		return (

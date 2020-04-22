@@ -20,13 +20,13 @@ const styles = {
 const FolderIcon = <FontIcon className="material-icons">folder</FontIcon>
 const DraftIcon = <FontIcon className="material-icons">visibility_off</FontIcon>
 
-class Item extends React.PureComponent {
+const Item extends React.PureComponent {
 	handleCheck = (event, isInputChecked) => {
 		const { item } = props
 		props.onCheck(item.id)
 	}
 
-	render() {
+	
 		const { item, opened, selectedIds, nestedItems } = props
 		const isChecked =
 			selectedIds &&
@@ -50,9 +50,9 @@ class Item extends React.PureComponent {
 	}
 }
 
-export default class Categories extends React.Component {
-	constructor(props) {
-		super(props)
+export default const Categories = () => {
+	
+		
 	}
 
 	getItem(selectedIds, allItems, item, opened) {
@@ -78,7 +78,7 @@ export default class Categories extends React.Component {
 		return []
 	}
 
-	render() {
+	
 		const { selectedIds, items, opened = false } = props
 
 		const rows = items

@@ -3,9 +3,9 @@ import { Field, reduxForm } from 'redux-form'
 import { List, ListItem } from 'material-ui/List'
 import Checkbox from 'material-ui/Checkbox'
 
-export default class SelectShippingMethodsField extends React.Component {
-	constructor(props) {
-		super(props)
+export default const SelectShippingMethodsField = () => {
+	
+		
 		const ids = Array.isArray(props.input.value) ? props.input.value : []
 		state = {
 			selectedIds: ids,
@@ -36,7 +36,7 @@ export default class SelectShippingMethodsField extends React.Component {
 
 	isCheckboxChecked = (methodId) => state.selectedIds.includes(methodId)
 
-	render() {
+	
 		const items = props.shippingMethods.map((method) => (
 			<ListItem
 				key={method.id}

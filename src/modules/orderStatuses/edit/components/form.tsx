@@ -22,8 +22,8 @@ const validate = (values) => {
 	return errors
 }
 
-class Form extends React.Component {
-	render() {
+const Form = () => {
+	
 		const {
 			handleSubmit,
 			pristine,
