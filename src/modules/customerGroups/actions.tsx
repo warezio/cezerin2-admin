@@ -1,5 +1,5 @@
-import api from 'lib/api'
-import messages from 'lib/text'
+import api from '../../lib/api'
+import messages from '../../lib/text'
 import * as t from './actionTypes'
 
 function requestGroups() {
@@ -35,7 +35,7 @@ export function deselectGroup() {
 	}
 }
 
-function requestUpdateGroup(id) {
+function requestUpdateGroup() {
 	return {
 		type: t.GROUP_UPDATE_REQUEST,
 	}
@@ -54,13 +54,13 @@ function errorUpdateGroup(error) {
 	}
 }
 
-function successCreateGroup(id) {
+function successCreateGroup() {
 	return {
 		type: t.GROUP_CREATE_SUCCESS,
 	}
 }
 
-function successDeleteGroup(id) {
+function successDeleteGroup() {
 	return {
 		type: t.GROUP_DELETE_SUCCESS,
 	}
@@ -71,10 +71,10 @@ function fetchGroups() {
 		dispatch(requestGroups())
 		return api.customerGroups
 			.list()
-			.then(({ status, json }) => {
+			.then(({ json }) => {
 				json = json.sort((a, b) => a.position - b.position)
 
-				json.forEach((element, index, theArray) => {
+				json.forEach((index, theArray) => {
 					if (theArray[index].name === '') {
 						theArray[index].name = `<${messages.draft}>`
 					}
@@ -105,11 +105,11 @@ export function fetchGroupsIfNeeded() {
 }
 
 export function updateGroup(data) {
-	return (dispatch, getState) => {
+	return (dispatch) => {
 		dispatch(requestUpdateGroup(data.id))
 		return api.customerGroups
 			.update(data.id, data)
-			.then(({ status, json }) => {
+			.then(() => {
 				dispatch(receiveUpdateGroup())
 				dispatch(fetchGroups())
 			})
@@ -120,7 +120,7 @@ export function updateGroup(data) {
 }
 
 export function createGroup(data) {
-	return (dispatch, getState) =>
+	return (dispatch) =>
 		api.customerGroups
 			.create(data)
 			.then(({ status, json }) => {
@@ -135,7 +135,7 @@ export function createGroup(data) {
 }
 
 export function deleteGroup(id) {
-	return (dispatch, getState) =>
+	return (dispatch) =>
 		api.customerGroups
 			.delete(id)
 			.then(({ status, json }) => {

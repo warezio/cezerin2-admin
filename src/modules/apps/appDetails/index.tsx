@@ -1,6 +1,6 @@
 import React from 'react'
 import Paper from 'material-ui/Paper'
-import apps from 'src/apps'
+import apps from '../../../../src/apps'
 import AppDescription from './description'
 import './style.sass'
 

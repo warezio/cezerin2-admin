@@ -1,9 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-import messages from 'lib/text'
-import api from 'lib/api'
+import messages from '../../../../lib/text'
 import Paper from 'material-ui/Paper'
 import './style.sass'
 
@@ -12,9 +10,9 @@ const ServiceLogs = ({ logs }) => {
 		const date = moment(action.date)
 		const dateFormated = date.fromNow()
 		return (
-			<div className={style.logsItem} key={index}>
-				<div className={style.logMessage}>{action.message}</div>
-				<div className={style.logDate}>{dateFormated}</div>
+			<div className="logsItem" key={index}>
+				<div className="logMessage">{action.message}</div>
+				<div className="logDate">{dateFormated}</div>
 			</div>
 		)
 	})
@@ -25,7 +23,7 @@ const ServiceLogs = ({ logs }) => {
 				{messages.serviceLogs}
 			</div>
 			<Paper className="paper-box" zDepth={1}>
-				<div className={style.logsBox}>{list}</div>
+				<div className="logsBox">{list}</div>
 			</Paper>
 		</div>
 	)

@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 
-import messages from 'lib/text'
-import api from 'lib/api'
+import messages from '../../../../lib/text'
+import api from '../../../../lib/api'
 
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
-import Divider from 'material-ui/Divider'
-import FontIcon from 'material-ui/FontIcon'
 import './style.sass'
 
-const ActionComponent = () => {
+const ActionComponent = (props) => {
 	const [loading, setLoading] = useState(false)
-	handleActionCall = () => {
-		const { action, serviceId, fetchServiceLogs } = this.props
-		this.setState({ loading: true })
+	const handleActionCall = () => {
+		const { action, serviceId, fetchServiceLogs } = props
+		setLoading(true)
 
 		return api.webstore.services.actions
 			.call(serviceId, action.id)
-			.then(({ status, json }) => {
+			.then(() => {
 				setLoading(false)
 				fetchServiceLogs()
 			})
@@ -29,9 +26,9 @@ const ActionComponent = () => {
 			})
 	}
 
-	const { action, serviceId } = this.props
+	const { action } = props
 	return (
-		<div className={style.action}>
+		<div className="action">
 			<div className="row middle-xs">
 				<div className="col-xs-7" style={{ fontSize: '14px' }}>
 					{action.description}
@@ -40,8 +37,8 @@ const ActionComponent = () => {
 					<RaisedButton
 						label={action.name}
 						primary
-						disabled={this.state.loading}
-						onClick={this.handleActionCall}
+						disabled={loading}
+						onClick={handleActionCall}
 					/>
 				</div>
 			</div>

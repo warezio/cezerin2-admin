@@ -1,33 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import messages from '../../../../lib/text'
 import DeleteConfirmation from '../../../../modules/shared/deleteConfirmation'
 import FontIcon from 'material-ui/FontIcon'
-import IconMenu from 'material-ui/IconMenu'
 import IconButton from 'material-ui/IconButton'
-import MenuItem from 'material-ui/MenuItem'
-import Dialog from 'material-ui/Dialog'
-import FlatButton from 'material-ui/FlatButton'
-import RaisedButton from 'material-ui/RaisedButton'
 
 const Buttons = (props) => {
-	state = {
-		openDelete: false,
-	}
-
+	const [openDelete, setOpenDelete] = useState(false)
 	const showDelete = () => {
-		setState({ openDelete: true })
+		setOpenDelete(true)
 	}
 
 	const closeDelete = () => {
-		setState({ openDelete: false })
+		setOpenDelete(false)
 	}
 
 	const deleteGroup = () => {
-		setState({ openDelete: false })
+		setOpenDelete(false)
 		props.onDelete(props.selected.id)
 	}
 
-	const { selected, onDelete, onCreate } = props
+	const { selected, onCreate } = props
 	const groupName =
 		selected && selected.name && selected.name.length > 0
 			? selected.name
@@ -41,19 +33,19 @@ const Buttons = (props) => {
 						touch
 						tooltip={messages.actions_delete}
 						tooltipPosition="bottom-left"
-						onClick={this.showDelete}
+						onClick={showDelete}
 					>
 						<FontIcon color="#fff" className="material-icons">
 							delete
 						</FontIcon>
 					</IconButton>
 					<DeleteConfirmation
-						open={this.state.openDelete}
+						open={openDelete}
 						isSingle
 						itemsCount={1}
 						itemName={groupName}
-						onCancel={this.closeDelete}
-						onDelete={this.deleteGroup}
+						onCancel={closeDelete}
+						onDelete={deleteGroup}
 					/>
 				</>
 			)}
