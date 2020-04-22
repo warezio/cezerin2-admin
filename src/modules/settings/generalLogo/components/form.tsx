@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import ImageUpload from 'modules/shared/imageUpload'
+import ImageUpload from '../../../../modules/shared/imageUpload'
 import Paper from 'material-ui/Paper'
 
-const GeneralLogoSettingsForm = () => {
+const GeneralLogoSettingsForm = (props) => {
 	useEffect(() => props.onLoad(), [])
 
 	const { onImageUpload, onImageDelete, settings } = props
