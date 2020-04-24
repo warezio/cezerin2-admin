@@ -15,12 +15,24 @@
         },
         {
             "type": "node",
-            "request": "attach",
-            "name": "Attach by Process ID",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "processId": "${command:PickProcess}"
+            "request": "launch",
+            "name":"launch webpack-dev-server",
+            "program": "${workspaceFolder}/node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+            "args": ["--open","--mode","development", "--port","3002", "--progress", "--inline", "--config", "webpack.config.js"]
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "name": "Launch 🦊 against localhost",
+            "url": "http://localhost:3002", // or whatever port you use
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch chrome against localhost",
+            "url": "http://localhost:3002", // or whatever port you use
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }
