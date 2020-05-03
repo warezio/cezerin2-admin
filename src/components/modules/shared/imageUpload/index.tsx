@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import messages from "lib/text"
+import messages from "../../../lib/text"
 import Dropzone from "react-dropzone"
 
 import Paper from "material-ui/Paper"
