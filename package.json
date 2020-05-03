@@ -27,6 +27,8 @@
     "react-helmet": "^6.0.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
+    "typescript": "^3.8.3",
+    "cezerin2-client": "^0.36.0",
     "node-sass": "^4.14.0"
   },
   "devDependencies": {
@@ -49,9 +51,7 @@
     "@types/react-router-dom": "^5.1.4",
     "@types/redux-form": "^8.2.3",
     "body-parser": "^1.19.0",
-    "cezerin2-client": "^0.36.0",
     "chart.js": "^2.9.3",
-    "concurrently": "^5.1.0",
     "cssnano": "^4.1.10",
     "esm": "^3.2.25",
     "handlebars": "^4.7.6",
@@ -76,7 +76,6 @@
     "sitemap": "^6.1.0",
     "slug": "^2.1.1",
     "stripe": "^8.39.0",
-    "typescript": "~3.8.3",
     "ua-parser-js": "^0.7.21",
     "ws": "^7.2.3"
   },

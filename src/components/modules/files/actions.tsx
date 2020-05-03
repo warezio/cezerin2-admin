@@ -1,5 +1,4 @@
 import api from "lib/api"
-import messages from "lib/text"
 import * as t from "./actionTypes"
 
 function receiveFiles(files) {
@@ -22,13 +21,13 @@ function filesUploadEnd() {
 }
 
 export function fetchFiles() {
-  return (dispatch, getState) =>
+  return dispatch =>
     api.files
       .list()
-      .then(({ status, json }) => {
+      .then(({ json }) => {
         dispatch(receiveFiles(json))
       })
-      .catch(error => {})
+      .catch(error => console.error(error))
 }
 
 export function uploadFiles(form) {

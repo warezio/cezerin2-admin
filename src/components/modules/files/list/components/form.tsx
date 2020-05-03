@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 import moment from "moment"
 import messages from "lib/text"
 import * as helper from "lib/helper"
-import DeleteConfirmation from "modules/shared/deleteConfirmation"
+import DeleteConfirmation from "../components/modules/shared/deleteConfirmation"
 
 import Paper from "material-ui/Paper"
 import FontIcon from "material-ui/FontIcon"
@@ -59,7 +59,7 @@ const FileItem = props => {
           <MenuItem onClick={showDelete}>{messages.actions_delete}</MenuItem>
         </IconMenu>
         <DeleteConfirmation
-          open={state.openDelete}
+          open={openDelete}
           isSingle
           itemsCount={1}
           itemName={fileName}
