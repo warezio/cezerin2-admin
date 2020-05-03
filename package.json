@@ -25,6 +25,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
     "node-sass": "^4.14.0"
   },
   "devDependencies": {
@@ -62,14 +64,12 @@
     "prop-types": "^15.7.2",
     "react-chartjs-2": "^2.9.0",
     "react-dropzone": "^11.0.1",
-    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-scroll": "^1.7.16",
     "react-sortable-hoc": "^1.11.0",
     "react-stripe-elements": "^6.1.1",
     "react-tagsinput": "^3.19.0",
-    "redux": "^4.0.5",
     "redux-form": "^8.3.2",
     "redux-form-material-ui": "^4.3.4",
     "redux-thunk": "^2.3.0",
