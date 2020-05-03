@@ -1,14 +1,14 @@
-import React,{useState,useEffect} from 'react'
-import messages from './../lib/text'
-import api from './../lib/api'
-import TextField from 'material-ui/TextField'
-import RaisedButton from 'material-ui/RaisedButton'
+import React, { useState, useEffect } from "react"
+import messages from "./../lib/text"
+import api from "./../lib/api"
+import TextField from "material-ui/TextField"
+import RaisedButton from "material-ui/RaisedButton"
 
 export const Description = {
-	key: 'google-analytics',
-	name: 'Google Analytics',
-	coverUrl: '/assets/images/apps/google_analytics.webp',
-	description: `Google Analytics gives you the digital analytics tools you need to analyze data from all touchpoints in one place, for a deeper understanding of the customer experience.
+  key: "google-analytics",
+  name: "Google Analytics",
+  coverUrl: "/assets/images/apps/google_analytics.webp",
+  description: `Google Analytics gives you the digital analytics tools you need to analyze data from all touchpoints in one place, for a deeper understanding of the customer experience.
   <p>This App logs page views and Enhanced ecommerce events:</p>
   <ol>
     <li>Page view</li>
@@ -34,67 +34,65 @@ const GTAG_CODE = `<!-- Global site tag (gtag.js) - Google Analytics -->
 </script>`
 
 export const App = () => {
-		const	[trackingId,setTrackingID]=useState('')
-	handleTrackingIdChange = (event) => {
-		setTrackingId(event.target.value)
-	}
+  const [trackingId, setTrackingID] = useState("")
+  const handleTrackingIdChange = event => {
+    setTrackingId(event.target.value)
+  }
 
-	const fetchSettings = () => {
-		api.apps.settings
-			.retrieve('google-analytics')
-			.then(({ status, json }) => {
-				const appSettings = json
-				if (appSettings) {
-					set( trackingId: appSettings.GA_TRACKING_ID })
-				}
-			})
-			.catch((error) => {
-				console.log(error)
-			})
-	}
+  const fetchSettings = () => {
+    api.apps.settings
+      .retrieve("google-analytics")
+      .then(({ status, json }) => {
+        const appSettings = json
+        if (appSettings) {
+          setTrackingId(appSettings.GA_TRACKING_ID)
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
 
-	updateSettings = () => {
-		const { trackingId } = state
-		const gtag =
-			trackingId && trackingId.length > 0
-				? GTAG_CODE.replace(/GA_TRACKING_ID/g, trackingId)
-				: ''
+  const updateSettings = () => {
+    const gtag =
+      trackingId && trackingId.length > 0
+        ? GTAG_CODE.replace(/GA_TRACKING_ID/g, trackingId)
+        : ""
 
-		api.apps.settings.update('google-analytics', {
-			GA_TRACKING_ID: trackingId,
-		})
-		api.theme.placeholders.update('google-analytics', {
-			place: 'head_start',
-			value: gtag,
-		})
-	}
+    api.apps.settings.update("google-analytics", {
+      GA_TRACKING_ID: trackingId,
+    })
+    api.theme.placeholders.update("google-analytics", {
+      place: "head_start",
+      value: gtag,
+    })
+  }
 
-	useEffect() => (fetchSettings(),[])
+  useEffect(() => fetchSettings(), [])
 
-		return (
-			<>
-				<p>
-					Enter your Google Analytics Tracking ID to track page views
-					and other events.
-				</p>
+  return (
+    <>
+      <p>
+        Enter your Google Analytics Tracking ID to track page views and other
+        events.
+      </p>
 
-				<TextField
-					type="text"
-					value={state.trackingId}
-					onChange={handleTrackingIdChange}
-					floatingLabelText="Tracking ID"
-					hintText="UA-XXXXXXXX-X"
-				/>
+      <TextField
+        type="text"
+        value={trackingId}
+        onChange={handleTrackingIdChange}
+        floatingLabelText="Tracking ID"
+        hintText="UA-XXXXXXXX-X"
+      />
 
-				<div style={{ textAlign: 'right' }}>
-					<RaisedButton
-						label={messages.save}
-						primary
-						disabled={false}
-						onClick={updateSettings}
-					/>
-				</div>
-			</>
-		)
-	}
+      <div style={{ textAlign: "right" }}>
+        <RaisedButton
+          label={messages.save}
+          primary
+          disabled={false}
+          onClick={updateSettings}
+        />
+      </div>
+    </>
+  )
 }

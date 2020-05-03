@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import messages from './../lib/text'
-import api from './../lib/api'
-import TextField from 'material-ui/TextField'
-import RaisedButton from 'material-ui/RaisedButton'
+import React, { useState, useEffect } from "react"
+import messages from "./../lib/text"
+import api from "./../lib/api"
+import TextField from "material-ui/TextField"
+import RaisedButton from "material-ui/RaisedButton"
 
 export const Description = {
-	key: 'facebook-sdk',
-	name: 'Facebook SDK',
-	coverUrl: '/assets/images/apps/facebook.webp',
-	description: `The Facebook SDK for JavaScript provides a rich set of client-side functionality that:
+  key: "facebook-sdk",
+  name: "Facebook SDK",
+  coverUrl: "/assets/images/apps/facebook.webp",
+  description: `The Facebook SDK for JavaScript provides a rich set of client-side functionality that:
   <ol>
     <li>Enables you to use the Like Button and other Social Plugins on your site.</li>
     <li>Enables you to use Facebook Login to lower the barrier for people to sign up on your site.</li>
@@ -39,78 +39,77 @@ const FACEBOOK_CODE = `<script>
 </script>`
 
 export const App = () => {
-		const [appID,setAppID]=useState('')
-		const [locale,setLocale] =('en_US')
+  const [appID, setAppID] = useState("")
+  const [locale, setLocale] = "en_US"
 
-	const handleAppIdChange = (event) => {
-		setAppID(event.target.value)
-	}
+  const handleAppIdChange = event => {
+    setAppID(event.target.value)
+  }
 
-	const handleLocaleChange = (event) => {
-		setLocale(event.target.value )
-	}
+  const handleLocaleChange = event => {
+    setLocale(event.target.value)
+  }
 
-	const fetchSettings = () => {
-		api.apps.settings
-			.retrieve('facebook-sdk')
-			.then(({ json }) => {
-				const appSettings = json
-				if (appSettings) {
-						setAppId: appSettings.appId,
-						setLocale: appSettings.locale,
-				}
-			})
-			.catch((error) => {
-				console.log(error)
-			})
-	}
+  const fetchSettings = () => {
+    api.apps.settings
+      .retrieve("facebook-sdk")
+      .then(({ json }) => {
+        const appSettings = json
+        if (appSettings) {
+          setAppId(appSettings.appID)
+          setLocale(appSettings.locale)
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
 
-	const updateSettings = () => {
-		const { appId, locale } = state
-		const htmlCode =
-			appId && appId.length > 0
-				? FACEBOOK_CODE.replace(/YOUR_APP_ID/g, appId).replace(
-						/YOUR_LOCALE/g,
-						locale
-				  )
-				: ''
+  const updateSettings = () => {
+    const htmlCode =
+      appID && appID.length > 0
+        ? FACEBOOK_CODE.replace(/YOUR_APP_ID/g, appID).replace(
+            /YOUR_LOCALE/g,
+            locale
+          )
+        : ""
 
-		api.apps.settings.update('facebook-sdk', { appId, locale })
-		api.theme.placeholders.update('facebook-sdk', {
-			place: 'body_start',
-			value: htmlCode,
-		})
-	}
-	useEffect(() => fetchSettings(), [])
+    api.apps.settings.update("facebook-sdk", { appID, locale })
+    api.theme.placeholders.update("facebook-sdk", {
+      place: "body_start",
+      value: htmlCode,
+    })
+  }
+  useEffect(() => fetchSettings(), [])
 
-	return (
-		<>
-			<p>You can find App ID using the Facebook App Dashboard.</p>
-			<TextField
-				type="text"
-				fullWidth
-				value={state.appId}
-				onChange={handleAppIdChange}
-				floatingLabelText="App ID"
-			/>
+  return (
+    <>
+      <p>You can find App ID using the Facebook App Dashboard.</p>
+      <TextField
+        type="text"
+        fullWidth
+        value={appID}
+        onChange={handleAppIdChange}
+        floatingLabelText="App ID"
+      />
 
-			<TextField
-				type="text"
-				fullWidth
-				value={state.locale}
-				onChange={handleLocaleChange}
-				floatingLabelText="Locale"
-				hintText="en_US"
-			/>
+      <TextField
+        type="text"
+        fullWidth
+        value={locale}
+        onChange={handleLocaleChange}
+        floatingLabelText="Locale"
+        hintText="en_US"
+      />
 
-			<div style={{ textAlign: 'right' }}>
-				<RaisedButton
-					label={messages.save}
-					primary
-					disabled={false}
-					onClick={updateSettings}
-				/>
-			</div>
-		</>
-	)
+      <div style={{ textAlign: "right" }}>
+        <RaisedButton
+          label={messages.save}
+          primary
+          disabled={false}
+          onClick={updateSettings}
+        />
+      </div>
+    </>
+  )
 }
