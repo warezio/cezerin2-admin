@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link } from "gatsby"
 import Checkbox from "material-ui/Checkbox"
 import { ListItem } from "material-ui/List"
 import Divider from "material-ui/Divider"

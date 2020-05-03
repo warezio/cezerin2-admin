@@ -1,5 +1,5 @@
 import React from "react"
-import { Route } from "react-router-dom"
+import { Route } from "gatsby"
 import ProductEdit from "modules/products/edit"
 import ProductOption from "modules/products/edit/option"
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link } from "gatsby"
 
 import messages from "../../../lib/text"
 import ProductCategoryHead from "../../../modules/productCategories/head/index"

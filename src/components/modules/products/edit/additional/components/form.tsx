@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'gatsby'
 import { Field, FieldArray, reduxForm } from 'redux-form'
 import { TextField } from 'redux-form-material-ui'
 

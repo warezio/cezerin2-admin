@@ -1,5 +1,5 @@
 import React from "react"
-import { Switch, Route } from "react-router-dom"
+import { Switch, Route } from "gatsby"
 import NotFound from "../../routes/notFound"
 import Login from "../../routes/apps/login"
 import Account from "../../modules/apps/account"

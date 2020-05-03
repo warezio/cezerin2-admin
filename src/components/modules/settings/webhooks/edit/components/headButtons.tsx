@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'gatsby'
 import messages from 'lib/text'
 import DeleteConfirmation from 'modules/shared/deleteConfirmation'
 import FontIcon from 'material-ui/FontIcon'

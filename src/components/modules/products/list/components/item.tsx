@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'gatsby'
 import Divider from 'material-ui/Divider'
 import FontIcon from 'material-ui/FontIcon'
 import messages from 'lib/text'

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link } from "gatsby"
 import moment from "moment"
 
 import api from "../../../../lib/api"

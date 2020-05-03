@@ -1,7 +1,7 @@
 import React from 'react'
 import messages from 'lib/text'
 
-import { Link } from 'react-router-dom'
+import { Link } from 'gatsby'
 import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
 import Divider from '@material-ui/core/Divider'

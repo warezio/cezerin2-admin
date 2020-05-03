@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { Link } from 'react-router-dom'
+import { Link } from 'gatsby'
 import { TextField, SelectField } from 'redux-form-material-ui'
 
 import { CustomToggle } from 'modules/shared/form'

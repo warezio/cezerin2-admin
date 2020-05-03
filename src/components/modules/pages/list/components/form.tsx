@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link } from "gatsby"
 
 import Paper from "material-ui/Paper"
 import Divider from "material-ui/Divider"

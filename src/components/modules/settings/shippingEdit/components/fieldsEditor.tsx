@@ -4,7 +4,7 @@ import { TextField } from "redux-form-material-ui"
 
 import { CustomToggle } from "../../../../modules/shared/form"
 import messages from "../../../../lib/text"
-import { Link } from "react-router-dom"
+import { Link } from "gatsby"
 
 import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
