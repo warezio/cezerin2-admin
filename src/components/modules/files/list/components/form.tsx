@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 
 import moment from "moment"
-import messages from "lib/text"
-import * as helper from "lib/helper"
-import DeleteConfirmation from "../components/modules/shared/deleteConfirmation"
+import messages from "../../../../lib/text"
+import * as helper from "../../../../lib/helper"
+import DeleteConfirmation from "../../../../modules/shared/deleteConfirmation"
 
 import Paper from "material-ui/Paper"
 import FontIcon from "material-ui/FontIcon"
