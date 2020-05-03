@@ -1,70 +1,60 @@
-import React from 'react'
-import Dialog from 'material-ui/Dialog'
-import FlatButton from 'material-ui/FlatButton'
+import React, { useState, useEffect } from "react"
+import Dialog from "material-ui/Dialog"
+import FlatButton from "material-ui/FlatButton"
 
-export default const ConfirmationDialog = () => {
-	
-		
-		state = {
-			open: props.open,
-		}
-	}
+const ConfirmationDialog = props => {
+  const [open, setOpen] = useState(props.open)
 
-	useEffect([prop.count](nextProps) {
-		if (state.open !== nextProps.open) {
-			set(
-				open: nextProps.open,
-			})
-		}
-	}
+  useEffect(
+    nextProps => {
+      if (open !== nextProps.open) {
+        setOpen(nextProps.open)
+      }
+    },
+    [props.count]
+  )
 
-	handleCancel = () => {
-		set( open: false })
-		if (props.onCancel) {
-			props.onCancel()
-		}
-	}
+  const handleCancel = () => {
+    setOpen(false)
+    if (props.onCancel) {
+      props.onCancel()
+    }
+  }
 
-	handleSubmit = () => {
-		set( open: false })
-		if (props.onSubmit) {
-			props.onSubmit()
-		}
-	}
+  const handleSubmit = () => {
+    setOpen(false)
+    if (props.onSubmit) {
+      props.onSubmit()
+    }
+  }
 
-	
-		const {
-			title,
-			description,
-			submitLabel,
-			cancelLabel,
-			modal = false,
-		} = props
+  const { title, description, submitLabel, cancelLabel, modal = false } = props
 
-		const actions = [
-			<FlatButton
-				label={cancelLabel}
-				onClick={handleCancel}
-				style={{ marginRight: 10 }}
-			/>,
-			<FlatButton
-				label={submitLabel}
-				primary
-				keyboardFocused
-				onClick={handleSubmit}
-			/>,
-		]
+  const actions = [
+    <FlatButton
+      label={cancelLabel}
+      onClick={handleCancel}
+      style={{ marginRight: 10 }}
+    />,
+    <FlatButton
+      label={submitLabel}
+      primary
+      keyboardFocused
+      onClick={handleSubmit}
+    />,
+  ]
 
-		return (
-			<Dialog
-				title={title}
-				actions={actions}
-				modal={modal}
-				open={state.open}
-				onRequestClose={handleCancel}
-			>
-				<div style={{ wordWrap: 'break-word' }}>{description}</div>
-			</Dialog>
-		)
-	}
+  return (
+    <Dialog
+      title={title}
+      actions={actions}
+      modal={modal}
+      open={open}
+      onRequestClose={handleCancel}
+    >
+      <div style={{ wordWrap: "break-word" }}>{description}</div>
+    </Dialog>
+  )
 }
+
+export default ConfirmationDialog
