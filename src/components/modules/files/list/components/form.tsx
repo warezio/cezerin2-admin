@@ -81,7 +81,7 @@ const FileList = props => {
 
   return (
     <>
-      <div className={`$"head} row row--no-gutter`}>
+      <div className={`head row row--no-gutter`}>
         <div className="col-xs-5">{messages.fileName}</div>
         <div className="col-xs-3">{messages.fileModified}</div>
         <div className="col-xs-2">{messages.fileSize}</div>
