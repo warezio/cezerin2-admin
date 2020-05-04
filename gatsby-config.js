@@ -54,7 +54,7 @@ module.exports = {
         jsxPragma: `React`, // was jsx defaults to "React"
         allExtensions: true, // defaults to false
       },
-    },
+    } /*
     // redux
     {
       resolve: `gatsby-plugin-react-redux`,
@@ -74,6 +74,6 @@ module.exports = {
         // [optional] - name of key on `window` where serialized state will be stored, default:
         windowKey: "__PRELOADED_STATE__",
       },
-    },
+    },*/,
   ],
 }
