@@ -20,7 +20,7 @@ const ThemeImageUpload = props => {
   const { input, label } = props
 
   return (
-    <div>
+    <>
       <p>{label}</p>
       <ImageUpload
         uploading={false}
@@ -28,7 +28,7 @@ const ThemeImageUpload = props => {
         onDelete={onDelete}
         onUpload={onUpload}
       />
-    </div>
+    </>
   )
 }
 

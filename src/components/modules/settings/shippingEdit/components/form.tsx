@@ -23,17 +23,10 @@ const validate = values => {
   return errors
 }
 
-const EditShippingMethodForm = () => {
+const EditShippingMethodForm = props => {
   useEffect(() => props.onLoad(), [])
 
-  const {
-    handleSubmit,
-    pristine,
-    submitting,
-    initialValues,
-    methodId,
-    settings,
-  } = props
+  const { handleSubmit, pristine, submitting, methodId, settings } = props
   const isAdd = methodId === null || methodId === undefined
 
   return (
@@ -45,24 +38,19 @@ const EditShippingMethodForm = () => {
               <div className="blue-title">{messages.description}</div>
             </div>
             <div className="col-xs-12 col-sm-8">
-              <div>
-                <Field
-                  component={TextField}
-                  fullWidth
-                  name="name"
-                  floatingLabelText={messages.settings_shippingMethodName}
-                />
-              </div>
-              <div>
-                <Field
-                  component={TextField}
-                  fullWidth
-                  name="description"
-                  multiLine
-                  floatingLabelText={messages.description}
-                />
-              </div>
-
+              <Field
+                component={TextField}
+                fullWidth
+                name="name"
+                floatingLabelText={messages.settings_shippingMethodName}
+              />
+              <Field
+                component={TextField}
+                fullWidth
+                name="description"
+                multiLine
+                floatingLabelText={messages.description}
+              />
               <div className="row">
                 <div className="col-xs-6">
                   <Field
@@ -94,34 +82,27 @@ const EditShippingMethodForm = () => {
               <div className="blue-title">{messages.settings_conditions}</div>
             </div>
             <div className="col-xs-12 col-sm-8">
-              <div>
-                <Field
-                  component={TextField}
-                  fullWidth
-                  name="conditions.countries"
-                  floatingLabelText={messages.settings_countries}
-                  hintText="US,UK,AU,SG"
-                />
-              </div>
-              <div>
-                <Field
-                  component={TextField}
-                  fullWidth
-                  name="conditions.states"
-                  floatingLabelText={messages.settings_states}
-                  hintText="California,Nevada,Oregon"
-                />
-              </div>
-              <div>
-                <Field
-                  component={TextField}
-                  fullWidth
-                  name="conditions.cities"
-                  floatingLabelText={messages.settings_cities}
-                  hintText="Los Angeles,San Diego,San Jose"
-                />
-              </div>
-
+              <Field
+                component={TextField}
+                fullWidth
+                name="conditions.countries"
+                floatingLabelText={messages.settings_countries}
+                hintText="US,UK,AU,SG"
+              />
+              <Field
+                component={TextField}
+                fullWidth
+                name="conditions.states"
+                floatingLabelText={messages.settings_states}
+                hintText="California,Nevada,Oregon"
+              />
+              <Field
+                component={TextField}
+                fullWidth
+                name="conditions.cities"
+                floatingLabelText={messages.settings_cities}
+                hintText="Los Angeles,San Diego,San Jose"
+              />
               <div className="row">
                 <div className="col-xs-6">
                   <Field

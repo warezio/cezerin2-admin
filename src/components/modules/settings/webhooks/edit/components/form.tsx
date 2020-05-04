@@ -2,8 +2,8 @@ import React, { useEffect } from "react"
 import { Field, reduxForm } from "redux-form"
 import { TextField } from "redux-form-material-ui"
 
-import messages from "lib/text"
-import { CustomToggle, MultiSelect } from "modules/shared/form"
+import messages from "../../../../../lib/text"
+import { CustomToggle, MultiSelect } from "../../../../../modules/shared/form"
 
 import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
@@ -34,7 +34,7 @@ const validate = values => {
   return errors
 }
 
-const EditWebhookForm = () => {
+const EditWebhookForm = props => {
   useEffect(() => {
     props.onLoad()
   }, [])
@@ -43,7 +43,7 @@ const EditWebhookForm = () => {
   const isAdd = webhookId === null || webhookId === undefined
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
         <Paper className="paper-box" zDepth={1}>
           <div className="innerBox">
@@ -100,7 +100,7 @@ const EditWebhookForm = () => {
           </div>
         </Paper>
       </form>
-    </div>
+    </>
   )
 }
 

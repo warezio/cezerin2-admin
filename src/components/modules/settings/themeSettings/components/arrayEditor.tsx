@@ -10,7 +10,7 @@ import DynamicEditControl from "./dynamicEditControl"
 import "./style.sass"
 
 const ArrayEditor = ({ label, properties, fields }) => (
-  <div>
+  <>
     <div className="arrayTitle">
       {label}
       <FloatingActionButton
@@ -74,7 +74,7 @@ const ArrayEditor = ({ label, properties, fields }) => (
         </li>
       ))}
     </ol>
-  </div>
+  </>
 )
 
 export default ArrayEditor

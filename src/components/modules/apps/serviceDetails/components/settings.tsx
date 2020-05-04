@@ -21,7 +21,7 @@ const ServiceSettingsForm = ({
     return (
       <div key={index}>
         {typeof value === "boolean" && (
-          <div>
+          <>
             <Field
               component={CustomToggle}
               name={key}
@@ -34,7 +34,7 @@ const ServiceSettingsForm = ({
               }}
             />
             <Divider />
-          </div>
+          </>
         )}
 
         {typeof value === "number" && (

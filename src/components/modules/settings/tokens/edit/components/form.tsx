@@ -76,7 +76,7 @@ const EditTokenForm = props => {
   const isAdd = tokenId === null || tokenId === undefined
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
         <Paper className="paper-box" zDepth={1}>
           <div className="innerBox">
@@ -146,7 +146,7 @@ const EditTokenForm = props => {
         submitLabel={messages.settings_revokeAccess}
         cancelLabel={messages.cancel}
       />
-    </div>
+    </>
   )
 }
 

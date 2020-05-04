@@ -2,11 +2,9 @@ import React from "react"
 import { Field, reduxForm } from "redux-form"
 import { TextField } from "redux-form-material-ui"
 
-import { CustomToggle } from "modules/shared/form"
 import * as helper from "lib/helper"
 import messages from "lib/text"
 
-import Divider from "material-ui/Divider"
 import FlatButton from "material-ui/FlatButton"
 import "./style.sass"
 
@@ -52,7 +50,7 @@ const ShippingAddressForm = props => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <>
         {shippingFields}
         <Field
           component={TextField}
@@ -84,7 +82,7 @@ const ShippingAddressForm = props => {
           name="country"
           floatingLabelText={messages.country}
         />
-      </div>
+      </>
       <div className="shippingButtons">
         <FlatButton label={messages.cancel} onClick={onCancel} />
         <FlatButton

@@ -29,43 +29,39 @@ const CheckoutFieldForm = props => {
     >
       <Paper className="paper-box" zDepth={1}>
         <div className="innerBox">
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="label"
-              floatingLabelText={messages.settings_fieldLabel}
-            />
-          </div>
-          <div>
-            <Field
-              component={TextField}
-              fullWidth
-              name="placeholder"
-              floatingLabelText={messages.settings_fieldPlaceholder}
-            />
-          </div>
-          <div className="blue-title">{messages.settings_fieldStatus}</div>
-          <div>
-            <Field name="status" component={RadioButtonGroup}>
-              <RadioButton
-                value="required"
-                label={messages.settings_fieldRequired}
-                style={radioButtonStyle}
-              />
-              <RadioButton
-                value="optional"
-                label={messages.settings_fieldOptional}
-                style={radioButtonStyle}
-              />
-              <RadioButton
-                value="hidden"
-                label={messages.settings_fieldHidden}
-                style={radioButtonStyle}
-              />
-            </Field>
-          </div>
+          <Field
+            component={TextField}
+            fullWidth
+            name="label"
+            floatingLabelText={messages.settings_fieldLabel}
+          />
+          <Field
+            component={TextField}
+            fullWidth
+            name="placeholder"
+            floatingLabelText={messages.settings_fieldPlaceholder}
+          />
         </div>
+        <div className="blue-title">{messages.settings_fieldStatus}</div>
+        <>
+          <Field name="status" component={RadioButtonGroup}>
+            <RadioButton
+              value="required"
+              label={messages.settings_fieldRequired}
+              style={radioButtonStyle}
+            />
+            <RadioButton
+              value="optional"
+              label={messages.settings_fieldOptional}
+              style={radioButtonStyle}
+            />
+            <RadioButton
+              value="hidden"
+              label={messages.settings_fieldHidden}
+              style={radioButtonStyle}
+            />
+          </Field>
+        </>
         <div className="buttons-box">
           <RaisedButton
             type="submit"

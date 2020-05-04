@@ -10,7 +10,7 @@ const PageItem = ({ page }) => {
   const tags = page.tags && page.tags.length > 0 ? page.tags.join(", ") : ""
 
   return (
-    <div>
+    <>
       <Divider />
       <Link to={`/pages/${page.id}`} style={{ textDecoration: "none" }}>
         <ListItem
@@ -33,7 +33,7 @@ const PageItem = ({ page }) => {
           }
         />
       </Link>
-    </div>
+    </>
   )
 }
 

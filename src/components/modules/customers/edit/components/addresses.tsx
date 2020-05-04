@@ -158,7 +158,7 @@ const CustomerAddresses = ({
         onSetDefaultShippingAddress={onSetDefaultShippingAddress}
       />
     ))
-    return <div>{addresses}</div>
+    return <>{addresses}</>
   }
   return null
 }

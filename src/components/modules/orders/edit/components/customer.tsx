@@ -49,18 +49,18 @@ const ShippingAddress = ({ order }) => {
   return (
     <div className="address" style={{ marginBottom: 20 }}>
       <ShippingFields order={order} shippingMethod={shippingMethod} />
-      <div>
+      <>
         <label>{messages.city}: </label>
         {address.city}
         {address.state && address.state.length > 0 ? `, ${address.state}` : ""}
         {address.postal_code && address.postal_code.length > 0
           ? `, ${address.postal_code}`
           : ""}
-      </div>
-      <div>
+      </>
+      <>
         <label>{messages.country}: </label>
         {address.country}
-      </div>
+      </>
     </div>
   )
 }

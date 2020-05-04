@@ -1,9 +1,7 @@
 import React from "react"
-import { Field, reduxForm } from "redux-form"
+import { Field } from "redux-form"
 import { TextField, SelectField } from "redux-form-material-ui"
 
-import { CustomToggle } from "modules/shared/form"
-import messages from "lib/text"
 import MenuItem from "material-ui/MenuItem"
 import "./style.sass"
 
@@ -22,8 +20,8 @@ const GatewaySettings = ({ gateway }) => {
 
 export default GatewaySettings
 
-const PayPalButton = props => (
-  <div>
+const PayPalButton = () => (
+  <>
     <Field
       component={SelectField}
       name="env"
@@ -86,11 +84,11 @@ const PayPalButton = props => (
       hintText="https://<domain>/api/v1/notifications/paypal-checkout"
       fullWidth
     />
-  </div>
+  </>
 )
 
-const LiqPay = props => (
-  <div>
+const LiqPay = () => (
+  <>
     <Field
       component={TextField}
       name="public_key"
@@ -124,11 +122,11 @@ const LiqPay = props => (
       hintText="https://<domain>/api/v1/notifications/liqpay"
       fullWidth
     />
-  </div>
+  </>
 )
 
 const StripeElements = props => (
-  <div>
+  <>
     <Field
       component={SelectField}
       name="env"
@@ -151,5 +149,5 @@ const StripeElements = props => (
       floatingLabelText="Secret key"
       fullWidth
     />
-  </div>
+  </>
 )

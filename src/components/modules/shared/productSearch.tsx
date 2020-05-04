@@ -126,7 +126,7 @@ const ConfirmationDialog = props => {
       open={open}
       onRequestClose={handleCancel}
     >
-      <div>
+      <>
         <SearchBox text={search} onChange={handleSearch} />
         <SearchResult
           products={products}
@@ -134,7 +134,7 @@ const ConfirmationDialog = props => {
           onSelect={handleRowSelection}
           settings={settings}
         />
-      </div>
+      </>
     </Dialog>
   )
 }
