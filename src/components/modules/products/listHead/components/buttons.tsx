@@ -1,139 +1,124 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import messages from 'lib/text'
-import CategorySelect from 'modules/productCategories/select'
-import DeleteConfirmation from 'modules/shared/deleteConfirmation'
-import FontIcon from 'material-ui/FontIcon'
-import IconMenu from 'material-ui/IconMenu'
-import IconButton from 'material-ui/IconButton'
-import Dialog from 'material-ui/Dialog'
-import FlatButton from 'material-ui/FlatButton'
-import Search from './search'
-const { Fragment } = React
+import React, { useState } from "react"
+import messages from "../../../../lib/text"
+import CategorySelect from "../../../../modules/productCategories/select"
+import DeleteConfirmation from "../../../../modules/shared/deleteConfirmation"
+import FontIcon from "material-ui/FontIcon"
+import IconButton from "material-ui/IconButton"
+import Dialog from "material-ui/Dialog"
+import FlatButton from "material-ui/FlatButton"
+import Search from "./search"
 
-export default const Buttons = () => {
-	
-		
-		state = {
-			categoryIdMoveTo: null,
-			openMoveTo: false,
-			openDelete: false,
-		}
-	}
+const Buttons = props => {
+  const [categoryIdMoveTo, setCategoryIdMoveTo] = useState(null)
+  const [openMoveTo, setOpenMoveTo] = useState(false)
+  const [openDelete, setOpenDelete] = useState(false)
 
-	showMoveTo = () => {
-		set( openMoveTo: true })
-	}
+  const showMoveTo = () => {
+    setOpenMoveTo(true)
+  }
 
-	openDelete = () => {
-		set( openDelete: true })
-	}
+  const openDeletes = () => {
+    setOpenDelete(true)
+  }
 
-	closeDelete = () => {
-		set( openDelete: false })
-	}
+  const closeDelete = () => {
+    setOpenDelete(false)
+  }
 
-	deleteProduct = () => {
-		set( openDelete: false })
-		props.onDelete()
-	}
+  const deleteProduct = () => {
+    setOpenDelete(false)
+    props.onDelete()
+  }
 
-	closeMoveTo = () => {
-		set( openMoveTo: false })
-	}
+  const closeMoveTo = () => {
+    setOpenMoveTo(false)
+  }
 
-	saveMoveTo = () => {
-		set( openMoveTo: false })
-		props.onMoveTo(state.categoryIdMoveTo)
-	}
+  const saveMoveTo = () => {
+    setOpenMoveTo(false)
+    props.onMoveTo(categoryIdMoveTo)
+  }
 
-	selectMoveTo = (categoryId) => {
-		set( categoryIdMoveTo: categoryId })
-	}
+  const selectMoveTo = categoryId => {
+    setCategoryIdMoveTo(categoryId)
+  }
 
-	
-		const {
-			search,
-			setSearch,
-			selectedCount,
-			onDelete,
-			onCreate,
-			onImportProducts,
-		} = props
+  const { search, setSearch, selectedCount, onCreate } = props
 
-		const actionsMoveTo = [
-			<FlatButton
-				label={messages.cancel}
-				onClick={closeMoveTo}
-				style={{ marginRight: 10 }}
-			/>,
-			<FlatButton
-				label={messages.actions_moveHere}
-				primary
-				keyboardFocused
-				onClick={saveMoveTo}
-			/>,
-		]
+  const actionsMoveTo = [
+    <FlatButton
+      label={messages.cancel}
+      onClick={closeMoveTo}
+      style={{ marginRight: 10 }}
+    />,
+    <FlatButton
+      label={messages.actions_moveHere}
+      primary
+      keyboardFocused
+      onClick={saveMoveTo}
+    />,
+  ]
 
-		return (
-			<Fragment>
-				<Search value={search} setSearch={setSearch} />
-				{selectedCount > 0 && (
-					<Fragment>
-						<IconButton
-							touch
-							tooltipPosition="bottom-left"
-							tooltip={messages.actions_delete}
-							onClick={openDelete}
-						>
-							<FontIcon color="#fff" className="material-icons">
-								delete
-							</FontIcon>
-						</IconButton>
-						<IconButton
-							touch
-							tooltipPosition="bottom-left"
-							tooltip={messages.actions_moveTo}
-							onClick={showMoveTo}
-						>
-							<FontIcon color="#fff" className="material-icons">
-								folder
-							</FontIcon>
-						</IconButton>
-						<DeleteConfirmation
-							open={state.openDelete}
-							isSingle={false}
-							itemsCount={selectedCount}
-							onCancel={closeDelete}
-							onDelete={deleteProduct}
-						/>
-						<Dialog
-							title={messages.actions_moveTo}
-							actions={actionsMoveTo}
-							modal={false}
-							open={state.openMoveTo}
-							onRequestClose={closeMoveTo}
-							autoScrollBodyContent
-						>
-							<CategorySelect
-								onSelect={selectMoveTo}
-								selectedId={state.categoryIdMoveTo}
-								opened
-							/>
-						</Dialog>
-					</Fragment>
-				)}
-				<IconButton
-					touch
-					tooltipPosition="bottom-left"
-					tooltip={messages.addProduct}
-					onClick={onCreate}
-				>
-					<FontIcon color="#fff" className="material-icons">
-						add
-					</FontIcon>
-				</IconButton>
-			</Fragment>
-		)
-	}
+  return (
+    <>
+      <Search value={search} setSearch={setSearch} />
+      {selectedCount > 0 && (
+        <>
+          <IconButton
+            touch
+            tooltipPosition="bottom-left"
+            tooltip={messages.actions_delete}
+            onClick={openDeletes}
+          >
+            <FontIcon color="#fff" className="material-icons">
+              delete
+            </FontIcon>
+          </IconButton>
+          <IconButton
+            touch
+            tooltipPosition="bottom-left"
+            tooltip={messages.actions_moveTo}
+            onClick={showMoveTo}
+          >
+            <FontIcon color="#fff" className="material-icons">
+              folder
+            </FontIcon>
+          </IconButton>
+          <DeleteConfirmation
+            open={openDeletes}
+            isSingle={false}
+            itemsCount={selectedCount}
+            onCancel={closeDelete}
+            onDelete={deleteProduct}
+          />
+          <Dialog
+            title={messages.actions_moveTo}
+            actions={actionsMoveTo}
+            modal={false}
+            open={openMoveTo}
+            onRequestClose={closeMoveTo}
+            autoScrollBodyContent
+          >
+            <CategorySelect
+              onSelect={selectMoveTo}
+              selectedId={categoryIdMoveTo}
+              opened
+            />
+          </Dialog>
+        </>
+      )}
+      <IconButton
+        touch
+        tooltipPosition="bottom-left"
+        tooltip={messages.addProduct}
+        onClick={onCreate}
+      >
+        <FontIcon color="#fff" className="material-icons">
+          add
+        </FontIcon>
+      </IconButton>
+    </>
+  )
 }
+
+export default Buttons

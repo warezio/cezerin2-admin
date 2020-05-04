@@ -1,153 +1,139 @@
-import React, { useState } from 'react'
-import { Link } from 'gatsby'
-import messages from 'lib/text'
-import GroupSelect from 'modules/customerGroups/select'
-import DeleteConfirmation from 'modules/shared/deleteConfirmation'
-import FontIcon from 'material-ui/FontIcon'
-import IconMenu from 'material-ui/IconMenu'
-import IconButton from 'material-ui/IconButton'
-import MenuItem from 'material-ui/MenuItem'
-import Dialog from 'material-ui/Dialog'
-import FlatButton from 'material-ui/FlatButton'
-import RaisedButton from 'material-ui/RaisedButton'
-import TextField from 'material-ui/TextField'
-import Search from './search'
+import React, { useState } from "react"
+import messages from "../../../../lib/text"
+import GroupSelect from "../../../../modules/customerGroups/select"
+import DeleteConfirmation from "../../../../modules/shared/deleteConfirmation"
+import FontIcon from "material-ui/FontIcon"
+import IconButton from "material-ui/IconButton"
+import Dialog from "material-ui/Dialog"
+import FlatButton from "material-ui/FlatButton"
+import Search from "./search"
 
-const Buttons = () => {
-	state = {
-		groupId: null,
-		openSetGroup: false,
-		openDelete: false,
-	}
+const Buttons = props => {
+  const [groupID, setGroupID] = useState(null)
+  const [openSetGroup, setOpenSetGroup] = useState(false)
+  const [openDelete, setOpenDelete] = useState(false)
 
-	showSetGroup = () => {
-		set( openSetGroup: true })
-	}
+  const showSetGroup = () => {
+    setOpenSetGroup(true)
+  }
 
-	showDelete = () => {
-		set( openDelete: true })
-	}
+  const showDeletes = () => {
+    setOpenDelete(true)
+  }
 
-	closeSetGroup = () => {
-		set( openSetGroup: false })
-	}
+  const closeSetGroup = () => {
+    setOpenSetGroup(false)
+  }
 
-	closeDelete = () => {
-		set( openDelete: false })
-	}
+  const closeDelete = () => {
+    setOpenDelete(false)
+  }
 
-	deleteCustomers = () => {
-		set( openDelete: false })
-		props.onDelete()
-	}
+  const deleteCustomers = () => {
+    setOpenDelete(false)
+    props.onDelete()
+  }
 
-	saveSetGroup = () => {
-		set( openSetGroup: false })
-		props.onSetGroup(state.groupId)
-	}
+  const saveSetGroup = () => {
+    setOpenSetGroup(false)
+    props.onSetGroup(groupId)
+  }
 
-	selectSetGroup = (groupId) => {
-		set( groupId })
-	}
+  const selectSetGroup = groupID => {
+    setGroupId(groupID)
+  }
 
-	const {
-		search,
-		setSearch,
-		selectedCount,
-		onDelete,
-		onCreate,
-		onEdit,
-	} = props
+  const { search, setSearch, selectedCount, onDelete, onCreate, onEdit } = props
 
-	const actionsSetGroup = [
-		<FlatButton
-			label={messages.cancel}
-			onClick={closeSetGroup}
-			style={{ marginRight: 10 }}
-		/>,
-		<FlatButton
-			label={messages.save}
-			primary
-			keyboardFocused
-			onClick={saveSetGroup}
-		/>,
-	]
+  const actionsSetGroup = [
+    <FlatButton
+      label={messages.cancel}
+      onClick={closeSetGroup}
+      style={{ marginRight: 10 }}
+    />,
+    <FlatButton
+      label={messages.save}
+      primary
+      keyboardFocused
+      onClick={saveSetGroup}
+    />,
+  ]
 
-	return (
-		<>
-			<Search value={search} setSearch={setSearch} />
-			{selectedCount > 0 && (
-				<Fragment>
-					{selectedCount == 1 && (
-						<IconButton
-							touch={true}
-							tooltipPosition="bottom-left"
-							tooltip={messages.actions_edit}
-							onClick={onEdit}
-						>
-							<FontIcon color="#fff" className="material-icons">
-								edit
-							</FontIcon>
-						</IconButton>
-					)}
-					<IconButton
-						touch
-						tooltipPosition="bottom-left"
-						tooltip={messages.actions_delete}
-						onClick={showDelete}
-					>
-						<FontIcon color="#fff" className="material-icons">
-							delete
-						</FontIcon>
-					</IconButton>
-					<IconButton
-						touch
-						tooltipPosition="bottom-left"
-						tooltip={messages.customers_setGroup}
-						onClick={showSetGroup}
-					>
-						<FontIcon color="#fff" className="material-icons">
-							folder
-						</FontIcon>
-					</IconButton>
-					<DeleteConfirmation
-						open={state.openDelete}
-						isSingle={false}
-						itemsCount={selectedCount}
-						onCancel={closeDelete}
-						onDelete={deleteCustomers}
-					/>
-					<Dialog
-						title={messages.customers_setGroup}
-						actions={actionsSetGroup}
-						modal={false}
-						open={state.openSetGroup}
-						onRequestClose={closeSetGroup}
-						autoScrollBodyContent
-					>
-						<GroupSelect
-							onSelect={selectSetGroup}
-							selectedId={state.groupId}
-							showRoot
-							showAll={false}
-						/>
-					</Dialog>
-				</Fragment>
-			)}
-			{selectedCount < 1 && (
-				<IconButton
-					touch={true}
-					tooltipPosition="bottom-left"
-					tooltip={messages.customers_titleAdd}
-					onClick={onCreate}
-				>
-					<FontIcon color="#fff" className="material-icons">
-						add
-					</FontIcon>
-				</IconButton>
-			)}
-		</>
-	)
+  return (
+    <>
+      <Search value={search} setSearch={setSearch} />
+      {selectedCount > 0 && (
+        <>
+          {selectedCount == 1 && (
+            <IconButton
+              touch={true}
+              tooltipPosition="bottom-left"
+              tooltip={messages.actions_edit}
+              onClick={onEdit}
+            >
+              <FontIcon color="#fff" className="material-icons">
+                edit
+              </FontIcon>
+            </IconButton>
+          )}
+          <IconButton
+            touch
+            tooltipPosition="bottom-left"
+            tooltip={messages.actions_delete}
+            onClick={showDeletes}
+          >
+            <FontIcon color="#fff" className="material-icons">
+              delete
+            </FontIcon>
+          </IconButton>
+          <IconButton
+            touch
+            tooltipPosition="bottom-left"
+            tooltip={messages.customers_setGroup}
+            onClick={showSetGroup}
+          >
+            <FontIcon color="#fff" className="material-icons">
+              folder
+            </FontIcon>
+          </IconButton>
+          <DeleteConfirmation
+            open={openDelete}
+            isSingle={false}
+            itemsCount={selectedCount}
+            onCancel={closeDelete}
+            onDelete={deleteCustomers}
+          />
+          <Dialog
+            title={messages.customers_setGroup}
+            actions={actionsSetGroup}
+            modal={false}
+            open={openSetGroup}
+            onRequestClose={closeSetGroup}
+            autoScrollBodyContent
+          >
+            <GroupSelect
+              onSelect={selectSetGroup}
+              selectedId={groupID}
+              showRoot
+              showAll={false}
+            />
+          </Dialog>
+        </>
+      )}
+      {selectedCount < 1 && (
+        <IconButton
+          touch={true}
+          tooltipPosition="bottom-left"
+          tooltip={messages.customers_titleAdd}
+          onClick={onCreate}
+        >
+          <FontIcon color="#fff" className="material-icons">
+            add
+          </FontIcon>
+        </IconButton>
+      )}
+    </>
+  )
 }
 
 export default Buttons

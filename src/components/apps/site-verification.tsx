@@ -90,7 +90,7 @@ export const App = () => {
     <>
       <TextField
         type="text"
-        value={state.google}
+        value={google}
         onChange={handleGoogleChange}
         floatingLabelText="Google"
         fullWidth
@@ -99,7 +99,7 @@ export const App = () => {
 
       <TextField
         type="text"
-        value={state.bing}
+        value={bing}
         onChange={handleBingChange}
         floatingLabelText="Bing"
         fullWidth
@@ -108,7 +108,7 @@ export const App = () => {
 
       <TextField
         type="text"
-        value={state.pinterest}
+        value={pinterest}
         onChange={handlePinterestChange}
         floatingLabelText="Pinterest"
         fullWidth
@@ -117,7 +117,7 @@ export const App = () => {
 
       <TextField
         type="text"
-        value={state.yandex}
+        value={yandex}
         onChange={handleYandexChange}
         floatingLabelText="Yandex"
         fullWidth
