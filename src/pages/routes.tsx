@@ -1,7 +1,7 @@
 import React from "react"
 import { Router } from "@reach/router"
 
-import Head from "./../modules/head"
+import Head from "../components/modules/head"
 
 import Login from "./login"
 import Logout from "./logout"
