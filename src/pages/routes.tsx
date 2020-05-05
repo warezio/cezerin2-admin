@@ -6,7 +6,6 @@ import Head from "../components/modules/head"
 import Login from "./login"
 import Logout from "./logout"
 import Home from "./home"
-import NotFound from "./404"
 import Products from "./products"
 import ProductImport from "./products/import"
 import ProductDetails from "./products/edit"
@@ -84,7 +83,6 @@ function Routes() {
             <Settings path="/settings" />
             <Apps path="/apps" />
             <Files path="/files" />
-            <NotFound />
           </div>
         </div>
       </MuiThemeProvider>
