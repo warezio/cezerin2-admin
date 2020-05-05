@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-import Divider from "material-ui/Divider"
+import Divider from "@material-ui/core/Divider"
 import FontIcon from "material-ui/FontIcon"
-import messages from "lib/text"
-import * as helper from "lib/helper"
+import messages from "../../../../lib/text"
+import * as helper from "../../../../lib/helper"
 import "./style.sass"
 
 const THUMBNAIL_WIDTH = 100

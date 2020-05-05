@@ -3,9 +3,9 @@ import { Field, reduxForm } from "redux-form"
 import { Link } from "gatsby"
 import { TextField, SelectField } from "redux-form-material-ui"
 
-import { CustomToggle } from "modules/shared/form"
-import messages from "lib/text"
-import data from "lib/data"
+import { CustomToggle } from "../../../../modules/shared/form"
+import messages from "../../../../lib/text"
+import data from "../../../../lib/data"
 
 import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
@@ -18,7 +18,7 @@ import "./style.sass"
 const GeneralSettings = props => {
   useEffect(() => props.onLoad(), [])
 
-  const { handleSubmit, pristine, submitting, initialValues } = props
+  const { handleSubmit, pristine, submitting } = props
 
   const currencyItems = []
   for (const key in data.currencies) {

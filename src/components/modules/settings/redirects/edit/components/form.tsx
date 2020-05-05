@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { Field, reduxForm } from "redux-form"
 import { TextField } from "redux-form-material-ui"
 
-import messages from "lib/text"
+import messages from "../../../../../lib/text"
 
 import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"

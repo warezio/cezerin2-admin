@@ -1,5 +1,4 @@
-import api from "lib/api"
-import messages from "lib/text"
+import api from "../../lib/api"
 import moment from "moment"
 import * as t from "./actionTypes"
 

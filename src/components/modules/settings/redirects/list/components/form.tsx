@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { Link } from "gatsby"
-import messages from "lib/text"
+import messages from "../../../../../lib/text"
 import Paper from "material-ui/Paper"
 import Divider from "material-ui/Divider"
 import FontIcon from "material-ui/FontIcon"

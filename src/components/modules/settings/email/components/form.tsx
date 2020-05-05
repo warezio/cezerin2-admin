@@ -1,10 +1,11 @@
 import React, { useEffect } from "react"
 import { Link } from "gatsby"
-import messages from "lib/text"
+import messages from "../../../../lib/text"
 
-import Paper from "material-ui/Paper"
+import Paper from "@material-ui/core/Paper"
 import FontIcon from "material-ui/FontIcon"
-import { List, ListItem } from "material-ui/List"
+import List from "@material-ui/core/List"
+import ListItem from "@material-ui/core/ListItem"
 
 const EmailSettings = props => {
   useEffect(() => props.onLoad(), [])

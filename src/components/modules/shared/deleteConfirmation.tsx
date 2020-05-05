@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import messages from "lib/text"
+import messages from "../../lib/text"
 import Dialog from "material-ui/Dialog"
 import FlatButton from "material-ui/FlatButton"
 

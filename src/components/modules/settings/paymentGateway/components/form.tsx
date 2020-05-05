@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { reduxForm } from "redux-form"
 
-import messages from "lib/text"
+import messages from "../../../../lib/text"
 
 import Dialog from "material-ui/Dialog"
 import FlatButton from "material-ui/FlatButton"
