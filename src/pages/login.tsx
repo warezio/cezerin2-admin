@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react"
-import messages from "../lib/text"
+import messages from "../components/lib/text"
 import CezerinClient from "cezerin2-client"
-import settings from "../lib/settings"
-import * as auth from "../lib/auth"
+import settings from "../components/lib/settings"
+import * as auth from "../components/lib/auth"
 
 import RaisedButton from "material-ui/RaisedButton"
-import Paper from "material-ui/Paper"
+import Paper from "@material-ui/core/Paper"
 import TextField from "material-ui/TextField"
 
 const LoginForm = () => {

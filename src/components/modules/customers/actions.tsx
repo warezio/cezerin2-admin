@@ -1,5 +1,4 @@
-import api from "lib/api"
-import messages from "lib/text"
+import api from "../../lib/api"
 import * as t from "./actionTypes"
 const push = () => {}
 

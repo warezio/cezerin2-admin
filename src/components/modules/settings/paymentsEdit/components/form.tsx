@@ -12,7 +12,7 @@ import Divider from "@material-ui/core/Divider"
 import RaisedButton from "material-ui/RaisedButton"
 import MenuItem from "material-ui/MenuItem"
 import "./style.sass"
-import SelectShippingMethodsField from "./selectShipping.js"
+import SelectShippingMethodsField from "./selectShipping"
 
 const validate = values => {
   const errors = {}

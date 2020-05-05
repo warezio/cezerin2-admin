@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import messages from "lib/text"
-import DeleteConfirmation from "modules/shared/deleteConfirmation"
+import messages from "../../../../../lib/text"
+import DeleteConfirmation from "../../../../../modules/shared/deleteConfirmation"
 import FontIcon from "material-ui/FontIcon"
 import IconButton from "material-ui/IconButton"
 

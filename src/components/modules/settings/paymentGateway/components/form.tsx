@@ -8,7 +8,7 @@ import FlatButton from "material-ui/FlatButton"
 import RaisedButton from "material-ui/RaisedButton"
 import "./style.sass"
 import { AVAILABLE_PAYMENT_GATEWAYS } from "../availablePaymentGateways"
-import GatewaySettings from "./gatewaySettings.js"
+import GatewaySettings from "./gatewaySettings"
 
 const EditPaymentGatewayForm = props => {
   const [open, setOpen] = useState(false)

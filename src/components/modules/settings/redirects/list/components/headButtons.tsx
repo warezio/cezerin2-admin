@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import messages from "lib/text"
+import messages from "../../../../../lib/text"
 import FontIcon from "material-ui/FontIcon"
 import IconButton from "material-ui/IconButton"
 
