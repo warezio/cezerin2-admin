@@ -33,7 +33,7 @@ const LoginForm = () => {
     setEmailIsSent(false)
     setError(null)
 
-    CezerinClient.authorize(settings.apiBaseUrl, state.email)
+    CezerinClient.authorize(settings.apiBaseUrl, email)
       .then(authorizeResponse => {
         setIsFetching(false)
         setIsAuthorized(false)
