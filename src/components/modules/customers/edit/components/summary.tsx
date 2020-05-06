@@ -1,19 +1,10 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
-import moment from "moment"
 
-import messages from "lib/text"
-import * as helper from "lib/helper"
+import messages from "../../../../lib/text"
+import * as helper from "../../../../lib/helper"
 
 import Paper from "material-ui/Paper"
-import Divider from "material-ui/Divider"
-import IconButton from "material-ui/IconButton"
-import FlatButton from "material-ui/FlatButton"
 import RaisedButton from "material-ui/RaisedButton"
-import FontIcon from "material-ui/FontIcon"
-import IconMenu from "material-ui/IconMenu"
-import MenuItem from "material-ui/MenuItem"
-import SelectField from "material-ui/SelectField"
 import Dialog from "material-ui/Dialog"
 import SummaryForm from "./summaryForm.js"
 import "./style.sass"
@@ -97,11 +88,7 @@ const CustomerSummary = props => {
           onRequestClose={hideSummaryEdit}
           contentStyle={{ width: 600 }}
         >
-          <SummaryForm
-            initialValues={customer}
-            onCancel={hideSummaryEdit}
-            onSubmit={saveSummaryEdit}
-          />
+          <SummaryForm initialValues={customer} onSubmit={saveSummaryEdit} />
         </Dialog>
       </div>
     </Paper>

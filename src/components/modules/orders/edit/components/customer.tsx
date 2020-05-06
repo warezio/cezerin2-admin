@@ -1,8 +1,8 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 
-import messages from "lib/text"
-import * as helper from "lib/helper"
+import messages from "../../../../lib/text"
+import * as helper from "../../../../lib/helper"
 
 import Paper from "material-ui/Paper"
 import Divider from "material-ui/Divider"
@@ -126,8 +126,8 @@ const BillingAddress = ({ address, settings }) => {
   )
 }
 
-const OrderCustomer = () => {
-  const [openShippingEdit, setOpenShippingEdit] = useEffect(false)
+const OrderCustomer = props => {
+  const [openShippingEdit, setOpenShippingEdit] = useState(false)
 
   const showShippingEdit = () => {
     setOpenShippingEdit(true)
@@ -178,7 +178,7 @@ const OrderCustomer = () => {
           <div style={{ paddingBottom: 16, paddingTop: 0 }}>
             {messages.shippingAddress}
           </div>
-          <ShippingAddress order={order} settings={settings} />
+          <ShippingAddress order={order} />
 
           {allowEdit && (
             <RaisedButton
@@ -203,9 +203,7 @@ const OrderCustomer = () => {
           >
             <ShippingAddressForm
               initialValues={order.shipping_address}
-              onCancel={hideShippingEdit}
               onSubmit={saveShippingEdit}
-              shippingMethod={order.shipping_method_details}
             />
           </Dialog>
         </div>

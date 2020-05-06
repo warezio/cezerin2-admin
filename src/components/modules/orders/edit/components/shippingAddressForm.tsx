@@ -2,8 +2,8 @@ import React from "react"
 import { Field, reduxForm } from "redux-form"
 import { TextField } from "redux-form-material-ui"
 
-import * as helper from "lib/helper"
-import messages from "lib/text"
+import * as helper from "../../../../lib/helper"
+import messages from "../../../../lib/text"
 
 import FlatButton from "material-ui/FlatButton"
 import "./style.sass"

@@ -1,10 +1,10 @@
 import React from "react"
 import { Router } from "@reach/router"
-import Login from "../../routes/apps/login"
-import Account from "../../modules/apps/account"
-import Services from "../../modules/apps/services"
-import ServiceDetails from "../../modules/apps/serviceDetails"
-import AppDetails from "../../modules/apps/appDetails"
+import Login from "./login"
+import Account from "../../components/modules/apps/account"
+import Services from "../../components/modules/apps/services"
+import ServiceDetails from "../../components/modules/apps/serviceDetails"
+import AppDetails from "../../components/modules/apps/appDetails"
 
 export default () => (
   <Router>

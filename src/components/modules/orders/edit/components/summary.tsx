@@ -198,11 +198,7 @@ const OrderSummary = props => {
           autoScrollBodyContent
           contentStyle={{ width: 600 }}
         >
-          <SummaryForm
-            initialValues={order}
-            onCancel={hideSummaryEdit}
-            onSubmit={saveSummaryEdit}
-          />
+          <SummaryForm initialValues={order} onSubmit={saveSummaryEdit} />
         </Dialog>
       </div>
     </Paper>

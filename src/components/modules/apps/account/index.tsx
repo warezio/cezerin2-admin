@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import * as webstoreAuth from "lib/webstoreAuth"
+import * as webstoreAuth from "../../../lib/webstoreAuth"
 import { fetchAccount, updateAccount, updateDeveloperAccount } from "../actions"
 import Details from "./components/details"
 

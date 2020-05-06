@@ -3,12 +3,12 @@ import { Link } from "gatsby"
 import { Field, FieldArray, reduxForm } from "redux-form"
 import { TextField } from "redux-form-material-ui"
 
-import api from "lib/api"
-import * as helper from "lib/helper"
-import messages from "lib/text"
+import api from "../../../../../lib/api"
+import * as helper from "../../../../../lib/helper"
+import messages from "../../../../../lib/text"
 
 import TagsInput from "react-tagsinput"
-import ProductSearchDialog from "modules/shared/productSearch"
+import ProductSearchDialog from "../../../../../modules/shared/productSearch"
 
 import Paper from "material-ui/Paper"
 import FontIcon from "material-ui/FontIcon"
@@ -213,7 +213,7 @@ const ProductsArray = props => {
       </Paper>
 
       <>
-        <RaisedButton label={messages.addOrderItem} onClick={showAddItem} />
+        <RaisedButton label={messages.addOrderItem} />
       </>
     </>
   )

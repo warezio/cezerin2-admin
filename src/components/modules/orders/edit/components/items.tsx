@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 
-import messages from "lib/text"
-import * as helper from "lib/helper"
+import messages from "../../../../lib/text"
+import * as helper from "../../../../lib/helper"
 
 import Paper from "material-ui/Paper"
 import Divider from "material-ui/Divider"
@@ -90,10 +90,10 @@ export const OrderItem = props => {
     props.onItemDelete(props.item.id)
   }
 
-  const onOptionChange = (optionId, valueId) => {
+  const onOptionChange = (optionId, valueID) => {
     setQuantity(1)
 
-    if (valueId === "") {
+    if (valueID === "") {
       delete selectedOptions[optionId]
     } else {
       selectedOptions[optionId] = valueID
@@ -119,7 +119,7 @@ export const OrderItem = props => {
     setSelectedVariant(null)
   }
 
-  const getCurrentVariant = () => {
+  function getCurrentVariant() {
     const variantId = props.item.variant_id
     const { product } = props.item
     let variant = null
@@ -136,7 +136,7 @@ export const OrderItem = props => {
     return variant
   }
 
-  const getOptionsByVariant = () => {
+  function getOptionsByVariant() {
     const variantId = props.item.variant_id
     const { product } = props.item
     const selectedOptions = {}
@@ -168,8 +168,6 @@ export const OrderItem = props => {
     <FlatButton label={messages.save} primary onClick={submitEditForm} />,
   ]
 
-  let { quantity } = state
-  const { selectedOptions, selectedVariant } = state
   const { product } = item
   const price = helper.formatCurrency(item.price, settings)
   const priceTotal = helper.formatCurrency(item.price_total, settings)
@@ -194,9 +192,9 @@ export const OrderItem = props => {
     quantityItems.push(
       <MenuItem key={0} value={0} primaryText={messages.products_outOfStock} />
     )
-    quantity = 0
+    setQuantity(0)
   } else {
-    for (let i = 1; i <= maxItems, i <= 100; i++) {
+    for (let i = 1; i <= maxItems && i <= 100; i++) {
       quantityItems.push(
         <MenuItem key={i} value={i} primaryText={i.toString()} />
       )

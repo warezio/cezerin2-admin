@@ -1,4 +1,4 @@
-import messages from "lib/text"
+import messages from "../../lib/text"
 import moment from "moment"
 
 const chartColors = {

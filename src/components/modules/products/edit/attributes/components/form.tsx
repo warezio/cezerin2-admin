@@ -1,7 +1,7 @@
 import React from "react"
 import { Field, FieldArray, reduxForm } from "redux-form"
 
-import messages from "lib/text"
+import messages from "../../../../../lib/text"
 
 import Paper from "material-ui/Paper"
 import FontIcon from "material-ui/FontIcon"

@@ -2,9 +2,9 @@ import React, { useEffect } from "react"
 import { Link } from "gatsby"
 import { Field, reduxForm } from "redux-form"
 import { TextField, SelectField } from "redux-form-material-ui"
-import { CustomToggle } from "modules/shared/form"
+import { CustomToggle } from "../../../../../modules/shared/form"
 
-import messages from "lib/text"
+import messages from "../../../../../lib/text"
 
 import Paper from "material-ui/Paper"
 import FlatButton from "material-ui/FlatButton"

@@ -1,16 +1,16 @@
 import React, { useEffect } from "react"
-import messages from "lib/text"
+import messages from "../../../lib/text"
 
-import ProductVariants from "modules/products/edit/variants"
-import ProductAttributes from "modules/products/edit/attributes"
-import ProductInventory from "modules/products/edit/inventory"
-import ProductImages from "modules/products/edit/images"
-import ProductGeneral from "modules/products/edit/general"
-import ProductAdditional from "modules/products/edit/additional"
+import ProductVariants from "../../../modules/products/edit/variants"
+import ProductAttributes from "../../../modules/products/edit/attributes"
+import ProductInventory from "../../../modules/products/edit/inventory"
+import ProductImages from "../../../modules/products/edit/images"
+import ProductGeneral from "../../../modules/products/edit/general"
+import ProductAdditional from "../../../modules/products/edit/additional"
 
 import { connect } from "react-redux"
 import { withRouter } from "react-router"
-import { fetchCategoriesIfNeeded } from "modules/productCategories/actions"
+import { fetchCategoriesIfNeeded } from "../../../modules/productCategories/actions"
 import { fetchProduct, cancelProductEdit } from "../actions"
 
 const ProductEditContainer = props => {
