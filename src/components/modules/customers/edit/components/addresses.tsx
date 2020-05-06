@@ -129,11 +129,7 @@ const CustomerAddress = props => {
           autoScrollBodyContent
           contentStyle={{ width: 600 }}
         >
-          <AddressForm
-            initialValues={address}
-            onCancel={hideEditForm}
-            onSubmit={handleEditForm}
-          />
+          <AddressForm initialValues={address} onSubmit={handleEditForm} />
         </Dialog>
       </div>
     </Paper>
