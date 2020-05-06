@@ -36,6 +36,8 @@ module.exports = {
     "gatsby-plugin-robots-txt",
     // sass/scss
     `gatsby-plugin-sass`,
+    // material-ui
+    `gatsby-plugin-material-ui`,
     // Page Load screen
     {
       resolve: `gatsby-plugin-nprogress`,
