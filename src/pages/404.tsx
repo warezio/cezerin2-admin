@@ -1,7 +1,9 @@
 import React from "react"
-import messages from "../components/lib/text"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+import messages from "../components/lib/text"
 
 const NotFoundPage = () => (
   <Layout>
