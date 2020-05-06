@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 
-import messages from "../../../lib/text"
-import api from "../../../lib/api"
-import * as helper from "../../../lib/helper"
+import messages from "../../lib/text"
+import api from "../../lib/api"
+import * as helper from "../../lib/helper"
 
 import Dialog from "material-ui/Dialog"
 import FlatButton from "material-ui/FlatButton"
@@ -83,7 +83,7 @@ const ConfirmationDialog = props => {
         products && products.length >= selectedIndex
           ? products[selectedIndex].id
           : null
-      setSelectedId(selectedProductId)
+      setSelectedID(selectedProductId)
     }
   }
 

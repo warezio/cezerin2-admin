@@ -1,6 +1,6 @@
 import React from "react"
 import GroupEdit from "../../../components/modules/customerGroups/edit"
-import Groups from "../../../componets/modules/customerGroups/list"
+import Groups from "../../../components/modules/customerGroups/list"
 
 export default () => (
   <div className="row row--no-gutter col-full-height">

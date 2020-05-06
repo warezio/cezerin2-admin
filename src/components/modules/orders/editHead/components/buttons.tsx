@@ -41,7 +41,7 @@ const Buttons = props => {
     props.setCancelled(props.order.id)
   }
 
-  const openDelete = () => {
+  const openDeletes = () => {
     setOpenDelete(true)
   }
 
@@ -62,7 +62,7 @@ const Buttons = props => {
     props.resumeOrder(props.order.id)
   }
 
-  const showAddItem = () => {
+  const showAddItems = () => {
     setShowAddItem(true)
   }
 
@@ -87,11 +87,7 @@ const Buttons = props => {
       //
     } else {
       menuItems.push(
-        <MenuItem
-          key="addItem"
-          primaryText={messages.addOrderItem}
-          onClick={showAddItem}
-        />
+        <MenuItem key="addItem" primaryText={messages.addOrderItem} />
       )
       menuItems.push(<Divider key="dev1" />)
       if (order.hold) {
@@ -180,7 +176,7 @@ const Buttons = props => {
           anchorOrigin={{ horizontal: "right", vertical: "top" }}
         >
           {menuItems}
-          <MenuItem primaryText={messages.deleteOrder} onClick={openDelete} />
+          <MenuItem primaryText={messages.deleteOrder} />
         </IconMenu>
       </span>
     )

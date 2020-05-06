@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import messages from "../../lib/text"
+import messages from "../../components/lib/text"
 import cezerin from "cezerin2-client"
-import * as auth from "../../lib/webstoreAuth"
+import * as auth from "../../components/lib/webstoreAuth"
 
 import RaisedButton from "material-ui/RaisedButton"
 import Paper from "material-ui/Paper"
@@ -62,7 +62,6 @@ const LoginForm = () => {
               value={email}
               onChange={handleChange}
               onKeyPress={handleKeyPress}
-              label={messages.email}
               fullWidth
               hintStyle={{ width: "100%" }}
               hintText={messages.email}
