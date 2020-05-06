@@ -1,5 +1,5 @@
 import messages from "./text"
-import { url } from "inspector"
+// import { url } from "inspector"
 
 const LOGIN_PATH = "/apps/login"
 const HOME_PATH = "/apps"
@@ -25,28 +25,28 @@ export const validateCurrentToken = () => {
 
 export const checkTokenFromUrl = () => {
   if (winLoc.pathname === LOGIN_PATH) {
-    const token = getParameterByName("webstoretoken", url)
-    if (token && token !== "") {
-      const tokenData = parseJWT(token)
+    // // const token = getParameterByName("webstoretoken", url)
+    // if (token && token !== "") {
+    //   const tokenData = parseJWT(token)
 
-      if (tokenData) {
-        const expiration_date = tokenData.exp * 1000
-        if (expiration_date > Date.now()) {
-          saveToken({
-            token,
-            email: tokenData.email,
-            expiration_date,
-          })
-          winLoc.replace(HOME_PATH)
-        } else {
-          alert(messages.tokenExpired)
-        }
-      } else {
-        alert(messages.tokenInvalid)
-      }
-    } else if (isCurrentTokenValid()) {
-      winLoc.replace(HOME_PATH)
-    }
+    //   if (tokenData) {
+    //     const expiration_date = tokenData.exp * 1000
+    //     if (expiration_date > Date.now()) {
+    //       saveToken({
+    //         token,
+    //         email: tokenData.email,
+    //         expiration_date,
+    //       })
+    //       winLoc.replace(HOME_PATH)
+    //     } else {
+    //       alert(messages.tokenExpired)
+    //     }
+    //   } else {
+    //     alert(messages.tokenInvalid)
+    //   }
+    // } else if (isCurrentTokenValid()) {
+    winLoc.replace(HOME_PATH)
+    // }
   }
 }
 

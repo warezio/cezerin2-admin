@@ -10,6 +10,8 @@ import RaisedButton from "material-ui/RaisedButton"
 import "./style.sass"
 import FieldsEditor from "./fieldsEditor"
 
+import { reduxForm } from "redux-form"
+
 const validate = values => {
   const errors = {}
   const requiredFields = ["name"]
