@@ -9,7 +9,7 @@ import Divider from "material-ui/Divider"
 import FlatButton from "material-ui/FlatButton"
 import RaisedButton from "material-ui/RaisedButton"
 import Dialog from "material-ui/Dialog"
-import ShippingAddressForm from "./shippingAddressForm.js"
+import ShippingAddressForm from "./shippingAddressForm"
 import "./style.sass"
 
 const getShippingFieldLabel = ({ label, key }) =>

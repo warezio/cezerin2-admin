@@ -9,7 +9,7 @@ import FontIcon from "material-ui/FontIcon"
 import IconMenu from "material-ui/IconMenu"
 import MenuItem from "material-ui/MenuItem"
 import Dialog from "material-ui/Dialog"
-import AddressForm from "./addressForm.js"
+import AddressForm from "./addressForm"
 import "./style.sass"
 
 const Address = ({ address }) => (

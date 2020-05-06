@@ -6,7 +6,7 @@ import messages from "../../../../lib/text"
 import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
 import Dialog from "material-ui/Dialog"
-import SummaryForm from "./summaryForm.js"
+import SummaryForm from "./summaryForm"
 import "./style.sass"
 
 const getOrderStates = order => {
