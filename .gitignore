@@ -7,3 +7,7 @@ npm-debug.log*
 *.zip
 *.lock
 *lock.json
+
+# Data
+data/db/**
+!data/db/data
